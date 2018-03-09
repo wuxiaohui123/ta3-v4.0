@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-sysapp</moduleId>
+    <moduleName>ta3-sysapp</moduleName>
+    <version>3.15.0</version>
+    <releaseDate>2015-07-03 16:51:16</releaseDate>
+    <releaseNote><![CDATA[3.15.0:
+TA-381 新增新政扁平风格皮肤
+
+3.14.0:
+TA-230:新的登录页面的修改
+TA-374 添加重复的server地址的改进
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+界面调整以适应新皮肤
+TA-343 新版2015皮肤组件修改
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.15-SNAPSHOT:
+TA-230:新的登录页面的修改
+TA-354 工作台highchart改成echarts
+TA-230:新的首页皮肤样式
+
+3.11.14-SNAPSHOT:
+调整界面适应新皮肤
+
+3.11.10-SNAPSHOT:
+修改码表管理界面
+TA-238 单击展开树
+TA-347 菜单新增的时候没有输入框没有进行重置
+
+3.11.9-SNAPSHOT:
+TA-344 添加工作台模块
+TA-240 前后台分离
+TA-240 前后台分离
+TA-266:替换菜单图标
+
+3.11.6-SNAPSHOT:
+TA-217:添加刷新常用菜单功能
+
+TA-290 系统日志分页查询 分页查询改进
+
+3.11.1-SNAPSHOT:
+TA-221:解决新增子报表时报表名称中文乱码问题
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+TA-220 修复集群下缓存清除
+
+3.10.4-SNAPSHOT:
+TA-1 调整Maven模块依赖和版本配置
+TA-180 系统分页查询修改
+TA-162 ie8下菜单右边产生滚动条
+TA-150 oraclejob定时任务功能报错
+TA-167 菜单管理，工作台模块的选择问题
+TA-152：菜单管理,点击编辑菜单按钮,报错
+TA-139 菜单管理，左侧菜单滚动条
+TA-102 完善 菜单页右边有滚动条的问题;
+TA-69 调整项目结构
+TA-69 调整pom文件
+
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.15.0:
+
+3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.15-SNAPSHOT:
+
+3.11.14-SNAPSHOT:
+
+3.11.10-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-convention-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysframework</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-system</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-organization</artifactId>
+            <version>3.16.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-orgapi</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-userlogin</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>webresources</artifactId>
+            <version>3.15.0</version>
+        </dependency>
+    </dependencies>
+    <jars>
+        <jar>lib\ta3-sysapp-3.15.0.jar</jar>
+    </jars>
+    <configFiles/>
+    <resources>
+        <resource>webapp\sysapp\cachemg\appCodeMain.jsp</resource>
+        <resource>webapp\sysapp\cachemg\cacheMg.jsp</resource>
+        <resource>webapp\sysapp\cachemg\cacheMgEdit.jsp</resource>
+        <resource>webapp\sysapp\configmg\addEditSyspath.jsp</resource>
+        <resource>webapp\sysapp\configmg\configMg.jsp</resource>
+        <resource>webapp\sysapp\configmg\sysPathMg.jsp</resource>
+        <resource>webapp\sysapp\console\daiban.html</resource>
+        <resource>webapp\sysapp\console\style\daiban.css</resource>
+        <resource>webapp\sysapp\console\style\images\home_ico.png</resource>
+        <resource>webapp\sysapp\console\style\system.css</resource>
+        <resource>webapp\sysapp\console\style\tongzhi.css</resource>
+        <resource>webapp\sysapp\console\system.html</resource>
+        <resource>webapp\sysapp\console\tongzhi.html</resource>
+        <resource>webapp\sysapp\console\xietong.html</resource>
+        <resource>webapp\sysapp\console\yewuliang.html</resource>
+        <resource>webapp\sysapp\console\yibiaopan.html</resource>
+        <resource>webapp\sysapp\log\accessLog.jsp</resource>
+        <resource>webapp\sysapp\log\illegalLog.jsp</resource>
+        <resource>webapp\sysapp\menu\addCommonMenus.jsp</resource>
+        <resource>webapp\sysapp\menu\commonMenu.jsp</resource>
+        <resource>webapp\sysapp\menu\menuMg.jsp</resource>
+        <resource>webapp\sysapp\runqian\commonReport.jsp</resource>
+        <resource>webapp\sysapp\runqian\printReportNew.jsp</resource>
+        <resource>webapp\sysapp\runqian\printRunQianResource.jsp</resource>
+        <resource>webapp\sysapp\runqian\printRunQianResourceEdit.jsp</resource>
+        <resource>webapp\sysapp\runqian\printRunQianResourceZyBbEdit.jsp</resource>
+        <resource>webapp\sysapp\runqian\queryReportMg.jsp</resource>
+        <resource>webapp\sysapp\runqian\reportDefine.jsp</resource>
+        <resource>webapp\sysapp\schedule\continueOracleJob.jsp</resource>
+        <resource>webapp\sysapp\schedule\createOracleJob.jsp</resource>
+        <resource>webapp\sysapp\schedule\jobDetail.jsp</resource>
+        <resource>webapp\sysapp\schedule\jobLog.jsp</resource>
+        <resource>webapp\sysapp\schedule\oracleJobList.jsp</resource>
+        <resource>webapp\sysapp\schedule\scheduleEdit.jsp</resource>
+        <resource>webapp\sysapp\schedule\scheduleManage.jsp</resource>
+        <resource>webapp\sysapp\schedule\viewJobMsgs.jsp</resource>
+        <resource>webapp\sysapp\serveraddressmg\ServerAddress.jsp</resource>
+        <resource>webapp\sysapp\serveraddressmg\serveraddressAdd.jsp</resource>
+        <resource>webapp\sysapp\serveraddressmg\serveraddressEdit.jsp</resource>
+        <resource>webapp\sysapp\syslogmg\detailLog.jsp</resource>
+        <resource>webapp\sysapp\syslogmg\serverExceptionLog.jsp</resource>
+    </resources>
+</release>

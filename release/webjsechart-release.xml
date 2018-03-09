@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjsechart</moduleId>
+    <moduleName>webjsechart</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:35:37</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\bar.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\chord.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\eventRiver.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\force.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\funnel.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\gauge.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\k.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\line.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\map.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\pie.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\radar.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\chart\scatter.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\echarts-all.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-echart-all\echarts.js</resource>
+    </resources>
+</release>

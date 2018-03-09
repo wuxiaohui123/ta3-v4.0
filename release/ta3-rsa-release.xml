@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-rsa</moduleId>
+    <moduleName>ta3-rsa</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:39:39</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.4-SNAPSHOT:
+TA-239 实现CSRF跨站伪造请求防御
+TA-309 修复前台RSA加密的密码到后台解密出现错误的BUG
+
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.4-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bctsp-jdk15</artifactId>
+            <version>1.43</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpg-jdk15on</artifactId>
+            <version>1.50</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysframework</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    <jars>
+        <jar>lib\bcmail-jdk15-1.43.jar</jar>
+        <jar>lib\bcpg-jdk15on-1.50.jar</jar>
+        <jar>lib\bcprov-jdk15-1.43.jar</jar>
+        <jar>lib\bcprov-jdk15on-1.50.jar</jar>
+        <jar>lib\bctsp-jdk15-1.43.jar</jar>
+        <jar>lib\ta3-rsa-3.12.0.jar</jar>
+    </jars>
+    <configFiles/>
+    <resources/>
+</release>

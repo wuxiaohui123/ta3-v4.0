@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjsother</moduleId>
+    <moduleName>webjsother</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:35:02</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.13-SNAPSHOT:
+TA-230:新的登录页面的修改
+TA-230:新的首页皮肤样式
+
+3.11.9-SNAPSHOT:
+TA-316 调整一些工程合并
+
+3.11.6-SNAPSHOT:
+TA-241 Requirejs针对tag的改造
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-108 引入jquery996.upload.js
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.13-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-menu-all\menu.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-menu-all\tamenu.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-other\jquery-2.0.3.min.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-password-all\passwordCheck.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-softkeyboard-all\softkeyboard.js</resource>
+        <resource>webapp\WEB-INF\tags\tatags\pageloading.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\spinner.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\token.tag</resource>
+    </resources>
+</release>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-userlogin</moduleId>
+    <moduleName>ta3-userlogin</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:34:06</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.8-SNAPSHOT:
+TA-316 调整一些工程合并
+
+3.11.4-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-69 调整项目结构
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.8-SNAPSHOT:
+
+3.11.4-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>webresources</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysframework</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-system</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-security</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    <jars>
+        <jar>lib\ta3-userlogin-3.12.0.jar</jar>
+    </jars>
+    <configFiles/>
+    <resources/>
+</release>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ta3">
+        <wb-resource deploy-path="/" source-path="/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/config"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/sysframework"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/system"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/distributcache"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/common"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/sysapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/organization"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/orgapi"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/rsa"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/runqian"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/scheduler"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/security"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/sso"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/userlogin"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/test"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/synthesis"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/filetools"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/abpmn"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/javacode/activiti"/>
+        <property name="java-output-path" value="/ta3/webapp/WEB-INF/classes"/>
+        <property name="context-root" value="ta3"/>
+    </wb-module>
+</project-modules>

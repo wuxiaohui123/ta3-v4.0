@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-scheduler</moduleId>
+    <moduleName>ta3-scheduler</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:32:54</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.2-SNAPSHOT:
+修改了ScheduleManageAction，加入对misfire的job的处理策略，SimpleTrigger:withMisfireHandlingInstructionNextWithExistingCount，CronTrigger:withMisfireHandlingInstructionDoNothing，以便对出现misfire后错过的任务进行忽略
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-1 调整Maven模块依赖和版本配置
+TA-150 oraclejob定时任务功能报错
+TA-127 oralcejob功能报action无法正常访问的问题
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.2-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-databinding-aegis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysframework</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-fileexceltools</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    <jars>
+        <jar>lib\asm-3.3.1.jar</jar>
+        <jar>lib\c3p0-0.9.1.1.jar</jar>
+        <jar>lib\cxf-api-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-bindings-soap-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-bindings-xml-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-core-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-databinding-aegis-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-databinding-jaxb-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-frontend-jaxws-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-frontend-simple-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-transports-http-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-ws-addr-2.7.12.jar</jar>
+        <jar>lib\cxf-rt-ws-policy-2.7.12.jar</jar>
+        <jar>lib\geronimo-javamail_1.4_spec-1.7.1.jar</jar>
+        <jar>lib\jaxb-impl-2.2.6.jar</jar>
+        <jar>lib\neethi-3.0.3.jar</jar>
+        <jar>lib\quartz-2.2.1.jar</jar>
+        <jar>lib\quartz-jobs-2.2.1.jar</jar>
+        <jar>lib\slf4j-api-1.6.6.jar</jar>
+        <jar>lib\stax2-api-3.1.4.jar</jar>
+        <jar>lib\ta3-scheduler-3.12.0.jar</jar>
+        <jar>lib\woodstox-core-asl-4.4.0.jar</jar>
+        <jar>lib\wsdl4j-1.6.3.jar</jar>
+        <jar>lib\xml-resolver-1.2.jar</jar>
+        <jar>lib\xmlschema-core-2.1.0.jar</jar>
+    </jars>
+    <configFiles/>
+    <resources/>
+</release>

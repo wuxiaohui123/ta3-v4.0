@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjsgrid</moduleId>
+    <moduleName>webjsgrid</moduleName>
+    <version>3.14.0</version>
+    <releaseDate>2015-07-03 16:51:30</releaseDate>
+    <releaseNote><![CDATA[3.14.0:
+TA-380 当表格在tab中会导致表格下过滤条宽度超出的问题
+
+3.13.0:
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+TA-366 最大化表格自适应
+
+3.11.9-SNAPSHOT:
+TA-343 - 新版2015皮肤组件修改
+用 jquery替换 this.value 获取值,在ie8 下面获取不到值
+TA-343 - 新版2015皮肤组件修改
+TA-226:表格统计功能浮在表格数据上面
+TA-136 表格里编辑时间输入错误的日期chrome浏览器卡死
+TA-297:表格defaultRows在使用checkbox时会出错
+TA-296:修复rowHeight属性无效的问题
+TA-291:修改resizeCanvas方法，解决表格在tab组件中宽度计算不正常的问题
+TA-303 表格数据状态异常
+TA-301 在界面上修改分页条上的每页条数和当前页数后回车无反应
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+TA-183:修改slick6.checkboxselectcolumn.js中的handleClick方法
+
+TA-241 Requirejs针对tag的改造
+TA-274 表格中下拉输入框样式异常
+
+3.11.1-SNAPSHOT:
+TA-182 datagrid单元格的min属性使用回车时无效
+
+3.11.0:
+TA-182 $写丢了
+
+3.10.4-SNAPSHOT:
+TA-172 表格选中后，使用过滤过滤掉选择的数据，再进行操作时js报错
+TA-182	datagrid单元格的min属性使用回车时无效
+TA-184 DEMO-初级示例-表格-普通表格-行号定位-有问题
+TA-178 系统路径管理中集群server地址配置蒙层问题
+TA-171 点击表格操作下拉按钮上边缘时js报错
+TA-151 点击表格头最右边的空白处,导出报错
+修改：去掉console
+TA-1 Ta3.9同步
+TA-1 同步3.9的tag标签
+TA-90：解决可编辑单元格bug
+TA-73：整理tag文件datagrid、datagridItem、datagridItemOperate、datagridItemOperateMenu
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.base.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.checkbox.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.core.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.dataview.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.editors.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.group.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.pager.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.pager.erpexcel.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.radioselect.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-grid-all\grid.rowselect.js</resource>
+        <resource>webapp\WEB-INF\tags\tatags\datagrid.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\datagridEditor.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\datagridItem.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\datagridItemOperate.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\datagridItemOperateMenu.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\dataGridToolPaging.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\gridToolButton.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\gridToolPaging.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\toolbar.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\toolbarItem.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\toolbarItemSeperator.tag</resource>
+    </resources>
+</release>

@@ -1,0 +1,9 @@
+.row-header{background-color:#F4F4F4; border:1px solid #D4D4D4; font-weight:bold;}
+.row-odd{background-color:#FFFFFF;}
+.row-even{background-color:#F8FBFD;}
+.row-highlight{background-color:#DAF1FF;}
+.text-left{text-align:left;}
+/* 折叠报表相关的样式 */
+td.button{background-position:4px center;background-repeat:no-repeat;padding-left:20px;text-align:left;}
+td.plus{background-image:url('plus.png')}
+td.minus{background-image:url('minus.png')}

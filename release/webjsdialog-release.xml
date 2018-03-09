@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjsdialog</moduleId>
+    <moduleName>webjsdialog</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:35:45</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.9-SNAPSHOT:
+TA-342 以百分比的方式弹出的弹出框有时宽度会少一个像素
+
+3.11.6-SNAPSHOT:
+TA-241 Requirejs针对tag的改造
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+TA-227 Base.alert() ,后遮盖的范围计算有问题
+
+3.10.4-SNAPSHOT:
+TA-78：解决在弹窗中的button没有获取焦点样式的问题
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-dialog-all\dialog.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-dialog-all\window.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-dialog-all\windowmessage.js</resource>
+    </resources>
+</release>

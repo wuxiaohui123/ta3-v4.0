@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+   <import resource="hibernateconfig.xml"/>
+   <import resource="spring-datasource.xml"/>
+   <import resource="distributecache.xml"/>
+   <import resource="spring-event.xml"/>
+   <import resource="spring-cxf.xml"/>
+   <import resource="resource/spring-orgapi.xml"/>
+   <import resource="resource/spring-security.xml"/>
+   <import resource="spring-tasecurity.xml"/>
+   <import resource="resource/spring-system.xml"/>
+   <import resource="resource/spring-userlogin.xml"/>
+   <import resource="resource/spring-organization.xml"/>
+   <import resource="resource/spring-sysapp.xml"/>
+   <import resource="resource/spring-scheduler.xml"/>
+   <!-- Activiti流程引擎 -->
+   <import resource="resource/spring-abpmn.xml" /> 
+   <!-- 润乾报表 -->
+   <import resource="resource/spring-runqian.xml"/>
+   
+   <import resource="bs/spring-cfg-include.xml"/>
+</beans>

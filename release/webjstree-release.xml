@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjstree</moduleId>
+    <moduleName>webjstree</moduleName>
+    <version>3.13.0</version>
+    <releaseDate>2015-07-02 16:30:06</releaseDate>
+    <releaseNote><![CDATA[3.13.0:
+TA-372 针对requirejs对部分js及功能进行调整
+TA-372 针对requirejs对部分js及功能进行调整
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.12.0:
+
+3.12.0:
+TA-368 所有输入框在不写key的情况下，输入框撑满整个布局
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+TA-241 Requirejs针对tag的改造
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-tree-all\ztree.core.min.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-tree-all\ztree.excheck.min.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-tree-all\ztree.exedit.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-tree-all\ztree.exhide.min.js</resource>
+        <resource>webapp\WEB-INF\tags\tatags\selectTree.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\tree.tag</resource>
+    </resources>
+</release>

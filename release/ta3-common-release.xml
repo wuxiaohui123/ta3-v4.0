@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-common</moduleId>
+    <moduleName>ta3-common</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:39:10</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.10-SNAPSHOT:
+TA-217:框架首页UI修改
+
+3.11.6-SNAPSHOT:
+TA-217:框架首页UI修改
+
+3.11.3-SNAPSHOT:
+TA-217 修改皮肤的插件的引用方式
+TA-217:添加常用菜单方法
+
+TA-217 修改皮肤的插件的引用方式
+TA-217 修改皮肤的插件的引用方式
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-69 调整项目结构
+TA-69 调整pom文件
+
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.10-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.3-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysframework</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-system</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysapp</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysapp</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    <jars>
+        <jar>lib\ta3-common-3.12.0.jar</jar>
+    </jars>
+    <configFiles/>
+    <resources/>
+</release>

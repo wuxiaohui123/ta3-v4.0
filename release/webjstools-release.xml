@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjstools</moduleId>
+    <moduleName>webjstools</moduleName>
+    <version>3.14.0</version>
+    <releaseDate>2015-07-02 16:31:45</releaseDate>
+    <releaseNote><![CDATA[3.14.0:
+TA-252 添加web打印组件
+TA-373 手机号的改进验证
+
+3.13.0:
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.12.0:
+
+3.12.0:
+TA-343 新版2015皮肤组件修改
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.4-SNAPSHOT:
+TA-311:年份输入对最小最大值的控制有误
+TA-316 调整一些工程合并
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.4-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-bubblepopup-all\bubblepopup.v2.3.1.min.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-tools-all\GB2312.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-tools-all\hint-tip.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-tools-all\webPrint.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-validate-all\validateBox.js</resource>
+    </resources>
+</release>

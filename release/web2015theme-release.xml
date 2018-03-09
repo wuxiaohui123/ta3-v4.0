@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>web2015theme</moduleId>
+    <moduleName>web2015theme</moduleName>
+    <version>3.15.0</version>
+    <releaseDate>2015-07-03 16:48:58</releaseDate>
+    <releaseNote><![CDATA[3.15.0:
+TA-381 新增新政扁平风格皮肤
+TA-379 修改login页面中页面下技术支持公司名称为正确的全称
+
+3.14.0:
+TA-372 针对requirejs对部分js及功能进行调整
+TA-372 针对requirejs对部分js及功能进行调整
+TA-230:新的首页皮肤样式
+TA-217:框架首页UI修改
+
+3.13.0:
+TA-217:框架首页UI修改
+TA-372 针对requirejs对部分js及功能进行调整
+TA-217:框架首页UI修改
+
+3.12.0:
+
+3.12.0:
+TA-343 新版2015皮肤组件修改
+
+3.12.0:
+TA-230:buttonGroup的位置问题
+TA-343 新版2015皮肤组件修改
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+TA-343 新版2015皮肤组件修改
+添加linecolor样式
+
+3.11.19-SNAPSHOT:
+TA-230:新的登录页面的修改
+TA-217:框架首页UI修改
+TA-343 新版2015皮肤组件修改
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+
+3.11.18-SNAPSHOT:
+调整border布局的title颜色
+TA-353 新增吐槽功能用于收集ta3的问题
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的登录页面的修改
+TA-316 调整一些工程合并
+tab页的border颜色没对
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-230:新的首页皮肤样式
+TA-217:框架首页UI修改
+TA-230:新的首页皮肤样式
+
+3.11.14-SNAPSHOT:
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-217:框架首页UI修改
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+
+3.11.13-SNAPSHOT:
+TA-343  新版2015皮肤组件修改
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+
+3.11.12-SNAPSHOT:
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-343 - 新版2015皮肤组件修改
+TA-343 新版2015皮肤组件修改
+
+3.11.11-SNAPSHOT:
+把桃花图片改成蓝天白云
+
+3.11.10-SNAPSHOT:
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+
+3.11.9-SNAPSHOT:
+TA-343 - 新版2015皮肤组件修改
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-230:新的首页皮肤样式
+TA-343 - 新版2015皮肤组件修改
+TA-343 - 新版2015皮肤组件修改
+TA-343 - 新版2015皮肤组件修改
+按钮样式修改
+TA-343 新版2015皮肤组件修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-230:新的登录页面的修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-230:新的登录页面的修改
+TA-217:框架首页UI修改
+完成对每个打开的页面可以进行重新导航的功能，进行重新导航后能够在页面上立刻进行导航，不需要刷新页面。
+TA-266:替换菜单图标
+TA-230:新的登录页面的修改
+实现首页导航提示信息
+TA-217:框架首页UI修改
+TA-239 实现CSRF跨站伪造请求防御
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-230:新的登录页面的修改
+TA-230:新的登录页面的修改
+TA-230:新的登录页面的修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+TA-217 修改皮肤的插件的引用方式
+TA-217:框架首页UI修改
+TA-217 修改皮肤的插件的引用方式
+TA-231 登录页面验证码修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改，添加indexAction
+TA-217:框架首页UI修改，添加indexAction
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+
+3.11.1-SNAPSHOT:
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+wwwwwwwwwwwwww
+TA-231 最新一套登录页面制作
+修改登录页面
+
+3.11.0:
+TA-209 2015新版登录页面制作
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+
+3.10.2-SNAPSHOT:
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217 index.jsp
+TA-209 2015新版登录页面制作
+TA-217:框架首页UI修改
+TA-209 2015新版登录页面制作
+TA-209 2015新版登录页面制作
+TA-209 2015新版登录页面制作
+TA-197 Ta+3新版2015皮肤组件建立
+TA-197 Ta+3新版2015皮肤组件建立
+]]></releaseNote>
+    <installHelp><![CDATA[3.15.0:
+
+3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.19-SNAPSHOT:
+
+3.11.18-SNAPSHOT:
+
+3.11.14-SNAPSHOT:
+
+3.11.13-SNAPSHOT:
+
+3.11.12-SNAPSHOT:
+
+3.11.11-SNAPSHOT:
+
+3.11.10-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.2-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles>
+        <configFile>javacode\config\struts-index.xml</configFile>
+    </configFiles>
+    <resources>
+        <resource>webapp\index.jsp</resource>
+        <resource>webapp\indexue\common\base.css</resource>
+        <resource>webapp\indexue\indexresource\css\base.css</resource>
+        <resource>webapp\indexue\indexresource\css\index-theme.css</resource>
+        <resource>webapp\indexue\indexresource\css\index.css</resource>
+        <resource>webapp\indexue\indexresource\css\menu.css</resource>
+        <resource>webapp\indexue\indexresource\css\menuColor.css</resource>
+        <resource>webapp\indexue\indexresource\css\skin.css</resource>
+        <resource>webapp\indexue\indexresource\images\001.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\bgx.png</resource>
+        <resource>webapp\indexue\indexresource\images\bg_ico.gif</resource>
+        <resource>webapp\indexue\indexresource\images\bg_ico.png</resource>
+        <resource>webapp\indexue\indexresource\images\buttonbg.gif</resource>
+        <resource>webapp\indexue\indexresource\images\buttonbg.png</resource>
+        <resource>webapp\indexue\indexresource\images\buttonbg1.gif</resource>
+        <resource>webapp\indexue\indexresource\images\buttonbg1.png</resource>
+        <resource>webapp\indexue\indexresource\images\child_arrow_right.png</resource>
+        <resource>webapp\indexue\indexresource\images\cycd_arrow.png</resource>
+        <resource>webapp\indexue\indexresource\images\dl_right.png</resource>
+        <resource>webapp\indexue\indexresource\images\home_head_bg.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\home_ico.png</resource>
+        <resource>webapp\indexue\indexresource\images\home_logo.png</resource>
+        <resource>webapp\indexue\indexresource\images\home_logo_bg.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\icon-19.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon-dialog-icons.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon19.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_arrow.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_arrow_left.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_arrow_over.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_arrow_over_left.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_bg.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_cd_xl.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_close.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_closer.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_close_hover.png</resource>
+        <resource>webapp\indexue\indexresource\images\icon_s_arrow.png</resource>
+        <resource>webapp\indexue\indexresource\images\login_03.png</resource>
+        <resource>webapp\indexue\indexresource\images\login_bg.png</resource>
+        <resource>webapp\indexue\indexresource\images\login_bottom_bg.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\login_bottom_bg01.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\login_logo01.png</resource>
+        <resource>webapp\indexue\indexresource\images\login_logo02.png</resource>
+        <resource>webapp\indexue\indexresource\images\logo.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\btn-myplan.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\btn-setting.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\null.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-apply.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-book-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-bookmark-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-bug.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-car.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-clock.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-comments.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-contact-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-database.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-destop.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-doc.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-document-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-document-open.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-document-print-preview.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-document-properties.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-document-save.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-duty.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-edit-cut.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-edit-delete.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-edit-find-replace.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-edit-find.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-edit-paste.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-edit-redo.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-edit-select-all.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-edit-undo.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-emblem-system.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-folder-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-folder-remote.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-folder-saved-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-folder.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-group.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-groups.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-ie.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-image.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-img.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-input-gaming.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-input-mouse.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-letter.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-mail-attachment.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-mail-forward.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-mail-message-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-mail-reply-all.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-mail-send-receive.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-media-floppy.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-menu.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-office-address-book.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-office-spreadsheet.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-organisation.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-package-x-generic.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-pdf.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-phone.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-plugin.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-preferences-system.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-printer.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-provider.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-setting.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-star.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-system-lock-screen.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-system-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-tel.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-text-editor.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-text-html.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-user-home.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-user-trash.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-user.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-userm.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-users.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\16x16\tree-view-refresh.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\btn-myplan.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\btn-setting.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\null.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-apply.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-book-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-bookmark-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-bug.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-car.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-clock.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-comments.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-contact-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-database.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-destop.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-doc.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-document-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-document-open.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-document-print-preview.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-document-properties.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-document-save.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-duty.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-edit-cut.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-edit-delete.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-edit-find-replace.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-edit-find.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-edit-paste.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-edit-redo.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-edit-select-all.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-edit-undo.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-emblem-system.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-folder-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-folder-remote.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-folder-saved-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-folder.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-group.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-groups.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-ie.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-image.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-img.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-input-gaming.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-input-mouse.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-letter.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-mail-attachment.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-mail-forward.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-mail-message-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-mail-reply-all.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-mail-send-receive.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-media-floppy.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-menu.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-office-address-book.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-office-spreadsheet.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-organisation.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-package-x-generic.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-pdf.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-phone.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-plugin.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-preferences-system.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-printer.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-provider.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-setting.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-star.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-system-lock-screen.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-system-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-tel.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-text-editor.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-text-html.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-user-home.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-user-trash.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-user.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-userm.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-users.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\64x64\tree-view-refresh.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\btn-myplan.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\btn-setting.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\null.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-apply.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-book-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-bookmark-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-bug.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-car.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-clock.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-comments.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-contact-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-database.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-destop.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-doc.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-document-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-document-open.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-document-print-preview.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-document-properties.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-document-save.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-duty.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-edit-cut.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-edit-delete.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-edit-find-replace.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-edit-find.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-edit-paste.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-edit-redo.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-edit-select-all.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-edit-undo.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-emblem-system.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-folder-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-folder-remote.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-folder-saved-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-folder.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-group.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-groups.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-ie.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-image.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-img.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-input-gaming.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-input-mouse.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-letter.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-mail-attachment.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-mail-forward.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-mail-message-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-mail-reply-all.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-mail-send-receive.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-media-floppy.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-menu.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-new.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-office-address-book.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-office-spreadsheet.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-organisation.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-package-x-generic.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-pdf.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-phone.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-plugin.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-preferences-system.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-printer.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-provider.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-setting.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-star.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-system-lock-screen.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-system-search.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-tel.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-text-editor.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-text-html.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-user-home.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-user-trash.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-user.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-userm.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-users.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree-view-refresh.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree_code.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree_exception.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree_menumana.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree_report.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree_rightsmana.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree_servers.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree_syspath.png</resource>
+        <resource>webapp\indexue\indexresource\images\menu\tree_system.png</resource>
+        <resource>webapp\indexue\indexresource\images\panel_loading.gif</resource>
+        <resource>webapp\indexue\indexresource\images\panel_title.png</resource>
+        <resource>webapp\indexue\indexresource\images\panel_tools.gif</resource>
+        <resource>webapp\indexue\indexresource\images\panel_tool_collapse.gif</resource>
+        <resource>webapp\indexue\indexresource\images\panel_tool_expand.gif</resource>
+        <resource>webapp\indexue\indexresource\images\r-hover.png</resource>
+        <resource>webapp\indexue\indexresource\images\skin\er_cd_bg.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\skin\kj_left_bg.png</resource>
+        <resource>webapp\indexue\indexresource\images\skin\test-top-center.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\skin\test-top-left.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\skin\test-top.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\skin\test.jpg</resource>
+        <resource>webapp\indexue\indexresource\images\skin\top_right_bg.png</resource>
+        <resource>webapp\indexue\indexresource\images\skin\桃花备份.rar</resource>
+        <resource>webapp\indexue\indexresource\images\s_yj01.png</resource>
+        <resource>webapp\indexue\indexresource\images\text-bg.gif</resource>
+        <resource>webapp\indexue\indexresource\images\validatebox_pointer2.gif</resource>
+        <resource>webapp\indexue\indexresource\images\validatebox_pointer_1.gif</resource>
+        <resource>webapp\indexue\indexresource\images\yuan-w.png</resource>
+        <resource>webapp\indexue\indexresource\images\yuan.png</resource>
+        <resource>webapp\indexue\indexresource\js\index-ui-menu.js</resource>
+        <resource>webapp\indexue\indexresource\js\index.js</resource>
+        <resource>webapp\indexue\indexresource\js\jquery.slimscroll.min.js</resource>
+        <resource>webapp\indexue\indexresource\js\menu-level1.js</resource>
+        <resource>webapp\indexue\indexresource\js\menu-no-level1.js</resource>
+        <resource>webapp\indexue\indexresource\js\menu-panel.js</resource>
+        <resource>webapp\indexue\indexresource\js\menu-win.js</resource>
+        <resource>webapp\indexue\indexresource\js\tab.js</resource>
+        <resource>webapp\indexue\loginresource\css\master.css</resource>
+        <resource>webapp\indexue\loginresource\images\001.png</resource>
+        <resource>webapp\indexue\loginresource\images\015.png</resource>
+        <resource>webapp\indexue\loginresource\images\016.png</resource>
+        <resource>webapp\indexue\loginresource\images\017.png</resource>
+        <resource>webapp\indexue\loginresource\images\22222.jpg</resource>
+        <resource>webapp\indexue\loginresource\images\dl_bg.jpg</resource>
+        <resource>webapp\indexue\loginresource\images\dl_left.jpg</resource>
+        <resource>webapp\indexue\loginresource\images\dl_top.jpg</resource>
+        <resource>webapp\indexue\loginresource\images\dl_top_bg.jpg</resource>
+        <resource>webapp\indexue\loginresource\images\icon01.png</resource>
+        <resource>webapp\indexue\loginresource\images\icon02.png</resource>
+        <resource>webapp\indexue\loginresource\images\icon_close.png</resource>
+        <resource>webapp\indexue\loginresource\images\icon_error.png</resource>
+        <resource>webapp\indexue\loginresource\images\logo.png</resource>
+        <resource>webapp\indexue\loginresource\images\w_icon.png</resource>
+        <resource>webapp\login.jsp</resource>
+        <resource>webapp\ta\inc-theme.jsp</resource>
+        <resource>webapp\ta\resource\loading.gif</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\ds_arrow_left.png</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\er_cd_bg.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\icon_close.png</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\kj_left_bg.png</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\pagination_icons.png</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\pencil.png</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\test-top-center.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\test-top-left.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\test-top.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\test.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\images\top_right_bg.png</resource>
+        <resource>webapp\ta\resource\themes\2015\blue\ta-theme.css</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\left\icon-19.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\left\icon_minimum_20x20.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\left\LOGO_237x40.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\mainicon\btn_systemManagement_big_BG.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\mainicon\icon_map_24x24.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\mainicon\icon_systemManagement_24x24.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\mainicon\icon_systemManagement_big_36x36.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\mainicon\icon_test_24x24.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\righticon\icon_back_24x24.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\righticon\icon_mail_24x24.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\righticon\icon_menu.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\righticon\icon_people.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\righticon\icon_refresh.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\righticon\icon_turnOff.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\secondicon\icon_code_25x25_BG#67E3B0.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\secondicon\icon_exception_25x25_BG#E73E46.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\secondicon\icon_menuManagement_25x25_BG#FFC740.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\secondicon\icon_reportForm_25x25_BG#FF9A40.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\secondicon\icon_rightsManagement_25x25_BG#7E95B8.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\secondicon\icon_servers_25x25_BG#7E95B8.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\secondicon\icon_systemParameters_25x25_BG#6BB2E8.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\images\secondicon\icon_systemPath_25x25_BG#9DD66F.png</resource>
+        <resource>webapp\ta\resource\themes\2015\flat\ta-theme.css</resource>
+        <resource>webapp\ta\resource\themes\2015\gimage\dialog-icons.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\bg.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\bgx.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\icon_close.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\r-hover.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\search-btn-down.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\search-btn-hover.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\search-btn.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\search-icon.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\top_right.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\images\yuan-w.png</resource>
+        <resource>webapp\ta\resource\themes\2015\gold\ta-theme.css</resource>
+        <resource>webapp\ta\resource\themes\2015\green\images\ds_arrow_left.png</resource>
+        <resource>webapp\ta\resource\themes\2015\green\images\icon_close.png</resource>
+        <resource>webapp\ta\resource\themes\2015\green\images\pagination_icons.png</resource>
+        <resource>webapp\ta\resource\themes\2015\green\images\pencil.png</resource>
+        <resource>webapp\ta\resource\themes\2015\green\images\test-top-center.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\green\images\test-top-left.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\green\images\test-top.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\green\images\test.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\green\ta-theme.css</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\ds_arrow_left.png</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\er_cd_bg.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\icon_close.png</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\kj_left_bg.png</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\pagination_icons.png</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\pencil.png</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\test-top-center.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\test-top-left.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\test-top.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\test.jpg</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\images\top_right_bg.png</resource>
+        <resource>webapp\ta\resource\themes\2015\pinkblue\ta-theme.css</resource>
+        <resource>webapp\ta\resource\themes\2015\ta-theme-base.css</resource>
+        <resource>webapp\workspace\oa\index.jsp</resource>
+        <resource>webapp\workspace\portal\moduleEdit.jsp</resource>
+        <resource>webapp\workspace\portal\moduleGrant.jsp</resource>
+        <resource>webapp\workspace\portal\moduleGrantWin.jsp</resource>
+        <resource>webapp\workspace\portal\moduleMain.jsp</resource>
+        <resource>webapp\workspace\portal\script\jquery-1.8.0.min.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.json.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.sorted.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.tinysort.charorder.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.tinysort.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.ui.core.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.ui.draggable.min.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.ui.droppable.min.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.ui.mouse.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.ui.resizable.js</resource>
+        <resource>webapp\workspace\portal\script\jquery.ui.widget.js</resource>
+        <resource>webapp\workspace\portal\script\portal.js</resource>
+        <resource>webapp\workspace\portal\style\base.css</resource>
+        <resource>webapp\workspace\portal\style\images\action-close.png</resource>
+        <resource>webapp\workspace\portal\style\images\add-icon.png</resource>
+        <resource>webapp\workspace\portal\style\images\home_ico.png</resource>
+        <resource>webapp\workspace\portal\style\images\icon-arrow-close.png</resource>
+        <resource>webapp\workspace\portal\style\images\icon-arrow.png</resource>
+        <resource>webapp\workspace\portal\style\images\icon-close.png</resource>
+        <resource>webapp\workspace\portal\style\images\icon-fresh.png</resource>
+        <resource>webapp\workspace\portal\style\images\icon-setting.png</resource>
+        <resource>webapp\workspace\portal\style\images\move_down.png</resource>
+        <resource>webapp\workspace\portal\style\images\move_left.png</resource>
+        <resource>webapp\workspace\portal\style\images\move_right.png</resource>
+        <resource>webapp\workspace\portal\style\images\move_up.png</resource>
+        <resource>webapp\workspace\portal\style\images\ok.png</resource>
+        <resource>webapp\workspace\portal\style\jquery.ui.resizable.css</resource>
+        <resource>webapp\workspace\portal\welcome.jsp</resource>
+    </resources>
+</release>

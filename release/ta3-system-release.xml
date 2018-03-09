@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-system</moduleId>
+    <moduleName>ta3-system</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:33:17</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.11-SNAPSHOT:
+删除org的级联关系，否则前后台分离要报循环错误
+
+3.11.10-SNAPSHOT:
+TA-316 调整一些工程合并
+
+3.11.9-SNAPSHOT:
+TA-240 前后台分离
+TA-240 前后台分离
+TA-240 前后台分离
+TA-263 完善功能
+TA-307 完善查询 talocalcacheversion里面版本的bug;
+TA-263 完善查询个人权限信息排序后又重复的数据
+TA-263 完善功能,以及UI
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+TA-263
+TA-263
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+TA-219 组织机构用户岗位设置时，公有岗位，共享岗位，复制岗位交代不清楚
+
+3.10.4-SNAPSHOT:
+TA-116 修改组织机构组建依赖于组织机构api组建，而非自带api
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.11-SNAPSHOT:
+
+3.11.10-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>SimpleCaptcha</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysframework</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    <jars>
+        <jar>lib\SimpleCaptcha-1.1.1.jar</jar>
+        <jar>lib\ta3-system-3.12.0.jar</jar>
+    </jars>
+    <configFiles/>
+    <resources/>
+</release>

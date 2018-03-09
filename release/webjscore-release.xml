@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjscore</moduleId>
+    <moduleName>webjscore</moduleName>
+    <version>3.15.0</version>
+    <releaseDate>2015-07-03 16:50:16</releaseDate>
+    <releaseNote><![CDATA[3.15.0:
+TA-381 新增新政扁平风格皮肤
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.14.0:
+TA-252 添加web打印组件
+
+3.13.0:
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.10-SNAPSHOT:
+暴露getCurDateTime方法
+
+3.11.9-SNAPSHOT:
+TA-316 调整一些工程合并
+
+3.11.6-SNAPSHOT:
+TA-241 Requirejs针对tag的改造
+TA-241 Requirejs针对tag的改造
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-85：整理框架js注释
+TA-85：整理框架js注释
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.15.0:
+
+3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.10-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\main.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-base-all\cookie.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-base-all\draggable.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-base-all\event.drag-2.2.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-base-all\hotkeys.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-base-all\json-2.3.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-base-all\sortable.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-base-all\ta.jquery.ext.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-core-all\domReady.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-core-all\jquery-1.11.0.min.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-core-all\jquery-1.11.0.min.map</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-core-all\require.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-core-all\TaJsUtil.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-core-all\TaUIManager.js</resource>
+        <resource>webapp\WEB-INF\tags\columnfoot.tag</resource>
+        <resource>webapp\WEB-INF\tags\columnhead.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\implicit.tld</resource>
+    </resources>
+</release>

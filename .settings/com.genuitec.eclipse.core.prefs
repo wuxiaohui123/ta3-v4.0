@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=javacode/system/resource/struts-system.xml,javacode/config/struts-login.xml,javacode/config/struts.xml,javacode/abpmn/resource/stencilset.json,javacode/system/resource/system/spring/spring-ehcache.xml
+validator.Unchecked=

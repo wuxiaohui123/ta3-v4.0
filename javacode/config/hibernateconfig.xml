@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd"
+	default-lazy-init="true">
+
+	<bean id="sessionFactory" class="com.yinhai.springext.MySessionFactoryBean">
+		<property name="dataSource" ref="dataSourceProxy"/>
+		
+		<property name="mappingLocationsExtends">
+			<list>
+				<value>classpath*:/Org.hbm.xml</value>
+			</list>
+		</property>
+		
+		<property name="mappingLocations">
+			<list>
+ 				<value>classpath*:/resource/organization/hbm/*.hbm.xml</value> 
+				<value>classpath*:/resource/sysapp/hbm/*.hbm.xml</value> 
+ 				<value>classpath*:/resource/system/hbm/*.hbm.xml</value> 
+				<value>classpath*:/resource/runqian/hbm/*.hbm.xml</value> 
+			</list>
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<!-- 
+ 				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop> 
+ 				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DmDialect</prop> 
+				-->
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.query.substitutions">true 1, false 0</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+				<prop key="hibernate.cache.use_query_cache">false</prop>
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<!-- <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop> 
+				<prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>-->
+			</props>
+		</property>
+		<property name="entityInterceptor">   
+<!-- 			<ref local="treeInterceptor"/> -->
+               <ref bean="treeInterceptor"/>
+		</property>  
+		<!-- <property name="lobHandler">
+			<ref bean="lobHandler" />
+		</property>
+		<property name="useTransactionAwareDataSource" value="true"></property> -->
+	</bean>
+	
+	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
+	<bean id="treeInterceptor" class="com.yinhai.sysframework.dao.hibernate.TreeIntercptor"/>
+</beans>

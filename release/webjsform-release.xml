@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjsform</moduleId>
+    <moduleName>webjsform</moduleName>
+    <version>3.14.0</version>
+    <releaseDate>2015-07-03 16:51:46</releaseDate>
+    <releaseNote><![CDATA[3.14.0:
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.13.0:
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.12.0:
+
+3.12.0:
+TA-368 所有输入框在不写key的情况下，输入框撑满整个布局
+
+3.12.0:
+label
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.13-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+TA-343 - 新版2015皮肤组件修改
+TA-312 数字输入框在达到设置的最大值并获取焦点后不能直接修改
+TA-191 下拉框的下拉层鼠标拖动拉大拉小无效
+AN-76:required属性缺陷
+TA-330 期号组件输入有误
+TA-241
+TA-241
+TA-96:下拉框应支持通过码表值过滤
+
+3.11.6-SNAPSHOT:
+TA-241 Requirejs针对tag的改造
+TA-287 新增自定义Text组件的按钮的属性clickIcon，clickIconTitle，clickIconFN
+
+3.11.1-SNAPSHOT:
+修改：selectData的回显问题
+TA-282 新组件selectLabelText，可选择label的输入框
+TA-281 新组件selectData，输入信息，查询数据在下拉中显示，并可通过点击下拉中的选项，设置值
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+TA-154 批量导入组织人员（所有）随便导入文件导致语法错误
+TA-200 TD标签报lang包没定义的问题
+
+3.10.4-SNAPSHOT:
+TA-182	datagrid单元格的min属性使用回车时无效
+TA-133 下拉按钮在靠底部时能向上弹出
+TA-130 下拉按钮selectButton在点击了下拉的按钮后，下拉层不能自动收回，必须要鼠标移出点击后才被收回
+TA-108 组织机构中批量导入组织人员功能报js没有找到的问题
+Ta-123 所有关于bpopTipMsg属性的路径均不正确
+TA-73 tag的属性注释整理
+TA-80：优化selectInput组件；
+TA-79：解决selectInput组件widthPercentage属性无效的问题
+TA-73：整理tag文件issue、text
+TA-69 调整pom文件
+
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.13-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\datetimeMask.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\issue.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\moneyInput.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\numberBox.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\numberSpinner.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\selectGrid.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\selectGrid_temp.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\selectInput.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\selectTree.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-form-all\upload.js</resource>
+        <resource>webapp\WEB-INF\tags\tatags\basicfield.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\button.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\buttonGroup.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\buttonGroupSeparate.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\buttonLayout.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\checkbox.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\checkboxgroup.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\fileupload.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\form.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\imgview.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\issue.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\number.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\query.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\radio.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\radiogroup.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\selectButton.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\selectButtonItem.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\selectData.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\selectInput.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\selectLableText.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\submit.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\tableView.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\td.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\text.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\textarea.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\toolbar.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\toolbarItem.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\toolbarItemSeperator.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\tr.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\uploadify.tag</resource>
+    </resources>
+</release>

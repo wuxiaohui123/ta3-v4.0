@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-orgapi</moduleId>
+    <moduleName>ta3-orgapi</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:33:31</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.4-SNAPSHOT:
+TA-277 岗位及权限管理打开和操作时后台报错
+修改:一个空指针的判断条件
+修改：多组织查询下的用户混乱
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+TA-212 组织机构用户管理中如果管理员能够管理根节点，则管理员能够查询出developer
+TA-206 组织机构人员移除岗位时，如果移除的是主岗位，则将此人的直属岗位设置成主岗位
+
+3.10.4-SNAPSHOT:
+Ta-1 spring文件调整，添加orgapi
+Ta-116 grantServiceImpl删除不必要的依赖关系
+TA-93 菜单顺序问题
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.4-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysframework</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-system</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-security</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    <jars>
+        <jar>lib\ta3-orgapi-3.12.0.jar</jar>
+    </jars>
+    <configFiles/>
+    <resources/>
+</release>

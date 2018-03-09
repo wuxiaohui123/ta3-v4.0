@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//javacode/abpmn/resource/processEngine.properties=UTF-8
+encoding//javacode/config/config.properties=UTF-8
+encoding//javacode/config/exportExcel.properties=UTF-8
+encoding//javacode/config/log4j.properties=UTF-8
+encoding//javacode/config/mongo.properties=UTF-8
+encoding//javacode/config/redis.properties=UTF-8
+encoding//javacode/config/runqianReportLog.properties=UTF-8
+encoding//javacode/organization/resource/orgResource.properties=UTF-8
+encoding//javacode/organization/resource/orgResource_zh_CN.properties=UTF-8
+encoding//webapp/abpmn/processEditor/editor-app/configuration/properties/assignment-popup.html=UTF-8
+encoding//webapp/abpmn/processEditor/editor-app/editor.html=UTF-8
+encoding//webapp/ta/resource/themes/base/ta-item-all.css=UTF-8
+encoding/<project>=UTF-8

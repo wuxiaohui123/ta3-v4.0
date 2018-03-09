@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-config</moduleId>
+    <moduleName>ta3-config</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:40:56</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+TA-263
+
+3.12.0:
+TA-230:删除runqianDataFilter
+
+3.11.11-SNAPSHOT:
+
+3.11.10-SNAPSHOT:
+TA-316 调整一些工程合并
+
+3.11.9-SNAPSHOT:
+TA240 前后台分离
+TA-240 前后台分离
+TA-239 实现CSRF跨站伪造请求防御
+TA-309 修复前台RSA加密的密码到后台解密出现错误的BUG
+
+
+3.11.6-SNAPSHOT:
+TA-217 修改皮肤的插件的引用方式
+TA-217:框架首页UI修改，新增菜单配置项
+
+PXXQ-39:培训示例用sqlmap
+TA-217:框架首页UI修改，新增菜单配置项
+
+TA-217:框架首页UI修改，新增菜单配置项
+
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改，新增菜单配置项
+
+Ta-261:附属组织配置
+TA-263 默认不启用共有岗位
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-94 访问润乾url没有权限的问题;
+TA-121 自定义sessionfactory用于hibernate的扩展加载修改hibernate的xml文件
+TA-106 改成点击，可通过配置文件改成鼠标移出模式
+TA-81 appinc移动到ta-config
+TA-81 规划Ta+3皮肤插件模式
+TA-69 调整项目结构
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.11-SNAPSHOT:
+
+3.11.10-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles>
+        <configFile>javacode\config\config.properties</configFile>
+        <configFile>javacode\config\distributecache.xml</configFile>
+        <configFile>javacode\config\ehcache.xml</configFile>
+        <configFile>javacode\config\hibernateconfig.xml</configFile>
+        <configFile>javacode\config\jdbc.properties</configFile>
+        <configFile>javacode\config\jms.xml.bak</configFile>
+        <configFile>javacode\config\log4j.properties</configFile>
+        <configFile>javacode\config\redis.conf</configFile>
+        <configFile>javacode\config\reportConfig.xml</configFile>
+        <configFile>javacode\config\runqianReportLog.properties</configFile>
+        <configFile>javacode\config\runqianWindowServer.lic</configFile>
+        <configFile>javacode\config\spring-datasource.xml</configFile>
+        <configFile>javacode\config\spring-event.xml</configFile>
+        <configFile>javacode\config\spring-tasecurity.xml</configFile>
+        <configFile>javacode\config\struts.xml</configFile>
+    </configFiles>
+    <resources>
+        <resource>webapp\appinc.jsp</resource>
+        <resource>webapp\WEB-INF\web.xml</resource>
+        <resource>webapp\WEB-INF\weblogic.xml</resource>
+    </resources>
+</release>

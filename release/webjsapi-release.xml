@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjsapi</moduleId>
+    <moduleName>webjsapi</moduleName>
+    <version>3.14.0</version>
+    <releaseDate>2015-07-02 16:29:43</releaseDate>
+    <releaseNote><![CDATA[3.14.0:
+web打印方法集成到api.print.js
+
+3.13.0:
+TA-370
+TA-370  //处理点击到label上面,提示不消失
+
+3.12.0:
+
+3.12.0:
+TA-343 新版2015皮肤组件修改
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+TA-355 submit事件，如果300毫秒以内不显示蒙层
+
+3.11.10-SNAPSHOT:
+TA-355 submit事件，如果300毫秒以内不显示蒙层
+添加showBoxComponent方法
+
+3.11.9-SNAPSHOT:
+TA-343 - 新版2015皮肤组件修改
+TA-243 添加帮助组件
+TA-271:修改api.forms.js文件
+
+3.11.6-SNAPSHOT:
+TA-217:修改在首页打开一个tab页的方法
+
+TA-241 Requirejs针对tag的改造
+TA-221:解决新增子报表时报表名称中文乱码问题
+
+3.11.1-SNAPSHOT:
+修改：selectData的回显问题
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+TA-108 组织机构中批量导入组织人员功能报js没有找到的问题
+
+3.10.4-SNAPSHOT:
+TA-184 DEMO-初级示例-表格-普通表格-行号定位-有问题
+TA-158 radio重置按钮问题
+TA-153 IE9以上所有回调Base._enableButtonLayout报Base未定义
+TA-85：整理框架js注释
+TA-85：整理框架js注释
+TA-76：解决checkbox设置只读后样式无变化的问题
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.10-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.datagrid.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.fieldset.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.forms.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.panel.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.print.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.selectinput.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.taajax.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.tabs.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.tree.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-api-all\api.window.js</resource>
+    </resources>
+</release>

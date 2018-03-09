@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjsdatepicker</moduleId>
+    <moduleName>webjsdatepicker</moduleName>
+    <version>3.13.0</version>
+    <releaseDate>2015-07-03 16:49:56</releaseDate>
+    <releaseNote><![CDATA[3.13.0:
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.12.0:
+
+3.12.0:
+TA-368 所有输入框在不写key的情况下，输入框撑满整个布局
+
+3.12.0:
+label
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+TA-241 Requirejs针对tag的改造
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-73：整理tag文件date
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\calendar.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\lang\en.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\lang\zh-cn.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\lang\zh-tw.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\skin\datePicker.gif</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\skin\default\datepicker.css</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\skin\default\img.gif</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\skin\WdatePicker.css</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\skin\whyGreen\bg.jpg</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\skin\whyGreen\datepicker.css</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\skin\whyGreen\img.gif</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\WdatePicker.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\lang\en.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\lang\zh-cn.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\lang\zh-tw.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\readme.txt</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\skin\datePicker.gif</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\skin\default\datepicker.css</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\skin\default\img.gif</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\skin\WdatePicker.css</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\skin\whyGreen\bg.jpg</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\skin\whyGreen\datepicker.css</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-datepicker-all\开发包\skin\whyGreen\img.gif</resource>
+        <resource>webapp\WEB-INF\tags\tatags\date.tag</resource>
+    </resources>
+</release>

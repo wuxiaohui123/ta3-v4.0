@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjscontener</moduleId>
+    <moduleName>webjscontener</moduleName>
+    <version>3.12.0</version>
+    <releaseDate>2015-06-26 16:38:33</releaseDate>
+    <releaseNote><![CDATA[3.12.0:
+
+3.12.0:
+TA-343 新版2015皮肤组件修改
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.14-SNAPSHOT:
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+
+3.11.13-SNAPSHOT:
+TA-217:框架首页UI修改
+TA-217:框架首页UI修改
+
+3.11.9-SNAPSHOT:
+TA-343 新版2015皮肤组件修改
+TA-343 - 新版2015皮肤组件修改
+TA-328 容器组建boxComponent,悬浮框
+TA-263
+TA-306:tab标签的selected属性无效
+TA-241 Requirejs针对tag的改造
+TA-241 Requirejs针对tag的改造
+TA-263 增加 headerButton 属性,在标题后面生成button
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+TA-241 Requirejs针对tag的改造
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-75 basicfield组件的toolButtonsColumnWidth属性无效
+TA-112 修改tabs里面的tab下面的边框没有的问题,所以-1;
+TA-73 tag的属性整理
+TA-73：整理tag文件panelButtonBar、query、tabs
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.14-SNAPSHOT:
+
+3.11.13-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.5-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-contener-all\panel.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-contener-all\query.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-contener-all\selectpanel.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-contener-all\tauipanel.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-contener-all\tauitabs.js</resource>
+        <resource>webapp\WEB-INF\tags\tatags\addtionfield.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\basicfield.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\box.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\boxComponent.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\fieldset.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\panel.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\panelButtonBar.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\panelToolBar.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\query.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\tab.tag</resource>
+        <resource>webapp\WEB-INF\tags\tatags\tabs.tag</resource>
+    </resources>
+</release>

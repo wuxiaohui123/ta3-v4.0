@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- 润乾报表文件管理Service -->	
+ 	<bean id="runQianReportFileMgService" parent="transactionProxy"> 
+ 		<property name="target">
+			<bean class="com.yinhai.ta3.runqian.service.impl.RunQianReportFileMgServiceImpl" parent="baseService">
+			<property name="hibernateDao" ref="hibernateDao"/>
+			</bean>
+		</property>
+	</bean> 
+	<!-- 润乾报表保存打印设置Service -->	
+ 	<bean id="savePrintSetupService" parent="transactionProxy"> 
+ 		<property name="target">
+			<bean class="com.yinhai.ta3.runqian.service.impl.SavePrintSetupServiceImpl" parent="baseService">
+			<property name="hibernateDao" ref="hibernateDao"/>
+			</bean>
+		</property>
+	</bean> 
+	<!-- 润乾报表菜单管理Service 	-->
+ 	<bean id="queryReportMgService" parent="transactionProxy"> 
+ 		<property name="target">
+			<bean class="com.yinhai.ta3.runqian.service.impl.QueryReportMgServiceImpl" parent="baseService">
+			  <property name="hibernateDao" ref="hibernateDao"/>
+			  <property name="menuMgService" ref="menuMgService"/>
+			</bean>
+		</property>
+	</bean>
+	<!-- 润乾报表资源文件信息查询Service -->	
+ 	<bean id="reportDefineService" parent="transactionProxy"> 
+ 		<property name="target">
+			<bean class="com.yinhai.ta3.runqian.service.impl.ReportDefineServiceImpl" parent="baseService">
+			  <property name="hibernateDao" ref="hibernateDao"/>
+			</bean>
+		</property>
+	</bean>
+	<!-- 润乾报表查询Service -->
+ 	<bean id="queryReportService" parent="transactionProxy"> 
+ 		<property name="target">
+			<bean class="com.yinhai.ta3.runqian.service.impl.QueryReportServiceImpl" parent="baseService">
+			   <property name="reportDefineService">
+					<ref bean="reportDefineService" />
+				</property>
+				<property name="hibernateDao" ref="hibernateDao"/>
+			</bean>
+		</property>
+	</bean>	
+</beans>

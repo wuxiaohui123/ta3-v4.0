@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>ta3-organization</moduleId>
+    <moduleName>ta3-organization</moduleName>
+    <version>3.16.0</version>
+    <releaseDate>2015-07-03 16:51:18</releaseDate>
+    <releaseNote><![CDATA[3.16.0:
+TA-378 组织用户管理，编辑用户改成弹出下拉box形式
+
+3.15.0:
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-236 批量授权页面移除时间的操作
+TA-372 针对requirejs对部分js及功能进行调整
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-372 针对requirejs对部分js及功能进行调整
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-263 导航条提示完善,tabs的border去掉
+TA-371 组织机构各个功能的导航描述
+TA-371 组织机构各个功能的导航描述
+
+3.14.0:
+TA-372 针对requirejs对部分js及功能进行调整
+界面调整以适应新皮肤
+界面调整以适应新皮肤
+TA-371 组织机构各个功能的导航描述
+TA-371 组织机构各个功能的导航描述
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+按钮权限控制
+按钮权限控制
+TA-369 禁用共享岗位后，其下的复制岗位未被禁用，依然还可以使用
+
+3.12.0:
+TA-343 新版2015皮肤组件修改
+修改组织样式
+TA-263
+TA-263
+
+3.12.1-SNAPSHOT:
+TA-263
+TA-263
+TA-263
+
+3.12.0:
+TA-263
+TA-261:组织及用户样式修改
+TA-230:新的登录页面的修改
+TA-230:新的登录页面的修改
+TA-263
+组织机构界面调整
+
+3.11.16-SNAPSHOT:
+TA-261:组织及用户样式修改
+TA-263
+界面调整以适应新皮肤
+
+3.11.15-SNAPSHOT:
+TA-263
+TA-263
+修改组织机构样式
+TA-263
+TA-261:组织及用户样式修改IE8下bug
+TA-261:组织及用户样式修改IE8下bug
+TA-263
+TA-261:组织及用户样式修改IE8下bug
+TA-261:组织及用户样式修改IE8下bug
+TA-263
+TA-263 修改弹出框按钮的居中
+组织机构界面调整
+调整组织机构界面
+
+3.11.11-SNAPSHOT:
+TA-263 页面改善
+TA-261:组织及用户样式修改IE8下bug
+
+3.11.10-SNAPSHOT:
+TA-343 新版2015皮肤组件修改
+界面调整以适应新皮肤
+修改界面以适应皮肤
+界面边距调整
+
+3.11.9-SNAPSHOT:
+TA-263
+TA-343 - 新版2015皮肤组件修改
+TA-261:组织与用户管理页面样式修改
+TA-263 完善页面在ie8下
+TA-261:组织与用户页面样式修改
+TA-263 完善页面
+TA-263 完善页面
+TA-236 页面完善
+TA-263 完善页面
+TA-263
+TA-263
+TA-341 组织机构-更改用户组织后，出现没有主岗位的情况
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-263 样式调整
+TA-263 修改个人岗位下查看权限把所有的权限都查出来的bug
+TA-261:组织及用户样式修改
+TA-240 前后台分离
+TA-261:组织及用户样式修改
+TA-240 前后台分离
+TA-263
+TA-263
+TA-263
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-263
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-263
+TA-263
+TA-263
+TA-263 
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改IE8下bug
+TA-263 修复ie8下一个offset.top的问题
+解决ＩＥ８下弹出Base.alert后，datagrid行的渲染会消失。
+TA-261:组织及用户样式修改
+一些文字信息的修改。
+TA-261:组织及用户样式修改
+TA-263 完善功能
+1.添加管理员页面里隐藏显示默认设置的时候DataGrid不能自动改变高度的问题解决
+2.目标用户的组织范围在显示的时候通过不同的字体颜色来进行区分
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+将可组织的组织范围的显示方式做了修改，先将所有的组织范围都显示出来，然后再高亮显示目标用户所拥有的组织范围。 组织范围实现了排序。
+新增管理员，快速设置的关闭和打开都有一个提示信息，新增管理员界面增加快捷键，主界面修改列表文本信息。
+Ta-263 
+1.按钮合成组；(OK)
+2.移出-移除；(OK)
+3.按钮动态控制；(OK)
+4.新增管理员一进入就弹出快速设置；(OK)
+5.新增管理员“查询”按钮紧接输入框；(OK)
+6.返回改成关闭(OK)
+
+修改：数据区范围
+修改组织范围查询
+修改了之前在用行点击事件的时候对复选框也进行选中的事件。
+增加了组织范围和数据区里在DataGrid显示的时候不能显示 不属于当前管理员范围内的组织和数据区
+重新提交一次，顺那里无法更新。
+提交组织范围
+TA-261:组织及用户样式修改
+1修改了默认管理部门如果是子节点，不能被添加到数据库。 
+1修改新增管理员快速设置模块里在测试中出现的目标管理员的数据区必须在当前用户的数据区里面，如果有数据区不在里面则显示为禁用,
+2修改了新增管理员里面box的height高度布局，全部用百分比。
+TA-261:组织及用户样式修改
+修改：密码修改
+给新增管理员增加了 必须在当前管理员权限内的控制
+增加树形排序
+将所有的弹出窗口修改iframe方式，完成组织范围的快速授权控制，授权里不显示未授权的等等。
+TA-263
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-261:组织及用户样式修改
+TA-263
+TA-263 完善页面
+TA-263 完善查询个人权限信息排序后又重复的数据
+因为进行树形排序的时候，授权权限里面查询权限信息没有返回isLeaf 和 menuLevel 两个属性，这里进行了添加。
+修改了快速设置因为更改带来的问题:快速设置里的姓名参数未赋值。
+解决行点击事件执行Base.getJson 会导致行渲染非常缓慢的现象
+修改了新增管理员按钮在页面的布局，以及管理员页面更改按钮的样式效果。
+TA-263 完善功能,以及UI
+调整了高度
+修改完了开会提出的问题。
+TA-264 经办机构配置功能修改
+
+3.11.6-SNAPSHOT:
+TA-261:组织及用户样式修改
+TA-261:组织及用户页面修改
+增加提示，增加DG选中的样式，修改添加管理员的bug。
+管理权限中的数据区移除功能，并在所有的权限模块上的msgTopTip上做了醒目的样式
+权限管理中的移除权限
+TA-264 修改
+TA-264 修改
+TA-264 修改
+TA-264 修改
+TA-264 修改
+TA-264 修改
+TA-264 修改
+TA-264 修改
+权限更改功能
+新增管理员模块的各个权限管理的更改功能
+批量授权权限
+批量授权权限后台
+对批量授权权限页面做了修改
+授权权限前台
+授权权限后台
+管理员功能管理权限前台页面
+管理的权限后台实现
+TA-263 完善交互体验
+TA-263 完善功能
+TA-263 完善界面的开发;
+TA-264:修改
+TA-264:修改
+TA-261:跳转页面
+TA-261:跳转页面
+TA-261:跳转页面
+TA-261:跳转页面
+TA-261:org/org/orgUserMg.jsp页面代码
+TA-261:配置
+TA-261:organization/spring/spring-orguser.xml配置
+TA-261:organization/service/impl/OrgUserMgServiceImpl.java代码
+TA-261:IOrgUserMgService.java代码
+TA-261:organization/action/OrgUserMgAction.java代码
+TA-264:源代码
+TA-264:源代码
+TA-264:源代码
+TA-264:源代码
+TA-264:源代码
+TA-264:源代码
+TA-263
+TA-263
+TA-263
+TA-264:源代码
+TA-263
+TA-263 
+TA-262
+TA-262
+TA-288 不能添加移动电话
+
+3.11.1-SNAPSHOT:
+TA-262
+TA-262
+TA-262
+TA-280 删除组织时，如果该组织下面有无效组织，则无效组织未被删除
+
+3.11.0:
+TA-272 spring
+TA-272 新组织机构action,jsp,配置文件创建
+TA-228 人员在已有一个非个人岗位的主岗位时，变更人员的组织，个人岗位会变成主岗位，而原来的主岗位仍然有效，就导致同时有两个主岗位！从而导致各种问题，例如修改密码时报错！
+
+3.10.5-SNAPSHOT:
+TA-218 门户平台时，管理员授权时菜单混乱
+TA-219 组织机构用户岗位设置时，公有岗位，共享岗位，复制岗位交代不清楚
+TA-218 门户平台时，管理员授权时菜单混乱
+TA-216 组织机构用户岗位设置，第二个tab页中的组织树未加载出来
+TA-215 组织机构用户岗位设置，如果管理员能管理根节点，则能查询出developer
+TA-214 组织树无效组织渲染
+TA-214 组织树无效组织渲染
+TA-214 组织树无效组织渲染
+TA-213 组织机构用户功能权限管理中，如果管理员具有根节点的管理权限，则可查询出developer
+TA-208 组织机构最大自定义编码验证无效
+TA-207 组织机构相似权限授权中，某岗位如果对该菜单具有了授权权限，而没有使用权限，但是依然被查询出来
+
+3.10.4-SNAPSHOT:
+TA-1 调整Maven模块依赖和版本配置
+TA-188 组织机构新增子组织后，点击不再新增子组织时，右边的组织树刷新时，多了一个根节点
+TA-187 组织机构修改根节点时，树没有被刷新
+TA-164 权限内控菜单-打开页面-选择人员内控类型-后台JS报错
+TA-168 组织机构，组织管理根节点组织类型选择报js错误
+TA-108 #
+TA-161 组织机构删除岗位时，当该岗位为某个人员的主岗位时，需要将该人员所对应的直属部门下的个人岗位设置成主岗位
+TA-160  组织机构删除共享岗位时，复制岗位未能删除
+TA-146 用户功能使用权限-不能导出全部数据。
+TA-149 经办机构数据区管理菜单打不开或者等待很长时间,后台JS报错。(ie8)
+TA-154：批量导入组织人员（所有）随便导入文件导致语法错误。
+TA-148 用户岗位设置-人员选择岗位-点击岗位设置-再跟后台操作-回到岗位设置人员tab页面，不能查询到任何岗位信息（IE8）
+TA-155 组织机构管理页面选择组织类型时js报错
+TA-140 组织机构新增组织后的再次新增组织报effective未定义的错误
+TA-113 组织机构，启用用户或者岗位时，没有判断其所在组织是否禁用
+TA-99 组织机构修改组织类型，没有向下进行验证
+TA-135 组织机构数据权限，在分配功能使用权限时，如果该岗位所在组织数据区为空，则不保存数据区权限
+TA-108 组织机构中批量导入组织人员功能报js没有找到的问题
+TA-116 删除根目录的webapp
+TA-116 删除spring配置文件依赖
+TA-116 调整webapp目录位置
+TA-116 修改组织机构组建依赖于组织机构api组建，而非自带api，并调整webapp目录位置
+TA-104 新增用户后会抛重复提交的问题
+TA-108
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.16.0:
+
+3.15.0:
+
+3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.16-SNAPSHOT:
+
+3.11.15-SNAPSHOT:
+
+3.11.11-SNAPSHOT:
+
+3.11.10-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.5-SNAPSHOT:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-convention-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-sysframework</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-system</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-orgapi</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yinhai</groupId>
+            <artifactId>ta3-fileexceltools</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    <jars>
+        <jar>lib\ta3-organization-3.16.0.jar</jar>
+    </jars>
+    <configFiles/>
+    <resources>
+        <resource>webapp\org\admin\addAdmin.jsp</resource>
+        <resource>webapp\org\admin\addAdminMg.jsp</resource>
+        <resource>webapp\org\admin\adminMg.jsp</resource>
+        <resource>webapp\org\admin\adminOrgScope.jsp</resource>
+        <resource>webapp\org\admin\adminYab139Scope.jsp</resource>
+        <resource>webapp\org\admin\batchGrantAdminUsePermission.jsp</resource>
+        <resource>webapp\org\admin\batchGrantAuthorityPermission.jsp</resource>
+        <resource>webapp\org\admin\batchRecycleAdminUsePermission.jsp</resource>
+        <resource>webapp\org\admin\batchRecycleAuthorityPermission.jsp</resource>
+        <resource>webapp\org\admin\funcAdminUsePermission.jsp</resource>
+        <resource>webapp\org\admin\funcGrantingPurview.jsp</resource>
+        <resource>webapp\org\admin\transformAuthority.jsp</resource>
+        <resource>webapp\org\dimension\dataAccessDimension.jsp</resource>
+        <resource>webapp\org\dimension\dataAccessDimension1.jsp</resource>
+        <resource>webapp\org\dimension\dataAccessDimensionMg.jsp</resource>
+        <resource>webapp\org\org\addOrg.jsp</resource>
+        <resource>webapp\org\org\addUser.jsp</resource>
+        <resource>webapp\org\org\datafield.jsp</resource>
+        <resource>webapp\org\org\editOrg.jsp</resource>
+        <resource>webapp\org\org\editUser.jsp</resource>
+        <resource>webapp\org\org\orgManager.jsp</resource>
+        <resource>webapp\org\org\orgMg.jsp</resource>
+        <resource>webapp\org\org\orgUserMg.jsp</resource>
+        <resource>webapp\org\org\userAddBatch.jsp</resource>
+        <resource>webapp\org\org\userBatchPosition.jsp</resource>
+        <resource>webapp\org\org\userPermission.jsp</resource>
+        <resource>webapp\org\org\userResetPassword.jsp</resource>
+        <resource>webapp\org\orgextend\orgMgExtend.jsp</resource>
+        <resource>webapp\org\orgextend\positionMgExtend.jsp</resource>
+        <resource>webapp\org\orgextend\userMgExtend.jsp</resource>
+        <resource>webapp\org\position\addPosition.jsp</resource>
+        <resource>webapp\org\position\admin\addAdminMg.jsp</resource>
+        <resource>webapp\org\position\admin\adminMg.jsp</resource>
+        <resource>webapp\org\position\admin\adminYab003Scope.jsp</resource>
+        <resource>webapp\org\position\admin\funcAdminUsePermission.jsp</resource>
+        <resource>webapp\org\position\admin\funcGrantingPurview.jsp</resource>
+        <resource>webapp\org\position\admin\grantAdminUsePermission.jsp</resource>
+        <resource>webapp\org\position\admin\grantAuthorityPermission.jsp</resource>
+        <resource>webapp\org\position\admin\orgMgScope.jsp</resource>
+        <resource>webapp\org\position\admin\recycleAdminUsePermission.jsp</resource>
+        <resource>webapp\org\position\admin\recycleAuthorityPermission.jsp</resource>
+        <resource>webapp\org\position\admin\transformAuthority.jsp</resource>
+        <resource>webapp\org\position\assignPositionsToUser.jsp</resource>
+        <resource>webapp\org\position\assignUsersToPosition.jsp</resource>
+        <resource>webapp\org\position\batchGrantUsePermission.jsp</resource>
+        <resource>webapp\org\position\batchRecycleUsePermission.jsp</resource>
+        <resource>webapp\org\position\delegateposition\addDelegatePosition.jsp</resource>
+        <resource>webapp\org\position\delegateposition\delegatePosition.jsp</resource>
+        <resource>webapp\org\position\delegateposition\delegatePositionPermissions.jsp</resource>
+        <resource>webapp\org\position\editPosition.jsp</resource>
+        <resource>webapp\org\position\funcOpPurview.jsp</resource>
+        <resource>webapp\org\position\innercontrol\adminPop.jsp</resource>
+        <resource>webapp\org\position\innercontrol\businessPop.jsp</resource>
+        <resource>webapp\org\position\innercontrol\innerControl.jsp</resource>
+        <resource>webapp\org\position\innercontrol\menuPop.jsp</resource>
+        <resource>webapp\org\position\innercontrol\positionPop.jsp</resource>
+        <resource>webapp\org\position\position\addPosition.jsp</resource>
+        <resource>webapp\org\position\position\clonePermissions.jsp</resource>
+        <resource>webapp\org\position\position\funcOpPurview.jsp</resource>
+        <resource>webapp\org\position\position\grantUsePermission.jsp</resource>
+        <resource>webapp\org\position\position\personalPositionAuthrity.jsp</resource>
+        <resource>webapp\org\position\position\positionAuthrity.jsp</resource>
+        <resource>webapp\org\position\position\positionOper.jsp</resource>
+        <resource>webapp\org\position\position\recycleUsePermission.jsp</resource>
+        <resource>webapp\org\position\position\setEffectiveTime.jsp</resource>
+        <resource>webapp\org\position\position\sharePosition.jsp</resource>
+        <resource>webapp\org\position\positionMg.jsp</resource>
+        <resource>webapp\org\position\positionMission.jsp</resource>
+        <resource>webapp\org\position\positionsetting\assignPositionsToUser.jsp</resource>
+        <resource>webapp\org\position\positionsetting\assignUser.jsp</resource>
+        <resource>webapp\org\position\positionsetting\positionSettingMg.jsp</resource>
+        <resource>webapp\org\position\sharePosition.jsp</resource>
+        <resource>webapp\org\position\similarauthority\grantSimilarAuthority.jsp</resource>
+        <resource>webapp\org\position\similarauthority\similarAuthority.jsp</resource>
+        <resource>webapp\org\position\table\datepicker\datePicker.gif</resource>
+        <resource>webapp\org\position\table\down.gif</resource>
+        <resource>webapp\org\position\table\jsviews.js</resource>
+        <resource>webapp\org\position\table\perview.js</resource>
+        <resource>webapp\org\position\table\style.css</resource>
+        <resource>webapp\org\position\table\template.js</resource>
+        <resource>webapp\org\position\yab003\yab003Mg.jsp</resource>
+        <resource>webapp\org\position\yab003\yab003Scope.jsp</resource>
+        <resource>webapp\org\position\yab003\yab139Mg.jsp</resource>
+        <resource>webapp\org\resource\images\0001.png</resource>
+        <resource>webapp\org\resource\images\0002.png</resource>
+        <resource>webapp\org\resource\images\buttonbg.png</resource>
+        <resource>webapp\org\upload\uploadOrgUse.jsp</resource>
+        <resource>webapp\org\user\datafield.jsp</resource>
+        <resource>webapp\org\user\userAdd.jsp</resource>
+        <resource>webapp\org\user\userAddBatch.jsp</resource>
+        <resource>webapp\org\user\userBatchPosition.jsp</resource>
+        <resource>webapp\org\user\userBatchPosition_beifen.jsp</resource>
+        <resource>webapp\org\user\userEdit.jsp</resource>
+        <resource>webapp\org\user\userMg.jsp</resource>
+        <resource>webapp\org\user\userMg_new.jsp</resource>
+        <resource>webapp\org\user\userMg_old.jsp</resource>
+        <resource>webapp\org\user\userOpLog.jsp</resource>
+        <resource>webapp\org\user\userPermission.jsp</resource>
+        <resource>webapp\org\user\userPosition.jsp</resource>
+        <resource>webapp\org\user\userPositions.jsp</resource>
+        <resource>webapp\org\user\userResetPassword.jsp</resource>
+        <resource>webapp\org\yab003\addYab003.jsp</resource>
+        <resource>webapp\org\yab003\addYab003Grid.jsp</resource>
+        <resource>webapp\org\yab003\editYab003Mg.jsp</resource>
+        <resource>webapp\org\yab003\yab003Mg.jsp</resource>
+    </resources>
+</release>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="GBK"?>
+<release>
+    <moduleId>webjslayout</moduleId>
+    <moduleName>webjslayout</moduleName>
+    <version>3.14.0</version>
+    <releaseDate>2015-07-03 16:50:06</releaseDate>
+    <releaseNote><![CDATA[3.14.0:
+TA-372 针对requirejs对部分js及功能进行调整
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.13.0:
+TA-372 针对requirejs对部分js及功能进行调整
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.12-SNAPSHOT:
+TA-217:框架首页UI修改
+
+3.11.11-SNAPSHOT:
+TA-343 新版2015皮肤组件修改
+
+3.11.10-SNAPSHOT:
+TA-240 前后台分离maven版本
+
+
+3.11.9-SNAPSHOT:
+TA-191 下拉框的下拉层鼠标拖动拉大拉小无效
+TA-241 Requirejs针对tag的改造
+TA-241 Requirejs针对tag的改造
+
+3.11.6-SNAPSHOT:
+TA-241 Requirejs针对tag的改造
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+TA-158 radio重置按钮问题
+TA-76：解决checkboxgroup第二次全选丢失选中值的bug
+TA-69 重新规划项目结构，调整pom文件
+]]></releaseNote>
+    <installHelp><![CDATA[3.14.0:
+
+3.13.0:
+
+3.12.0:
+
+3.12.0:
+
+3.12.1-SNAPSHOT:
+
+3.12.0:
+
+3.11.12-SNAPSHOT:
+
+3.11.11-SNAPSHOT:
+
+3.11.10-SNAPSHOT:
+
+3.11.9-SNAPSHOT:
+
+3.11.6-SNAPSHOT:
+
+3.11.1-SNAPSHOT:
+
+3.11.0:
+
+3.10.4-SNAPSHOT:
+]]></installHelp>
+    <dependencies/>
+    <jars/>
+    <configFiles/>
+    <resources>
+        <resource>webapp\ta\resource\external\plugin\ta-layout-all\autoPercentHeight.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-layout-all\border.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-layout-all\fit.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-layout-all\resizable.js</resource>
+        <resource>webapp\ta\resource\external\plugin\ta-layout-all\taLayout.js</resource>
+    </resources>
+</release>

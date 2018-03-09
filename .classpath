@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="javacode/config"/>
+	<classpathentry kind="src" path="javacode/sysframework"/>
+	<classpathentry kind="src" path="javacode/system"/>
+	<classpathentry kind="src" path="javacode/distributcache"/>
+	<classpathentry kind="src" path="javacode/common"/>
+	<classpathentry kind="src" path="javacode/sysapp"/>
+	<classpathentry kind="src" path="javacode/filetools"/>
+	<classpathentry kind="src" path="javacode/organization"/>
+	<classpathentry kind="src" path="javacode/orgapi"/>
+	<classpathentry kind="src" path="javacode/rsa"/>
+	<classpathentry kind="src" path="javacode/runqian"/>
+	<classpathentry kind="src" path="javacode/scheduler"/>
+	<classpathentry kind="src" path="javacode/security"/>
+	<classpathentry kind="src" path="javacode/sso"/>
+	<classpathentry kind="src" path="javacode/userlogin"/>
+	<classpathentry kind="src" path="javacode/test"/>
+	<classpathentry kind="src" path="javacode/synthesis"/>
+	<classpathentry kind="src" path="javacode/abpmn"/>
+	<classpathentry kind="src" path="javacode/activiti"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0"/>
+	<classpathentry kind="output" path="webapp/WEB-INF/classes"/>
+</classpath>

@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.jws.WebService;
 
-import org.activiti.engine.query.NativeQuery;
 import org.hibernate.Query;
 import org.springframework.util.Assert;
 

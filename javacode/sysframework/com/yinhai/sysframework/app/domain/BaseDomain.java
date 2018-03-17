@@ -1,6 +1,5 @@
 package com.yinhai.sysframework.app.domain;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class BaseDomain extends AbstractDomainObject {
@@ -34,14 +33,5 @@ public class BaseDomain extends AbstractDomainObject {
 
 	public Key getPK() {
 		return null;
-	}
-
-	public static void main(String[] args) {
-		Map map = new HashMap();
-		map.put("aac001", "11");
-		map.put("aac003", "22");
-		Map map2 = new HashMap();
-		map2.put("aac003", "22");
-		map2.put("aac001", Integer.valueOf(11));
-	}
+	}	
 }

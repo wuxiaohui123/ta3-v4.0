@@ -17,7 +17,8 @@ public class OffLineLogListener extends BaseService implements TaEventListener {
 		Long userId = dto.getAsLong("login_userid");
 		String clientIp = dto.getAsString("login_clientip");
 		String serverIp = dto.getAsString("login_serverip");
-		UserLineSessionLogService lineService = ServiceLocator.getService("userLineSessionLogService",UserLineSessionLogService.class);
+		UserLineSessionLogService lineService = ServiceLocator.getService("userLineSessionLogService",
+				UserLineSessionLogService.class);
 		lineService.saveOutLineSessionLogByParam(sessionId, userId, clientIp, serverIp);
 	}
 

@@ -34,7 +34,7 @@ public class Org extends BaseDomain implements IOrg {
 	private Long orgmanager;
 	private String destory;
 	private String yab139;
-	private Set<Position> tapositions = new HashSet(0);
+	private Set<Position> tapositions = new HashSet<Position>(0);
 
 	public Org() {
 	}
@@ -50,7 +50,7 @@ public class Org extends BaseDomain implements IOrg {
 
 	public Org(String orgname, Long porgid, String costomno, String orgidpath, String orgnamepath, String costomnopath,
 			String orgtype, Integer sort, String yab003, String dimension, Long createuser, Date createtime,
-			Set tapositions, Org pOrg, Long orglevel, String isleaf, Long orgmanager, String destory, String yab139) {
+			Set<Position> tapositions, Org pOrg, Long orglevel, String isleaf, Long orgmanager, String destory, String yab139) {
 		this.orgname = orgname;
 		this.costomno = costomno;
 		this.orgidpath = orgidpath;
@@ -197,7 +197,7 @@ public class Org extends BaseDomain implements IOrg {
 	}
 
 	public Map<String, Object> toMap() {
-		Map<String, Object> map = new HashMap();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("orgid", getOrgid());
 		map.put("orgname", getOrgname());
 		map.put("porgid", getPorgid());

@@ -15,6 +15,9 @@ public interface IAccessLogService extends WsService {
 	public abstract void saveAccessInfo(Long paramLong1, Long paramLong2, Long paramLong3, String paramString1,
 			String paramString2);
 
-	public abstract PageBean queryAccessInfo(Date paramDate1, Date paramDate2, Integer paramInteger1,
-			Integer paramInteger2, Long paramLong1, Long paramLong2);
+	public abstract PageBean queryAccessInfo(Date startDate, Date endDate, Integer start, Integer limit, Long userid,
+			Long positionid);
+	
+	public abstract PageBean queryAccessInfoByMongo(Date startDate, Date endDate, Integer start, Integer limit, Long userid,
+			Long positionid);
 }

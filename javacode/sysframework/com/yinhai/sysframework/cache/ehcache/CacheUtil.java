@@ -6,9 +6,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Ehcache;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -18,22 +15,26 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 
 import com.yinhai.sysframework.cache.ehcache.service.ServerAddressService;
 import com.yinhai.sysframework.service.ServiceLocator;
 import com.yinhai.sysframework.util.ValidateUtil;
 
+import net.sf.ehcache.Ehcache;
+
 public class CacheUtil {
 
 	public static void cacheElementRemove(String cacheName, String key) {
 		CacheManager ehCacheManager = (CacheManager) ServiceLocator.getService("ehCacheManager");
-		Ehcache cache = ehCacheManager.getEhcache(cacheName);
+		Cache cache = ehCacheManager.getCache(cacheName);
 		if (cache.get(key) != null) {
-			cache.remove(key);
+			cache.evict(key);
 		}
 	}
 
-	public static boolean cacheSynCodeRemove(Ehcache cache, String key) {
+	public static boolean cacheSynCodeRemove(Cache cache, String key) {
 		ServerAddressService service = (ServerAddressService) ServiceLocator.getService("serverAddressService");
 		List<String> list = service.getALlUserfullServerAddress();
 		if (ValidateUtil.isNotEmpty(list)) {

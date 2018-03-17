@@ -13,6 +13,7 @@
 			<bean class="com.yinhai.ta3.sysapp.syslogmg.service.impl.UserLineSessionLogServiceImpl" parent="wsbaseService">
 				<property name="timeService" ref="timeService"/>
 				<property name="hibernateDao" ref="hibernateDao"/>
+				<property name="mongoTemplate" ref="mongoTemplate"/>
 			</bean>	
 		</property>
 	</bean>	
@@ -21,6 +22,7 @@
     	<property name="target">
 			<bean class="com.yinhai.ta3.sysapp.syslogmg.service.impl.AccessLogServiceImpl" parent="wsbaseService">
 				<property name="hibernateDao" ref="hibernateDao"/>
+				<property name="mongoTemplate" ref="mongoTemplate"/>
 				<property name="menuDao" ref="menuDao"></property>
 				<property name="timeService" ref="timeService"/>
 			</bean>

@@ -99,7 +99,7 @@ public class SimpleDao {
 
 	public Query createSqlQuery(String queryString, Object... values) {
 		Assert.hasText(queryString, "");
-		Query queryObject = getSession().createQuery(queryString);
+		Query queryObject = getSession().createSQLQuery(queryString);
 		if (values != null) {
 			for (int i = 0; i < values.length; i++) {
 				queryObject.setParameter(i, values[i]);

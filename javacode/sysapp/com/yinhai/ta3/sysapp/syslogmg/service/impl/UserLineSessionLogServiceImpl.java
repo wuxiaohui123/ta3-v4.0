@@ -7,6 +7,9 @@ import javax.jws.WebService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 
 import com.yinhai.sysframework.config.SysConfig;
 import com.yinhai.sysframework.dao.hibernate.SimpleDao;
@@ -23,6 +26,7 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 
 	private static final Logger log = LoggerFactory.getLogger(UserLineSessionLogServiceImpl.class);
 	private SimpleDao hibernateDao;
+	private MongoTemplate mongoTemplate;
 	private ITimeService timeService;
 
 	@WebMethod(exclude = true)
@@ -30,7 +34,8 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 		this.timeService = timeService;
 	}
 
-	public void saveLoginSessionLogByParam(String sessionid, Long userid, String name,String clientip, String serverip,String resource) {
+	public void saveLoginSessionLogByParam(String sessionid, Long userid, String name, String clientip, String serverip,
+			String resource) {
 		if ((ValidateUtil.isEmpty(sessionid)) || (ValidateUtil.isEmpty(userid))) {
 			log.info("错误的登录记");
 		} else {
@@ -43,7 +48,11 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 			online.setSessionid(sessionid);
 			online.setUserid(userid);
 			online.setSyspath(SysConfig.getSysConfig("curSyspathId", "sysmg"));
-			hibernateDao.save(online);
+			if (SysConfig.getSysconfigToBoolean("isMongo", true)) {
+				mongoTemplate.save(online);
+			} else {
+				hibernateDao.save(online);
+			}
 		}
 	}
 
@@ -61,7 +70,11 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 			online.setLogintime(dto.getAsTimestamp("login_sessiontime"));
 			online.setSessionid(sessionid);
 			online.setUserid(userid);
-			hibernateDao.save(online);
+			if (SysConfig.getSysconfigToBoolean("isMongo", true)) {
+				mongoTemplate.save(online);
+			} else {
+				hibernateDao.save(online);
+			}
 		}
 	}
 
@@ -70,8 +83,14 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 		if ((ValidateUtil.isEmpty(sessionid)) || (ValidateUtil.isEmpty(lastTime))) {
 			log.info("错误的下线记录");
 		} else {
-			Taonlinelog online = (Taonlinelog) hibernateDao.createQuery("from Taonlinelog t where t.sessionid=? and t.userid=?",
-					new Object[] { sessionid, userid }).uniqueResult();
+			Taonlinelog online = null;
+			if (SysConfig.getSysconfigToBoolean("isMongo", true)) {
+				online = mongoTemplate.findOne(
+						new Query(new Criteria("sessionid").is(sessionid).and("userid").is(userid)), Taonlinelog.class);
+			} else {
+				online = (Taonlinelog) hibernateDao.createQuery("from Taonlinelog t where t.sessionid=? and t.userid=?",
+						new Object[] { sessionid, userid }).uniqueResult();
+			}
 			if (online != null) {
 				Taloginhistorylog history = new Taloginhistorylog();
 				history.setUserid(userid);
@@ -81,9 +100,14 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 				history.setLogintime(online.getLogintime());
 				history.setLogouttime(lastTime);
 				history.setSessionid(sessionid);
+				if (SysConfig.getSysconfigToBoolean("isMongo", true)) {
+					mongoTemplate.save(history);
+					mongoTemplate.remove(online);
+				} else {
+					hibernateDao.save(history);
+					hibernateDao.delete(online);
+				}
 
-				hibernateDao.save(history);
-				hibernateDao.delete(online);
 			}
 		}
 	}
@@ -95,8 +119,14 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 		if ((ValidateUtil.isEmpty(sessionid)) || (ValidateUtil.isEmpty(lastTime))) {
 			log.info("错误的下线记录");
 		} else {
-			Taonlinelog online = (Taonlinelog) hibernateDao.createQuery("from Taonlinelog t where t.sessionid=? and t.userid=?",
-					new Object[] { sessionid, userid }).uniqueResult();
+			Taonlinelog online = null;
+			if (SysConfig.getSysconfigToBoolean("isMongo", true)) {
+				online = mongoTemplate.findOne(
+						new Query(new Criteria("sessionid").is(sessionid).and("userid").is(userid)), Taonlinelog.class);
+			} else {
+				online = (Taonlinelog) hibernateDao.createQuery("from Taonlinelog t where t.sessionid=? and t.userid=?",
+						new Object[] { sessionid, userid }).uniqueResult();
+			}
 			if (online != null) {
 				Taloginhistorylog history = new Taloginhistorylog();
 				history.setUserid(userid);
@@ -106,9 +136,13 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 				history.setLogintime(online.getLogintime());
 				history.setLogouttime(lastTime);
 				history.setSessionid(sessionid);
-
-				hibernateDao.save(history);
-				hibernateDao.delete(online);
+				if (SysConfig.getSysconfigToBoolean("isMongo", true)) {
+					mongoTemplate.save(history);
+					mongoTemplate.remove(online);
+				} else {
+					hibernateDao.save(history);
+					hibernateDao.delete(online);
+				}
 			}
 		}
 	}
@@ -117,4 +151,10 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 	public void setHibernateDao(SimpleDao hibernateDao) {
 		this.hibernateDao = hibernateDao;
 	}
+
+	@WebMethod(exclude = true)
+	public void setMongoTemplate(MongoTemplate mongoTemplate) {
+		this.mongoTemplate = mongoTemplate;
+	}
+
 }

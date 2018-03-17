@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Ehcache;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 
 import com.yinhai.sysframework.app.domain.Key;
 import com.yinhai.sysframework.cache.ehcache.CacheUtil;
@@ -71,7 +71,7 @@ public class AgenciesMgAction extends BaseAction {
 		String codeValue = getDto().getAsString("codeValue");
 		String codeTypeDESC = getDto().getAsString("codeTypeDESC");
 		String codeDESC = getDto().getAsString("codeDESC");
-		List<Key> list = new ArrayList();
+		List<Key> list = new ArrayList<Key>();
 		Key key = new Key();
 		key.put("orgId", "9999");
 		key.put("codeType", codeType);
@@ -95,7 +95,7 @@ public class AgenciesMgAction extends BaseAction {
 		if ("true".equals(isInsertAa10Agencies)) {
 			return "addYab003";
 		}
-		List<AppCode> newList = new ArrayList();
+		List<AppCode> newList = new ArrayList<AppCode>();
 		List<AppCode> codeList = super.getCodeList("YAB003", "9999");
 		List<Yab003LevelMg> list = agenciesMgService.queryYab003Tree(getDto().getUserInfo().getNowPosition().getPositionid());
 		if (!ValidateUtil.isEmpty(list)) {
@@ -146,7 +146,7 @@ public class AgenciesMgAction extends BaseAction {
 			if ((ValidateUtil.isNotEmpty(flag)) && ("1".equals(flag))) {
 				aa10.setYab003("9999");
 				codeCacheService.insertAa10(aa10);
-				List<Key> list = new ArrayList();
+				List<Key> list = new ArrayList<Key>();
 				Key key = new Key();
 				key.put("orgId", "9999");
 				key.put("codeType", codeType);
@@ -174,7 +174,7 @@ public class AgenciesMgAction extends BaseAction {
 	public String removeYab003() throws Exception {
 		String isInsertAa10Agencies = SysConfig.getSysConfig("isInsertAa10Agencies", "true");
 		String yab003s = getDto().getAsString("yab003p");
-		List list1 = (List)JSonFactory.json2bean(yab003s, ArrayList.class);
+		List list1 = JSonFactory.json2bean(yab003s, ArrayList.class);
 		agenciesMgService.removeYab003(list1);
 		if ("true".equals(isInsertAa10Agencies)) {
 			String codeType = "YAB003";
@@ -212,8 +212,8 @@ public class AgenciesMgAction extends BaseAction {
 	}
 
 	private void clearCacheSynCode(String codeType, String codeValue) {
-		Ehcache codeListCache = ehCacheManager.getEhcache("codeListCache");
-		Ehcache appCodeCache = ehCacheManager.getEhcache("appCodeCache");
+		Cache codeListCache = ehCacheManager.getCache("codeListCache");
+		Cache appCodeCache = ehCacheManager.getCache("appCodeCache");
 		CacheUtil.cacheSynCodeRemove(appCodeCache, codeType + "." + codeValue);
 		CacheUtil.cacheSynCodeRemove(codeListCache, codeType);
 	}

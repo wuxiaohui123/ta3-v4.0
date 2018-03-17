@@ -16,6 +16,11 @@ public class AccessLogVO implements Serializable {
 	private String url;
 	private String sysflag;
 
+	
+	
+	public AccessLogVO() {
+	}
+
 	public AccessLogVO(Long userid, String name, Long positionid, String positionnamepath, Long permissionid, String menunamepath,
 			String ispermission, Date accesstime, String url, String sysflag) {
 		this.userid = userid;

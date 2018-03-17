@@ -3,8 +3,8 @@ package com.yinhai.ta3.sysapp.cachemg;
 import java.net.URLDecoder;
 import java.util.List;
 
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Ehcache;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 
 import com.yinhai.sysframework.cache.ehcache.CacheUtil;
 import com.yinhai.sysframework.codetable.CodeCacheService;
@@ -15,6 +15,8 @@ import com.yinhai.sysframework.codetable.service.CodeTableLocator;
 import com.yinhai.sysframework.dto.ParamDTO;
 import com.yinhai.sysframework.util.ValidateUtil;
 import com.yinhai.webframework.BaseAction;
+
+import net.sf.ehcache.Ehcache;
 
 public class AppCodeMainAction extends BaseAction {
 
@@ -112,11 +114,11 @@ public class AppCodeMainAction extends BaseAction {
 	}
 
 	public String pushLocalCache() throws Exception {
-		Ehcache codeListLocalCache = ehCacheManager.getEhcache("codeListLocalCache");
+		Cache codeListLocalCache = ehCacheManager.getCache("codeListLocalCache");
 		int max = codeCacheService.getLocalCacheVersion();
 
 		if (version == 0) {
-			writeJsonToClient(codeListLocalCache.get(codeListLocalCache.getKeys().get(0)).getValue());
+			writeJsonToClient(codeListLocalCache.get(((Ehcache) codeListLocalCache).getKeys().get(0)));
 		} else if (version < max) {
 			writeJsonToClient(codeCacheService.getChangeLocalCacheJson(version, max));
 		} else {
@@ -127,8 +129,8 @@ public class AppCodeMainAction extends BaseAction {
 	}
 
 	private void clearCacheSynCode(String codeType, String codeValue) {
-		Ehcache codeListCache = ehCacheManager.getEhcache("codeListCache");
-		Ehcache appCodeCache = ehCacheManager.getEhcache("appCodeCache");
+		Cache codeListCache = ehCacheManager.getCache("codeListCache");
+		Cache appCodeCache = ehCacheManager.getCache("appCodeCache");
 		CacheUtil.cacheSynCodeRemove(appCodeCache, codeType + "." + codeValue);
 		CacheUtil.cacheSynCodeRemove(codeListCache, codeType);
 	}

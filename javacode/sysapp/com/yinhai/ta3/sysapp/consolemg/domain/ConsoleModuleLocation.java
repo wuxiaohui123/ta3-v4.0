@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class ConsoleModuleLocation implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8582935648333425070L;
 	private String mark;
 	private Long positionid;
 	private String location;

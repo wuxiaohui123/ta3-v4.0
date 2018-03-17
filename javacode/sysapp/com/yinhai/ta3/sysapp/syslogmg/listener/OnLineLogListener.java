@@ -20,7 +20,8 @@ public class OnLineLogListener extends BaseService implements TaEventListener {
 			String clientIp = dto.getAsString("login_clientip");
 			String serverIp = dto.getAsString("login_serverip");
 			String resource = dto.getAsString("login_resource");
-			UserLineSessionLogService lineService = (UserLineSessionLogService) ServiceLocator.getService("userLineSessionLogService");
+			UserLineSessionLogService lineService = ServiceLocator.getService("userLineSessionLogService",
+					UserLineSessionLogService.class);
 			lineService.saveLoginSessionLogByParam(sessionId, userId, name, clientIp, serverIp, resource);
 		}
 	}

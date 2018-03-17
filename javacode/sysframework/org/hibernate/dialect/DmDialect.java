@@ -629,6 +629,7 @@ public class DmDialect extends Dialect {
 		return "current_timestamp";
 	}
 
+	@SuppressWarnings("deprecation")
 	public SQLExceptionConverter buildSQLExceptionConverter() {
 		return new SQLStateConverter(getViolatedConstraintNameExtracter());
 	}
@@ -861,6 +862,7 @@ public class DmDialect extends Dialect {
 		return false;
 	}
 
+	@SuppressWarnings("deprecation")
 	public Class<SequenceGenerator> getNativeIdentifierGeneratorClass() {
 		return SequenceGenerator.class;
 	}

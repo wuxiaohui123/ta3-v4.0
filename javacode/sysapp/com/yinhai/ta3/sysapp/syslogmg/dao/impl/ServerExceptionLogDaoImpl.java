@@ -151,12 +151,12 @@ public class ServerExceptionLogDaoImpl implements ServerExceptionLogDao {
 		dao.delete(getTaserverexceptionlog(id));
 	}
 
-	@Override
+	@WebMethod(exclude = true)
 	public void insertMongo(Taserverexceptionlog taserverexceptionlog) {
 		mongoTemplate.save(taserverexceptionlog);
 	}
 
-	@Override
+	@WebMethod(exclude = true)
 	public List<Taserverexceptionlog> getListByMongo(Timestamp begin, Timestamp end) {
 		org.springframework.data.mongodb.core.query.Query query = new org.springframework.data.mongodb.core.query.Query();
 		if (!ValidateUtil.isEmpty(begin)) {
@@ -168,19 +168,19 @@ public class ServerExceptionLogDaoImpl implements ServerExceptionLogDao {
 		return mongoTemplate.find(query, Taserverexceptionlog.class);
 	}
 
-	@Override
+	@WebMethod(exclude = true)
 	public Taserverexceptionlog getTaserverexceptionlogByMongo(String id) {
 		org.springframework.data.mongodb.core.query.Query query = new org.springframework.data.mongodb.core.query.Query();
 		query.addCriteria(new Criteria("id").is(id));
 		return mongoTemplate.findOne(query, Taserverexceptionlog.class);
 	}
 
-	@Override
+	@WebMethod(exclude = true)
 	public void deleteByMongo(String id) {
 		mongoTemplate.remove(getTaserverexceptionlogByMongo(id));
 	}
 
-	@Override
+	@WebMethod(exclude = true)
 	public PageBean getPageByMongo(String gridId, Timestamp begin, Timestamp end, int start, int limit) {
 		org.springframework.data.mongodb.core.query.Query query = new org.springframework.data.mongodb.core.query.Query();
 		if (!ValidateUtil.isEmpty(begin)) {
@@ -201,7 +201,7 @@ public class ServerExceptionLogDaoImpl implements ServerExceptionLogDao {
 		return pg;
 	}
 
-	@Override
+	@WebMethod(exclude = true)
 	public PageBean getPageByCountByMongo(String gridId, Timestamp begin, Timestamp end, int start, int limit) {
 		org.springframework.data.mongodb.core.query.Query query = new org.springframework.data.mongodb.core.query.Query();
 		if (!ValidateUtil.isEmpty(begin)) {

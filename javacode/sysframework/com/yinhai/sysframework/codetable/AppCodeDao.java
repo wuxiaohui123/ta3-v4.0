@@ -15,7 +15,7 @@ public interface AppCodeDao {
 	  
 	  public abstract List<AppCode> getCodeListByCodeType(String paramString1, String paramString2, boolean paramBoolean);
 	  
-	  public abstract List<AppCode> getCodeList(String paramString);
+	  public abstract List<AppCode> getCodeList(String yab003);
 	  
 	  public abstract List<AppCode> getCodeListByAppCode(AppCode paramAppCode);
 	  

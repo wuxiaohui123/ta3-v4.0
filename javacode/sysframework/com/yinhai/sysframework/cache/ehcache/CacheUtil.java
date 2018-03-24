@@ -22,8 +22,6 @@ import com.yinhai.sysframework.cache.ehcache.service.ServerAddressService;
 import com.yinhai.sysframework.service.ServiceLocator;
 import com.yinhai.sysframework.util.ValidateUtil;
 
-import net.sf.ehcache.Ehcache;
-
 public class CacheUtil {
 
 	public static void cacheElementRemove(String cacheName, String key) {

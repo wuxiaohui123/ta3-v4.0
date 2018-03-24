@@ -69,31 +69,17 @@ public class CodeTableInitService {
 				for (int i = 0; i < list.size(); i++) {
 					AppCode ct = (AppCode) list.get(i);
 					if ("9999".equals(yab003)) {
-						// appCodeCache.putQuiet(new
-						// Element(ct.getCodeType().toUpperCase() + "." +
-						// ct.getCodeValue(), ct));
 						appCodeCache.put(ct.getCodeType().toUpperCase() + "." + ct.getCodeValue(), ct);
 					} else {
-						// appCodeCache.putQuiet(new
-						// Element(ct.getCodeType().toUpperCase() + "." +
-						// ct.getCodeValue() + "." + ct.getYab003(), ct));
 						appCodeCache.put(
 								ct.getCodeType().toUpperCase() + "." + ct.getCodeValue() + "." + ct.getYab003(), ct);
 					}
 					if ((tmpCodeType == null) || (!tmpCodeType.equalsIgnoreCase(ct.getCodeType()))) {
 						if (tmpCodeType != null) {
 							if ("9999".equals(yab003)) {
-								// codeListCache.putQuiet(new
-								// Element(tmpCodeType.toUpperCase(),new
-								// CodeCacheService.CachAppCodeList(codeCacheService.genarateJson(v),
-								// v)));
 								codeListCache.put(tmpCodeType.toUpperCase(),
 										new CodeCacheService.CachAppCodeList(codeCacheService.genarateJson(v), v));
 							} else {
-								// codeListCache.putQuiet(new
-								// Element(tmpCodeType + "." + yab003, new
-								// CodeCacheService.CachAppCodeList(codeCacheService.genarateJson(v),
-								// v)));
 								codeListCache.put(tmpCodeType + "." + yab003,
 										new CodeCacheService.CachAppCodeList(codeCacheService.genarateJson(v), v));
 							}
@@ -106,17 +92,9 @@ public class CodeTableInitService {
 			}
 			if ((tmpCodeType != null) && (v != null)) {
 				if ("9999".equals(yab003)) {
-					// codeListCache.putQuiet(new
-					// Element(tmpCodeType.toUpperCase(),new
-					// CodeCacheService.CachAppCodeList(codeCacheService.genarateJson(v),
-					// v)));
 					codeListCache.put(tmpCodeType.toUpperCase(),
 							new CodeCacheService.CachAppCodeList(codeCacheService.genarateJson(v), v));
 				} else {
-					// codeListCache.putQuiet(new
-					// Element(tmpCodeType.toUpperCase() + "." + yab003,new
-					// CodeCacheService.CachAppCodeList(codeCacheService.genarateJson(v),
-					// v)));
 					codeListCache.put(tmpCodeType.toUpperCase() + "." + yab003,
 							new CodeCacheService.CachAppCodeList(codeCacheService.genarateJson(v), v));
 				}
@@ -135,7 +113,8 @@ public class CodeTableInitService {
 		for (int i = 0; i < keys.size(); i++) {
 			String key = (String) keys.get(i);
 
-			CodeCacheService.CachAppCodeList list = (CodeCacheService.CachAppCodeList) codeListCache.get(keys.get(i)).get();
+			CodeCacheService.CachAppCodeList list = (CodeCacheService.CachAppCodeList) codeListCache.get(keys.get(i))
+					.get();
 
 			List<AppCode> apps = list.getList();
 			if (ValidateUtil.isNotEmpty(apps)) {
@@ -153,8 +132,6 @@ public class CodeTableInitService {
 		sb.append("1");
 		sb.append("\"");
 		sb.append("}");
-		// codeListLocalCache.putQuiet(new Element("LocalCache." + yab003,
-		// sb.toString()));
 		codeListLocalCache.put("LocalCache." + yab003, sb.toString());
 	}
 
@@ -163,8 +140,6 @@ public class CodeTableInitService {
 
 	public void destroy() {
 		logger.info("代码表缓存清除...");
-		// ehCacheManager.removeCache("codeListCache");
-		// ehCacheManager.removeCache("appCodeCache");
 		ehCacheManager.getCache("codeListCache").clear();
 		ehCacheManager.getCache("appCodeCache").clear();
 	}
@@ -173,7 +148,6 @@ public class CodeTableInitService {
 		if ((orgId == null) || ("".equals(orgId))) {
 			orgId = "9999";
 		}
-
 		CacheUtil.cacheElementRemove("appCodeCache", codeType + "." + codeValue + "." + orgId);
 		CacheUtil.cacheElementRemove("codeListCache", codeType + "." + orgId);
 	}

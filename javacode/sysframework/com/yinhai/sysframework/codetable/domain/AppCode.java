@@ -1,11 +1,14 @@
 package com.yinhai.sysframework.codetable.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.yinhai.sysframework.app.domain.BaseDomain;
 import com.yinhai.sysframework.app.domain.Key;
 import com.yinhai.sysframework.util.PinyinUtil;
 
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="javaClassName") 
 public class AppCode extends BaseDomain {
 
 	protected String codeType;
@@ -92,11 +95,11 @@ public class AppCode extends BaseDomain {
 	}
 
 	public String toString() {
-		return new ToStringBuilder(this).append("<br>´úÂëÀà±ð(codeType):", getCodeType() + "<br>")
-				.append("´úÂëÖµ(codeValue):", getCodeValue() + "<br>")
-				.append("Àà±ðÃû³Æ(codeTypeDESC):", getCodeTypeDESC() + "<br>")
-				.append("´úÂëÃû³Æ(codeDESC):", getCodeDESC() + "<br>").append("×éÖ¯»ú¹¹´úÂë(orgId):", getYab003() + "<br>")
-				.append("×¢Ïú±êÖ¾(validFlag):", getValidFlag() + "<br>").toString();
+		return new ToStringBuilder(this).append("<br>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(codeType):", getCodeType() + "<br>")
+				.append("ï¿½ï¿½ï¿½ï¿½Öµ(codeValue):", getCodeValue() + "<br>")
+				.append("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(codeTypeDESC):", getCodeTypeDESC() + "<br>")
+				.append("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(codeDESC):", getCodeDESC() + "<br>").append("ï¿½ï¿½Ö¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(orgId):", getYab003() + "<br>")
+				.append("×¢ï¿½ï¿½ï¿½ï¿½Ö¾(validFlag):", getValidFlag() + "<br>").toString();
 	}
 
 	public java.util.Map toMap() {

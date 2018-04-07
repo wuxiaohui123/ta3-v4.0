@@ -23,11 +23,10 @@ import com.yinhai.sysframework.util.ValidateUtil;
 public class ProcessModelServiceImpl extends AbpmnAppServiceImpl implements ProcessModelService {
 
 	@Override
-	public List<Map<String,Object>> queryProcessModel(ParamDTO dto) throws Exception {
+	public List<Map<String,Object>> queryProcessModel(String value) throws Exception {
 		String querysql = "SELECT * FROM ACT_RE_MODEL";
-		String paramter = dto.getAsString("processName");
-		if(ValidateUtil.isNotEmpty(paramter)){
-			querysql += " WHERE ID_ LIKE '%" + paramter +"%' OR NAME_ LIKE '%" + paramter + "%'";
+		if(ValidateUtil.isNotEmpty(value)){
+			querysql += " WHERE ID_ LIKE '%" + value +"%' OR NAME_ LIKE '%" + value + "%'";
 		}
 		querysql += " ORDER BY CREATE_TIME_";
 		List<Model> modellist = getRepositoryService().createNativeModelQuery().sql(querysql).list();

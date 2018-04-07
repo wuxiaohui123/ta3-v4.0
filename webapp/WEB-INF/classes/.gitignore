@@ -10,6 +10,6 @@
 /log4j.properties
 /log4j2.xml
 /mongo.properties
+/resource/
 /org/
 /quartz.properties
-/resource/

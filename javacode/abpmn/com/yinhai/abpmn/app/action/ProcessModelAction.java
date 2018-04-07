@@ -1,6 +1,8 @@
 package com.yinhai.abpmn.app.action;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.activiti.engine.repository.Deployment;
 import org.apache.commons.codec.binary.Base64;
@@ -21,8 +23,10 @@ import com.yinhai.sysframework.dto.ParamDTO;
  * 
  */
 @Namespace("/abpmn")
-@AllowedMethods(value = { "queryModel", "getProcessModelSvg", "saveProcessModel", "deleteProcessModel", "deployProcessModel","toAddProcessModel" })
-@Action(value = "processModelAction", results = { @Result(name = "success", location = "/abpmn/processDesiger/processModel.jsp"),
+@AllowedMethods(value = { "queryModel", "getProcessModelSvg", "saveProcessModel", "deleteProcessModel",
+		"deployProcessModel", "toAddProcessModel" })
+@Action(value = "processModelAction", results = {
+		@Result(name = "success", location = "/abpmn/processDesiger/processModel.jsp"),
 		@Result(name = "addModel", location = "/abpmn/processDesiger/addProcessModel.jsp") })
 public class ProcessModelAction extends AbpmnAppAction {
 
@@ -30,7 +34,8 @@ public class ProcessModelAction extends AbpmnAppAction {
 
 	@Override
 	public String execute() throws Exception {
-		List list = desigerService.queryProcessModel(getDto());
+		String value = request.getParameter("value");
+		List list = desigerService.queryProcessModel(value);
 		setListView("myProcess", list);
 		return SUCCESS;
 	}
@@ -42,13 +47,21 @@ public class ProcessModelAction extends AbpmnAppAction {
 	 * @throws Exception
 	 */
 	public String queryModel() throws Exception {
-		List list = desigerService.queryProcessModel(getDto());
+		String value = request.getParameter("value");
+		List list = desigerService.queryProcessModel(value);
 		if (list != null && list.size() > 0) {
-			setList("processModelGrid", list);
+			// setList("processModelGrid", list);
+			Map<String, Object> result = new HashMap<String, Object>();
+			result.put("list", list);
+			result.put("start", 0);
+			result.put("end", list.size());
+			result.put("total", list.size());
+			writeJsonToClient(result);
+			return null;
 		} else {
 			setMsg("查询结果为空！");
+			return JSON;
 		}
-		return JSON;
 	}
 
 	public String getProcessModelSvg() throws Exception {
@@ -80,10 +93,13 @@ public class ProcessModelAction extends AbpmnAppAction {
 	}
 
 	public String deleteProcessModel() throws Exception {
-		ParamDTO dto = getDto();
-		desigerService.deleteProcessModel(dto.getAsString("modelId"));
-		setMsg("删除模型成功！");
-		return JSON;
+		String modelId = request.getParameter("id");
+		desigerService.deleteProcessModel(modelId);
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("code", 200);
+		result.put("msg", "删除模型成功！");
+		writeJsonToClient(result);
+		return null;
 	}
 
 	public String deployProcessModel() throws Exception {

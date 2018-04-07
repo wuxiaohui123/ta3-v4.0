@@ -102,7 +102,7 @@ public class UserLineSessionLogServiceImpl extends WsBaseService implements User
 				history.setSessionid(sessionid);
 				if (SysConfig.getSysconfigToBoolean("isMongo", true)) {
 					mongoTemplate.save(history);
-					mongoTemplate.remove(online);
+					mongoTemplate.remove(new Query(Criteria.where("sessionid").is(online.getSessionid())), Taonlinelog.class);
 				} else {
 					hibernateDao.save(history);
 					hibernateDao.delete(online);

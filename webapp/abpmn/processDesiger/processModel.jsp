@@ -9,15 +9,15 @@
 <body class="no-scrollbar" layout="border" layoutCfg="{leftWidth:350}" >
 	<ta:pageloading />
 	<ta:box id="mymodel" key="流程模型管理" position="left" cssStyle="padding:10px;">
-	  <ta:panel id="mypanel" fit="true" hasBorder="false">
-	     <ta:box cols="2">
+	  <ta:panel id="mypanel" fit="true" hasBorder="false" heightDiff="20">
+	    <%--  <ta:box cols="2">
 	     	<ta:text id="processName" columnWidth="0.75" placeholder="可以输入模型ID，模型名称查询"/>
 	     	<ta:buttonLayout columnWidth="0.25">
 		     	<ta:button id="queryBtn" key="查询" isok="true" onClick="fnRefresh()"/>
 	     	</ta:buttonLayout>
-	     </ta:box>
-	     <ta:listView id="myProcess" width="100%" height="100%" hasSearch="false" itemDisplayTemplate="{modelName}（ID:{modelId}）" 
-	     searchKey="modelId,modelName" itemIcon="icon-process" itemClick="fnClick"/>
+	     </ta:box> --%>
+	     <ta:listView id="myProcess" width="100%" height="100%" hasSearch="true" itemDisplayTemplate="{modelName}（ID:{modelId}）" isAsync="true" asyncUrl="processModelAction!queryModel.do"
+	     searchKey="modelName" itemIcon="icon-process" isPage="false" itemClickBgColor="#a3b39b" showDeleteBtn="true" deleteUrl="processModelAction!deleteProcessModel.do" itemClick="fnClick"/>
 	  </ta:panel>
 	</ta:box>
 	<ta:box position="center" cssStyle="padding:10px">
@@ -110,7 +110,7 @@
 	//添加流程模型
 	function fnAddModel(){
 	    Base.openWindow("addWin","新建模型","processModelAction!toAddProcessModel.do",null,"400","265",null,function(){
-	    	Base.submit("","processModelAction!queryModel.do");
+            Base.refreshListView("myProcess");
 	    },true,"top:43.5px;left:316px;",{maximizable:false});
 	}
 	//编辑流程模型

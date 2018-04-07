@@ -10,7 +10,7 @@ import com.yinhai.sysframework.dto.ParamDTO;
 
 public interface ProcessModelService extends AbpmnAppService {
 
-	List<Map<String,Object>> queryProcessModel(ParamDTO dto) throws Exception;
+	List<Map<String,Object>> queryProcessModel(String value) throws Exception;
 	
 	String saveProcessModelData(ParamDTO dto) throws Exception;
 	

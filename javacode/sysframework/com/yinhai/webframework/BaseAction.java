@@ -350,11 +350,11 @@ public class BaseAction extends ActionSupport implements Action, IGetResultBean 
 		if (obj == null)
 			return;
 		String str = "";
-		if ((obj instanceof PageBean)) {
+		if (obj instanceof PageBean) {
 			PageBean pbt = (PageBean) obj;
 			pbt.setList(codeDisplay(pbt.getGridId(), pbt.getList()));
 			str = JSonFactory.bean2json(pbt);
-		} else if (((obj instanceof String)) || ((obj instanceof StringBuffer)) || ((obj instanceof StringBuilder))) {
+		} else if (obj instanceof String || obj instanceof StringBuffer || obj instanceof StringBuilder) {
 			str = obj.toString();
 		} else {
 			str = JSonFactory.bean2json(obj);
@@ -364,6 +364,7 @@ public class BaseAction extends ActionSupport implements Action, IGetResultBean 
 		PrintWriter writer = response.getWriter();
 		writer.write(str);
 		writer.flush();
+		writer.close();
 	}
 
 	private Key getGridDisplayCode(String gridId) {

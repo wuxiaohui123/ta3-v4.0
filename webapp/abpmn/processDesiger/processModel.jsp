@@ -27,8 +27,6 @@
 	       <ta:toolbarItem id="btnEdit" key="编辑模型" onClick="fnEditModel()"/>
 	       <ta:toolbarItemSeperator></ta:toolbarItemSeperator>
 	       <ta:toolbarItem id="btnDeploy" key="部署模型" onClick="fnDeployModel()"/>
-	       <ta:toolbarItemSeperator></ta:toolbarItemSeperator>
-	       <ta:toolbarItem id="btnDelete" key="删除模型" onClick="fnDeleteModel()"/>
 	    </ta:toolbar>
 		<ta:panel id="processModelInfo" key="流程模型信息" expanded="true">
 		   <ta:tableView id="processModelInfoTable">
@@ -63,15 +61,6 @@
 	$(document).ready(function() {
 		$("body").taLayout();
 	});
-	//刷新
-	function fnRefresh(){
-		Base.submit("mypanel","processModelAction!queryModel.do",null,null,false,function(data){
-			if(data.hasOwnProperty("lists")){
-				var processlist = data.lists.processModelGrid.list;
-				Base.setListViewData("myProcess",processlist);
-			} 
-		});
-	}
 	//获取流程模型信息
 	var modelId = "";
 	function fnClick(model){
@@ -129,7 +118,7 @@
 		    content: "<%=basePath%>abpmn/processEditor/modeler.html?modelId="+modelId,
 		    cancel: function(index){
 		    	if(confirm("确定要关闭么?")){
-		    		fnRefresh();
+		    		Base.refreshListView("myProcess");
 					var obj = {"modelId":"","modelName":"","modelKey":"","modelVersion":"","modelType":"","modelCreateTime":"","modelLastUpdateTime":"","modelMetaInfo":""};
 					fnClick(obj);
 					top.layer.close(index);
@@ -141,21 +130,6 @@
 	//部署流程模型
 	function fnDeployModel(){
 		Base.submit("","processModelAction!deployProcessModel.do",{"dto['modelId']":modelId});
-	}
-	//删除流程模型
-	function fnDeleteModel(){
-		if(modelId == ""){
-			Base.alert("请选择模型！","success");
-			return;
-		}else{
-			Base.confirm("确定要删除【模型Id:"+modelId+"】的流程模型吗？",function(yes){
-				if(yes){
-					Base.submit("","processModelAction!deleteProcessModel.do",{"dto['modelId']":modelId},null,false,function(){
-						fnRefresh();
-					});
-				}
-			});
-		}	
 	}
 	//全屏查看
 	function fullScreenView(){

@@ -92,14 +92,12 @@ $.fn.ListView = function(options) {
 		calculateIconMarginTop : function() {
 			this.iconMarginTop = (settings.itemHeight - 25) / 2;
 		},
-		bindDataByItem : function(obj, index, hasOperation, itemClick,
-				itemDbClick) {
+		bindDataByItem : function(obj, index, hasOperation, itemClick, itemDbClick) {
 			if (obj == null || typeof obj === "undefined") {
 				return;
 			}
 			var c = $("<div class='list-item'/>").height(settings.itemHeight);
-			c.data(obj).data("index", index).bind("click", obj, itemClick)
-					.bind("dbclick", obj, itemDbClick);
+			c.data(obj).data("index", index).bind("click", obj, itemClick).bind("dbclick", obj, itemDbClick);
 			if (settings.isItemIcon) {
 				var d = $("<span class='item-icon' style='width: 35px;height: 35px'/>");
 				if (settings.itemIcon) {
@@ -109,9 +107,7 @@ $.fn.ListView = function(options) {
 				}
 				c.append(d);
 			}
-			var e = $("<div class='item-context'/>")
-					.height(settings.itemHeight).css("line-height",
-							settings.itemHeight + "px");
+			var e = $("<div class='item-context'/>").height(settings.itemHeight).css("line-height", settings.itemHeight + "px");
 			if (settings.itemDisplayTemplate) {
 				e.html(settings.itemDisplayTemplate.applyTemplate(obj));
 			} else {
@@ -119,26 +115,15 @@ $.fn.ListView = function(options) {
 			}
 			c.append(e);
 			if (hasOperation) {
-				var operation = $("<div class='item-operation'/>").height(
-						settings.itemHeight).css("line-height",
-						settings.itemHeight + "px");
+				var operation = $("<div class='item-operation'/>").height(settings.itemHeight).css("line-height", settings.itemHeight + "px");
 				if (settings.itemOperation.showEditBtn) {
-					e.width(_self.FrontModel
-							.getContextWidth(settings.isItemIcon));
-					operation.append($("<div class='icon-edit' title='编辑'/>")
-							.css('margin-top', this.iconMarginTop + "px").bind(
-									"click", obj, this.dataItemEdit));
-					operation.append($("<div class='icon-commit' title='提交'/>")
-							.css('margin-top', this.iconMarginTop + "px").bind(
-									"click", obj, this.dataItemCommit).hide());
-					operation.append($("<div class='icon-close' title='取消'/>")
-							.css('margin-top', this.iconMarginTop + "px").bind(
-									"click", obj, this.dataItemClose).hide());
+					e.width(_self.FrontModel.getContextWidth(settings.isItemIcon));
+					operation.append($("<div class='icon-edit' title='编辑'/>").css('margin-top', this.iconMarginTop + "px").bind("click", obj, this.dataItemEdit));
+					operation.append($("<div class='icon-commit' title='提交'/>").css('margin-top', this.iconMarginTop + "px").bind("click", obj, this.dataItemCommit).hide());
+					operation.append($("<div class='icon-close' title='取消'/>").css('margin-top', this.iconMarginTop + "px").bind("click", obj, this.dataItemClose).hide());
 				}
 				if (settings.itemOperation.showDeleteBtn) {
-					operation.append($("<div class='icon-delete' title='删除'/>")
-							.css('margin-top', this.iconMarginTop + "px").bind(
-									"click", obj, this.dataItemDelete));
+					operation.append($("<div class='icon-delete' title='删除'/>").css('margin-top', this.iconMarginTop + "px").bind("click", obj, this.dataItemDelete));
 				}
 				c.append(operation);
 			}
@@ -167,12 +152,8 @@ $.fn.ListView = function(options) {
 		},
 		dataItemDelete : function(e) {
 			if (confirm("确定删除该条数据吗？")) {
-				var itemContext = $(e.target).parent().prev()[0];
-				var itemData = $(itemContext).parent().data();
-				_self.ModelTemplate.obtainDataByAjax(
-						settings.itemOperation.deleteUrl, {
-							id : itemData.id
-						}, function(res) {
+				var itemData = e.data;
+				_self.ModelTemplate.obtainDataByAjax(settings.itemOperation.deleteUrl, {id : itemData.modelId}, function(res) {
 							if (res.code === 200) {
 								if (settings.isAsync) {// asynchronous
 									_self.BehindModel.refreshDataView();
@@ -188,11 +169,7 @@ $.fn.ListView = function(options) {
 		dataItemCommit : function(e) {
 			var itemContext = $(e.target).parent().prev()[0];
 			var itemData = $(itemContext).parent().data();
-			_self.ModelTemplate.submitDataByAjax(
-					settings.itemOperation.editUrl, {
-						id : itemData.id,
-						name : itemContext.innerHTML
-					}, function(res) {
+			_self.ModelTemplate.submitDataByAjax(settings.itemOperation.editUrl, {id : itemData.modelId,name : itemContext.innerHTML}, function(res) {
 						res = JSON.parse(res);
 						if (res.code === 200) {
 							itemData.name = itemContext.innerHTML;
@@ -206,8 +183,7 @@ $.fn.ListView = function(options) {
 			var itemContext = $(e.target).parent().prev()[0];
 			var itemData = $(itemContext).parent().data();
 			if (settings.itemDisplayTemplate) {
-				itemContext.innerHTML = settings.itemDisplayTemplate
-						.applyTemplate(itemData);
+				itemContext.innerHTML = settings.itemDisplayTemplate.applyTemplate(itemData);
 			}
 			itemContext.removeAttribute("contentEditable");
 			itemContext.blur();
@@ -218,7 +194,7 @@ $.fn.ListView = function(options) {
 			e.stopPropagation();
 		},
 		obtainDataByAjax : function(url, params, callback) {
-			$.get(url, params, callback);
+			$.getJSON(url, params, callback);
 		},
 		submitDataByAjax : function(url, params, callback) {
 			$.post(url, params, callback);

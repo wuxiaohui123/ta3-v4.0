@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+    
+     <aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<!-- Redis缓存数据库-连接池参数配置 -->
+	<bean id="redisPoolConfig" class="redis.clients.jedis.JedisPoolConfig" />
+	
+	<!-- Redis缓存数据库-连接池配置 -->
+	<bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool" destroy-method="destroy">
+	  <constructor-arg index="0" ref="redisPoolConfig"/>
+	  <constructor-arg index="1">
+	  	<list>
+	  		<bean class="redis.clients.jedis.JedisShardInfo">
+	  			<constructor-arg name="name" value="instance:01"/>
+	  			<constructor-arg name="host" value="${redis.host1}"/>
+	  			<constructor-arg name="port" value="${redis.port1}"/>
+	  			<property name="password" value="${redis.password1}"/>
+	  		</bean>
+	  		<bean class="redis.clients.jedis.JedisShardInfo">
+	  			<constructor-arg name="name" value="instance:02"/>
+	  			<constructor-arg name="host" value="${redis.host2}"/>
+	  			<constructor-arg name="port" value="${redis.port2}"/>
+	  			<property name="password" value="${redis.password2}"/>
+	  		</bean>
+	  		<bean class="redis.clients.jedis.JedisShardInfo">
+	  			<constructor-arg name="name" value="instance:03"/>
+	  			<constructor-arg name="host" value="${redis.host3}"/>
+	  			<constructor-arg name="port" value="${redis.port3}"/>
+	  			<property name="password" value="${redis.password3}"/>
+	  		</bean>
+	  	</list>
+	  </constructor-arg>
+	</bean>
+    <!-- Redis缓存数据库-数据源配置 -->
+    <bean id="redisDataSource" class="com.yinhai.ta3.redis.service.impl.RedisDataSourceImpl">
+      <property name="shardedJedisPool" ref="shardedJedisPool"></property>
+    </bean>
+    <!-- Redis缓存数据库-数据源客户端配置 -->
+    <bean id="shardedJedisClient" class="com.yinhai.ta3.redis.ShardedJedisClient">
+      <property name="redisDataSource" ref="redisDataSource"></property>
+    </bean>
+    <!-- Redis缓存数据库-配置 -->
+	<bean id="methodCacheAspectJ" class="com.yinhai.ta3.redis.CacehInterceptor">
+		<property name="client" ref="shardedJedisClient"/>
+	</bean>
+	
+</beans>

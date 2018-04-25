@@ -6,7 +6,7 @@ import com.yinhai.ta3.redis.service.RedisDataSource;
 
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
-
+@SuppressWarnings("deprecation")
 public class RedisDataSourceImpl implements RedisDataSource {
 
 	private static final Logger log = Logger.getLogger(RedisDataSourceImpl.class);
@@ -24,6 +24,7 @@ public class RedisDataSourceImpl implements RedisDataSource {
         return null;
 	}
 
+	
 	@Override
 	public void returnResource(ShardedJedis shardedJedis) {
 		shardedJedisPool.returnResource(shardedJedis);

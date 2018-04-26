@@ -1,2 +1,15 @@
-/org/
+/app-context.xml
+/bs/
 /com/
+/config.properties
+/distributecache.xml
+/ehcache.xml
+/exportExcel.properties
+/hibernateconfig.xml
+/jdbc.properties
+/log4j.properties
+/log4j2.xml
+/mongo.properties
+/org/
+/quartz.properties
+/resource/

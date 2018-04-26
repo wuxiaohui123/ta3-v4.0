@@ -19,7 +19,7 @@ public class MySessionFactoryBean extends LocalSessionFactoryBean {
 			label117: for (Resource res : mappingLocations) {
 				for (Resource resExt : mappingLocationsExtends) {
 					String extFileName = resExt.getFilename();
-					if ((extFileName != null) && (extFileName.equals(res.getFilename()))) {
+					if (extFileName != null && extFileName.equals(res.getFilename())) {
 						realList.add(resExt);
 						break label117;
 					}

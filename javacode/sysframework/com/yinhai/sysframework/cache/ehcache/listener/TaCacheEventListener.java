@@ -5,21 +5,22 @@ import java.net.ConnectException;
 import java.net.URI;
 import java.util.List;
 
-import net.sf.ehcache.CacheException;
-import net.sf.ehcache.Ehcache;
-import net.sf.ehcache.Element;
-import net.sf.ehcache.event.CacheEventListener;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClients;
 
 import com.yinhai.sysframework.cache.ehcache.service.ServerAddressService;
 import com.yinhai.sysframework.service.ServiceLocator;
 import com.yinhai.sysframework.util.ValidateUtil;
+
+import net.sf.ehcache.CacheException;
+import net.sf.ehcache.Ehcache;
+import net.sf.ehcache.Element;
+import net.sf.ehcache.event.CacheEventListener;
 
 public class TaCacheEventListener implements CacheEventListener {
 
@@ -43,14 +44,16 @@ public class TaCacheEventListener implements CacheEventListener {
 		if (ValidateUtil.isNotEmpty(list)) {
 			for (int i = 0; i < list.size(); i++) {
 				try {
-					myNotify(cache.getName(), (String) element.getKey(), (String) list.get(i));
+					myNotify(cache.getName(), (String) element.getObjectKey(), (String) list.get(i));
 				} catch (ConnectException e1) {
 					if (logger.isErrorEnabled()) {
-						logger.error("服务：" + (String) list.get(i) + ",缓存名称：" + cache.getName() + ",key：" + (String) element.getKey() + "缓存清除通知失败,原因：连接超时");
+						logger.error("服务：" + (String) list.get(i) + ",缓存名称：" + cache.getName() + ",key："
+								+ (String) element.getObjectKey() + "缓存清除通知失败,原因：连接超时");
 					}
 				} catch (Exception e) {
 					if (logger.isErrorEnabled()) {
-						logger.error("服务：" + (String) list.get(i) + ",缓存名称：" + cache.getName() + ",key：" + (String) element.getKey() + "缓存清除通知失败");
+						logger.error("服务：" + (String) list.get(i) + ",缓存名称：" + cache.getName() + ",key："
+								+ (String) element.getObjectKey() + "缓存清除通知失败");
 					}
 
 				}
@@ -65,11 +68,12 @@ public class TaCacheEventListener implements CacheEventListener {
 			logger.debug(key + " will be notify " + address + " to removed.");
 		}
 
-		HttpClient httpclient = new DefaultHttpClient();
-		httpclient.getParams().setParameter("http.socket.timeout", Integer.valueOf(300));
-		httpclient.getParams().setParameter("http.connection.timeout", Integer.valueOf(300));
-		httpclient.getParams().setParameter("http.connection-manager.timeout", Integer.valueOf(300));
+		HttpClient httpclient = HttpClients.createDefault();
+		// 设置请求配置
+		RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(300).setConnectionRequestTimeout(300)
+				.setSocketTimeout(300).build();
 		HttpGet httpget = new HttpGet();
+		httpget.setConfig(requestConfig);
 		httpget.setURI(new URI(address + (address.endsWith("/") ? "" : "/") + "codetable/synCodeaction.do?key=" + key
 				+ "&cacheName=" + cacheName));
 		try {

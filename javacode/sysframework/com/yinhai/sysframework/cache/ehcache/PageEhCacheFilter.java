@@ -19,7 +19,6 @@ public class PageEhCacheFilter extends SimplePageCachingFilter {
 		chain.doFilter(request, response);
 	}
 
-	@SuppressWarnings("unchecked")
 	private boolean headerContains(HttpServletRequest request, String header, String value) {
 		logRequestHeaders(request);
 		Enumeration<String> accepted = request.getHeaders(header);

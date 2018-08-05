@@ -230,13 +230,16 @@ public class ReflectUtil {
 		try {
 			return method.invoke(object, parameterValues);
 		} catch (IllegalAccessException e) {
-			throw new SysLevelException("Access failed of Method:" + method.getName() + getParmTypesDesc(method.getParameterTypes()), e);
+			throw new SysLevelException(
+					"Access failed of Method:" + method.getName() + getParmTypesDesc(method.getParameterTypes()), e);
 		} catch (InvocationTargetException e) {
-			throw new SysLevelException("Access failed of Method:" + method.getName() + getParmTypesDesc(method.getParameterTypes()), e);
+			throw new SysLevelException(
+					"Access failed of Method:" + method.getName() + getParmTypesDesc(method.getParameterTypes()), e);
 		}
 	}
 
-	public static Object invokeMethod(Object object, Class clazz, String methodName, Class[] parmTypes, Object[] parameterValues) {
+	public static Object invokeMethod(Object object, Class clazz, String methodName, Class[] parmTypes,
+			Object[] parameterValues) {
 		return invokeMethod(object, getMethod(clazz, methodName, parmTypes), parameterValues);
 	}
 
@@ -244,7 +247,8 @@ public class ReflectUtil {
 		return invokeMethod(object, object.getClass(), methodName, parmTypes, parameterValues);
 	}
 
-	public static Object invokeMethod(Class clazz, String staticMethodName, Class[] parmTypes, Object[] parameterValues) {
+	public static Object invokeMethod(Class clazz, String staticMethodName, Class[] parmTypes,
+			Object[] parameterValues) {
 		return invokeMethod(null, clazz, staticMethodName, parmTypes, parameterValues);
 	}
 
@@ -291,7 +295,8 @@ public class ReflectUtil {
 		for (Iterator it = props.values().iterator(); it.hasNext();) {
 
 			PropertyDescriptor pd = (PropertyDescriptor) it.next();
-			Object value = getObjectByClassType(pd.getName(), pd.getPropertyType(), getFieldByName(fName, fValue, pd.getName()));
+			Object value = getObjectByClassType(pd.getName(), pd.getPropertyType(),
+					getFieldByName(fName, fValue, pd.getName()));
 			if (value != null) {
 
 				Method writeMethod = pd.getWriteMethod();
@@ -348,7 +353,8 @@ public class ReflectUtil {
 				Method writeMethod = pd2.getWriteMethod();
 				if ((readMethod != null) && (writeMethod != null)) {
 
-					if ((pd2.getPropertyType().equals(pd.getPropertyType())) || (isInheritOrImplement(pd.getPropertyType(), pd2.getPropertyType())))
+					if ((pd2.getPropertyType().equals(pd.getPropertyType()))
+							|| (isInheritOrImplement(pd.getPropertyType(), pd2.getPropertyType())))
 						invokeMethod(dest, writeMethod, new Object[] { invokeMethod(src, readMethod, NO_CLASSES) });
 				}
 			}
@@ -369,7 +375,8 @@ public class ReflectUtil {
 				Method writeMethod = pd2.getWriteMethod();
 				if ((readMethod != null) && (writeMethod != null)) {
 
-					if ((pd2.getPropertyType().equals(pd.getPropertyType())) || (isInheritOrImplement(pd.getPropertyType(), pd2.getPropertyType())))
+					if ((pd2.getPropertyType().equals(pd.getPropertyType()))
+							|| (isInheritOrImplement(pd.getPropertyType(), pd2.getPropertyType())))
 						if (invokeMethod(src, readMethod, NO_CLASSES) != null) {
 							invokeMethod(dest, writeMethod, new Object[] { invokeMethod(src, readMethod, NO_CLASSES) });
 						}
@@ -425,7 +432,8 @@ public class ReflectUtil {
 		if (writeMethod == null) {
 			throw new SysLevelException("No writemethod of property:" + propName);
 		}
-		invokeMethod(obj, writeMethod, new Object[] { getObjectByClassType(pd.getName(), pd.getPropertyType(), value) });
+		invokeMethod(obj, writeMethod,
+				new Object[] { getObjectByClassType(pd.getName(), pd.getPropertyType(), value) });
 	}
 
 	public static Map getPropsFromObject(Object obj, String[] propsName) {
@@ -534,13 +542,15 @@ public class ReflectUtil {
 	}
 
 	public static void setFieldValue(Object target, String fname, Class ftype, Object fvalue) {
-		if ((target == null) || (fname == null) || ("".equals(fname)) || ((fvalue != null) && (!ftype.isAssignableFrom(fvalue.getClass())))) {
+		if ((target == null) || (fname == null) || ("".equals(fname))
+				|| ((fvalue != null) && (!ftype.isAssignableFrom(fvalue.getClass())))) {
 
 			return;
 		}
 		Class clazz = target.getClass();
 		try {
-			Method method = clazz.getDeclaredMethod("set" + Character.toUpperCase(fname.charAt(0)) + fname.substring(1), new Class[] { ftype });
+			Method method = clazz.getDeclaredMethod("set" + Character.toUpperCase(fname.charAt(0)) + fname.substring(1),
+					new Class[] { ftype });
 
 			if (!Modifier.isPublic(method.getModifiers())) {
 				method.setAccessible(true);
@@ -556,5 +566,35 @@ public class ReflectUtil {
 			} catch (Exception fe) {
 			}
 		}
+	}
+
+	public static Map<String, Object> convertMapKeyToString(Map<Object, Object> map) {
+		Map<String, Object> m = new HashMap<String, Object>();
+		if (!map.isEmpty()) {
+			for (Map.Entry<Object, Object> entry : map.entrySet()) {
+				m.put(entry.getKey().toString(), entry.getValue());
+			}
+		}
+		return m;
+	}
+
+	public static Map<String, Object> convertMapValueToObject(Map<String, String> map) {
+		Map<String, Object> m = new HashMap<String, Object>();
+		if (!map.isEmpty()) {
+			for (Map.Entry<String, String> entry : map.entrySet()) {
+				m.put(entry.getKey(), entry.getValue());
+			}
+		}
+		return m;
+	}
+
+	public static Map<String, String> convertMapKeyValueToString(Map<Object, Object> map) {
+		Map<String, String> m = new HashMap<String, String>();
+		if (!map.isEmpty()) {
+			for (Map.Entry<Object, Object> entry : map.entrySet()) {
+				m.put(entry.getKey().toString(), entry.getValue().toString());
+			}
+		}
+		return m;
 	}
 }

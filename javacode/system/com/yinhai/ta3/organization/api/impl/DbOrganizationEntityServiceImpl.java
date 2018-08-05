@@ -23,7 +23,7 @@ import com.yinhai.ta3.system.org.domain.Org;
 import com.yinhai.ta3.system.org.domain.Position;
 import com.yinhai.ta3.system.org.domain.User;
 import com.yinhai.ta3.system.sysapp.domain.Menu;
-
+@SuppressWarnings("all")
 public class DbOrganizationEntityServiceImpl extends BaseService implements OrganizationEntityService {
 
 	private Md5PasswordEncoder md5PasswordEncoder;
@@ -38,24 +38,26 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 	}
 
 	public IUser getUserByUserId(Long userId) {
-		return (IUser) hibernateDao.createQuery(
-				"from " + super.getEntityClassName(User.class.getName())
-						+ " u where u.userid=? and (u.destory is null or u.destory=?)", new Object[] { userId, "1" })
+		return (IUser) hibernateDao
+				.createQuery(
+						"from " + super.getEntityClassName(User.class.getName())
+								+ " u where u.userid=? and (u.destory is null or u.destory=?)",
+						new Object[] { userId, "1" })
 				.uniqueResult();
 	}
 
 	public IUser getUserByLoginId(String loginId) {
-		return (IUser) hibernateDao.createQuery(
-				"from " + super.getEntityClassName(User.class.getName())
-						+ " u where u.loginid=? and (u.destory is null or u.destory=?)", new Object[] { loginId, "1" })
+		return (IUser) hibernateDao
+				.createQuery(
+						"from " + super.getEntityClassName(User.class.getName())
+								+ " u where u.loginid=? and (u.destory is null or u.destory=?)",
+						new Object[] { loginId, "1" })
 				.uniqueResult();
 	}
 
 	public List<IUser> getUserByName(String username) {
-		return hibernateDao.createQuery(
-				"from " + super.getEntityClassName(User.class.getName())
-						+ " u where u.name=? and (u.destory is null or u.destory=?)", new Object[] { username, "1" })
-				.list();
+		return hibernateDao.createQuery("from " + super.getEntityClassName(User.class.getName())
+				+ " u where u.name=? and (u.destory is null or u.destory=?)", new Object[] { username, "1" }).list();
 	}
 
 	public IUser getUserBySameLevelName(Long orgid, String username) {
@@ -75,65 +77,49 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 		if (isDeveloper(curPositionId)) {
 			if ((!ValidateUtil.isEmpty(isEffective)) && (!ValidateUtil.isEmpty(isLock))) {
 				if ((isEffective.booleanValue()) && (!isLock.booleanValue()))
-					return hibernateDao
-							.createQuery(
-									"from "
-											+ super.getEntityClassName(User.class.getName())
-											+ " u where (u.destory is null or u.destory=?) and u.effective=? and u.islock=?  order by u.directorgid",
-									new Object[] { "1", "0", "0" }).list();
+					return hibernateDao.createQuery(
+							"from " + super.getEntityClassName(User.class.getName())
+									+ " u where (u.destory is null or u.destory=?) and u.effective=? and u.islock=?  order by u.directorgid",
+							new Object[] { "1", "0", "0" }).list();
 				if ((isEffective.booleanValue()) && (isLock.booleanValue()))
-					return hibernateDao
-							.createQuery(
-									"from "
-											+ super.getEntityClassName(User.class.getName())
-											+ " u where (u.destory is null or u.destory=?) and u.effective=? and u.islock=?  order by u.directorgid",
-									new Object[] { "1", "0", "1" }).list();
+					return hibernateDao.createQuery(
+							"from " + super.getEntityClassName(User.class.getName())
+									+ " u where (u.destory is null or u.destory=?) and u.effective=? and u.islock=?  order by u.directorgid",
+							new Object[] { "1", "0", "1" }).list();
 				if ((!isEffective.booleanValue()) && (!isLock.booleanValue()))
-					return hibernateDao
-							.createQuery(
-									"from "
-											+ super.getEntityClassName(User.class.getName())
-											+ " u where (u.destory is null or u.destory=?) and u.effective=? and u.islock=? order by u.directorgid",
-									new Object[] { "1", "1", "0" }).list();
+					return hibernateDao.createQuery(
+							"from " + super.getEntityClassName(User.class.getName())
+									+ " u where (u.destory is null or u.destory=?) and u.effective=? and u.islock=? order by u.directorgid",
+							new Object[] { "1", "1", "0" }).list();
 				if ((!isEffective.booleanValue()) && (isLock.booleanValue()))
-					return hibernateDao
-							.createQuery(
-									"from "
-											+ super.getEntityClassName(User.class.getName())
-											+ " u where (u.destory is null or u.destory=?) and u.effective=? and u.islock=? order by u.directorgid",
-									new Object[] { "1", "1", "1" }).list();
+					return hibernateDao.createQuery(
+							"from " + super.getEntityClassName(User.class.getName())
+									+ " u where (u.destory is null or u.destory=?) and u.effective=? and u.islock=? order by u.directorgid",
+							new Object[] { "1", "1", "1" }).list();
 			} else {
 				if ((!ValidateUtil.isEmpty(isEffective)) && (ValidateUtil.isEmpty(isLock))) {
 					if (isEffective.booleanValue()) {
-						return hibernateDao
-								.createQuery(
-										"from "
-												+ super.getEntityClassName(User.class.getName())
-												+ " u where (u.destory is null or u.destory=?) and u.effective=? order by u.directorgid",
-										new Object[] { "1", "0" }).list();
+						return hibernateDao.createQuery(
+								"from " + super.getEntityClassName(User.class.getName())
+										+ " u where (u.destory is null or u.destory=?) and u.effective=? order by u.directorgid",
+								new Object[] { "1", "0" }).list();
 					}
-					return hibernateDao
-							.createQuery(
-									"from "
-											+ super.getEntityClassName(User.class.getName())
-											+ " u where (u.destory is null or u.destory=?) and u.effective=? order by u.directorgid",
-									new Object[] { "1", "1" }).list();
+					return hibernateDao.createQuery(
+							"from " + super.getEntityClassName(User.class.getName())
+									+ " u where (u.destory is null or u.destory=?) and u.effective=? order by u.directorgid",
+							new Object[] { "1", "1" }).list();
 				}
 				if ((ValidateUtil.isEmpty(isEffective)) && (!ValidateUtil.isEmpty(isLock))) {
 					if (isLock.booleanValue()) {
-						return hibernateDao
-								.createQuery(
-										"from "
-												+ super.getEntityClassName(User.class.getName())
-												+ " u where (u.destory is null or u.destory=?) and u.islock=? order by u.directorgid",
-										new Object[] { "1", "1" }).list();
+						return hibernateDao.createQuery(
+								"from " + super.getEntityClassName(User.class.getName())
+										+ " u where (u.destory is null or u.destory=?) and u.islock=? order by u.directorgid",
+								new Object[] { "1", "1" }).list();
 					}
-					return hibernateDao
-							.createQuery(
-									"from "
-											+ super.getEntityClassName(User.class.getName())
-											+ " u where (u.destory is null or u.destory=?) and u.islock=? order by u.directorgid",
-									new Object[] { "1", "0" }).list();
+					return hibernateDao.createQuery(
+							"from " + super.getEntityClassName(User.class.getName())
+									+ " u where (u.destory is null or u.destory=?) and u.islock=? order by u.directorgid",
+							new Object[] { "1", "0" }).list();
 				}
 			}
 			return hibernateDao.createQuery(
@@ -150,17 +136,17 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 		if ((!ValidateUtil.isEmpty(isEffective)) && (!ValidateUtil.isEmpty(isLock))) {
 			hql.append(" and u.effective=? and u.islock=?  order by u.directorgid");
 			if ((isEffective.booleanValue()) && (!isLock.booleanValue()))
-				return hibernateDao
-						.createQuery(hql.toString(), new Object[] { curPositionId, "0", "1", "1", "0", "0" }).list();
+				return hibernateDao.createQuery(hql.toString(), new Object[] { curPositionId, "0", "1", "1", "0", "0" })
+						.list();
 			if ((isEffective.booleanValue()) && (isLock.booleanValue()))
-				return hibernateDao
-						.createQuery(hql.toString(), new Object[] { curPositionId, "0", "1", "1", "0", "1" }).list();
+				return hibernateDao.createQuery(hql.toString(), new Object[] { curPositionId, "0", "1", "1", "0", "1" })
+						.list();
 			if ((!isEffective.booleanValue()) && (!isLock.booleanValue()))
-				return hibernateDao
-						.createQuery(hql.toString(), new Object[] { curPositionId, "0", "1", "1", "1", "0" }).list();
+				return hibernateDao.createQuery(hql.toString(), new Object[] { curPositionId, "0", "1", "1", "1", "0" })
+						.list();
 			if ((!isEffective.booleanValue()) && (isLock.booleanValue()))
-				return hibernateDao
-						.createQuery(hql.toString(), new Object[] { curPositionId, "0", "1", "1", "1", "1" }).list();
+				return hibernateDao.createQuery(hql.toString(), new Object[] { curPositionId, "0", "1", "1", "1", "1" })
+						.list();
 		} else {
 			if ((!ValidateUtil.isEmpty(isEffective)) && (ValidateUtil.isEmpty(isLock))) {
 				hql.append(" and u.effective=? order by u.directorgid");
@@ -279,27 +265,27 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 					.append(" and (pa.effecttime is null or pa.effecttime>=?)").append(" and pa.usepermission=?")
 					.append(" and pa.id.taposition.positionid=p.positionid").append(" and p.effective=?")
 					.append(" and (p.validtime is null or p.validtime>=?)")
-					.append(" and p.positionid=up.id.taposition.positionid")
-					.append(" and up.id.tauser.userid=u.userid").append(" and (u.destory is null or u.destory=?)")
-					.append(" and u.effective=?").append(" order by u.directorgid");
+					.append(" and p.positionid=up.id.taposition.positionid").append(" and up.id.tauser.userid=u.userid")
+					.append(" and (u.destory is null or u.destory=?)").append(" and u.effective=?")
+					.append(" order by u.directorgid");
 
-			return hibernateDao.createQuery(hql.toString(),
-					new Object[] { "0", menuId, super.getSysDate(), "1", "0", super.getSysDate(), "1", "0" }).list();
+			return hibernateDao
+					.createQuery(hql.toString(),
+							new Object[] { "0", menuId, super.getSysDate(), "1", "0", super.getSysDate(), "1", "0" })
+					.list();
 		}
 		hql.append(",OrgMg om").append(" where m.effective=?").append(" and om.id.orgid=u.directorgid")
-				.append(" and om.id.positionid=?").append(" and m.menuid=?")
-				.append(" and m.menuid=pa.id.tamenu.menuid").append(" and (pa.effecttime is null or pa.effecttime>=?)")
-				.append(" and pa.usepermission=?").append(" and pa.id.taposition.positionid=p.positionid")
-				.append(" and p.effective=?").append(" and (p.validtime is null or p.validtime>=?)")
+				.append(" and om.id.positionid=?").append(" and m.menuid=?").append(" and m.menuid=pa.id.tamenu.menuid")
+				.append(" and (pa.effecttime is null or pa.effecttime>=?)").append(" and pa.usepermission=?")
+				.append(" and pa.id.taposition.positionid=p.positionid").append(" and p.effective=?")
+				.append(" and (p.validtime is null or p.validtime>=?)")
 				.append(" and p.positionid=up.id.taposition.positionid").append(" and up.id.tauser.userid=u.userid")
 				.append(" and (u.destory is null or u.destory=?)").append(" and u.effective=?")
 				.append(" order by u.directorgid");
 
-		return hibernateDao
-				.createQuery(
-						hql.toString(),
-						new Object[] { "0", curPositionId, menuId, super.getSysDate(), "1", "0", super.getSysDate(),
-								"1", "0" }).list();
+		return hibernateDao.createQuery(hql.toString(),
+				new Object[] { "0", curPositionId, menuId, super.getSysDate(), "1", "0", super.getSysDate(), "1", "0" })
+				.list();
 	}
 
 	public IUser getOrgmanagerUserByDepartId(Long departId) {
@@ -327,9 +313,11 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 	}
 
 	public IOrg getDepart(Long departId) {
-		return (IOrg) hibernateDao.createQuery(
-				"from " + super.getEntityClassName(Org.class.getName())
-						+ " o where o.orgid=? and (o.destory is null or o.destory=?)", new Object[] { departId, "1" })
+		return (IOrg) hibernateDao
+				.createQuery(
+						"from " + super.getEntityClassName(Org.class.getName())
+								+ " o where o.orgid=? and (o.destory is null or o.destory=?)",
+						new Object[] { departId, "1" })
 				.uniqueResult();
 	}
 
@@ -346,8 +334,8 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 	}
 
 	public IOrg getDepartByPositionId(Long positionId) {
-		return (IOrg) hibernateDao.createQuery(
-				"select o from " + super.getEntityClassName(Org.class.getName()) + " o,"
+		return (IOrg) hibernateDao
+				.createQuery("select o from " + super.getEntityClassName(Org.class.getName()) + " o,"
 						+ super.getEntityClassName(Position.class.getName())
 						+ " p where p.positionid=? and p.taorg.orgid=o.orgid", new Object[] { positionId })
 				.uniqueResult();
@@ -361,12 +349,10 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 							+ " o where o.orgname=? and (o.destory is null or o.destory=?) and o.effective=?",
 					new Object[] { departName, "1", "0" }).list();
 		}
-		return hibernateDao
-				.createQuery(
-						"select distinct o from "
-								+ super.getEntityClassName(Org.class.getName())
-								+ " o,OrgMg om where o.orgname=? and (o.destory is null or o.destory=?) and o.effective=? and om.id.orgid=o.orgid and om.id.positionid=?",
-						new Object[] { departName, "1", "0", curPositionId }).list();
+		return hibernateDao.createQuery(
+				"select distinct o from " + super.getEntityClassName(Org.class.getName())
+						+ " o,OrgMg om where o.orgname=? and (o.destory is null or o.destory=?) and o.effective=? and om.id.orgid=o.orgid and om.id.positionid=?",
+				new Object[] { departName, "1", "0", curPositionId }).list();
 	}
 
 	public IOrg getDepartBySameLevelDepartName(Long pDepartId, String departName) {
@@ -386,12 +372,10 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 							+ " o where (o.destory is null or o.destory=?) and o.effective=?",
 					new Object[] { "1", "0" }).list();
 		}
-		return hibernateDao
-				.createQuery(
-						"select distinct o from "
-								+ super.getEntityClassName(Org.class.getName())
-								+ " o,OrgMg om where (o.destory is null or o.destory=?) and o.effective=? and om.id.orgid=o.orgid and om.id.positionid=?",
-						new Object[] { "1", "0", curPositionId }).list();
+		return hibernateDao.createQuery(
+				"select distinct o from " + super.getEntityClassName(Org.class.getName())
+						+ " o,OrgMg om where (o.destory is null or o.destory=?) and o.effective=? and om.id.orgid=o.orgid and om.id.positionid=?",
+				new Object[] { "1", "0", curPositionId }).list();
 	}
 
 	public List<IOrg> getDepartsByDepartId(Long departId) {
@@ -468,15 +452,15 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 	}
 
 	public IPosition getPositionByPositionId(Long positionId) {
-		return (IPosition) hibernateDao.getSession()
-				.get(super.getEntityClassName(Position.class.getName()), positionId);
+		return (IPosition) hibernateDao.getSession().get(super.getEntityClassName(Position.class.getName()),
+				positionId);
 	}
 
 	public IPosition getPositionBySameLevelPositionName(Long orgid, String positionName) {
 		Assert.notNull(orgid, "组织id为空");
 		Assert.notNull(positionName, "岗位名称为空");
-		return (IPosition) hibernateDao.createQuery(
-				"from " + super.getEntityClassName(Position.class.getName())
+		return (IPosition) hibernateDao
+				.createQuery("from " + super.getEntityClassName(Position.class.getName())
 						+ " p where p.taorg.orgid=? and p.positionname=?", new Object[] { orgid, positionName })
 				.uniqueResult();
 	}
@@ -485,12 +469,10 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 		if (ValidateUtil.isEmpty(userId)) {
 			throw new AppException("用户id为空");
 		}
-		return (IPosition) hibernateDao
-				.createQuery(
-						"select p from "
-								+ super.getEntityClassName(Position.class.getName())
-								+ " p,UserPosition up where up.id.tauser.userid=? and up.id.taposition.positionid=p.positionid and p.taorg.orgid=up.id.tauser.directorgid and p.positiontype=?",
-						new Object[] { userId, "2" }).uniqueResult();
+		return (IPosition) hibernateDao.createQuery(
+				"select p from " + super.getEntityClassName(Position.class.getName())
+						+ " p,UserPosition up where up.id.tauser.userid=? and up.id.taposition.positionid=p.positionid and p.taorg.orgid=up.id.tauser.directorgid and p.positiontype=?",
+				new Object[] { userId, "2" }).uniqueResult();
 	}
 
 	public List<IPosition> getAllPositionsByOrg(Org org) {
@@ -521,8 +503,10 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 				.append(" and (p.validtime is null or p.validtime >= ?)").append(" and p.taorg.orgid=om.id.orgid")
 				.append(" and om.id.positionid=?").append(" order by p.positionid");
 
-		return hibernateDao.createQuery(hql.toString(),
-				new Object[] { menuId, "1", super.getSysDate(), "0", super.getSysDate(), curPositionId }).list();
+		return hibernateDao
+				.createQuery(hql.toString(),
+						new Object[] { menuId, "1", super.getSysDate(), "0", super.getSysDate(), curPositionId })
+				.list();
 	}
 
 	public List<IPosition> getPositionsByUserId(Long userId) {
@@ -531,14 +515,12 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 
 	public IPosition getDirectPerPositionByUserId(Long userId) {
 		return (IPosition) hibernateDao
-				.createQuery(
-						"select p from "
-								+ super.getEntityClassName(Position.class.getName())
-								+ " p,"
-								+ super.getEntityClassName(new StringBuilder()
-										.append(User.class.getName())
-										.append(" u,UserPosition up where u.userid=? and u.userid=up.id.tauser.userid and up.id.taposition.positionid=p.positionid and u.directorgid=p.taorg.orgid and p.positiontype=?")
-										.toString()), new Object[] { userId, "2" }).uniqueResult();
+				.createQuery("select p from " + super.getEntityClassName(Position.class.getName()) + " p,"
+						+ super.getEntityClassName(new StringBuilder().append(User.class.getName())
+								.append(" u,UserPosition up where u.userid=? and u.userid=up.id.tauser.userid and up.id.taposition.positionid=p.positionid and u.directorgid=p.taorg.orgid and p.positiontype=?")
+								.toString()),
+						new Object[] { userId, "2" })
+				.uniqueResult();
 	}
 
 	public List<IPosition> getSharePositionBySPositionId(Long spositionid) {
@@ -611,23 +593,18 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 		StringBuffer hql = new StringBuffer();
 		hql.append("select distinct u from ").append(super.getEntityClassName(User.class.getName()))
 				.append(" u,UserPosition up,").append(super.getEntityClassName(Position.class.getName())).append(" p")
-				.append(" where p.taorg.yab003=?").append(" and p.positionname=?")
-				.append(" and p.positionid=up.id.taposition.positionid").append(" and up.id.tauser.userid=u.userid")
-				.append(" and u.effective=?").append(" and (u.destory is null or u.destory=?)");
-
+				.append(" where p.taorg.yab003 = ?").append(" and p.positionname = ?")
+				.append(" and p.positionid = up.id.taposition.positionid").append(" and up.id.tauser.userid = u.userid")
+				.append(" and u.effective = ?").append(" and (u.destory is null or u.destory = ?)");
 		if ("01".equals(positionCategory)) {
-			hql.append(" and p.positioncategory=?").append(" order by u.userid");
-
-			return hibernateDao.createQuery(hql.toString(), new Object[] { yab003, positionname, "0", "1", "01" })
-					.list();
+			hql.append(" and p.positioncategory = ?").append(" order by u.userid");
+			return hibernateDao.createQuery(hql.toString(), yab003, positionname, "0", "1", "01").list();
 		}
 		if ("02".equals(positionCategory)) {
-			hql.append(" and p.positioncategory=?").append(" order by u.userid");
-
-			return hibernateDao.createQuery(hql.toString(), new Object[] { yab003, positionname, "0", "1", "02" })
-					.list();
+			hql.append(" and p.positioncategory = ?").append(" order by u.userid");
+			return hibernateDao.createQuery(hql.toString(), yab003, positionname, "0", "1", "02").list();
 		}
-		return hibernateDao.createQuery(hql.toString(), new Object[] { yab003, positionname, "0", "1" }).list();
+		return hibernateDao.createQuery(hql.toString(), yab003, positionname, "0", "1").list();
 	}
 
 	@Deprecated
@@ -641,19 +618,18 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 					.append(" m,PositionAuthrity pa,").append(getEntityClassName(Position.class.getName()))
 					.append(" p,").append(" UserPosition up,").append(getEntityClassName(User.class.getName()))
 					.append(" u").append(" where 1=1").append(" and m.menuid=?")
-					.append(" and m.menuid=pa.id.tamenu.menuid")
-					.append(" and pa.id.taposition.positionid=p.positionid").append(" and p.effective=?")
-					.append(" and (p.validtime is null or p.validtime>=?)")
-					.append(" and p.positionid=up.id.taposition.positionid")
-					.append(" and up.id.tauser.userid=u.userid").append(" and u.effective=?");
+					.append(" and m.menuid=pa.id.tamenu.menuid").append(" and pa.id.taposition.positionid=p.positionid")
+					.append(" and p.effective=?").append(" and (p.validtime is null or p.validtime>=?)")
+					.append(" and p.positionid=up.id.taposition.positionid").append(" and up.id.tauser.userid=u.userid")
+					.append(" and u.effective=?");
 
 			if (ValidateUtil.isNotEmpty(positionCategory)) {
 				hql.append(" and p.positioncategory=?");
-				return hibernateDao.createQuery(hql.toString(),
-						new Object[] { menuid, "0", timeService.getSysDate(), "0", positionCategory }).list();
+				return hibernateDao
+						.createQuery(hql.toString(), menuid, "0", timeService.getSysDate(), "0", positionCategory)
+						.list();
 			}
-			return hibernateDao
-					.createQuery(hql.toString(), new Object[] { menuid, "0", timeService.getSysDate(), "0" }).list();
+			return hibernateDao.createQuery(hql.toString(), menuid, "0", timeService.getSysDate(), "0").list();
 		}
 
 		hql.append("select distinct u from ").append(getEntityClassName(Menu.class.getName()))
@@ -668,11 +644,14 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 
 		if (ValidateUtil.isNotEmpty(positionCategory)) {
 			hql.append(" and p.positioncategory=?");
-			return hibernateDao.createQuery(hql.toString(),
-					new Object[] { menuid, "0", timeService.getSysDate(), yab003, "0", positionCategory }).list();
+			return hibernateDao
+					.createQuery(hql.toString(),
+							new Object[] { menuid, "0", timeService.getSysDate(), yab003, "0", positionCategory })
+					.list();
 		}
-		return hibernateDao.createQuery(hql.toString(),
-				new Object[] { menuid, "0", timeService.getSysDate(), yab003, "0" }).list();
+		return hibernateDao
+				.createQuery(hql.toString(), new Object[] { menuid, "0", timeService.getSysDate(), yab003, "0" })
+				.list();
 	}
 
 	public List<IUser> getUsersByYab139AndPositionName(String yab139, String positionname, String positionCategory) {
@@ -708,19 +687,18 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 					.append(" m,PositionAuthrity pa,").append(getEntityClassName(Position.class.getName()))
 					.append(" p,").append(" UserPosition up,").append(getEntityClassName(User.class.getName()))
 					.append(" u").append(" where 1=1").append(" and m.menuid=?")
-					.append(" and m.menuid=pa.id.tamenu.menuid")
-					.append(" and pa.id.taposition.positionid=p.positionid").append(" and p.effective=?")
-					.append(" and (p.validtime is null or p.validtime>=?)")
-					.append(" and p.positionid=up.id.taposition.positionid")
-					.append(" and up.id.tauser.userid=u.userid").append(" and u.effective=?");
+					.append(" and m.menuid=pa.id.tamenu.menuid").append(" and pa.id.taposition.positionid=p.positionid")
+					.append(" and p.effective=?").append(" and (p.validtime is null or p.validtime>=?)")
+					.append(" and p.positionid=up.id.taposition.positionid").append(" and up.id.tauser.userid=u.userid")
+					.append(" and u.effective=?");
 
 			if (ValidateUtil.isNotEmpty(positionCategory)) {
 				hql.append(" and p.positioncategory=?");
 				return hibernateDao.createQuery(hql.toString(),
 						new Object[] { menuid, "0", timeService.getSysDate(), "0", positionCategory }).list();
 			}
-			return hibernateDao
-					.createQuery(hql.toString(), new Object[] { menuid, "0", timeService.getSysDate(), "0" }).list();
+			return hibernateDao.createQuery(hql.toString(), new Object[] { menuid, "0", timeService.getSysDate(), "0" })
+					.list();
 		}
 
 		hql.append("select distinct u from ").append(getEntityClassName(Menu.class.getName()))
@@ -735,11 +713,14 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 
 		if (ValidateUtil.isNotEmpty(positionCategory)) {
 			hql.append(" and p.positioncategory=?");
-			return hibernateDao.createQuery(hql.toString(),
-					new Object[] { menuid, "0", timeService.getSysDate(), yab139, "0", positionCategory }).list();
+			return hibernateDao
+					.createQuery(hql.toString(),
+							new Object[] { menuid, "0", timeService.getSysDate(), yab139, "0", positionCategory })
+					.list();
 		}
-		return hibernateDao.createQuery(hql.toString(),
-				new Object[] { menuid, "0", timeService.getSysDate(), yab139, "0" }).list();
+		return hibernateDao
+				.createQuery(hql.toString(), new Object[] { menuid, "0", timeService.getSysDate(), yab139, "0" })
+				.list();
 	}
 
 	public List<String> queryYab139ByYab003(String yab003) {
@@ -792,21 +773,25 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 				.append(" and om.id.positionid=?").append(" and p.taorg.orgid=om.id.orgid");
 
 		if ("".equals(positionType)) {
-			return hibernateDao.createQuery(hql.toString(),
-					new Object[] { userId, "0", super.getSysDate(), curPositionId }).list();
+			return hibernateDao
+					.createQuery(hql.toString(), new Object[] { userId, "0", super.getSysDate(), curPositionId })
+					.list();
 		}
 		hql.append(" and p.positiontype=?");
 		if ("1".equals(positionType)) {
-			return hibernateDao.createQuery(hql.toString(),
-					new Object[] { userId, "0", super.getSysDate(), curPositionId, "1" }).list();
+			return hibernateDao
+					.createQuery(hql.toString(), new Object[] { userId, "0", super.getSysDate(), curPositionId, "1" })
+					.list();
 		}
-		return hibernateDao.createQuery(hql.toString(),
-				new Object[] { userId, "0", super.getSysDate(), curPositionId, "2" }).list();
+		return hibernateDao
+				.createQuery(hql.toString(), new Object[] { userId, "0", super.getSysDate(), curPositionId, "2" })
+				.list();
 	}
 
 	public List<AppCode> queryYab139ByUserIdAndMenuId(Long userid, Long menuid) {
 		StringBuffer hql = new StringBuffer();
-		hql.append("select a from Aa10a1 a,DataField df where df.id.userid=? and df.id.menuid=? and df.id.yab139=a.id.codeValue and a.validFlag=? and a.id.codeType=?");
+		hql.append(
+				"select a from Aa10a1 a,DataField df where df.id.userid=? and df.id.menuid=? and df.id.yab139=a.id.codeValue and a.validFlag=? and a.id.codeType=?");
 		return hibernateDao.createQuery(hql.toString(), new Object[] { userid, menuid, "0", "YAB139" }).list();
 	}
 
@@ -818,25 +803,21 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 			if (SysConfig.getSysconfigToBoolean("isPortal", false)) {
 				return hibernateDao
 						.createQuery(
-								"from "
-										+ getEntityClassName(Menu.class.getName())
+								"from " + getEntityClassName(Menu.class.getName())
 										+ " where effective=? and resourcetype=? and (securitypolicy=? or securitypolicy=?) and syspath=? order by sortno",
 								new Object[] { "0", "01", "4", "1", SysConfig.getSysConfig("curSyspathId", "sysmg") })
 						.list();
 			}
-			return hibernateDao
-					.createQuery(
-							"from "
-									+ getEntityClassName(Menu.class.getName())
-									+ " where effective=? and resourcetype=? and (securitypolicy=? or securitypolicy=?)  order by sortno",
-							new Object[] { "0", "01", "4", "1" }).list();
+			return hibernateDao.createQuery(
+					"from " + getEntityClassName(Menu.class.getName())
+							+ " where effective=? and resourcetype=? and (securitypolicy=? or securitypolicy=?)  order by sortno",
+					new Object[] { "0", "01", "4", "1" }).list();
 		}
 
 		List<IMenu> list = new ArrayList();
 		StringBuilder hql = new StringBuilder();
-		hql.append(
-				"select distinct a from " + getEntityClassName(Menu.class.getName()) + " a,PositionAuthrity d,"
-						+ getEntityClassName(Position.class.getName()) + " e,UserPosition f ").append("where ")
+		hql.append("select distinct a from " + getEntityClassName(Menu.class.getName()) + " a,PositionAuthrity d,"
+				+ getEntityClassName(Position.class.getName()) + " e,UserPosition f ").append("where ")
 				.append(" e.effective=?").append("and (e.validtime is null or e.validtime >=?) ")
 				.append("and e.positionid = f.id.taposition.positionid ").append("and a.effective=? ")
 				.append("and d.id.tamenu.menuid = a.menuid ").append("and d.usepermission=? ")
@@ -848,15 +829,15 @@ public class DbOrganizationEntityServiceImpl extends BaseService implements Orga
 		if (SysConfig.getSysconfigToBoolean("isPortal", false)) {
 			hql.append(" and a.syspath=?");
 			hql.append("order by a.sortno");
-			return hibernateDao.createQuery(
-					hql.toString(),
-					new Object[] { "0", super.getSysDate(), "0", "1", "01", "2", super.getSysDate(), "0", "2",
-							SysConfig.getSysConfig("curSyspathId", "sysmg") }).list();
+			return hibernateDao.createQuery(hql.toString(), new Object[] { "0", super.getSysDate(), "0", "1", "01", "2",
+					super.getSysDate(), "0", "2", SysConfig.getSysConfig("curSyspathId", "sysmg") }).list();
 		}
 
 		hql.append("order by a.sortno");
-		return hibernateDao.createQuery(hql.toString(),
-				new Object[] { "0", super.getSysDate(), "0", "1", "01", "2", super.getSysDate(), "0", "2" }).list();
+		return hibernateDao
+				.createQuery(hql.toString(),
+						new Object[] { "0", super.getSysDate(), "0", "1", "01", "2", super.getSysDate(), "0", "2" })
+				.list();
 	}
 
 	public List<IUser> queryUsersByYab139AndCategory(String yab139, String positionCategory) {

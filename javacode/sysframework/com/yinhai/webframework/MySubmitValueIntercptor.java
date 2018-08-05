@@ -12,7 +12,6 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.yinhai.sysframework.exception.AppException;
 import com.yinhai.sysframework.util.DESCoderUtil;
 
-@SuppressWarnings("unchecked")
 public class MySubmitValueIntercptor extends AbstractInterceptor {
 
 	/**

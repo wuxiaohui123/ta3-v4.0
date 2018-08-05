@@ -63,7 +63,7 @@ public class TextConfig extends PropertyResourceConfigurer {
 			}
 			InputStream is = null;
 			try {
-				logger.info("重新加载i118n国际化资�?..");
+				logger.info("重新加载i118n国际化资�?..");
 				ClassPathResource classPathResource = new ClassPathResource(fileName);
 
 				is = new BufferedInputStream(classPathResource.getInputStream());
@@ -95,7 +95,7 @@ public class TextConfig extends PropertyResourceConfigurer {
 		if (properties == null) {
 			properties = paramProperties;
 		} else {
-			Enumeration enums = paramProperties.propertyNames();
+			Enumeration<?> enums = paramProperties.propertyNames();
 			while (enums.hasMoreElements()) {
 				String key = (String) enums.nextElement();
 				properties.setProperty(key, paramProperties.getProperty(key));

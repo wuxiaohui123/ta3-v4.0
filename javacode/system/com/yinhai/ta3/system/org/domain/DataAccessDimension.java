@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class DataAccessDimension implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4919628221073563969L;
 	public static final String DIMENSIONTYPE_YAB003 = "YAB003";
 	public static final String DIMENSIONTYPE_YAB139 = "YAB139";
 	private Long dimensionid;

@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class AdminYab003ScopeId implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1095412622742415017L;
 	private Long positionid;
 	private String yab139;
 

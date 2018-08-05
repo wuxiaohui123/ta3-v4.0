@@ -12,7 +12,7 @@ public class RedisDataSourceImpl implements RedisDataSource {
 	private static final Logger log = Logger.getLogger(RedisDataSourceImpl.class);
 	
 	private ShardedJedisPool shardedJedisPool;
-
+	
 	@Override
 	public ShardedJedis getRedisClient() {
 		try {

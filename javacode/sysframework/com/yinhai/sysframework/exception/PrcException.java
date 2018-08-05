@@ -2,18 +2,22 @@ package com.yinhai.sysframework.exception;
 
 public class PrcException extends RuntimeException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7123506476740700073L;
 	private String appCode;
 	private String errorMsg;
 	private String shortMsg;
 
 	public PrcException(String prcName, String appCode, String errorMsg) {
-		super("调用存储过程[" + prcName + "]发生错误，错误编码为：[" + appCode + "]错误原因：[" + errorMsg + "]");
+		super("璋冪敤瀛樺偍杩囩▼[" + prcName + "鍙戠敓閿欒锛岄敊璇紪鐮佷负锛歔" + appCode + "]閿欒鍘熷洜锛歔" + errorMsg + "]");
 		this.appCode = appCode;
 		this.errorMsg = errorMsg;
 	}
 
 	public PrcException(String prcName, String appCode, String errorMsg, String shortMsg) {
-		super("调用存储过程[" + prcName + "]发生错误，错误编码为：[" + appCode + "]错误原因：[" + errorMsg + "]");
+		super("璋冪敤瀛樺偍杩囩▼[" + prcName + "鍙戠敓閿欒锛岄敊璇紪鐮佷负锛歔" + appCode + "]閿欒鍘熷洜锛歔" + errorMsg + "]");
 		this.appCode = appCode;
 		this.errorMsg = errorMsg;
 		this.shortMsg = shortMsg;

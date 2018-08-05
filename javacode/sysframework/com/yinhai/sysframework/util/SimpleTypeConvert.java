@@ -109,13 +109,8 @@ public class SimpleTypeConvert {
 					} catch (Exception e) {
 						try {
 							DateFormat df = null;
-							if (locale != null) {
-								df = DateFormat.getDateInstance(3, locale);
-							} else {
-								df = DateFormat.getDateInstance(3);
-							}
+							df = DateFormat.getDateInstance(3, locale);
 							java.util.Date fieldDate = df.parse(str);
-
 							return new java.sql.Date(fieldDate.getTime());
 						} catch (ParseException e1) {
 							throw new TypeCastException("Could not convert " + str + " to " + type + ": ", e);
@@ -141,11 +136,7 @@ public class SimpleTypeConvert {
 					} catch (Exception e) {
 						try {
 							DateFormat df = null;
-							if (locale != null) {
-								df = DateFormat.getDateTimeInstance(3, 3, locale);
-							} else {
-								df = DateFormat.getDateTimeInstance(3, 3);
-							}
+							df = DateFormat.getDateTimeInstance(3, 3, locale);
 							java.util.Date fieldDate = df.parse(str);
 							return new Timestamp(fieldDate.getTime());
 						} catch (ParseException e1) {

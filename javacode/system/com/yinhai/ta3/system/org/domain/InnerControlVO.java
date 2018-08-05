@@ -5,6 +5,10 @@ import java.util.Date;
 
 public class InnerControlVO implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -689577755612193922L;
 	private String name;
 	private String usernamepath;
 	private String orgnamepath;

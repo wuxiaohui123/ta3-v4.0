@@ -19,6 +19,7 @@
 	<!-- Redis缓存数据库-连接池参数配置 -->
 	<bean id="redisPoolConfig" class="redis.clients.jedis.JedisPoolConfig" />
 	
+	<!-- ############################### 单机分片连接方式 Start ########################### -->
 	<!-- Redis缓存数据库-连接池配置 -->
 	<bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool" destroy-method="destroy">
 	  <constructor-arg index="0" ref="redisPoolConfig"/>
@@ -28,19 +29,19 @@
 	  			<constructor-arg name="name" value="instance:01"/>
 	  			<constructor-arg name="host" value="${redis.host1}"/>
 	  			<constructor-arg name="port" value="${redis.port1}"/>
-	  			<property name="password" value="${redis.password1}"/>
+	  			<property name="password" value="${redis.password}"/>
 	  		</bean>
 	  		<bean class="redis.clients.jedis.JedisShardInfo">
 	  			<constructor-arg name="name" value="instance:02"/>
 	  			<constructor-arg name="host" value="${redis.host2}"/>
 	  			<constructor-arg name="port" value="${redis.port2}"/>
-	  			<property name="password" value="${redis.password2}"/>
+	  			<property name="password" value="${redis.password}"/>
 	  		</bean>
 	  		<bean class="redis.clients.jedis.JedisShardInfo">
 	  			<constructor-arg name="name" value="instance:03"/>
 	  			<constructor-arg name="host" value="${redis.host3}"/>
 	  			<constructor-arg name="port" value="${redis.port3}"/>
-	  			<property name="password" value="${redis.password3}"/>
+	  			<property name="password" value="${redis.password}"/>
 	  		</bean>
 	  	</list>
 	  </constructor-arg>
@@ -50,12 +51,50 @@
       <property name="shardedJedisPool" ref="shardedJedisPool"></property>
     </bean>
     <!-- Redis缓存数据库-数据源客户端配置 -->
-    <bean id="shardedJedisClient" class="com.yinhai.ta3.redis.ShardedJedisClient">
+    <bean id="shardedJedisClient" class="com.yinhai.ta3.redis.service.ShardedJedisClient">
       <property name="redisDataSource" ref="redisDataSource"></property>
     </bean>
-    <!-- Redis缓存数据库-配置 -->
+	<!-- ############################### 单机分片连接方式 End ########################### -->
+	
+	
+	<!-- ############################### 分片集群连接方式 Start ########################### -->
+	<!-- <bean id="redisClusterConfiguration" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
+	   <property name="maxRedirects" value="3"/>
+	   <property name="clusterNodes">
+	      <set>
+	        <bean class="org.springframework.data.redis.connection.RedisClusterNode">
+	           <constructor-arg name="host" value="${redis.host1}"/>
+	           <constructor-arg name="port" value="${redis.port1}"/>
+	        </bean>
+	        <bean class="org.springframework.data.redis.connection.RedisClusterNode">
+	           <constructor-arg name="host" value="${redis.host2}"/>
+	           <constructor-arg name="port" value="${redis.port2}"/>
+	        </bean>
+	        <bean class="org.springframework.data.redis.connection.RedisClusterNode">
+	           <constructor-arg name="host" value="${redis.host3}"/>
+	           <constructor-arg name="port" value="${redis.port3}"/>
+	        </bean>
+	      </set>
+	   </property>
+	</bean>
+	<bean id="jeidsConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+         <constructor-arg ref="redisClusterConfiguration" />
+         <constructor-arg ref="redisPoolConfig" />
+         <property name="password" value="${redis.password}"/>
+    </bean> -->
+    <!-- redis 访问的模版 -->
+    <!-- <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+         <property name="connectionFactory" ref="jeidsConnectionFactory" />
+    </bean>
+    <bean id="redisClusterService" class="com.yinhai.ta3.redis.cluster.RedisClusterService">
+      <property name="redisTemplate" ref="redisTemplate"/>
+    </bean> -->
+	<!-- ############################### 分片集群连接方式 End ########################### -->
+	
+	 <!-- Redis缓存数据库-配置 -->
 	<bean id="methodCacheAspectJ" class="com.yinhai.ta3.redis.CacehInterceptor">
 		<property name="client" ref="shardedJedisClient"/>
+		<!-- <property name="client" ref="redisClusterService"/> -->
 	</bean>
 	
 </beans>

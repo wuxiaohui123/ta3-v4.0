@@ -2,9 +2,9 @@ package com.yinhai.sysframework.cache;
 
 public interface CacheService {
 
-	public abstract void put(String paramString, Object paramObject);
+	public abstract void put(String key, Object value);
 
-	public abstract void put(String paramString1, String paramString2, Object paramObject);
+	public abstract void put(String key, String paramString2, Object paramObject);
 
 	public abstract Object get(String paramString);
 

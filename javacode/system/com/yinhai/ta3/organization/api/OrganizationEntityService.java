@@ -98,11 +98,11 @@ public interface OrganizationEntityService extends Service {
 	public abstract boolean checkUserLoginIdAndPass(String paramString1, String paramString2);
 
 	@Deprecated
-	public abstract List<IUser> getUsersByYab003AndPositionName(String paramString1, String paramString2,
-			String paramString3);
+	public abstract List<IUser> getUsersByYab003AndPositionName(String yab003, String positionname,
+			String positionCategory);
 
-	public abstract List<IUser> getUsersByYab139AndPositionName(String paramString1, String paramString2,
-			String paramString3);
+	public abstract List<IUser> getUsersByYab139AndPositionName(String yab139, String positionname,
+			String positionCategory);
 
 	@Deprecated
 	public abstract List<IUser> queryUserByMenuIdAndYab003(Long paramLong, String paramString1, String paramString2);

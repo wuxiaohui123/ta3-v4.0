@@ -27,14 +27,14 @@ public class OperationBean implements Serializable {
 	}
 
 	public OperationBean(String type, String ids) {
-		Assert.notNull(ids, "ids²»ÄÜ¿Õ");
+		Assert.notNull(ids, "idsä¸èƒ½ç©º");
 		this.type = type;
 
 		this.ids = ids.split(",");
 	}
 
 	public OperationBean(String type, String ids, String params) {
-		Assert.notNull(ids, "ids²»ÄÜ¿Õ");
+		Assert.notNull(ids, "idsä¸èƒ½ç©º");
 		this.type = type;
 		this.ids = ids.split(",");
 		this.params = params.split(",");

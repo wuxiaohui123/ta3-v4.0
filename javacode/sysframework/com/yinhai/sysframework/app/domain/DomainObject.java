@@ -8,11 +8,11 @@ public interface DomainObject extends VO {
 
 	public abstract Key getKey();
 
-	public abstract void setKey(Key paramKey);
+	public abstract void setKey(Key key);
 
 	public abstract String getObjid();
 
-	public abstract void setObjid(String paramString);
+	public abstract void setObjid(String str);
 
 	public abstract String getDomainObjectName();
 
@@ -22,5 +22,5 @@ public interface DomainObject extends VO {
 
 	public abstract String toTabString();
 
-	public abstract boolean equals(Object paramObject);
+	public abstract boolean equals(Object object);
 }

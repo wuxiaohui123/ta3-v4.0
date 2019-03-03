@@ -24,11 +24,10 @@ import com.yinhai.sysframework.app.domain.BaseVO;
 import com.yinhai.sysframework.app.domain.jsonmodel.ResultBean;
 import com.yinhai.sysframework.persistence.PageBean;
 import com.yinhai.sysframework.util.CollectionUtils;
-import com.yinhai.sysframework.util.ReflectUtil;
 
 public class JSonFactory {
 
-	private static Logger logger = LogManager.getLogger(JSonFactory.class.getName());
+	private static Logger logger = LogManager.getLogger(JSonFactory.class);
 
 	private static SerializeConfig config = new SerializeConfig();
 
@@ -67,23 +66,23 @@ public class JSonFactory {
 			try {
 				ret = ((ResultBean) src).toJson();
 			} catch (Exception e) {
-				ret = JSON.toJSONString(src, config, new SerializerFeature[] { SerializerFeature.WriteMapNullValue });
+				ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 			}
 		} else if ((src instanceof PageBean)) {
 			try {
 				ret = ((PageBean) src).toJson();
 			} catch (Exception e) {
-				ret = JSON.toJSONString(src, config, new SerializerFeature[] { SerializerFeature.WriteMapNullValue });
+				ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 			}
 		} else if ((src instanceof Map)) {
 			try {
 				ret = CollectionUtils.mapToJson((Map) src);
 			} catch (Exception e) {
-				ret = JSON.toJSONString(src, config, new SerializerFeature[] { SerializerFeature.WriteMapNullValue });
+				ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 			}
 		} else if ((src instanceof List)) {
 			if (((List) src).size() > 8000) {
-				ret = JSON.toJSONString(src, config, new SerializerFeature[] { SerializerFeature.WriteMapNullValue });
+				ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 			} else {
 				try {
 					StringBuilder sb = new StringBuilder();
@@ -105,11 +104,11 @@ public class JSonFactory {
 					sb.append("]");
 					ret = sb.toString();
 				} catch (Exception e) {
-					ret = JSON.toJSONString(src, config, new SerializerFeature[] { SerializerFeature.WriteMapNullValue });
+					ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 				}
 			}
 		} else {
-			ret = JSON.toJSONString(src, config, new SerializerFeature[] { SerializerFeature.WriteMapNullValue });
+			ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 		}
 		return ret;
 	}

@@ -102,12 +102,12 @@ public class Key<K, V> extends BaseDTO {
 
 	public void checkKeyNotNull() {
 		if (size() < 1) {
-			throw new IllegalArgumentException("KeyÀà±ØÐëÖÁÉÙÓÐÒ»¸ö×Ö¶Î£¡");
+			throw new IllegalArgumentException("Keyç±»å¿…é¡»è‡³å°‘æœ‰ä¸€ä¸ªå­—æ®µï¼");
 		}
 		Iterator iterator = values().iterator();
 		for (Object o = iterator.next(); iterator.hasNext(); o = iterator.next()) {
 			if (o == null) {
-				throw new IllegalArgumentException("KeyÀà²»ÄÜÓÐ¿Õ×Ö¶Î£¡");
+				throw new IllegalArgumentException("Keyç±»ä¸èƒ½æœ‰ç©ºå­—æ®µï¼");
 			}
 		}
 	}

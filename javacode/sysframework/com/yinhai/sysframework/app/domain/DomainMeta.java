@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+@SuppressWarnings("all")
 public class DomainMeta implements Serializable {
 
 	private String domainName;
@@ -108,12 +109,10 @@ public class DomainMeta implements Serializable {
 
 	public String toString() {
 		StringBuffer buffer = new StringBuffer();
-		buffer.append("ÁìÓò¶ÔÏóÃû:" + getDomainName() + "\n").append("¶ÔÓ¦Êı¾İ¿â±íÃû:" + getTableName() + "\n")
-				.append("ÖĞÎÄÃû:" + getComment() + "\n").append("×Ö¶ÎÃèÊöÈçÏÂ\n");
+		buffer.append((new StringBuilder()).append("é¢†åŸŸå¯¹è±¡å:").append(getDomainName()).append("\n").toString()).append((new StringBuilder()).append("å¯¹åº”æ•°æ®åº“è¡¨å:").append(getTableName()).append("\n").toString()).append((new StringBuilder()).append("ä¸­æ–‡å:").append(getComment()).append("\n").toString()).append("å­—æ®µæè¿°å¦‚ä¸‹\n");
+		for (int i = 0; i < getFields().size(); i++)
+			buffer.append((new StringBuilder()).append(((FieldMeta)getFieldsAsList().get(i)).toString()).append("\n").toString());
 
-		for (int i = 0; i < getFields().size(); i++) {
-			buffer.append(((FieldMeta) getFieldsAsList().get(i)).toString() + "\n");
-		}
 		return buffer.toString();
 	}
 
@@ -225,11 +224,8 @@ public class DomainMeta implements Serializable {
 		}
 
 		public String toString() {
-			return new ToStringBuilder(this).append("×Ö¶ÎÃû³Æ:", getFieldName()).append("Êı¾İ¿âÁĞÃû:", getColumnName())
-					.append("ÖĞÎÄÃû:", getComment()).append("javaÊı¾İÀàĞÍ:", getJavaType()).append("Êı¾İ¿âÁĞÀàĞÍ:", getDbType())
-					.append("³¤¶È:", getLength()).append("ÊÇ·ñÖ÷¼ü:", isPrimaryKey() == true ? "ÊÇ" : "·ñ")
-					.append("ÊÇ·ñ·Ç¿Õ:", isNotEmpty() == true ? "ÊÇ" : "·ñ").append("ÊÇ·ñÊÇ´úÂë:", isCode() == true ? "ÊÇ" : "·ñ")
-					.append("\n").toString();
+			return (new ToStringBuilder(this)).append("å­—æ®µåç§°:", getFieldName()).append("æ•°æ®åº“åˆ—å:", getColumnName()).append("ä¸­æ–‡å:", getComment()).append("javaæ•°æ®ç±»å‹:", getJavaType()).append("æ•°æ®åº“åˆ—ç±»å‹:", getDbType()).append("é•¿åº¦:", getLength()).append("æ˜¯å¦ä¸»é”®:", !isPrimaryKey() ? "å¦" : "æ˜¯").append("æ˜¯å¦éç©º:", !isNotEmpty() ? "å¦" : "æ˜¯").append("æ˜¯å¦æ˜¯ä»£ç :", !isCode() ? "å¦" : "æ˜¯").append("\n").toString();
+
 		}
 	}
 }

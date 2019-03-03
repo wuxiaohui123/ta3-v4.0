@@ -11,6 +11,7 @@ import java.util.Map;
 import com.yinhai.sysframework.dto.BaseDTO;
 import com.yinhai.sysframework.dto.DTO;
 import com.yinhai.sysframework.exception.IllegalInputAppException;
+import com.yinhai.sysframework.exception.SysLevelException;
 import com.yinhai.sysframework.util.SimpleTypeConvert;
 import com.yinhai.sysframework.util.json.JSonFactory;
 
@@ -92,10 +93,9 @@ public class BaseVO implements VO {
 			Map.Entry entry = (Map.Entry) keyValuePairs.next();
 			DomainMeta meta = getMetadata();
 			if (meta != null) {
-				buffer.append("值：")
-						.append(dto.getAsString((String) entry.getKey(), ""))
-						.append(meta.getField((String) entry.getKey()) == null ? "" : meta.getField(
-								(String) entry.getKey()).toString());
+				buffer.append("值：").append(dto.getAsString((String) entry.getKey(), ""))
+						.append(meta.getField((String) entry.getKey()) == null ? ""
+								: meta.getField((String) entry.getKey()).toString());
 			}
 		}
 		return buffer.toString();
@@ -142,8 +142,7 @@ public class BaseVO implements VO {
 								buffer.append(",");
 							buffer.append(((BaseVO) tmpObj).toJson());
 						} else {
-							throw new com.yinhai.sysframework.exception.SysLevelException(
-									"toJson生成错误,domain的属性是list类型的，list里面必须是domain");
+							throw new SysLevelException("toJson生成错误,domain的属性是list类型的，list里面必须是domain");
 						}
 					}
 					buffer.append("]");

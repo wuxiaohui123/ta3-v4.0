@@ -18,7 +18,6 @@ public class MySQLDialect implements Dialect {
 		if (!sqlFlag) {
 			return "(" + oldSql + ") LIMIT " + skipResults + "," + maxResults;
 		}
-		tmpSql = null;
 		return "(" + oldSql + ") LIMIT " + skipResults + "," + maxResults;
 	}
 

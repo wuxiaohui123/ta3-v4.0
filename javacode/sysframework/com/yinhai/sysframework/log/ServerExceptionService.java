@@ -8,17 +8,15 @@ import com.yinhai.sysframework.service.Service;
 
 public interface ServerExceptionService extends Service {
 
-	public abstract void addServerException(Taserverexceptionlog paramTaserverexceptionlog);
+	 void addServerException(Taserverexceptionlog log);
 
-	public abstract List<Taserverexceptionlog> getList(Timestamp paramTimestamp1, Timestamp paramTimestamp2);
+	 List<Taserverexceptionlog> getList(Timestamp begin, Timestamp end);
 
-	public abstract PageBean getPage(String paramString, Timestamp paramTimestamp1, Timestamp paramTimestamp2,
-			int paramInt1, int paramInt2);
+	 PageBean getPage(String gridId, Timestamp begin, Timestamp end, int start, int limit);
 
-	public abstract Taserverexceptionlog getTaserverexceptionlog(String paramString);
+	 Taserverexceptionlog getTaserverexceptionlog(String id);
 
-	public abstract void delete(String paramString);
+	 void delete(String id);
 
-	public abstract PageBean getPageByCount(String paramString, Timestamp paramTimestamp1, Timestamp paramTimestamp2,
-			int paramInt1, int paramInt2);
+	 PageBean getPageByCount(String gridId, Timestamp begin, Timestamp end, int start, int limit);
 }

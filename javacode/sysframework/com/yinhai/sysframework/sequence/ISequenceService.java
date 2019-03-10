@@ -2,15 +2,15 @@ package com.yinhai.sysframework.sequence;
 
 public interface ISequenceService {
 
-	public static final String SERVICEKEY = "sequenceService";
+	 String SERVICEKEY = "sequenceService";
 
-	public abstract String getStringSeq(String paramString);
+	 String getStringSeq(String seqName);
 
-	public abstract Long getLongSeq(String paramString);
+	 Long getLongSeq(String seqName);
 
-	public abstract String getStringSeq();
+	 String getStringSeq();
 
-	public abstract Long getLongSeq();
+	 Long getLongSeq();
 
-	public abstract String getSequence(String paramString);
+	 String getSequence(String seqName);
 }

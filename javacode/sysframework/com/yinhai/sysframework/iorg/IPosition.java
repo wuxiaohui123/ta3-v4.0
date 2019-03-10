@@ -5,48 +5,48 @@ import java.util.Date;
 
 public interface IPosition extends Serializable {
 
-	public static final Long ADMIN_POSITIONID = Long.valueOf(1L);
-	public static final String POSITION_TYPE_PUBLIC = "1";
-	public static final String POSITION_TYPE_PERSON = "2";
-	public static final String POSITION_TYPE_DELEGATES = "3";
-	public static final String IS_MAIN_POSITION_YES = "1";
-	public static final String IS_MAIN_POSITION_NO = "0";
-	public static final String IS_CHILDRENPOSITION = "0";
-	public static final String IS_CHILDRENORG = "0";
-	public static final String IS_ADMIN_YES = "1";
-	public static final String IS_ADMIN_NO = "0";
-	public static final String IS_SHARE_POSITION_YES = "1";
-	public static final String IS_SHARE_POSITION_NO = "0";
-	public static final String IS_COPY_POSITION_YES = "1";
-	public static final String IS_COPY_POSITION_NO = "0";
-	public static final String POSITION_CATEGORY_BUSINESS = "01";
-	public static final String POSITION_CATEGORY_JIHE = "02";
-	public static final String POSITION_CATEGORY_SHIZHONG = "03";
+	 Long ADMIN_POSITIONID = Long.valueOf(1L);
+	 String POSITION_TYPE_PUBLIC = "1";
+	 String POSITION_TYPE_PERSON = "2";
+	 String POSITION_TYPE_DELEGATES = "3";
+	 String IS_MAIN_POSITION_YES = "1";
+	 String IS_MAIN_POSITION_NO = "0";
+	 String IS_CHILDRENPOSITION = "0";
+	 String IS_CHILDRENORG = "0";
+	 String IS_ADMIN_YES = "1";
+	 String IS_ADMIN_NO = "0";
+	 String IS_SHARE_POSITION_YES = "1";
+	 String IS_SHARE_POSITION_NO = "0";
+	 String IS_COPY_POSITION_YES = "1";
+	 String IS_COPY_POSITION_NO = "0";
+	 String POSITION_CATEGORY_BUSINESS = "01";
+	 String POSITION_CATEGORY_JIHE = "02";
+	 String POSITION_CATEGORY_SHIZHONG = "03";
 
-	public abstract Long getPositionid();
+	 Long getPositionid();
 
-	public abstract Long getOrgid();
+	 Long getOrgid();
 
-	public abstract String getPositionname();
+	 String getPositionname();
 
-	public abstract String getPositiontype();
+	 String getPositiontype();
 
-	public abstract Long getCreatepositionid();
+	 Long getCreatepositionid();
 
-	public abstract String getOrgidpath();
+	 String getOrgidpath();
 
-	public abstract String getOrgnamepath();
+	 String getOrgnamepath();
 
-	public abstract Date getValidtime();
+	 Date getValidtime();
 
-	public abstract Date getCreatetime();
+	 Date getCreatetime();
 
-	public abstract Long getCreateuser();
+	 Long getCreateuser();
 
-	public abstract boolean isPerson();
+	 boolean isPerson();
 
-	public abstract boolean isPublicPosition();
+	 boolean isPublicPosition();
 
-	public abstract boolean isDelegatesPosition();
+	 boolean isDelegatesPosition();
 	
 }

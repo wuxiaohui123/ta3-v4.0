@@ -4,23 +4,23 @@ import com.yinhai.sysframework.exception.IllegalInputAppException;
 
 public interface DomainObject extends VO {
 
-	public abstract Key getPK();
+	 Key getPK();
 
-	public abstract Key getKey();
+	 Key getKey();
 
-	public abstract void setKey(Key key);
+	 void setKey(Key key);
 
-	public abstract String getObjid();
+	 String getObjid();
 
-	public abstract void setObjid(String str);
+	 void setObjid(String str);
 
-	public abstract String getDomainObjectName();
+	 String getDomainObjectName();
 
-	public abstract Object[] toArray();
+	 Object[] toArray();
 
-	public abstract void validateData() throws IllegalInputAppException;
+	 void validateData() throws IllegalInputAppException;
 
-	public abstract String toTabString();
+	 String toTabString();
 
-	public abstract boolean equals(Object object);
+	 boolean equals(Object object);
 }

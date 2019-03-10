@@ -37,9 +37,9 @@
 		
 		<ta:fieldset cols="12" id="flt">
 			<ta:text id="dept" key="组织" value="所有组织" labelWidth="30"  span="5" readOnly="true" clickIcon="xui-icon-close" clickIconTitle="点击还原为所有组织" clickIconFn="fnClear()" />
-<!-- 			<ta:buttonLayout> -->
-<!-- 				<ta:button key="清除" onClick="fnClear()" /> -->
-<!-- 			</ta:buttonLayout> -->
+			<ta:buttonLayout>
+				<ta:button key="清除" onClick="fnClear()" />
+			</ta:buttonLayout>
 			<ta:checkboxgroup id="isShowSubOrg" cssStyle="width:40px">
 				<ta:checkbox key="子组织" value="1" checked="true" onClick="fnOnClick()"/>
 			</ta:checkboxgroup>

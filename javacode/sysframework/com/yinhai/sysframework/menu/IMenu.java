@@ -4,60 +4,60 @@ import java.io.Serializable;
 
 public interface IMenu extends Serializable {
 
-	public static final Long ROOT_ID = Long.valueOf(1L);
-	public static final String DISMULTIPOS_YES = "1";
-	public static final String DISMULTIPOS_NO = "0";
-	public static final String SECURITYPOLICY_DISPLAY_SECURITY = "1";
-	public static final String SECURITYPOLICY_NODISPLAY_SECURITY = "2";
-	public static final String SECURITYPOLICY_NODISPLAY_NOSECURITY = "3";
-	public static final String SECURITYPOLICY_DISPLAY_NOSECURITY = "4";
-	public static final String CACHE_YES = "1";
-	public static final String CACHE_NO = "0";
-	public static final String AUDITE_STATE_YES = "0";
-	public static final String AUDITE_STATE_WATE = "1";
-	public static final String AUDITE_STATE_PASS = "2";
-	public static final String AUDITE_STATE_FAILURE = "3";
-	public static final String TYPE_MENU = "01";
-	public static final String TYPE_BUTTON = "02";
-	public static final String TYPE_FORMREAD = "03";
-	public static final String TYPE_FORMWRITE = "04";
-	public static final String TYPE_GRIDCOLUMNREAD = "05";
-	public static final String TYPE_GRIDCOLUMNEDITOR = "06";
-	public static final String MENUTYPE_COMMON = "0";
-	public static final String MENUTYPE_SYSMG = "1";
-	public static final String MENUTYPE_BUSINESS = "2";
-	public static final String MENU_LEAF_NO = "1";
-	public static final String MENU_LEAF_YES = "0";
+	 Long ROOT_ID = Long.valueOf(1L);
+	 String DISMULTIPOS_YES = "1";
+	 String DISMULTIPOS_NO = "0";
+	 String SECURITYPOLICY_DISPLAY_SECURITY = "1";
+	 String SECURITYPOLICY_NODISPLAY_SECURITY = "2";
+	 String SECURITYPOLICY_NODISPLAY_NOSECURITY = "3";
+	 String SECURITYPOLICY_DISPLAY_NOSECURITY = "4";
+	 String CACHE_YES = "1";
+	 String CACHE_NO = "0";
+	 String AUDITE_STATE_YES = "0";
+	 String AUDITE_STATE_WATE = "1";
+	 String AUDITE_STATE_PASS = "2";
+	 String AUDITE_STATE_FAILURE = "3";
+	 String TYPE_MENU = "01";
+	 String TYPE_BUTTON = "02";
+	 String TYPE_FORMREAD = "03";
+	 String TYPE_FORMWRITE = "04";
+	 String TYPE_GRIDCOLUMNREAD = "05";
+	 String TYPE_GRIDCOLUMNEDITOR = "06";
+	 String MENUTYPE_COMMON = "0";
+	 String MENUTYPE_SYSMG = "1";
+	 String MENUTYPE_BUSINESS = "2";
+	 String MENU_LEAF_NO = "1";
+	 String MENU_LEAF_YES = "0";
 
-	public abstract Long getMenuid();
+	 Long getMenuid();
 
-	public abstract Long getPmenuid();
+	 Long getPmenuid();
 
-	public abstract String getMenuname();
+	 String getMenuname();
 
-	public abstract String getUrl();
+	 String getUrl();
 
-	public abstract String getMenuidpath();
+	 String getMenuidpath();
 
-	public abstract String getMenunamepath();
+	 String getMenunamepath();
 
-	public abstract String getAccesstimeel();
+	 String getAccesstimeel();
 
-	public abstract String getIconSkin();
+	 String getIconSkin();
 
-	public abstract String getSelectImage();
+	 String getSelectImage();
 
-	public abstract String getReportid();
+	 String getReportid();
 
-	public abstract boolean isDismultipos();
+	 boolean isDismultipos();
 
-	public abstract boolean effective();
+	 boolean effective();
 
-	public abstract String getSecuritypolicy();
+	 String getSecuritypolicy();
 
-	public abstract String getQuickcode();
+	 String getQuickcode();
 
-	public abstract Long getSortno();
+	 Long getSortno();
 
-	public abstract boolean isParent();
+	 boolean isParent();
 }

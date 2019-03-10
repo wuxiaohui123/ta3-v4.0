@@ -5,11 +5,11 @@ import java.util.concurrent.Executor;
 
 public interface TaEventListener extends EventListener {
 
-	public abstract void handleEvent(TaEvent paramTaEvent);
+	 void handleEvent(TaEvent paramTaEvent);
 
-	public abstract String getEventType();
+	 String getEventType();
 
-	public abstract void setTaskExecutor(Executor paramExecutor);
+	 void setTaskExecutor(Executor paramExecutor);
 
-	public abstract Executor getTaskExecutor();
+	 Executor getTaskExecutor();
 }

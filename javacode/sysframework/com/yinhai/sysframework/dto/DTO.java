@@ -11,72 +11,72 @@ import com.yinhai.sysframework.app.domain.VO;
 
 public interface DTO extends Map, Serializable {
 
-	public static final String KEY_VALUE = "`";
-	  public static final String ENTRY_ENTRY = "^";
+	   String KEY_VALUE = "`";
+	   String ENTRY_ENTRY = "^";
 	  
-	  public abstract boolean isEmpty(String paramString);
+	   boolean isEmpty(String key);
 	  
-	  public abstract boolean isNotEmpty(String paramString);
+	   boolean isNotEmpty(String key);
 	  
-	  public abstract Integer getAsInteger(String paramString);
+	   Integer getAsInteger(String key);
 	  
-	  public abstract Integer getAsInteger(String paramString, int paramInt);
+	   Integer getAsInteger(String key, int defaultValue);
 	  
-	  public abstract Long getAsLong(String paramString);
+	   Long getAsLong(String key);
 	  
-	  public abstract Long getAsLong(String paramString, long paramLong);
+	   Long getAsLong(String key, long defaultValue);
 	  
-	  public abstract String getAsString(String paramString);
+	   String getAsString(String key);
 	  
-	  public abstract String getAsString(String paramString1, String paramString2);
+	   String getAsString(String key, String defaultValue);
 	  
-	  public abstract BigDecimal getAsBigDecimal(String paramString, double paramDouble);
+	   BigDecimal getAsBigDecimal(String key, double defaultValue);
 	  
-	  public abstract BigDecimal getAsBigDecimal(String paramString);
+	   BigDecimal getAsBigDecimal(String key);
 	  
-	  public abstract Date getAsDate(String paramString);
+	   Date getAsDate(String key);
 	  
-	  public abstract Date getAsDate(String paramString, Date paramDate);
+	   Date getAsDate(String key, Date defaultValue);
 	  
-	  public abstract Timestamp getAsTimestamp(String paramString);
+	   Timestamp getAsTimestamp(String key);
 	  
-	  public abstract Timestamp getAsTimestamp(String paramString, Timestamp paramTimestamp);
+	   Timestamp getAsTimestamp(String key, Timestamp defaultValue);
 	  
-	  public abstract String[] getAsStringArray(String paramString);
+	   String[] getAsStringArray(String key);
 	  
-	  public abstract Map<?, ?> getDtoAsMap();
+	   Map<?, ?> getDtoAsMap();
 	  
-	  public abstract DTO getSubDto(String paramString);
+	   DTO getSubDto(String key);
 	  
-	  public abstract DomainObject toDomainObject(String paramString);
+	   DomainObject toDomainObject(String key);
 	  
-	  public abstract DomainObject toDomainObject(Class<?> paramClass);
+	   DomainObject toDomainObject(Class<?> key);
 	  
-	  public abstract VO toVO(String paramString);
+	   VO toVO(String voClass);
 	  
-	  public abstract VO toVO(Class<?> paramClass);
+	   VO toVO(Class<?> voClass);
 	  
-	  public abstract String toXML();
+	   String toXML();
 	  
-	  public abstract DTO append(String paramString, Object paramObject);
+	   DTO append(String key, Object value);
 	  
-	  public abstract DTO checkNotEmptyForSelect(String paramString);
+	   DTO checkNotEmptyForSelect(String key);
 	  
-	  public abstract DTO checkNotEmptyForUpdate(String paramString);
+	   DTO checkNotEmptyForUpdate(String key);
 	  
-	  public abstract DTO checkNotEmptyForInsert(String paramString);
+	   DTO checkNotEmptyForInsert(String key);
 	  
-	  public abstract DTO checkNotEmptyForDelete(String paramString);
+	   DTO checkNotEmptyForDelete(String key);
 	  
-	  public abstract DTO checkNotEmptyForPrc(String paramString);
+	   DTO checkNotEmptyForPrc(String key);
 	  
-	  public abstract String[] getNotEmptyForSelect();
+	   String[] getNotEmptyForSelect();
 	  
-	  public abstract String[] getNotEmptyForUpdate();
+	   String[] getNotEmptyForUpdate();
 	  
-	  public abstract String[] getNotEmptyForInsert();
+	   String[] getNotEmptyForInsert();
 	  
-	  public abstract String[] getNotEmptyForDelete();
+	   String[] getNotEmptyForDelete();
 	  
-	  public abstract String[] getNotEmptyForPrc();
+	   String[] getNotEmptyForPrc();
 }

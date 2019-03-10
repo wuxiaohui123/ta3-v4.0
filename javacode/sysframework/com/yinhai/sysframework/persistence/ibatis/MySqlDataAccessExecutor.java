@@ -23,7 +23,7 @@ public class MySqlDataAccessExecutor extends LimitSqlExecutor {
 		try {
 			IUser user = WebUtil.getUserInfo(ServletActionContext.getRequest());
 			IMenu menu = WebUtil.getCurrentMenu(ServletActionContext.getRequest());
-			if ((user != null) && (menu != null)) {
+			if (user != null && menu != null) {
 				IDataAccessApi service = (IDataAccessApi) ServiceLocator.getService("dataAccessApi");
 				List<AppCode> list = service.query(menu.getMenuid(), user.getNowPosition().getPositionid(), "yab003");
 				Statement stmt = conn.createStatement();

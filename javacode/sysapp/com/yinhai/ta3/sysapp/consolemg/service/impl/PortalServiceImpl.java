@@ -45,7 +45,7 @@ public class PortalServiceImpl extends WsBaseService implements PortalService {
 					new Object[] { "0", "0", curSyspathId }).list();
 		}
 		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> configSyspaths = configService.getConfigSyspaths();
+		List<IConfigSyspath> configSyspaths = configService.getConfigSysPaths();
 		if (IUser.ROOT_USERID.equals(userId)) {
 			List<ConsoleModule> list1 = new ArrayList();
 			for (Menu m : list) {

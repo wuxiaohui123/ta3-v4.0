@@ -226,7 +226,7 @@ public class PositionUserMgAction extends OrgBaseAction {
 
 	public String toAddPosition() throws Exception {
 		request.setAttribute("orgTree", super.queryJsonOrgsTree(getDto()));
-		setData("positioncategory", "01");
+		//setData("positioncategory", "01");
 		return "addPosition";
 	}
 

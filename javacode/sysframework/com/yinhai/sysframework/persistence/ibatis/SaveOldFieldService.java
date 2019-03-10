@@ -5,5 +5,5 @@ import com.yinhai.sysframework.dto.ParamDTO;
 
 public interface SaveOldFieldService {
 
-	public abstract int saveOldFieldData(ParamDTO paramParamDTO, BaseDomain paramBaseDomain, String paramString1, String paramString2);
+	int saveOldFieldData(ParamDTO paramParamDTO, BaseDomain paramBaseDomain, String paramString1, String paramString2);
 }

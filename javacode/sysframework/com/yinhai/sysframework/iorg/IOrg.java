@@ -5,40 +5,40 @@ import java.util.Date;
 
 public interface IOrg extends Serializable {
 
-	public static final String ORG_TYPE_ORG = "01";
-	public static final String ORG_TYPE_DEPART = "02";
-	public static final String ORG_TYPE_GROUP = "03";
-	public static final String ORG_TYPE_TEAM = "04";
-	public static final String ORG_TYPE_SUBORG = "05";
-	public static final String ORG_LEAF_YES = "0";
-	public static final String ORG_LEAF_NO = "1";
-	public static final Long ORG_ROOT_ID = Long.valueOf(1L);
+	 String ORG_TYPE_ORG = "01";
+	 String ORG_TYPE_DEPART = "02";
+	 String ORG_TYPE_GROUP = "03";
+	 String ORG_TYPE_TEAM = "04";
+	 String ORG_TYPE_SUBORG = "05";
+	 String ORG_LEAF_YES = "0";
+	 String ORG_LEAF_NO = "1";
+	 Long ORG_ROOT_ID = Long.valueOf(1L);
 
-	public abstract Long getOrgid();
+	 Long getOrgid();
 
-	public abstract String getOrgname();
+	 String getOrgname();
 
-	public abstract Long getPorgid();
+	 Long getPorgid();
 
-	public abstract String getCostomno();
+	 String getCostomno();
 
-	public abstract String getOrgtype();
+	 String getOrgtype();
 
-	public abstract String getOrgidpath();
+	 String getOrgidpath();
 
-	public abstract String getOrgnamepath();
+	 String getOrgnamepath();
 
-	public abstract String getCostomnopath();
+	 String getCostomnopath();
 
-	public abstract String getDimension();
+	 String getDimension();
 
-	public abstract Long getCreateuser();
+	 Long getCreateuser();
 
-	public abstract Date getCreatetime();
+	 Date getCreatetime();
 
-	public abstract Integer getSort();
+	 Integer getSort();
 
-	public abstract String getYab003();
+	 String getYab003();
 
-	public abstract String getYab139();
+	 String getYab139();
 }

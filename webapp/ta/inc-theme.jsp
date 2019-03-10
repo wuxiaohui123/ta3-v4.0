@@ -28,6 +28,9 @@ function fnChangeSkin(obj){
 		linkskin.href = "<%=basePath%>ta/resource/themes/2015/" + obj.id+ "/ta-theme.css";
 		setCookie("nowskin", obj.id);
 	}
+	if (obj != null){
+        obj.parentNode.style.display = 'none';
+    }
 }
 fnChangeSkin(null);
 </script>

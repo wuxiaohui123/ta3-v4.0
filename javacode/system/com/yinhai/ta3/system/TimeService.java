@@ -19,8 +19,7 @@ public class TimeService implements ITimeService {
 	@WebMethod(exclude = true)
 	public Timestamp getSysTimestamp() {
 		Session session = sessionFactory.getCurrentSession();
-		return (Timestamp) session.createQuery("SELECT CURRENT_TIMESTAMP() as d from Menu").setFirstResult(0)
-				.setMaxResults(1).list().get(0);
+		return (Timestamp) session.createQuery("SELECT CURRENT_TIMESTAMP() as d from Menu").list().get(0);
 	}
 
 	public String getSysStrTimestamp() {
@@ -29,8 +28,7 @@ public class TimeService implements ITimeService {
 
 	public Date getSysDate() {
 		Session session = sessionFactory.getCurrentSession();
-		return (Date) session.createQuery("SELECT CURRENT_DATE() as d from Menu").setFirstResult(0).setMaxResults(1)
-				.list().get(0);
+		return (Date) session.createQuery("SELECT CURRENT_DATE() as d from Menu").list().get(0);
 	}
 
 	public String getSysStrDate() {

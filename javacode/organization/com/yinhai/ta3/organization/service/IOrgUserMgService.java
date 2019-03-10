@@ -16,55 +16,53 @@ import com.yinhai.ta3.system.org.domain.UserPerrmissionVO;
 
 public interface IOrgUserMgService extends Service {
 
-	public static final String SERVICEKEY = "orgUserMgService";
+	String SERVICEKEY = "orgUserMgService";
 
-	public abstract Org addOrg(ParamDTO paramParamDTO);
+	 Org addOrg(ParamDTO dto);
 
-	public abstract void editOrg(ParamDTO paramParamDTO);
+	 void editOrg(ParamDTO dto);
 
-	public abstract User addUser(ParamDTO paramParamDTO);
+	 User addUser(ParamDTO dto);
 
-	public abstract void editUser(ParamDTO paramParamDTO);
+	 void editUser(ParamDTO dto);
 
-	public abstract void deleteOrg(ParamDTO paramParamDTO);
+	 void deleteOrg(ParamDTO dto);
 
-	public abstract Org queryOrgNode(ParamDTO paramParamDTO);
+	 Org queryOrgNode(ParamDTO dto);
 
-	public abstract String getMaxCostomNo(Long paramLong);
+	 String getMaxCostomNo(Long porgid);
 
-	public abstract void sortOrg(List<Long> paramList, Long paramLong);
+	 void sortOrg(List<Long> sortidslong, Long operator);
 
-	public abstract PageBean queryUsersInfo(ParamDTO paramParamDTO, String paramString, int paramInt1, int paramInt2);
+	 PageBean queryUsersInfo(ParamDTO dto, String gdid, int start, int limit);
 
-	public abstract void batchReUser(Long[] paramArrayOfLong, ParamDTO paramParamDTO);
+	 void batchReUser(Long[] userids, ParamDTO dto);
 
-	public abstract void unBatchUseUser(Long[] paramArrayOfLong, ParamDTO paramParamDTO);
+	 void unBatchUseUser(Long[] userids, ParamDTO dto);
 
-	public abstract void unLockUser(Long paramLong, IUser paramIUser);
+	 void unLockUser(Long userid, IUser opUser);
 
-	public abstract User getUser(Long paramLong);
+	 User getUser(Long userid);
 
-	public abstract List<Org> queryAffiliatedOrgs(Long paramLong);
+	 List<Org> queryAffiliatedOrgs(Long userid);
 
-	public abstract List<Org> querySubOrgs(Long paramLong, boolean paramBoolean1, boolean paramBoolean2,
-			String paramString);
+	 List<Org> querySubOrgs(Long porgid, boolean isGrandChildren, boolean isSelf, String effective);
 
-	public abstract List<Long> queryPositionCouldManageOrgIds(Long paramLong);
+	 List<Long> queryPositionCouldManageOrgIds(Long positionid);
 
-	public abstract void updateDirectAndAffiliatedOrgs(Long paramLong1, List<Key> paramList, Long paramLong2,
-			IUser paramIUser);
+	 void updateDirectAndAffiliatedOrgs(Long orgid, List<Key> ids, Long userid, IUser userInfo);
 
-	public abstract void resetPassword(ParamDTO paramParamDTO);
+	 void resetPassword(ParamDTO dto);
 
-	public abstract void deleteUsers(List<Key> paramList, ParamDTO paramParamDTO);
+	 void deleteUsers(List<Key> users, ParamDTO dto);
 
-	public abstract List<Position> queryUserPostions(Long paramLong);
+	 List<Position> queryUserPostions(Long asLong);
 
-	public abstract List<UserPerrmissionVO> queryUserPerrmission(Long paramLong);
+	 List<UserPerrmissionVO> queryUserPerrmission(Long userid);
 
-	public abstract List<AppCode> queryDataField(Long paramLong1, Long paramLong2);
+	 List<AppCode> queryDataField(Long userid, Long menuid);
 
-	public abstract List queryLikeZhengzhi(ParamDTO paramParamDTO);
+	 List queryLikeZhengzhi(ParamDTO dto);
 
-	public abstract Map getDeputyInfo(Long paramLong);
+	 Map getDeputyInfo(Long orgId);
 }

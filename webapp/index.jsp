@@ -1,20 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@page language="java" pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="com.yinhai.sysframework.util.json.JSonFactory"%>
 <%@page import="com.yinhai.ta3.system.sysapp.domain.Menu"%>
-<%@page import="com.yinhai.sysframework.service.ServiceLocator"%>
 <%@page import="com.yinhai.sysframework.util.WebUtil"%>
-<%@page import="com.yinhai.sysframework.security.IPermissionServcie"%>
 <%@page import="com.yinhai.sysframework.iorg.IUser"%>
 <%@page import="com.yinhai.sysframework.iorg.IPosition"%>
 <%@page import="com.yinhai.sysframework.util.IConstants"%>
 <%@page import="com.yinhai.sysframework.service.AppManager"%>
 <%@page import="com.yinhai.sysframework.menu.IMenu"%>
-<% 
-	String curPageUrl=request.getRequestURI();   
-	curPageUrl = curPageUrl.substring(curPageUrl.lastIndexOf("/")+1);   
-	
+<%
+	String curPageUrl=request.getRequestURI();
+	curPageUrl = curPageUrl.substring(curPageUrl.lastIndexOf("/")+1);
+
     String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 	String fixPath = "true".equals(AppManager.getSysConfig("true"))?"min.":"";
@@ -25,7 +23,7 @@
 	}
 	String menuType = AppManager.getSysConfig("menuType");
 	String useLevelOneMenu = AppManager.getSysConfig("useLevelOneMenu");
-	
+
     List menuList = (List)request.getAttribute("menuList");
     List firstMenuChild = new ArrayList();
     Map firstMenu = new HashMap();
@@ -49,7 +47,7 @@
         firstMenuChild = menuList;
       }
     }
-    
+
     String curRoleName = user.getNowPosition() == null ? "无岗位" : user.getNowPosition().getPositionname();
 	List<IPosition> positions = WebUtil.getUserPositions(request);
 	String perPos = IPosition.POSITION_TYPE_PERSON;
@@ -77,9 +75,9 @@
 <script src="ta/resource/external/plugin/ta-core-all/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script src="indexue/indexresource/js/index.js" type="text/javascript"></script>
 <script src="indexue/indexresource/js/tab.js" type="text/javascript"></script>
-<script src="ta/resource/external/plugin/ta-base-all/cookie.js" type="text/javascript"></script> 
-<script src="ta/resource/external/plugin/ta-tools-all/hint-tip.js" type="text/javascript"></script> 
-<% 
+<script src="ta/resource/external/plugin/ta-base-all/cookie.js" type="text/javascript"></script>
+<script src="ta/resource/external/plugin/ta-tools-all/hint-tip.js" type="text/javascript"></script>
+<%
   if(menuType.equals("window")){
 %>
 <script src="indexue/indexresource/js/index-ui-menu.js" type="text/javascript"></script>
@@ -87,9 +85,9 @@
 <%}else{ %>
 <script src="indexue/indexresource/js/menu-panel.js" type="text/javascript"></script>
 <%} %>
-<% 
+<%
   if(useLevelOneMenu.equals("true")){
-%> 
+%>
 <script src="indexue/indexresource/js/menu-level1.js" type="text/javascript"></script>
 <%}else{ %>
 <script src="indexue/indexresource/js/menu-no-level1.js" type="text/javascript"></script>
@@ -124,7 +122,7 @@
 		   if(!useLevelOneMenu.equals("true")){
 		 %>
 		    <div class="menu_top">
-		        <div class="header-left"></div> 
+		        <div class="header-left"></div>
 		        <div class="header-border"></div>
 		    </div>
 		 <%}else{ %>
@@ -240,7 +238,7 @@
 		           <div class="func_menu menu_close" id="func_menu">
 		             <div class="func_menu_arrow"></div>
 		             <ul class="func_menu_ul">
-		               <%if(positions.size() > 1){ %>
+		               <% if(positions.size() > 1){ %>
 		               <li onmouseover="fnShowChildMenu(this);">
 		                 <div class="used_menu_img">
 		                   <img src="indexue/indexresource/images/menu/16x16/tree-menu.png"/>
@@ -270,7 +268,7 @@
 				        List<IMenu> list = (List<IMenu>)request.getAttribute("commonMenus");
 				        if(list != null){
 					    for(int i = 0 ; i < list.size(); i++){
-						   Menu menu = (Menu)list.get(i); 
+						   Menu menu = (Menu)list.get(i);
 				      %>
 		               <li onclick="showMenu('<%=menu.getMenuid()%>','<%=menu.getMenuname()%>','<%=menu.getUrl()%>')">
 		                 <div class="used_menu_img">
@@ -294,21 +292,81 @@
 		         <li>
 		           <div class="top-rightsplit">|</div>
 		         </li>
-		         <li> 
- 		           <div class="link_div">消息</div> 
+		         <li>
+ 		           <div class="link_div">消息</div>
  		         </li>
-		         <li> 
-		           <div>|</div> 
-		         </li> 
+		         <li>
+		           <div>|</div>
+		         </li>
 		         <li>
 		           <div class="link_div quite" id="logout">
 		             <a href="<%=request.getContextPath()%>/formLogoutAction.do" style="text-decoration: none;">退出</a>
-		           </div> 
+		           </div>
 		         </li>
 		         <li>
 		           <div class="link_div rehelp" id="reHelpTip_div" onclick="reDirect()">帮助提示</div>
 		         </li>
 		       </ul>
+
+
+			  <%-- <ul class="user-header">
+				   <li class="header-item" style="margin-top: 16px">
+					   <a href="#" class="nav-link">
+						   <i class="link-skin" onclick="fnDropDownMenu(this);" title="换肤"></i>
+					   </a>
+					   <div class="dropdown-menu hidden-caret">
+						   <a id="green" class="dropdown-item" href="#" onclick="fnChangeSkin(this);">Green</a>
+						   <a id="blue" class="dropdown-item" href="#" onclick="fnChangeSkin(this);">Blue</a>
+						   <a id="pinkblue" class="dropdown-item" href="#" onclick="fnChangeSkin(this);">PinkBlue</a>
+						   <a id="flat" class="dropdown-item" href="#" onclick="fnChangeSkin(this);">Flat</a>
+					   </div>
+				   </li>
+				   <li class="header-item" style="margin-top: 16px">
+					   <a href="#" class="nav-link">
+						   <i class="link-email" onclick="fnDropDownMenu(this);" title="邮件"></i>
+					   </a>
+					   <div class="dropdown-menu hidden-caret">
+						   <a class="dropdown-item" href="#">Action</a>
+						   <a class="dropdown-item" href="#">Another action</a>
+						   <div class="dropdown-divider"></div>
+						   <a class="dropdown-item" href="#">Something else here</a>
+					   </div>
+				   </li>
+				   <li class="header-item" style="margin-top: 16px">
+					   <a href="#" class="nav-link">
+						   <i class="link-notification" onclick="fnDropDownMenu(this);" title="通知"></i>
+						   &lt;%&ndash;<span class="notification">3</span>&ndash;%&gt;
+					   </a>
+				   </li>
+				   <li class="header-item">
+					   <a href="#" class="nav-link profile-pic" onclick="fnDropDownMenu(this);">
+						   <img src="indexue/indexresource/images/profile.jpg" alt="user-img" width="30px" class="img-circle"/>
+						   <span >Hizrian55555</span><span class="link-down"></span>
+					   </a>
+					   <ul class="dropdown-menu  hidden-caret dropdown-user">
+						   <li>
+							   <div class="user-box">
+								   <div class="u-img"><img src="indexue/indexresource/images/profile.jpg" alt="user"></div>
+								   <div class="u-text">
+									   <h4>Hizrian</h4>
+									   <p class="text-muted">hello@themekita.com</p>
+									   <a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+								   </div>
+							   </div>
+						   </li>
+						   <div class="dropdown-divider"></div>
+						   <a class="dropdown-item" href="#"><i class="ti-user"></i> My Profile</a>
+						   <a class="dropdown-item" href="#"></i> My Balance</a>
+						   <a class="dropdown-item" href="#"><i class="ti-email"></i> Inbox</a>
+						   <div class="dropdown-divider"></div>
+						   <a class="dropdown-item" href="#"><i class="ti-settings"></i> Account Setting</a>
+						   <div class="dropdown-divider"></div>
+						   <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Logout</a>
+					   </ul>
+				   </li>
+			   </ul>--%>
+
+
 		       <div class="header_tabs">
 		         <div class="unselect header-nav" unselectable="on">
 					<div style="height: 40px; float: left;">
@@ -355,7 +413,7 @@
 	%>
 	<div class="menu_level1_div" style="display:none;" id="menu_level1_div">
 	  <div style="width:12px;height:20px;background:url(indexue/indexresource/images/icon_s_arrow.png) no-repeat;position:absolute;left:-12px;top:20px;z-index:3;"></div>
-	  <% 
+	  <%
 	    for(int i = 0;i<menuList.size();i++){
 	      Map map = (Map)menuList.get(i);
 	      List child = (List)map.get("childList");
@@ -379,30 +437,30 @@
 			<div class="panel-tool"><div class="panel-tool-close" onclick="fnClosePass()">X</div></div>
 		</div>
 		<div id="passInfo" class="grid   panel-body panel-body-noborder window-body" layout="column" cols="1" style="padding: 0px; width: 400px; height: 140px;" title="">
-			<div class="fielddiv fielddiv_163" style="margin:1px 5px !important;"> 
-				<label for="oldPass" class="fieldLabel"> 
+			<div class="fielddiv fielddiv_163" style="margin:1px 5px !important;">
+				<label for="oldPass" class="fieldLabel">
 				<span style="color:red">*</span>
 				原密码
-				</label> 
-				<div class="fielddiv2" > 
+				</label>
+				<div class="fielddiv2" >
 					<input type="password" id="oldPass" name="dto['oldPass']" required="true" class="textinput validatebox-text validatebox-invalid" validtype="length[0,15]" maxlength="15"/>
 				</div>
 			</div>
-			<div class="fielddiv fielddiv_163" style="margin:5px;"> 
-				<label for="newPass" class="fieldLabel"> 
+			<div class="fielddiv fielddiv_163" style="margin:5px;">
+				<label for="newPass" class="fieldLabel">
 				<span style="color:red">*</span>
 				登录口令
-				</label> 
-				<div class="fielddiv2"> 
+				</label>
+				<div class="fielddiv2">
 					<input type="password" id="newPass" name="dto['newPass']" required="true" class="textinput validatebox-text" validtype="length[0,15]" maxlength="15"/>
 				</div>
 			</div>
-			<div class="fielddiv fielddiv_163" style="margin:5px;"> 
-				<label for="rpassword" class="fieldLabel"> 
+			<div class="fielddiv fielddiv_163" style="margin:5px;">
+				<label for="rpassword" class="fieldLabel">
 				<span style="color:red">*</span>
 				确认口令
-				</label> 
-				<div class="fielddiv2"> 
+				</label>
+				<div class="fielddiv2">
 					<input type="password" id="rpassword" name="dto['rpassword']" required="true" class="textinput validatebox-text" validtype="compare(this.value, ['=', 'newPass'])" maxlength="15"/>
 				</div>
 			</div>
@@ -422,345 +480,323 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
-  fnInitPage();
-  $(window).resize(fnInitPage);
-  bindEvent();
-  if("<%=useLevelOneMenu%>" != "true"){
-     var t = $("#iframeBox").offset().left;
-     $("#iframeBox .logo").css("left",30-t);
-     $("#skin-top-left").hide();
-  }else{
-    initFirstMenu();
-  }
-  
-  fnPageGuide();
+    fnInitPage();
+    $(window).resize(fnInitPage);
+    bindEvent();
+    if("<%=useLevelOneMenu%>" != "true") {
+         var t = $("#iframeBox").offset().left;
+         $("#iframeBox .logo").css("left",30-t);
+         $("#skin-top-left").hide();
+    } else {
+         initFirstMenu();
+    }
+    fnPageGuide();
 });
-	function fnPageGuide(){
-			    var data = [
-					  {id:$("#menuLevel1_div"),
-				   	  message:"点击这里，您将能够选择一级菜单!"
-				      },
-				      {id:$("#menu_ul"),
-				   	  message:"与一级菜单相关联的二级菜单!"
-				      }, {id:$("#green"),
-				      message:"这里可以进行换肤操作!"
-				      },{id:$("#user_func_menu"),
-				      	message:"这里能修改当前登录账户的密码！"
-				      },
-				      {id:$("#commonMenu"),
-				   	  message:"这里能够设置迅速访问的快捷菜单!"
-				      },{ 
-				    	  id:$("#reHelpTip_div"),
-				    	  message:"这里可以重新进行引导"
-				      }
-				];
-				$("#iframeBox").hintTip({
-					replay 	: false,
-					show 	: true, 
-					cookname: currentBuinessId,
-					data 	: data
-				}); 
+function fnPageGuide(){
+	var data = [{id:$("#menuLevel1_div"), message:"点击这里，您将能够选择一级菜单!"},
+		{id:$("#menu_ul"), message:"与一级菜单相关联的二级菜单!"},
+		{id:$("#green"), message:"这里可以进行换肤操作!"},
+		{id:$("#user_func_menu"), message:"这里能修改当前登录账户的密码！"},
+		{id:$("#commonMenu"), message:"这里能够设置迅速访问的快捷菜单!"},
+		{id:$("#reHelpTip_div"), message:"这里可以重新进行引导"}
+	];
+	$("#iframeBox").hintTip({replay: false, show: true, cookname: currentBuinessId, data: data});
+}
+
+function fnDropDownMenu(obj) {
+    $(".hidden-caret").hide();
+	var dropdownmenu = ($(obj).hasClass('profile-pic')? $(obj) : $(obj).parent()).siblings('.dropdown-menu');
+	if (dropdownmenu.hasClass('dropdown-user')){
+        dropdownmenu.css("left", $(obj).width() / 2 - dropdownmenu.width() / 2 - 35);
+    } else {
+        dropdownmenu.css("left", $(obj).width() / 2 - dropdownmenu.width() / 2);
+    }
+    if (dropdownmenu.is(':hidden')){
+		dropdownmenu.show();
+	} else {
+		dropdownmenu.hide();
 	}
-	
-	function reDirect(){
-		//Base.msgTopTip("<div class='msgTopTip'>重新导航成功</div>")
-		if(window.frames["tab_b_"+currentBuinessId].window.$(".hint-tips").length>0){
-			return;
-		}
-		$.clearCookieHintArray(currentBuinessId);
-		if(currentBuinessId != "01"){
-			var fun=window.frames["tab_b_"+currentBuinessId].window.fnPageGuide;
-			if(fun&&typeof(fun)=="function"){
+}
+
+function reDirect(){
+	//Base.msgTopTip("<div class='msgTopTip'>重新导航成功</div>");
+	if(window.frames["tab_b_"+currentBuinessId].window.$(".hint-tips").length>0){
+		return;
+	}
+	$.clearCookieHintArray(currentBuinessId);
+	if(currentBuinessId != "01"){
+		var fun = window.frames["tab_b_"+currentBuinessId].window.fnPageGuide;
+		if(fun && typeof(fun) == "function") {
 				window.frames["tab_b_"+currentBuinessId].window.fnPageGuide(currentBuinessId);
-			}else{
-				alert("该页面没有引导");
-			}
-// 			window.frames["tab_b_"+currentBuinessId].window.fnPageGuide();
-// 			window.fnPageGuide();
-		}else{
-			fnPageGuide();
+		} else {
+			alert("该页面没有引导");
+		}
+        //window.frames["tab_b_"+currentBuinessId].window.fnPageGuide();
+        //window.fnPageGuide();
+	} else {
+		fnPageGuide();
+	}
+}
+function fnSetCommonMenu() {
+	IndexTab.actTab("01", true);
+	window.frames["tab_b_01"].window.fnAddCommonMenu();
+	$("#used_menu").fadeOut();
+}
+
+function fnSelectPosition(o) {
+	var $o = $(o);
+	if (confirm("确认切换岗位吗？")) {
+		var positionid = $o.attr("id").substring(2);
+		$.ajax({
+			"data" : "__positionId=" + positionid + "&positionid=" + positionid,
+			"url" : "commonAction.do",
+			"success" : function(data) {
+				$("#positionChangeName").html($(o).attr("_name"));
+				$("#selectPosition").hide();
+			},
+			"type" : "POST",
+			"dataType" : "json"
+		});
+		//更改菜单样式
+		$o.parent("ul").find("span").removeClass('pos-now');
+		$o.find("span").addClass('pos-now');
+	} else {
+		$("#selectPosition").hide();
+	}
+}
+
+function fnShowChildMenu(o) {
+	$("#roles").css({top : $(o).offset().top, left : $(o).offset().left + $(o).outerWidth(true)}).show();
+}
+
+//初始化一级菜单颜色
+function initFirstMenu() {
+	var arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ];
+	arr = mess(arr);
+	var menuLen =<%=menuList.size()%>;
+	var col;
+	if (menuLen < 4) {
+		col = menuLen;
+	} else {
+		if (menuLen % 2 == 0) {
+			col = menuLen / 2;
+		} else {
+			col = menuLen / 2 + 0.5;
 		}
 	}
-	function fnSetCommonMenu() {
-		IndexTab.actTab("01", true);
-		window.frames["tab_b_01"].window.fnAddCommonMenu();
-		$("#used_menu").fadeOut();
-	}
-
-	function fnSelectPosition(o) {
-		var $o = $(o);
-		if (confirm("确认切换岗位吗？")) {
-			var positionid = $o.attr("id").substring(2);
-			$.ajax({
-				"data" : "__positionId=" + positionid + "&positionid=" + positionid,
-				"url" : "commonAction.do",
-				"success" : function(data) {
-					$("#positionChangeName").html($(o).attr("_name"));
-					$("#selectPosition").hide();
-				},
-				"type" : "POST",
-				"dataType" : "json"
+	var w = 60 * col + 8 * col * 2 + 10 + 2;
+	$("#menu_level1_div").css("width", w);
+	$("#menu_level1_div .menu_level1_box").each(function(i) {
+		$(this).addClass("color_" + arr[i]);
+	});
+}
+var s;
+//给左边菜单栏绑定鼠标移入事件，移入后显示下级菜单
+function bindEvent() {
+	$("#menu_ul li").mouseenter(function() {
+		var o = this;
+		s = setTimeout(function() {
+			var id = $(o).attr("id");
+			$(o).siblings().each(function() {
+				if ($(this).attr("childMenu")) {
+					hideChildMenu(this);
+				}
 			});
-			//更改菜单样式
-			$o.parent("ul").find("span").removeClass('pos-now');
-			$o.find("span").addClass('pos-now');
-		} else {
-			$("#selectPosition").hide();
-		}
-	}
-
-	function fnShowChildMenu(o) {
-		$("#roles").css({
-			top : $(o).offset().top,
-			left : $(o).offset().left + $(o).outerWidth(true)
-		}).show();
-	}
-
-    //初始化一级菜单颜色
-	function initFirstMenu() {
-		var arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ];
-		arr = mess(arr);
-		var menuLen =<%=menuList.size()%>;
-		var col;
-		if (menuLen < 4) {
-			col = menuLen;
-		} else {
-			if (menuLen % 2 == 0) {
-				col = menuLen / 2;
-			} else {
-				col = menuLen / 2 + 0.5;
+			if ($(o).attr("childMenu") && $(o).attr("childMenu") != "null") {
+				if ($("#menu_container_" + id).size() > 0) {
+					showChildMenu(o);
+				} else {
+					initChildMenu(o);
+				}
+			}
+		}, 200);
+	}).mouseleave(function(e) {
+		clearTimeout(s);
+		s = null;
+	});
+	//当鼠标点击非弹出菜单处，菜单消失
+	$(document).mousedown(function(e) {
+		var ev = e ? e : $.event.fix(window.event || e);
+		var target = ev.target || ev.srcElement;
+		if (!$(target).hasClass("menu_container_3")) {
+			if ($(target).parents(".menu_container_3").size() == 0) {
+				$(".menu_container_3").hide();
 			}
 		}
-		var w = 60 * col + 8 * col * 2 + 10 + 2;
-		$("#menu_level1_div").css("width", w);
-		$("#menu_level1_div .menu_level1_box").each(function(i) {
-			$(this).addClass("color_" + arr[i]);
-		});
-	}
-	var s;
-	//给左边菜单栏绑定鼠标移入事件，移入后显示下级菜单
-	function bindEvent() {
-		$("#menu_ul li").mouseenter(
-				function() {
-					var o = this;
-					s = setTimeout(function() {
-						var id = $(o).attr("id");
-						$(o).siblings().each(function() {
-							if ($(this).attr("childMenu")) {
-								hideChildMenu(this);
-							}
-						});
-						if ($(o).attr("childMenu")
-								&& $(o).attr("childMenu") != "null") {
-							if ($("#menu_container_" + id).size() > 0) {
-								showChildMenu(o);
-							} else {
-								initChildMenu(o);
-							}
-						}
-					}, 200);
-				}).mouseleave(function(e) {
-			clearTimeout(s);
-			s = null;
-		});
-		//当鼠标点击非弹出菜单处，菜单消失
-		$(document)
-				.mousedown(
-						function(e) {
-							var ev = e ? e : $.event.fix(window.event || e);
-							var target = ev.target || ev.srcElement;
-							if (!$(target).hasClass("menu_container_3")) {
-								if ($(target).parents(".menu_container_3")
-										.size() == 0) {
-									$(".menu_container_3").hide();
-								}
-							}
-							if (!$(target).hasClass("menu_panel")) {
-								if ($(target).parents(".menu_panel").size() == 0) {
-									$(".menu_panel").hide();
-								}
-							}
-							if (!$(target).hasClass("used_menu")
-									&& !$(target).hasClass("link_div")) {
-								if ($(target).parents(".used_menu").size() == 0) {
-									$("#used_menu").fadeOut();
-								}
-							}
-							if (!$(target).hasClass("func_menu")
-									&& !$(target).hasClass("link_div")) {
-								if ($(target).parents(".func_menu").size() == 0) {
-									$("#func_menu").fadeOut();
-								}
-							}
-						});
-	};
-	//隐藏弹出菜单方法
-	function hideChildMenu(o) {
-		var $menu = $("#menu_container_" + $(o).attr("id"));
-		$menu.hide();
-	}
-	//左边菜单展开收起事件
-	$(function() {
-		$("#menuLevel2").click(function(e) {
-			menuToBig(this);
-			e.stopImmediatePropagation();
-		}).hover(
-				function(e) {
-					if ($(this).hasClass("arrow_right")) {
-						$(this).removeClass("arrow_right").addClass(
-								"arrow_right_over");
-						$("#menuLevel2_middle").show();
-						$("#menuLevel2_small").show();
-					} else {
-						$(this).removeClass("arrow_left").addClass("arrow_left_over");
-					}
-				},
-				function() {
-					if ($(this).hasClass("arrow_right_over")) {
-						$(this).removeClass("arrow_right_over").addClass("arrow_right");
-						$("#menuLevel2_middle").hide();
-						$("#menuLevel2_small").hide();
-					} else {
-						$(this).removeClass("arrow_left_over").addClass("arrow_left");
-					}
-				});
-
-		$("#menuLevel2_middle").click(function(e) {
-			menuToMiddle();
-			e.stopImmediatePropagation();
-		});
-
-		$("#menuLevel2_small").click(function(e) {
-			menuToSmall();
-			e.stopImmediatePropagation();
-		});
-		//打开常用菜单面板事件
-		$("#commonMenu").click(function(e) {
-			var box = $("#used_menu");
-			if (box.css("display") == "none") {
-				box.fadeIn();
-			} else {
-				box.fadeOut();
+		if (!$(target).hasClass("menu_panel")) {
+			if ($(target).parents(".menu_panel").size() == 0) {
+				$(".menu_panel").hide();
 			}
-			$("#func_menu").fadeOut();
-		});
-		//打开用户功能面板事件
-		$("#user_func_menu").click(function(e) {
-			var box = $("#func_menu");
-			if (box.css("display") == "none") {
-				box.fadeIn();
-			} else {
-				box.fadeOut();
+		}
+		if (!$(target).hasClass("used_menu") && !$(target).hasClass("link_div")) {
+			if ($(target).parents(".used_menu").size() == 0) {
+				$("#used_menu").fadeOut();
 			}
-			$("#used_menu").fadeOut();
-		});
+		}
+		if (!$(target).hasClass("func_menu") && !$(target).hasClass("link_div")) {
+			if ($(target).parents(".func_menu").size() == 0) {
+				$("#func_menu").fadeOut();
+			}
+		}
+	});
+}
+//隐藏弹出菜单方法
+function hideChildMenu(o) {
+	var $menu = $("#menu_container_" + $(o).attr("id"));
+	$menu.hide();
+}
+//左边菜单展开收起事件
+$(function() {
+	$("#menuLevel2").click(function(e) {
+		menuToBig(this);
+		e.stopImmediatePropagation();
+	}).hover(function(e) {
+		if ($(this).hasClass("arrow_right")) {
+			$(this).removeClass("arrow_right").addClass("arrow_right_over");
+			$("#menuLevel2_middle").show();
+			$("#menuLevel2_small").show();
+		} else {
+			$(this).removeClass("arrow_left").addClass("arrow_left_over");
+		}
+	}, function() {
+		if ($(this).hasClass("arrow_right_over")) {
+			$(this).removeClass("arrow_right_over").addClass("arrow_right");
+			$("#menuLevel2_middle").hide();
+			$("#menuLevel2_small").hide();
+		} else {
+			$(this).removeClass("arrow_left_over").addClass("arrow_left");
+		}
 	});
 
-	window.onload = function() {
-		/********************绑定接收数据事件**********************/
-		if (window.attachEvent) {
-			window.attachEvent("onmessage", receiveMsg);
+	$("#menuLevel2_middle").click(function(e) {
+		menuToMiddle();
+		e.stopImmediatePropagation();
+	});
+
+	$("#menuLevel2_small").click(function(e) {
+		menuToSmall();
+		e.stopImmediatePropagation();
+	});
+	//打开常用菜单面板事件
+	$("#commonMenu").click(function(e) {
+		var box = $("#used_menu");
+		if (box.css("display") == "none") {
+			box.fadeIn();
 		} else {
-			window.addEventListener("message", receiveMsg, true);
+			box.fadeOut();
 		}
-	};
-	//消息事件回调函数
-	function receiveMsg(e) {
-		e = e || window.event;
-		var o = eval("(" + e.data + ")");
-		var msg = o.msg;
-		if (o.type == "function") {
-			var fun = eval(o.msg);
-			var args = o.args || [];
-			if (typeof args == "string") {
-				args = args.split(";");
-			}
-			if (typeof fun == "function")
-				fun.apply(fun, args);
+		$("#func_menu").fadeOut();
+	});
+	//打开用户功能面板事件
+	$("#user_func_menu").click(function(e) {
+		var box = $("#func_menu");
+		if (box.css("display") == "none") {
+			box.fadeIn();
+		} else {
+			box.fadeOut();
 		}
+		$("#used_menu").fadeOut();
+	});
+});
+
+window.onload = function() {
+	/********************绑定接收数据事件**********************/
+	if (window.attachEvent) {
+		window.attachEvent("onmessage", receiveMsg);
+	} else {
+		window.addEventListener("message", receiveMsg, true);
 	}
+};
+//消息事件回调函数
+function receiveMsg(e) {
+	e = e || window.event;
+	var o = eval("(" + e.data + ")");
+	var msg = o.msg;
+	if (o.type == "function") {
+		var fun = eval(o.msg);
+		var args = o.args || [];
+		if (typeof args == "string") {
+			args = args.split(";");
+		}
+		if (typeof fun == "function")
+			fun.apply(fun, args);
+	}
+}
 //获取常用菜单
 function getCommonMenu() {
   $.ajax({"url" : "<%=basePath%>indexAction!getCommonMenu.do",
 		  "success" : function(data) {
-						var menu = eval("(" + data.fieldData.commonMenu + ")");
-						var $ul = $("#used_menu ul");
-						$ul.empty();
-						var a = [];
-						for (var i = 0; i < menu.length; i++) {
-							var o = menu[i];
-							a.push("<li onclick=\"showMenu('" + o.menuid
-									+ "','" + o.menuname + "','" + o.url
-									+ "')\">");
-							a.push("<div class='used_menu_img'>");
-							a.push("<img src='indexue/indexresource/images/menu/16x16/"+o.iconSkin+".png'/></div>");
-							a.push("<div class='used_menu_name'>" + o.menuname
-									+ "</div></li>");
-						}
-						$ul.append(a.join("\n"));
-						$ul.append('<li onclick="fnSetCommonMenu()"><div class="used_menu_img"><img src="indexue/indexresource/images/menu/16x16/cd_cy03.png"/></div><div class="used_menu_name">添加常用菜单</div></li>');
-					},
-					"type" : "POST",
-					"dataType" : "json"
-		});
+			  var menu = eval("(" + data.fieldData.commonMenu + ")");
+			  var $ul = $("#used_menu ul");
+			  $ul.empty();
+			  var a = [];
+			  for (var i = 0; i < menu.length; i++) {
+				  var o = menu[i];
+				  a.push("<li onclick=\"showMenu('" + o.menuid + "','" + o.menuname + "','" + o.url + "')\">");
+				  a.push("<div class='used_menu_img'>");
+				  a.push("<img src='indexue/indexresource/images/menu/16x16/"+o.iconSkin+".png'/></div>");
+				  a.push("<div class='used_menu_name'>" + o.menuname + "</div></li>");
+			  }
+			  $ul.append(a.join("\n"));
+			  $ul.append('<li onclick="fnSetCommonMenu()"><div class="used_menu_img"><img src="indexue/indexresource/images/menu/16x16/cd_cy03.png"/></div><div class="used_menu_name">添加常用菜单</div></li>');
+		  },
+	  "type" : "POST",
+	  "dataType" : "json"
+  });
+}
+//保存密码
+function fnSavePass() {
+	var oldPass = $("#oldPass").val();
+	var newPass = $("#newPass").val();
+	var rpassword = $("#rpassword").val();
+	if (oldPass == "") {
+		alert("原密码不能为空！");
+		return;
 	}
-	//保存密码
-	function fnSavePass() {
-		var oldPass = $("#oldPass").val();
-		var newPass = $("#newPass").val();
-		var rpassword = $("#rpassword").val();
-		if (oldPass == "") {
-			alert("原密码不能为空！");
-			return;
-		}
-		if (newPass == "") {
-			alert("新密码不能为空！");
-			return;
-		}
-		if (rpassword == "") {
-			alert("密码确认不能为空！");
-			return;
-		}
-		if (newPass == rpassword) {
-			var d = "dto['oldPass']=" + oldPass + "&dto['newPass']=" + newPass
-					+ "&indexChangePass=1";
-			$.ajax({
-			   "url" : "<%=basePath%>system/userPassAction!changePasswordWidthCurrent.do",
-	           "data":d,
-	           "success":function(data){
-				 if(data.msgBox){
+	if (newPass == "") {
+		alert("新密码不能为空！");
+		return;
+	}
+	if (rpassword == "") {
+		alert("密码确认不能为空！");
+		return;
+	}
+	if (newPass == rpassword) {
+		var d = "dto['oldPass']=" + oldPass + "&dto['newPass']=" + newPass + "&indexChangePass=1";
+		$.ajax({"url" : "<%=basePath%>system/userPassAction!changePasswordWidthCurrent.do",
+			"data":d,
+			"success": function(data) {
+				 if (data.msgBox) {
 					alert(data.msgBox.msg);
 					if(data.msgBox.msgType !="error"){
 						fnClosePass();
 					}
-				  }else{
+				 } else {
 					fnClosePass();
-				  }
-			    },
-	           "type":"POST",
-	           "dataType":"json"
-    });
-  }else{
+				 }
+			},
+			"type":"POST",
+			"dataType":"json"
+        });
+  } else {
     alert("两次输入的密码不一致，请检查！");
   }
 }
 function _fnCloseMenu(){}
 </script>
 <script type="text/javascript">
-    	setInterval(
-    		function(){
-    			$.ajax({
-					type : "post",
-					url : "<%=basePath%>log/RequestSessionLogAction!request.do",
-					dataType : "json",
-					success:function(data){
-						if(data.fieldData.noSession){
-							$("#logout a").trigger("click"); 
-						}
-					}
-				});
-    		},60000
-    	);
+setInterval(function(){
+	$.ajax({type : "post",
+			url : "<%=basePath%>log/RequestSessionLogAction!request.do",
+			dataType : "json",
+			success:function(data) {
+				if(data.fieldData.noSession){
+					$("#logout a").trigger("click");
+				}
+			}
+		});
+	},60000
+);
 </script>
 </html>
 <%@ include file="/ta/incfooter.jsp"%>

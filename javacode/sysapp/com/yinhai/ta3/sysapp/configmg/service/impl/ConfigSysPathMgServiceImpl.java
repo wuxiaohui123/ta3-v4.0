@@ -54,10 +54,10 @@ public class ConfigSysPathMgServiceImpl extends BaseService implements IConfigSy
 
 	@SuppressWarnings("rawtypes")
 	public List queryConfigSyspaths() {
-		return configService.getConfigSyspaths();
+		return configService.getConfigSysPaths();
 	}
 
 	public IConfigSyspath getConfigSyspath(String id) {
-		return configService.getConfigSyspath(id);
+		return configService.getConfigSysPath(id);
 	}
 }

@@ -6,9 +6,9 @@ import com.yinhai.sysframework.codetable.domain.AppCode;
 
 public interface IDataAccessApi {
 
-	public static final String SERVICEKEY = "dataAccessApi";
+	 String SERVICEKEY = "dataAccessApi";
 
-	public abstract List<AppCode> query(Long paramLong1, Long paramLong2, String paramString);
+	 List<AppCode> query(Long menuid, Long positionid, String dimensiontype);
 
-	public abstract void clearCache(Long paramLong1, Long paramLong2, String paramString);
+	 void clearCache(Long menuid, Long positionid, String dimensiontype);
 }

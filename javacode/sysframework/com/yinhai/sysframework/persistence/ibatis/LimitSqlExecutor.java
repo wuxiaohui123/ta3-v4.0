@@ -36,7 +36,7 @@ public class LimitSqlExecutor extends SqlExecutor {
 
 	public void executeQuery(StatementScope request, Connection conn, String sql, Object[] parameters, int skipResults,
 			int maxResults, RowHandlerCallback callback) throws SQLException {
-		if (((skipResults != 0) || (maxResults != -999999)) && (supportsLimit())) {
+		if ((skipResults != 0 || maxResults != -999999) && supportsLimit()) {
 			sql = dialect.getLimitString(sql, skipResults, maxResults);
 			if (logger.isDebugEnabled()) {
 				logger.debug(sql);
@@ -46,7 +46,7 @@ public class LimitSqlExecutor extends SqlExecutor {
 	}
 
 	public boolean supportsLimit() {
-		if ((enableLimit) && (dialect != null)) {
+		if (enableLimit && dialect != null) {
 			return dialect.supportsLimit();
 		}
 		return false;

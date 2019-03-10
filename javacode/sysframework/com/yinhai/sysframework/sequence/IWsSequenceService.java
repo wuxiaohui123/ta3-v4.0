@@ -5,11 +5,11 @@ import javax.jws.WebService;
 @WebService
 public interface IWsSequenceService {
 
-	public static final String SERVICEKEY = "wsSequenceService";
+    String SERVICEKEY = "wsSequenceService";
 
-	public abstract String getStringSeq(String paramString);
+    String getStringSeq(String seqName);
 
-	public abstract Long getLongSeq(String paramString);
+    Long getLongSeq(String seqName);
 
-	public abstract String getSequence(String paramString);
+    String getSequence(String seqName);
 }

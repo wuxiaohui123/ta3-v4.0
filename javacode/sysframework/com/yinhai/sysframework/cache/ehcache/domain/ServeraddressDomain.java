@@ -59,12 +59,12 @@ public class ServeraddressDomain extends BaseDomain implements ServerAddress {
 	}
 
 	public DomainMeta getMetadata() {
-		DomainMeta domainMeta = new DomainMeta("ServeraddressDomain", "serveraddress", "��Ⱥ����server��Ӧ�õ�ַ",
+		DomainMeta domainMeta = new DomainMeta("ServeraddressDomain", "serveraddress", "集群各个server的应用地址",
 				"serveraddress", "javacode/sysapp/com/yinhai/ta3/sysapp/serveraddress/domain/Serveraddress.xml");
 
-		domainMeta.appendField("address", "address", "Ӧ�õ�ַ", "String", "VARCHAR(200)", 200, true, true, false);
+		domainMeta.appendField("address", "address", "应用地址ַ", "String", "VARCHAR(200)", 200, true, true, false);
 
-		domainMeta.appendField("canuse", "canuse", "�Ƿ�����", "String", "VARCHAR(1)", 1, false, true, false);
+		domainMeta.appendField("canuse", "canuse", "是否启用", "String", "VARCHAR(1)", 1, false, true, false);
 
 		return domainMeta;
 	}

@@ -2,19 +2,19 @@ package com.yinhai.sysframework.dao.hibernate.pagenation;
 
 public interface Paginable {
 
-	public abstract int getTotalCount();
+	 int getTotalCount();
 
-	public abstract int getTotalPage();
+	 int getTotalPage();
 
-	public abstract int getPageSize();
+	 int getPageSize();
 
-	public abstract int getPageNo();
+	 int getPageNo();
 
-	public abstract boolean isFirstPage();
+	 boolean isFirstPage();
 
-	public abstract boolean isLastPage();
+	 boolean isLastPage();
 
-	public abstract int getNextPage();
+	 int getNextPage();
 
-	public abstract int getPrePage();
+	 int getPrePage();
 }

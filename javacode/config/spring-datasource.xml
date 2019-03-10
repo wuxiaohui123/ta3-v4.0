@@ -90,9 +90,11 @@
 	</bean>
 
 	<!-- 设置sqlmap的配置 -->
-	<!-- <bean id="sqlExecutor" class="com.yinhai.sysframework.persistence.ibatis.LimitSqlExecutor"> 
-		<property name="dialect"> <bean class="com.yinhai.sysframework.persistence.ibatis.MySQLDialect" 
-		/> </property> </bean> -->
+	 <!--<bean id="sqlExecutor" class="com.yinhai.sysframework.persistence.ibatis.LimitSqlExecutor">
+		<property name="dialect">
+			<bean class="com.yinhai.sysframework.persistence.ibatis.MySQLDialect"/>
+		</property>
+	 </bean>-->
 	<bean id="sqlExecutor"
 		class="com.yinhai.sysframework.persistence.ibatis.LimitSqlExecutor">
 		<property name="dialect">

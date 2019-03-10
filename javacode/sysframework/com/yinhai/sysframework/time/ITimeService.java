@@ -8,13 +8,13 @@ import javax.jws.WebService;
 @WebService
 public interface ITimeService {
 
-	public static final String SERVICEKEY = "timeService";
+    String SERVICEKEY = "timeService";
 
-	public abstract Timestamp getSysTimestamp();
+    Timestamp getSysTimestamp();
 
-	public abstract String getSysStrTimestamp();
+    String getSysStrTimestamp();
 
-	public abstract Date getSysDate();
+    Date getSysDate();
 
-	public abstract String getSysStrDate();
+    String getSysStrDate();
 }

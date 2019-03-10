@@ -46,7 +46,7 @@ public class ServerAddressDaoImpl extends BaseDao<ServerAddress, String> impleme
 
 	public ServerAddress getServerAddress(String address) {
 		String hql = "from ServeraddressDomain where address = ?";
-		return (ServerAddress) findUnique(hql, new Object[] { address });
+		return (ServerAddress) findUnique(hql, address);
 	}
 
 	public List<String> getALlUserfullServerAddress() {

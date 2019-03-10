@@ -35,7 +35,7 @@ public class CommonMenuServiceImpl extends WsBaseService implements ICommonMenuS
 			throw new AppException("用户为空");
 		}
 		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> syslist = configService.getConfigSyspaths();
+		List<IConfigSyspath> syslist = configService.getConfigSysPaths();
 		String curSyspathId = SysConfig.getSysConfig("curSyspathId", "sysmg");
 		boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
 		if (userId.equals(IUser.ROOT_USERID)) {

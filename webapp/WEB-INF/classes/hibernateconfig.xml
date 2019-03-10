@@ -28,11 +28,11 @@
 		
 		<property name="hibernateProperties">
 			<props>
-				<!-- 
- 				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop> 
+				<!--
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL57InnoDBDialect</prop>
+ 				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
  				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.DmDialect</prop> 
+				<prop key="hibernate.dialect">org.hibernate.dialect.DmDialect</prop>
 				-->
 				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>

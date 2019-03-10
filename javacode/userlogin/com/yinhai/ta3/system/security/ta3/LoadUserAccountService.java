@@ -59,7 +59,7 @@ public class LoadUserAccountService implements ILoadUserAccountInfo {
 	protected User getUser(String loginId) {
 		String userClassName = SysConfig.getSysConfig(User.class.getName(), User.class.getName());
 		String queryUserSql = "from " + userClassName + " u where u.loginid=? and (u.destory=? or u.destory is null)";
-		return (User) hibernateDao.createQuery(queryUserSql, new Object[] { loginId, "1" }).uniqueResult();
+		return (User) hibernateDao.createQuery(queryUserSql,  loginId, "1" ).uniqueResult();
 	}
 
 	public void setHibernateDao(SimpleDao hibernateDao) {

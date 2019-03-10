@@ -46,7 +46,7 @@
 <%
 	if (AppManager.getSysConfig("developMode").equals("true")){
 %>
-<!-- 	<script type="text/javascript" src="http://118.112.188.108:8808/s/9c3341304f3839f5043e84f56cc7585c-T/zh_CN6kcypx/64016/15/1.4.25/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=zh-CN&collectorId=671b2d72"></script> -->
+ 	<script type="text/javascript" src="http://118.112.188.108:8808/s/9c3341304f3839f5043e84f56cc7585c-T/zh_CN6kcypx/64016/15/1.4.25/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=zh-CN&collectorId=671b2d72"></script>
 <%	    
 	}
 %>

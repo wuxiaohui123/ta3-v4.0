@@ -15,60 +15,57 @@ import com.yinhai.sysframework.dto.PrcDTO;
 import com.yinhai.sysframework.exception.PrcException;
 import com.yinhai.sysframework.persistence.PageBean;
 
-@SuppressWarnings({"rawtypes","deprecation"})
+@SuppressWarnings({"rawtypes", "deprecation"})
 public interface IDao {
 
-	public abstract int delete(String paramString) throws DataAccessException;
+    int delete(String statementName) throws DataAccessException;
 
-	public abstract int delete(String paramString, Object paramObject) throws DataAccessException;
+    int delete(String statementName, Object paramObject) throws DataAccessException;
 
-	public abstract Object insert(String paramString) throws DataAccessException;
+    Object insert(String statementName) throws DataAccessException;
 
-	public abstract Object insert(String paramString, Object paramObject) throws DataAccessException;
+    Object insert(String statementName, Object obj) throws DataAccessException;
 
-	public abstract int update(String paramString) throws DataAccessException;
+    int update(String statementName) throws DataAccessException;
 
-	public abstract int update(String paramString, Object paramObject) throws DataAccessException;
+    int update(String statementName, Object obj) throws DataAccessException;
 
-	public abstract Object queryForObject(String paramString) throws DataAccessException;
+    Object queryForObject(String statementName) throws DataAccessException;
 
-	public abstract Object queryForObject(String paramString, Object paramObject) throws DataAccessException;
+    Object queryForObject(String statementName, Object obj) throws DataAccessException;
 
-	public abstract List queryForList(String paramString) throws DataAccessException;
+    List queryForList(String statementName) throws DataAccessException;
 
-	public abstract List queryForList(String paramString, Object paramObject) throws DataAccessException;
+    List queryForList(String statementName, Object obj) throws DataAccessException;
 
-	public abstract List queryForPage(String paramString, Object paramObject, int paramInt1, int paramInt2);
+    List queryForPage(String statementName, Object obj, int skipResults, int maxResults);
 
-	public abstract List queryForPage(String paramString1, String paramString2, ParamDTO paramParamDTO);
+    List queryForPage(String gridId, String statementName, ParamDTO paramDTO);
 
-	public abstract PageBean queryForPageWithCount(String paramString, Object paramObject, int paramInt1, int paramInt2);
+    PageBean queryForPageWithCount(String statementName, Object obj, int skipResults, int maxResults);
 
-	public abstract PageBean queryForPageWithCount(String paramString1, String paramString2, Object paramObject,
-			ParamDTO paramParamDTO);
+    PageBean queryForPageWithCount(String gridId, String statementName, Object obj, ParamDTO dto);
 
-	public abstract void queryWithRowHandler(String paramString, Object paramObject, RowHandler paramRowHandler);
+    void queryWithRowHandler(String paramString, Object paramObject, RowHandler paramRowHandler);
 
-	public abstract void queryWithRowHandler(String paramString, Object paramObject, RowHandler paramRowHandler,
-			int paramInt1, int paramInt2);
+    void queryWithRowHandler(String statementName, Object obj, RowHandler rowHandler, int skipResults, int maxResults);
 
-	public abstract void callPrc(String paramString, PrcDTO paramPrcDTO) throws PrcException;
+    void callPrc(String prcName, PrcDTO dto) throws PrcException;
 
-	public abstract Connection getConnection() throws SQLException;
+    Connection getConnection() throws SQLException;
 
-	public abstract SqlMapClient getSqlMapClient();
+    SqlMapClient getSqlMapClient();
 
-	
-	public abstract SqlMapClientTemplate getSqlMapClientTemplate();
 
-	public abstract int saveOldFieldData(ParamDTO paramParamDTO, BaseDomain paramBaseDomain, String paramString1,
-			String paramString2);
+    SqlMapClientTemplate getSqlMapClientTemplate();
 
-	public abstract int insertBatch(String paramString, List<?> paramList) throws DataAccessException;
-	
-	public abstract int updateBatch(String paramString, List<?> paramList) throws DataAccessException;
-	
-	public abstract int deleteBatch(String paramString, List<?> paramList) throws DataAccessException;
-	
-	public abstract int executeBatchByJDBC(final String sql,List<?> paramList) throws DataAccessException;
+    int saveOldFieldData(ParamDTO pdto, BaseDomain domainClass, String menuId, String menuName);
+
+    int insertBatch(String paramString, List<?> paramList) throws DataAccessException;
+
+    int updateBatch(String paramString, List<?> paramList) throws DataAccessException;
+
+    int deleteBatch(String paramString, List<?> paramList) throws DataAccessException;
+
+    int executeBatchByJDBC(final String sql, List<?> paramList) throws DataAccessException;
 }

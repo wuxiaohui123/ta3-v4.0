@@ -6,9 +6,9 @@ import com.yinhai.sysframework.config.IConfigSyspath;
 
 public interface IConfigService {
 
-	public static final String SERVICEKEY = "configService";
+	 String SERVICEKEY = "configService";
 
-	public abstract List<IConfigSyspath> getConfigSyspaths();
+	 List<IConfigSyspath> getConfigSysPaths();
 
-	public abstract IConfigSyspath getConfigSyspath(String paramString);
+	 IConfigSyspath getConfigSysPath(String paramString);
 }

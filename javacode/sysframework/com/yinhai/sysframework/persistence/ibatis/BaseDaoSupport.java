@@ -7,8 +7,7 @@ public class BaseDaoSupport extends AbstractDaoSupport {
 
 	private SaveOldFieldService saveOldFieldData;
 
-	public int saveOldFieldData(ParamDTO pdto, BaseDomain domainClass, String menuId,
-			String menuName) {
+	public int saveOldFieldData(ParamDTO pdto, BaseDomain domainClass, String menuId, String menuName) {
 		if (saveOldFieldData != null) {
 			return saveOldFieldData.saveOldFieldData(pdto, domainClass, menuId, menuName);
 		}

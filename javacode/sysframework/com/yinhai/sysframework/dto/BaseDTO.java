@@ -23,11 +23,11 @@ public class BaseDTO extends HashMap implements DTO {
 	private static final long serialVersionUID = 1L;
 	private transient Log log = LogFactory.getLog(getClass());
 
-	private static final String FIELDS_NOTEMPTY_SELECT = "fields_notempty_select";
+	private static final String FIELDS_NOTEMPTY_SELECT = "FIELDS_NOTEMPTY_SELECT";
 
-	private static final String FIELDS_NOTEMPTY_UPDATE = "fields_notempty_update";
+	private static final String FIELDS_NOTEMPTY_UPDATE = "FIELDS_NOTEMPTY_UPDATE";
 
-	private static final String FIELDS_NOTEMPTY_INSERT = "fields_notempty_insert";
+	private static final String FIELDS_NOTEMPTY_INSERT = "FIELDS_NOTEMPTY_INSERT";
 
 	private static final String FIELDS_NOTEMPTY_DELETE = "fields_notempty_delete";
 
@@ -252,32 +252,32 @@ public class BaseDTO extends HashMap implements DTO {
 	}
 
 	public DTO checkNotEmptyForDelete(String keys) {
-		put("fields_notempty_delete", keys);
+		put(FIELDS_NOTEMPTY_DELETE, keys);
 		return this;
 	}
 
 	public DTO checkNotEmptyForInsert(String keys) {
-		put("fields_notempty_insert", keys);
+		put(FIELDS_NOTEMPTY_INSERT, keys);
 		return this;
 	}
 
 	public DTO checkNotEmptyForSelect(String keys) {
-		put("fields_notempty_select", keys);
+		put(FIELDS_NOTEMPTY_SELECT, keys);
 		return this;
 	}
 
 	public DTO checkNotEmptyForUpdate(String keys) {
-		put("fields_notempty_update", keys);
+		put(FIELDS_NOTEMPTY_UPDATE, keys);
 		return this;
 	}
 
 	public DTO checkNotEmptyForPrc(String keys) {
-		put("fields_notempty_prc", keys);
+		put(FIELDS_NOTEMPTY_PRC, keys);
 		return this;
 	}
 
 	public String[] getNotEmptyForDelete() {
-		Object keys = get("fields_notempty_delete");
+		Object keys = get(FIELDS_NOTEMPTY_DELETE);
 		if ((keys != null) && (keys.toString().trim().length() != 0)) {
 			return keys.toString().split("\\,");
 		}
@@ -285,7 +285,7 @@ public class BaseDTO extends HashMap implements DTO {
 	}
 
 	public String[] getNotEmptyForInsert() {
-		Object keys = get("fields_notempty_insert");
+		Object keys = get(FIELDS_NOTEMPTY_INSERT);
 		if ((keys != null) && (keys.toString().trim().length() != 0)) {
 			return keys.toString().split("\\,");
 		}
@@ -293,7 +293,7 @@ public class BaseDTO extends HashMap implements DTO {
 	}
 
 	public String[] getNotEmptyForSelect() {
-		Object keys = get("fields_notempty_select");
+		Object keys = get(FIELDS_NOTEMPTY_SELECT);
 		if ((keys != null) && (keys.toString().trim().length() != 0)) {
 			return keys.toString().split("\\,");
 		}
@@ -301,7 +301,7 @@ public class BaseDTO extends HashMap implements DTO {
 	}
 
 	public String[] getNotEmptyForUpdate() {
-		Object keys = get("fields_notempty_update");
+		Object keys = get(FIELDS_NOTEMPTY_UPDATE);
 		if ((keys != null) && (keys.toString().trim().length() != 0)) {
 			return keys.toString().split("\\,");
 		}
@@ -309,7 +309,7 @@ public class BaseDTO extends HashMap implements DTO {
 	}
 
 	public String[] getNotEmptyForPrc() {
-		Object keys = get("fields_notempty_prc");
+		Object keys = get(FIELDS_NOTEMPTY_PRC);
 		if ((keys != null) && (keys.toString().trim().length() != 0)) {
 			return keys.toString().split("\\,");
 		}

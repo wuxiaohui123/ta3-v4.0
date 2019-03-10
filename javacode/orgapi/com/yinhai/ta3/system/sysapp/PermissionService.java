@@ -29,181 +29,180 @@ import com.yinhai.ta3.system.sysapp.domain.Menu;
 @SuppressWarnings("unchecked")
 public class PermissionService implements IPermissionServcie {
 
-	SimpleDao hibernateDao;
-	MenuDao menuDao;
-	UserDao userDao;
-	PositionDao positionDao;
-	ITimeService timeService;
+    SimpleDao hibernateDao;
+    MenuDao menuDao;
+    UserDao userDao;
+    PositionDao positionDao;
+    ITimeService timeService;
 
-	@CacheMethod(expires = 28800)
-	public List<IMenu> getUserPermissionMenus(Long userId) {
-		Assert.notNull(userId, "userId不能为空");
+    @CacheMethod(expires = 28800)
+    public List<IMenu> getUserPermissionMenus(Long userId) {
+        Assert.notNull(userId, "userId不能为空");
 
-		Date curdate = timeService.getSysDate();
-		List<IPosition> pList = positionDao.getUserEffectivePosition(userId, curdate);
-		for (IPosition p : pList) {
-			if (isAdministrator(p)) {
-				return menuDao.getEffectiveMenus();
-			}
-		}
+        Date curdate = timeService.getSysDate();
+        List<IPosition> pList = positionDao.getUserEffectivePosition(userId, curdate);
+        for (IPosition p : pList) {
+            if (isAdministrator(p)) {
+                return menuDao.getEffectiveMenus();
+            }
+        }
+        return menuDao.getUserPermissionMenus(userId, curdate);
+    }
 
-		return menuDao.getUserPermissionMenus(userId, curdate);
-	}
+    @LapseMethod(name = "getUserPermissionMenus")
+    public void clearUserPermissionMenusCache(Long userid) {
+    }
 
-	@LapseMethod(name = "getUserPermissionMenus")
-	public void clearUserPermissionMenusCache(Long userid) {
-	}
+    @CacheMethod(expires = 28800)
+    public List<IMenu> getUserPermissionMenus(Long userId, Long positionId) {
+        Assert.notNull(userId, "userId不能为空");
+        Assert.notNull(positionId, "positionId不能为空");
 
-	@CacheMethod(expires = 28800)
-	public List<IMenu> getUserPermissionMenus(Long userId, Long positionId) {
-		Assert.notNull(userId, "userId不能为空");
-		Assert.notNull(positionId, "positionId不能为空");
+        Date curdate = timeService.getSysDate();
+        List<IPosition> pList = positionDao.getUserEffectivePosition(userId, curdate);
+        for (IPosition p : pList) {
+            if (isAdministrator(p)) {
+                return menuDao.getEffectiveMenus();
+            }
+        }
+        return menuDao.getUserPermissionMenus(userId, curdate, positionId);
+    }
 
-		Date curdate = timeService.getSysDate();
-		List<IPosition> pList = positionDao.getUserEffectivePosition(userId, curdate);
-		for (IPosition p : pList) {
-			if (isAdministrator(p)) {
-				return menuDao.getEffectiveMenus();
-			}
-		}
-		return menuDao.getUserPermissionMenus(userId, curdate, positionId);
-	}
+    @LapseMethod(name = "getUserPermissionMenus")
+    public void clearUserPermissionMenusCache(Long userid, Long positionId) {
+    }
 
-	@LapseMethod(name = "getUserPermissionMenus")
-	public void clearUserPermissionMenusCache(Long userid, Long positionId) {
-	}
+    public boolean isAdministrator(IPosition p) {
+        Assert.notNull(p, "岗位为空");
+        return IPosition.ADMIN_POSITIONID.equals(p.getPositionid());
+    }
 
-	public boolean isAdministrator(IPosition p) {
-		Assert.notNull(p);
-		return IPosition.ADMIN_POSITIONID.equals(p.getPositionid());
-	}
+    @CacheMethod(expires = 28800)
+    public Set<String> getUserPermissionUrl(Long userId) {
+        Assert.notNull(userId, "UserId为空");
 
-	@CacheMethod(expires = 28800)
-	public Set<String> getUserPermissionUrl(Long userId) {
-		Assert.notNull(userId);
+        IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
+        List<IConfigSyspath> syslist = configService.getConfigSysPaths();
+        String curSyspathId = SysConfig.getSysConfig("curSyspathId", "sysmg");
+        boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
 
-		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> syslist = configService.getConfigSyspaths();
-		String curSyspathId = SysConfig.getSysConfig("curSyspathId", "sysmg");
-		boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
+        List<IPosition> pList = positionDao.getUserEffectivePosition(userId, timeService.getSysDate());
+        for (IPosition p : pList) {
+            if (isAdministrator(p)) {
+                List<String> find = new ArrayList<String>();
 
-		List<IPosition> pList = positionDao.getUserEffectivePosition(userId, timeService.getSysDate());
-		for (IPosition p : pList) {
-			if (isAdministrator(p)) {
-				List<String> find = new ArrayList<String>();
+                if (isPortal) {
+                    find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=?", new Object[]{"0"});
+                } else if ((syslist != null) && (syslist.size() > 1)) {
+                    find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=? and c.syspath=?", new Object[]{"0", curSyspathId});
+                } else {
+                    find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=?", new Object[]{"0"});
+                }
+                Set<String> set = new HashSet<String>();
+                for (String s : find) {
+                    set.add(StringUtil.delUrlParam(s));
+                }
+                return set;
+            }
+        }
+        Set<String> effectiveUrls = menuDao.getEffectiveUrls(userId, timeService.getSysDate());
+        Set<String> setret = new HashSet<String>();
+        for (String url : effectiveUrls) {
+            setret.add(StringUtil.delUrlParam(url));
+        }
+        return setret;
+    }
 
-				if (isPortal) {
-					find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=?", new Object[] { "0" });
-				} else if ((syslist != null) && (syslist.size() > 1)) {
-					find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=? and c.syspath=?", new Object[] { "0", curSyspathId });
-				} else {
-					find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=?", new Object[] { "0" });
-				}
-				Set<String> set = new HashSet<String>();
-				for (String s : find) {
-					set.add(StringUtil.delUrlParam(s));
-				}
-				return set;
-			}
-		}
-		Set<String> effectiveUrls = menuDao.getEffectiveUrls(userId, timeService.getSysDate());
-		Set<String> setret = new HashSet<String>();
-		for (String url : effectiveUrls) {
-			setret.add(StringUtil.delUrlParam(url));
-		}
-		return setret;
-	}
+    @LapseMethod(name = "getUserPermissionUrl")
+    public void clearUserPermissionUrlCache(Long userid) {
+    }
 
-	@LapseMethod(name = "getUserPermissionUrl")
-	public void clearUserPermissionUrlCache(Long userid) {
-	}
+    @CacheMethod(expires = 28800)
+    public Set<String> getUserPermissionUrl(Long userId, Long positionId) {
+        Assert.notNull(userId);
 
-	@CacheMethod(expires = 28800)
-	public Set<String> getUserPermissionUrl(Long userId, Long positionId) {
-		Assert.notNull(userId);
+        IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
+        List<IConfigSyspath> syslist = configService.getConfigSysPaths();
+        String curSyspathId = SysConfig.getSysConfig("curSyspathId", "sysmg");
+        boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
 
-		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> syslist = configService.getConfigSyspaths();
-		String curSyspathId = SysConfig.getSysConfig("curSyspathId", "sysmg");
-		boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
+        List<IPosition> pList = positionDao.getUserEffectivePosition(userId, timeService.getSysDate());
+        for (IPosition p : pList) {
+            if (isAdministrator(p)) {
+                List<String> find = new ArrayList<String>();
+                Set<String> set = new HashSet<String>();
+                if (isPortal) {
+                    find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=?", new Object[]{"0"});
+                } else if ((syslist != null) && (syslist.size() > 1)) {
+                    find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=? and c.syspath=?", new Object[]{"0", curSyspathId});
+                } else {
+                    find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=?", new Object[]{"0"});
+                }
+                for (String s : find) {
+                    set.add(StringUtil.delUrlParam(s));
+                }
+                return set;
+            }
+        }
+        Set<String> effectiveUrls = menuDao.getEffectiveUrls(userId, positionId, timeService.getSysDate());
+        Set<String> setret = new HashSet<String>();
+        for (String url : effectiveUrls) {
+            setret.add(StringUtil.delUrlParam(url));
+        }
+        return setret;
+    }
 
-		List<IPosition> pList = positionDao.getUserEffectivePosition(userId, timeService.getSysDate());
-		for (IPosition p : pList) {
-			if (isAdministrator(p)) {
-				List<String> find = new ArrayList<String>();
-				Set<String> set = new HashSet<String>();
-				if (isPortal) {
-					find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=?", new Object[] { "0" });
-				} else if ((syslist != null) && (syslist.size() > 1)) {
-					find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=? and c.syspath=?", new Object[] { "0", curSyspathId });
-				} else {
-					find = hibernateDao.find("select distinct '/'||c.url from " + getMenuName() + " c where c.effective=?", new Object[] { "0" });
-				}
-				for (String s : find) {
-					set.add(StringUtil.delUrlParam(s));
-				}
-				return set;
-			}
-		}
-		Set<String> effectiveUrls = menuDao.getEffectiveUrls(userId, positionId, timeService.getSysDate());
-		Set<String> setret = new HashSet<String>();
-		for (String url : effectiveUrls) {
-			setret.add(StringUtil.delUrlParam(url));
-		}
-		return setret;
-	}
+    @LapseMethod(name = "getUserPermissionUrl")
+    public void clearUserPermissionUrlCache(Long userid, Long positionId) {
+    }
 
-	@LapseMethod(name = "getUserPermissionUrl")
-	public void clearUserPermissionUrlCache(Long userid, Long positionId) {
-	}
+    @CacheMethod
+    public List<IPosition> getPositionsByMenu(Long userid, Long menuid) {
+        String positionClassName = SysConfig.getSysConfig(Position.class.getName(), Position.class.getName());
+        StringBuilder hql = new StringBuilder();
+        hql.append("select c from PositionAuthrity b," + positionClassName + " c,UserPosition d").append(" where").append(" d.id.tauser.userid=?")
+                .append(" and b.id.tamenu.menuid=?").append(" and b.usepermission=?").append(" and d.id.taposition.positionid = c.positionid")
+                .append(" and c.positionid = b.id.taposition.positionid").append(" and c.effective=?")
+                .append(" and (c.validtime is null or c.validtime >=?)");
 
-	@CacheMethod
-	public List<IPosition> getPositionsByMenu(Long userid, Long menuid) {
-		String positionClassName = SysConfig.getSysConfig(Position.class.getName(), Position.class.getName());
-		StringBuilder hql = new StringBuilder();
-		hql.append("select c from PositionAuthrity b," + positionClassName + " c,UserPosition d").append(" where").append(" d.id.tauser.userid=?")
-				.append(" and b.id.tamenu.menuid=?").append(" and b.usepermission=?").append(" and d.id.taposition.positionid = c.positionid")
-				.append(" and c.positionid = b.id.taposition.positionid").append(" and c.effective=?")
-				.append(" and (c.validtime is null or c.validtime >=?)");
+        return hibernateDao.createQuery(hql.toString(), new Object[]{userid, menuid, "1", "0", timeService.getSysDate()}).list();
+    }
 
-		return hibernateDao.createQuery(hql.toString(), new Object[] { userid, menuid, "1", "0", timeService.getSysDate() }).list();
-	}
+    @LapseMethod(name = "getPositionsByMenu")
+    public void clearPositionsByMenuCache(Long userid, Long menuid) {
+    }
 
-	@LapseMethod(name = "getPositionsByMenu")
-	public void clearPositionsByMenuCache(Long userid, Long menuid) {
-	}
+    @CacheMethod
+    public List<IPosition> getUserEffectivePositions(Long userid) {
+        List<IPosition> list = positionDao.getUserEffectivePosition(userid, timeService.getSysDate());
+        return list;
+    }
 
-	@CacheMethod
-	public List<IPosition> getUserEffectivePositions(Long userid) {
-		List<IPosition> list = positionDao.getUserEffectivePosition(userid, timeService.getSysDate());
-		return list;
-	}
+    @LapseMethod(name = "getUserEffectivePositions")
+    public void clearUserEffectivePositionsCache(Long userid) {
+    }
 
-	@LapseMethod(name = "getUserEffectivePositions")
-	public void clearUserEffectivePositionsCache(Long userid) {
-	}
+    public void setMenuDao(MenuDao menuDao) {
+        this.menuDao = menuDao;
+    }
 
-	public void setMenuDao(MenuDao menuDao) {
-		this.menuDao = menuDao;
-	}
+    public void setTimeService(ITimeService timeService) {
+        this.timeService = timeService;
+    }
 
-	public void setTimeService(ITimeService timeService) {
-		this.timeService = timeService;
-	}
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
-	}
+    public void setPositionDao(PositionDao positionDao) {
+        this.positionDao = positionDao;
+    }
 
-	public void setPositionDao(PositionDao positionDao) {
-		this.positionDao = positionDao;
-	}
+    public void setHibernateDao(SimpleDao hibernateDao) {
+        this.hibernateDao = hibernateDao;
+    }
 
-	public void setHibernateDao(SimpleDao hibernateDao) {
-		this.hibernateDao = hibernateDao;
-	}
-
-	private String getMenuName() {
-		return SysConfig.getSysConfig(Menu.class.getName(), Menu.class.getName());
-	}
+    private String getMenuName() {
+        return SysConfig.getSysConfig(Menu.class.getName(), Menu.class.getName());
+    }
 }

@@ -28,7 +28,7 @@ public class ConfigSysPathAction extends BaseAction {
 
 	public String querySyspath() throws Exception {
 		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> list1 = configService.getConfigSyspaths();
+		List<IConfigSyspath> list1 = configService.getConfigSysPaths();
 		setList("ssoGrid", list1);
 		return JSON;
 	}
@@ -37,7 +37,7 @@ public class ConfigSysPathAction extends BaseAction {
 		String saveUpdate = request.getParameter("saveUpdate");
 		if ("update".equals(saveUpdate)) {
 			IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-			ConfigSyspath syspath = (ConfigSyspath) configService.getConfigSyspath(request.getParameter("id"));
+			ConfigSyspath syspath = (ConfigSyspath) configService.getConfigSysPath(request.getParameter("id"));
 			setData("id", syspath.getId());
 			setData("name", syspath.getName());
 			String url = syspath.getUrl();
@@ -75,7 +75,7 @@ public class ConfigSysPathAction extends BaseAction {
 		configSysPathMgService.removeSyspath(getDto().getAsString("id"));
 
 		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> list = configService.getConfigSyspaths();
+		List<IConfigSyspath> list = configService.getConfigSysPaths();
 		setSelectInputList("curSyspathId", list);
 		String curSyspathId = SysConfig.getSysConfig("curSyspathId", "sysmg");
 		setData("curSyspathId", curSyspathId);

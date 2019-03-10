@@ -2,19 +2,19 @@ package com.yinhai.sysframework.service;
 
 import java.util.Date;
 
-public abstract interface WsService {
+public interface WsService {
 
-	public abstract String getEntityClassName(String paramString);
+	 String getEntityClassName(String fullClassName);
 
-	public abstract String getSysStrTimestamp();
+	 String getSysStrTimestamp();
 
-	public abstract Date getSysDate();
+	 Date getSysDate();
 
-	public abstract String getSysStrDate();
+	 String getSysStrDate();
 
-	public abstract String getStringSeq(String paramString);
+	 String getStringSeq(String seqName);
 
-	public abstract Long getLongSeq(String paramString);
+	 Long getLongSeq(String seqName);
 
-	public abstract String getSequence(String paramString);
+	 String getSequence(String seqName);
 }

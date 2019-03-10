@@ -10,14 +10,11 @@ import com.yinhai.sysframework.service.WsService;
 @WebService
 public interface IAccessLogService extends WsService {
 
-	public static final String SERVICEKEY = "accessLogService";
+	 String SERVICEKEY = "accessLogService";
 
-	public abstract void saveAccessInfo(Long paramLong1, Long paramLong2, Long paramLong3, String paramString1,
-			String paramString2);
+	 void saveAccessInfo(Long userId, Long positionId, Long menuid, String url, String ispermission);
 
-	public abstract PageBean queryAccessInfo(Date startDate, Date endDate, Integer start, Integer limit, Long userid,
-			Long positionid);
+	 PageBean queryAccessInfo(Date startDate, Date endDate, Integer start, Integer limit, Long userid, Long positionid);
 	
-	public abstract PageBean queryAccessInfoByMongo(Date startDate, Date endDate, Integer start, Integer limit, Long userid,
-			Long positionid);
+	 PageBean queryAccessInfoByMongo(Date startDate, Date endDate, Integer start, Integer limit, Long userid, Long positionid);
 }

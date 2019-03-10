@@ -16,7 +16,7 @@ public class ConfigServiceImpl extends SimpleDao implements IConfigService {
 		this.cloneConfigService = cloneConfigService;
 	}
 
-	public List<IConfigSyspath> getConfigSyspaths() {
+	public List<IConfigSyspath> getConfigSysPaths() {
 		List<ConfigSyspath> list = cloneConfigService.getConfigSyspaths();
 		List<IConfigSyspath> list1 = new ArrayList<IConfigSyspath>();
 		for (ConfigSyspath configSyspath : list) {
@@ -25,7 +25,7 @@ public class ConfigServiceImpl extends SimpleDao implements IConfigService {
 		return list1;
 	}
 
-	public IConfigSyspath getConfigSyspath(String id) {
+	public IConfigSyspath getConfigSysPath(String id) {
 		return cloneConfigService.getConfigSyspath(id);
 	}
 

@@ -16,29 +16,29 @@ import com.yinhai.ta3.system.org.domain.Position;
 @SuppressWarnings("unchecked")
 public class PositionDaoImpl extends BaseDao<Position, Long> implements PositionDao {
 
-	protected Class<Position> getEntityClass() {
-		return Position.class;
-	}
+    protected Class<Position> getEntityClass() {
+        return Position.class;
+    }
 
-	public IPosition getPosition(Long positionid) {
-		return (IPosition) super.createCriteria(new Criterion[] { Restrictions.eq("positionid", positionid) }).setFetchMode("taorg", FetchMode.EAGER)
-				.uniqueResult();
-	}
+    public IPosition getPosition(Long positionid) {
+        return (IPosition) super.createCriteria(Restrictions.eq("positionid", positionid)).setFetchMode("taorg", FetchMode.EAGER)
+                .uniqueResult();
+    }
 
-	public List<IPosition> getUserEffectivePosition(Long userid, Date now) {
-		StringBuilder hql = new StringBuilder();
-		hql.append("select p from " + SysConfig.getSysConfig(Position.class.getName(), Position.class.getName()) + " p left join p.tauserpositions up")
-				.append(" where up.id.tauser.userid=?").append(" and up.id.taposition.positionid=p.positionid")
-				.append(" and (p.validtime is null or p.validtime>=?) and p.effective=?");
+    public List<IPosition> getUserEffectivePosition(Long userid, Date now) {
+        StringBuilder hql = new StringBuilder();
+        hql.append("select p from " + SysConfig.getSysConfig(Position.class.getName(), Position.class.getName()) + " p left join p.tauserpositions up")
+                .append(" where up.id.tauser.userid=?").append(" and up.id.taposition.positionid=p.positionid")
+                .append(" and (p.validtime is null or p.validtime>=?) and p.effective=?");
 
-		return super.find(hql.toString(), new Object[] { userid, now, "0" });
-	}
+        return super.find(hql.toString(), userid, now, "0");
+    }
 
-	public IPosition getUserMainPosition(Long userid) {
-		String hql = "select b from UserPosition a left join a.id.taposition b where a.id.tauser.userid=? and a.mainposition=? and b.effective=?";
-		List<IPosition> list = super.find(hql, new Object[] { userid, "1", "0" });
-		if ((list != null) && (list.size() > 0))
-			return (IPosition) list.get(0);
-		return null;
-	}
+    public IPosition getUserMainPosition(Long userid) {
+        String hql = "select b from UserPosition a left join a.id.taposition b where a.id.tauser.userid=? and a.mainposition=? and b.effective=?";
+        List<IPosition> list = super.find(hql, userid, "1", "0");
+        if (list != null && list.size() > 0)
+            return list.get(0);
+        return null;
+    }
 }

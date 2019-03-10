@@ -6,7 +6,7 @@ import com.yinhai.sysframework.time.ITimeService;
 
 public interface Service extends ITimeService, ISequenceService {
 
-	public abstract IDao getDao();
+	IDao getDao();
 
-	public abstract String getEntityClassName(String paramString);
+	String getEntityClassName(String fullClassName);
 }

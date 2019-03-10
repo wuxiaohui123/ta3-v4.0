@@ -17,7 +17,7 @@
 					<ta:selectTree url="positionUserMgAction!webQueryAsyncOrgTree.do" fontCss="fnFontCss" idKey="orgid" parentKey="porgid" nameKey="orgname" asyncParam="['orgid']" 
 					selectTreeBeforeClick="fnBeforeClick"  targetDESC="orgname" treeId="orgTree" targetId="orgid" key="组织" height="200"/>
 					<ta:text id="positionname" key="名称" required="true"/>
-					<ta:selectInput id="positioncategory" key="岗位类别" collection="positioncategory" required="true" ></ta:selectInput>
+					<ta:selectInput id="positioncategory" key="岗位类别" collection="POSITIONTYPE" required="true" />
 					<%-- 编辑行positionid --%>
 					<ta:text id="editpositionid" display="false"/>
 					<ta:text id="newPositionId" display="false" />

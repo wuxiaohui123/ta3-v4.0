@@ -109,7 +109,7 @@ public class IndexAction extends BaseAction {
 			}
 		}
 		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> syslist = configService.getConfigSyspaths();
+		List<IConfigSyspath> syslist = configService.getConfigSysPaths();
 		boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
 		String curSyspath = "";
 		Iterator i$;

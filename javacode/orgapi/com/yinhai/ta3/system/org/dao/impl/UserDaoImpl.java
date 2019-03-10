@@ -17,8 +17,7 @@ public class UserDaoImpl extends BaseDao<IUser, Long> implements UserDao {
 	}
 
 	public IUser getUserByLoginId(String loginId) {
-		return (IUser) createQuery("from " + getEntityClass(User.class.getName()) + " u where u.loginid=? and (u.destory=? or u.destory is null)",
-				new Object[] { loginId, "1" }).uniqueResult();
+		return (IUser) createQuery("from " + getEntityClass(User.class.getName()) + " u where u.loginid=? and (u.destory=? or u.destory is null)", loginId, "1" ).uniqueResult();
 	}
 
 	public IUser getUser(Long userId) {
@@ -26,12 +25,10 @@ public class UserDaoImpl extends BaseDao<IUser, Long> implements UserDao {
 	}
 
 	public void lockUser(Long userid) {
-		super.createQuery("update " + getEntityClass(User.class.getName()) + "  set islock=? where userid=?", new Object[] { "1", userid })
-				.executeUpdate();
+		super.createQuery("update " + getEntityClass(User.class.getName()) + "  set islock=? where userid=?", "1", userid ).executeUpdate();
 	}
 
 	public int updateUserFaultNum(Long userid, Integer num) {
-		return super.createQuery("update " + getEntityClass(User.class.getName()) + " set passwordfaultnum=? where userid=?",
-				new Object[] { num, userid }).executeUpdate();
+		return super.createQuery("update " + getEntityClass(User.class.getName()) + " set passwordfaultnum=? where userid=?", num, userid).executeUpdate();
 	}
 }

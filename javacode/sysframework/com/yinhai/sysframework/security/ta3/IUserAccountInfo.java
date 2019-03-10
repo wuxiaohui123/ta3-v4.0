@@ -8,25 +8,25 @@ import com.yinhai.sysframework.iorg.IUser;
 
 public interface IUserAccountInfo extends Serializable {
 
-	public abstract Collection<IRoleAuthrity> getRoles();
+    Collection<IRoleAuthrity> getRoles();
 
-	public abstract String getPassword();
+    String getPassword();
 
-	public abstract String getLoginId();
+    String getLoginId();
 
-	public abstract boolean isAccountNonExpired();
+    boolean isAccountNonExpired();
 
-	public abstract boolean isAccountNonLocked();
+    boolean isAccountNonLocked();
 
-	public abstract boolean isEnabled();
+    boolean isEnabled();
 
-	public abstract IUser getUser();
+    IUser getUser();
 
-	public abstract boolean isAccountFirstLogin();
+    boolean isAccountFirstLogin();
 
-	public abstract Date lastModifyDate();
+    Date lastModifyDate();
 
-	public abstract int getPasswordfaultnum();
+    int getPasswordfaultnum();
 
-	public abstract Date getCreateUserDate();
+    Date getCreateUserDate();
 }

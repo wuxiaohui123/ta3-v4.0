@@ -8,12 +8,12 @@ import com.yinhai.ta3.system.org.domain.OrgLogInfoVO;
 
 public interface IIllegalOperationLog  extends Service {
 
-	 public static final String SERVICEKEY = "illegalOperationLog";
-	  public static final String ILLEGAL = "1";
+	String SERVICEKEY = "illegalOperationLog";
+	String ILLEGAL = "1";
 	  
-	  public abstract void saveIllegalOperationLog(Long paramLong1, Long paramLong2, Long paramLong3, String paramString1, String paramString2, Long paramLong4, String paramString3);
+	void saveIllegalOperationLog(Long batchNo, Long userid, Long positionid, String opttype, String opobjecttype, Long optid, String changcontent);
 	  
-	  public abstract List<OrgLogInfoVO> queryIllegalOperationLog(Date paramDate1, Date paramDate2);
+	List<OrgLogInfoVO> queryIllegalOperationLog(Date startDate, Date endDate);
 	  
-	  public abstract void saveIllegalOperationMenuLog(Long paramLong1, Long paramLong2, Long paramLong3, String paramString1, String paramString2, Long paramLong4, Long paramLong5);
+	void saveIllegalOperationMenuLog(Long batchNo, Long userid, Long positionid, String opttype, String opobjecttype, Long menuid, Long opPositionid);
 }

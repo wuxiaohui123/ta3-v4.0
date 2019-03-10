@@ -1032,7 +1032,6 @@
 .icon-arrow-out {
 	background: url(icons/icon16x16/arrow-out.png) center no-repeat!important;
 }
-
 .icon-excel {
 	background: url(icons/icon16x16/document-excel.png) center no-repeat!important;
 }
@@ -1041,4 +1040,7 @@
 }
 .icon-process{
 	background:url(icons/icon32x32/process.png) center no-repeat !important;
+}
+.icon-emailbox{
+	background:url(icons/icon32x32/emailbox.png) center no-repeat !important;
 }

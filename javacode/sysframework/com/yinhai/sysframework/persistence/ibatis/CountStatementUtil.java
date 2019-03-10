@@ -36,10 +36,10 @@ public class CountStatementUtil {
 		return total;
 	}
 
-	private static long getTotal4Select(String selectQuery, Object parameterObject, IDao dao) throws SQLException {
+	private static long getTotal4Select(String selectQuery, Object object, IDao dao) throws SQLException {
 		putCountMappedStatement(selectQuery, dao);
 		String countSQL = getCountStatementId(selectQuery);
-		Long result = (Long) dao.queryForObject(countSQL, parameterObject);
+		Long result = (Long) dao.queryForObject(countSQL, object);
 		result = null != result ? result : Long.valueOf(0L);
 		return result.longValue();
 	}
@@ -47,7 +47,7 @@ public class CountStatementUtil {
 	private static void putCountMappedStatement(String selectQuery, IDao dao) {
 		String countQuery = getCountStatementId(selectQuery);
 		SqlMapClient sqlMapClient = dao.getSqlMapClient();
-		if ((sqlMapClient instanceof ExtendedSqlMapClient)) {
+		if (sqlMapClient instanceof ExtendedSqlMapClient) {
 			SqlMapExecutorDelegate delegate = ((ExtendedSqlMapClient) sqlMapClient).getDelegate();
 			try {
 				delegate.getMappedStatement(countQuery);

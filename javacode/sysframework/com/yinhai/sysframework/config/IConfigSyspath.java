@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public interface IConfigSyspath extends Serializable {
 
-	public static final String ISCURSYSTEM_YES = "0";
-	public static final String ISCURSYSTEM_NO = "1";
+    String ISCURSYSTEM_YES = "0";
+    String ISCURSYSTEM_NO = "1";
 
-	public abstract String getId();
+    String getId();
 
-	public abstract String getUrl();
+    String getUrl();
 
-	public abstract String getName();
+    String getName();
 }

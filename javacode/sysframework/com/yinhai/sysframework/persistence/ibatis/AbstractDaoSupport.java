@@ -92,14 +92,13 @@ public abstract class AbstractDaoSupport extends SqlMapClientDaoSupport implemen
 		return pb;
 	}
 
-	public PageBean queryForPageWithCount(String gridId, String statementName, Object obj, ParamDTO paramDTO) {
-		Integer skipResults = Integer.valueOf(paramDTO.getStart(gridId) == null ? 0 : paramDTO.getStart(gridId).intValue());
-		Integer maxResults = Integer.valueOf(paramDTO.getLimit(gridId) == null ? 0 : paramDTO.getLimit(gridId).intValue());
-		if ((logger.isErrorEnabled()) && (maxResults.intValue() == 0)) {
+	public PageBean queryForPageWithCount(String gridId, String statementName, Object obj, ParamDTO dto) {
+		Integer skipResults = dto.getStart(gridId) == null ? 0 : dto.getStart(gridId);
+		Integer maxResults = dto.getLimit(gridId) == null ? 0 : dto.getLimit(gridId);
+		if (logger.isErrorEnabled() && maxResults == 0) {
 			logger.error("queryForPageWithCount start=" + skipResults + ",limit=" + maxResults);
 		}
-		List list = super.getSqlMapClientTemplate().queryForList(statementName, obj, skipResults.intValue(),
-				maxResults.intValue());
+		List list = super.getSqlMapClientTemplate().queryForList(statementName, obj, skipResults, maxResults);
 
 		PageBean pb = new PageBean();
 		pb.setStart(skipResults);
@@ -114,12 +113,11 @@ public abstract class AbstractDaoSupport extends SqlMapClientDaoSupport implemen
 		super.getSqlMapClientTemplate().queryWithRowHandler(statementName, object, rowHandler);
 	}
 
-	public void queryWithRowHandler(final String statementName, final Object parameterObject,
-			final RowHandler rowHandler, final int skipResults, final int maxResults) {
+	public void queryWithRowHandler(String statementName, Object obj, RowHandler rowHandler, int skipResults, int maxResults) {
 		super.getSqlMapClientTemplate().execute(new SqlMapClientCallback() {
+			@Override
 			public Object doInSqlMapClient(SqlMapExecutor executor) throws SQLException {
-				executor.queryWithRowHandler(statementName, parameterObject, rowHandler, skipResults, maxResults);
-
+				executor.queryWithRowHandler(statementName, obj, rowHandler, skipResults, maxResults);
 				return null;
 			}
 		});
@@ -127,7 +125,7 @@ public abstract class AbstractDaoSupport extends SqlMapClientDaoSupport implemen
 
 	public void callPrc(String prcName, PrcDTO dto) throws PrcException {
 		queryForObject(prcName, dto);
-		if ((dto.getAppCode() == null) || (!"NOERROR".equalsIgnoreCase(dto.getAppCode()))) {
+		if (dto.getAppCode() == null || !"NOERROR".equalsIgnoreCase(dto.getAppCode())) {
 
 			throw new PrcException(prcName, dto.getAppCode(), dto.getErrorMsg(), dto.getShortMsg());
 		}

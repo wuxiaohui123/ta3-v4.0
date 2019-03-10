@@ -2,11 +2,11 @@ package com.yinhai.sysframework.cache.ehcache;
 
 public interface ServerAddress {
 
-	public abstract void setAddress(String paramString);
+	 void setAddress(String address);
 
-	public abstract String getAddress();
+	 String getAddress();
 
-	public abstract void setCanuse(String paramString);
+	 void setCanuse(String address);
 
-	public abstract String getCanuse();
+	 String getCanuse();
 }

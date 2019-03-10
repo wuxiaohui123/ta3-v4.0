@@ -21,7 +21,7 @@ public class CountStatement extends SelectStatement {
 	public CountStatement(SelectStatement selectStatement) {
 		setId(CountStatementUtil.getCountStatementId(selectStatement.getId()));
 		setResultSetType(selectStatement.getResultSetType());
-		setFetchSize(Integer.valueOf(1));
+		setFetchSize(1);
 		setParameterMap(selectStatement.getParameterMap());
 		setParameterClass(selectStatement.getParameterClass());
 		setSql(selectStatement.getSql());

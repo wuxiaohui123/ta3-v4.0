@@ -113,8 +113,8 @@ public class SimpleDao {
 		ResultTransformer transformer = impl.getResultTransformer();
 		List<CriteriaImpl.OrderEntry> orderEntries;
 		try {
-			orderEntries = (List) ReflectUtil.getFieldValue(impl, "orderEntries");
-			ReflectUtil.setFieldValue(impl, "orderEntries", new ArrayList());
+			orderEntries = (List) ReflectUtil.getFieldValue(impl, ORDER_ENTRIES);
+			ReflectUtil.setFieldValue(impl, ORDER_ENTRIES, new ArrayList());
 		} catch (Exception e) {
 			throw new RuntimeException("cannot read/write 'orderEntries' from CriteriaImpl", e);
 		}
@@ -132,7 +132,7 @@ public class SimpleDao {
 			crit.setResultTransformer(transformer);
 		}
 		try {
-			ReflectUtil.setFieldValue(impl, "orderEntries", orderEntries);
+			ReflectUtil.setFieldValue(impl, ORDER_ENTRIES, orderEntries);
 		} catch (Exception e) {
 			throw new RuntimeException("set 'orderEntries' to CriteriaImpl faild", e);
 		}

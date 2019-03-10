@@ -22,7 +22,7 @@ public class CommonMenuAction extends BaseAction {
 	public String execute() throws Exception {
 		List<Menu> list = commonMenuService.getCommonMenusByUserId(getDto().getUserInfo().getUserid());
 		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> syslist = configService.getConfigSyspaths();
+		List<IConfigSyspath> syslist = configService.getConfigSysPaths();
 		boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
 		String curSyspath = "";
 		if ((syslist != null) && (syslist.size() > 1) && (isPortal)) {

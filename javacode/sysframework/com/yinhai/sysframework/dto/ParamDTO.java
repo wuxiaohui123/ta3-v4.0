@@ -13,9 +13,9 @@ public class ParamDTO extends BaseDTO {
 	}
 
 	public Object put(Object key, Object value) {
-		if ((value instanceof String[])) {
+		if (value instanceof String[]) {
 			String[] t = (String[]) value;
-			if ((value != null) && (t.length == 1)) {
+			if (value != null && t.length == 1) {
 				return super.put(key, t[0]);
 			}
 		}

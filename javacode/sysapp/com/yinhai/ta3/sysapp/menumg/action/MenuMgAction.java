@@ -27,7 +27,7 @@ public class MenuMgAction extends BaseAction {
 
 		boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
 		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> syslist = configService.getConfigSyspaths();
+		List<IConfigSyspath> syslist = configService.getConfigSysPaths();
 		setData("syspath", syslist);
 		setData("syspath", SysConfig.getSysConfig("curSyspathId", "sysmg"));
 		if (!isPortal) {

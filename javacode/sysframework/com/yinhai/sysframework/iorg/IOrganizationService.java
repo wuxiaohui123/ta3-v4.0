@@ -4,19 +4,19 @@ import java.util.List;
 
 public interface IOrganizationService {
 
-	public static final String SERVICEKEY = "organizationService";
+	 String SERVICEKEY = "organizationService";
 
-	public abstract IPosition getPosition(Long paramLong);
+	 IPosition getPosition(Long paramLong);
 
-	public abstract IUser getUserByLoginId(String paramString);
+	 IUser getUserByLoginId(String paramString);
 
-	public abstract IPosition getUserMainPosition(Long paramLong);
+	 IPosition getUserMainPosition(Long paramLong);
 
-	public abstract void lockUser(Long paramLong);
+	 void lockUser(Long paramLong);
 
-	public abstract int updateUserFaultNum(Long paramLong, int paramInt);
+	 int updateUserFaultNum(Long userId, int FaultNum);
 
-	public abstract List<IPosition> getUserPositions(Long paramLong);
+	 List<IPosition> getUserPositions(Long userId);
 
-	public abstract IOrg getOrg(Long paramLong);
+	 IOrg getOrg(Long orgid);
 }

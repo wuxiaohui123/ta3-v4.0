@@ -9,32 +9,32 @@ import com.yinhai.ta3.redis.annotation.LapseMethod;
 
 public interface IPermissionServcie {
 
-	public static final String SERVICEKEY = "permissionServcie";
+    String SERVICEKEY = "permissionServcie";
 
-	public abstract List<IMenu> getUserPermissionMenus(Long paramLong);
+    List<IMenu> getUserPermissionMenus(Long userId);
 
-	public abstract List<IMenu> getUserPermissionMenus(Long paramLong1, Long paramLong2);
+    List<IMenu> getUserPermissionMenus(Long userId, Long positionId);
 
-	public abstract Set<String> getUserPermissionUrl(Long paramLong);
+    Set<String> getUserPermissionUrl(Long userId);
 
-	public abstract Set<String> getUserPermissionUrl(Long paramLong1, Long paramLong2);
+    Set<String> getUserPermissionUrl(Long userId, Long positionId);
 
-	public abstract boolean isAdministrator(IPosition paramIPosition);
+    boolean isAdministrator(IPosition p);
 
-	public abstract List<IPosition> getPositionsByMenu(Long paramLong1, Long paramLong2);
+    List<IPosition> getPositionsByMenu(Long userid, Long menuid);
 
-	public abstract List<IPosition> getUserEffectivePositions(Long paramLong);
+    List<IPosition> getUserEffectivePositions(Long userid);
 
-	@LapseMethod(name = "getUserPermissionMenus")
-	public abstract void clearUserPermissionMenusCache(Long paramLong);
+    @LapseMethod(name = "getUserPermissionMenus")
+    void clearUserPermissionMenusCache(Long userid);
 
-	public abstract void clearUserPermissionMenusCache(Long paramLong1, Long paramLong2);
+    void clearUserPermissionMenusCache(Long userid, Long positionId);
 
-	public abstract void clearUserPermissionUrlCache(Long paramLong);
+    void clearUserPermissionUrlCache(Long userid);
 
-	public abstract void clearUserPermissionUrlCache(Long paramLong1, Long paramLong2);
+    void clearUserPermissionUrlCache(Long userid, Long positionId);
 
-	public abstract void clearPositionsByMenuCache(Long paramLong1, Long paramLong2);
+    void clearPositionsByMenuCache(Long userid, Long menuid);
 
-	public abstract void clearUserEffectivePositionsCache(Long paramLong);
+    void clearUserEffectivePositionsCache(Long userid);
 }

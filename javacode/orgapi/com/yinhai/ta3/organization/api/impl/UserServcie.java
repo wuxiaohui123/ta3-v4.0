@@ -3,6 +3,7 @@ package com.yinhai.ta3.organization.api.impl;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -191,20 +192,22 @@ public class UserServcie implements IUserService {
 				+ " o, UserPosition up where 1=1");
 
 		Field[] pField = user.getClass().getDeclaredFields();
-		for (int i = 0; i < pField.length; i++) {
-			String fieldName = pField[i].getName();
-			if ((!"userid".equals(fieldName)) && (!"name".equals(fieldName)) && (!"loginid".equals(fieldName))) {
-				try {
-					PropertyDescriptor pd = new PropertyDescriptor(pField[i].getName(), user.getClass());
-					Object invoke = pd.getReadMethod().invoke(user, new Object[0]);
-					if ((invoke != null) && ((invoke instanceof String)) && (!"-1".equals(invoke))) {
-						sql.append(" and u.").append(fieldName).append("='").append(invoke.toString().replace("'", "'")).append("'");
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		Arrays.stream(pField).forEach(field -> {
+			if ("userid".equals(field.getName()) || "name".equals(field.getName()) || "loginid".equals(field.getName())){
+				return;
 			}
-		}
+			try {
+				PropertyDescriptor pd = new PropertyDescriptor(field.getName(), user.getClass());
+				Object invoke = pd.getReadMethod().invoke(user);
+				if (invoke != null && invoke instanceof String && !"-1".equals(invoke)) {
+					sql.append(" and u.").append(field.getName()).append("='").append(invoke.toString().replace("'", "'")).append("'");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
+
+
 		if (ValidateUtil.isNotEmpty(user.getLoginid())) {
 			String[] logindis = user.getLoginid().replaceAll("，", ",").split(",");
 			for (int i = 0; i < logindis.length; i++) {
@@ -236,7 +239,7 @@ public class UserServcie implements IUserService {
 				.append(" and p.positiontype =:positiontype").append(" and (u.destory is null or u.destory=:destory)")
 				.append(" and u.userid<>:developerId").append(" and p.taorg.orgid = u.directorgid").append(" order by u.sort");
 
-		Query usersQuery = hibernateDao.createQuery(sql.toString(), new Object[0]);
+		Query usersQuery = hibernateDao.createQuery(sql.toString());
 		usersQuery.setString("positiontype", "2");
 		usersQuery.setString("destory", "1");
 		if (!IPosition.ADMIN_POSITIONID.equals(positionid))
@@ -249,7 +252,7 @@ public class UserServcie implements IUserService {
 		usersQuery.setMaxResults(limit);
 
 		String countSql = sql.toString().replaceAll("distinct u", "count(distinct u)").replaceAll("order by u.sort", "");
-		Query countQuery = hibernateDao.createQuery(countSql, new Object[0]);
+		Query countQuery = hibernateDao.createQuery(countSql);
 		countQuery.setString("positiontype", "2");
 		countQuery.setString("destory", "1");
 		if (!IPosition.ADMIN_POSITIONID.equals(positionid))
@@ -264,9 +267,9 @@ public class UserServcie implements IUserService {
 		}
 
 		PageBean pg = new PageBean();
-		pg.setStart(Integer.valueOf(start));
-		pg.setLimit(Integer.valueOf(limit));
-		pg.setTotal(Integer.valueOf(1000));
+		pg.setStart(start);
+		pg.setLimit(limit);
+		pg.setTotal(1000);
 		pg.setList(usersQuery.list());
 		pg.setTotal(Integer.valueOf(((Long) countQuery.iterate().next()).intValue()));
 		return pg;

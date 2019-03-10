@@ -4,11 +4,11 @@ import com.yinhai.sysframework.iorg.IUser;
 
 public interface UserDao {
 
-	public abstract IUser getUserByLoginId(String paramString);
+	 IUser getUserByLoginId(String loginId);
 
-	public abstract IUser getUser(Long paramLong);
+	 IUser getUser(Long userid);
 
-	public abstract void lockUser(Long paramLong);
+	 void lockUser(Long userid);
 
-	public abstract int updateUserFaultNum(Long paramLong, Integer paramInteger);
+	 int updateUserFaultNum(Long userid, Integer num);
 }

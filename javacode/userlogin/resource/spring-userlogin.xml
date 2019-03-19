@@ -29,7 +29,7 @@
 	<bean id="userLogin" parent="transactionProxy">
     	<property name="target">
 			<bean class="com.yinhai.sysframework.security.ta3.UserLoginHelper">
-				<property name="permissionServcie" ref="permissionServcie"/>
+				<property name="permissionService" ref="permissionService"/>
 				<property name="loadUserAccountInfo" ref="loadUserAccountInfo"/>
 				<property name="md5PasswordEncoder" ref="md5PasswordEncoder"/>
 				<property name="timeService" ref="timeService"></property>

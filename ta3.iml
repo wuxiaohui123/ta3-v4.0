@@ -37,6 +37,23 @@
       </configuration>
       <facet type="Struts2" name="Struts 2">
         <configuration>
+          <fileset id="s2fileset" name="My Fileset" removed="false">
+            <file>file://$MODULE_DIR$/javacode/organization/resource/organization/struts/struts-admin.xml</file>
+            <file>file://$MODULE_DIR$/javacode/system/resource/system/struts/struts-codetablesyn.xml</file>
+            <file>file://$MODULE_DIR$/javacode/filetools/resource/struts-importexport.xml</file>
+            <file>file://$MODULE_DIR$/javacode/config/struts-index.xml</file>
+            <file>file://$MODULE_DIR$/javacode/config/struts-login.xml</file>
+            <file>file://$MODULE_DIR$/javacode/organization/resource/struts-organization.xml</file>
+            <file>file://$MODULE_DIR$/javacode/organization/resource/organization/struts/struts-position.xml</file>
+            <file>file://$MODULE_DIR$/javacode/runqian/resource/struts-runqian.xml</file>
+            <file>file://$MODULE_DIR$/javacode/scheduler/resource/struts-scheduler.xml</file>
+            <file>file://$MODULE_DIR$/javacode/sysapp/resource/struts-sysapp.xml</file>
+            <file>file://$MODULE_DIR$/javacode/system/resource/struts-system.xml</file>
+            <file>file://$MODULE_DIR$/javacode/organization/resource/organization/struts/struts-upload.xml</file>
+            <file>file://$MODULE_DIR$/javacode/organization/resource/organization/struts/struts-user.xml</file>
+            <file>file://$MODULE_DIR$/javacode/organization/resource/organization/struts/struts-yab003.xml</file>
+            <file>file://$MODULE_DIR$/javacode/config/struts.xml</file>
+          </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
       </facet>

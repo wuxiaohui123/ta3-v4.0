@@ -16,7 +16,7 @@ import com.yinhai.sysframework.iorg.IOrganizationService;
 import com.yinhai.sysframework.iorg.IPosition;
 import com.yinhai.sysframework.iorg.IUser;
 import com.yinhai.sysframework.menu.IMenu;
-import com.yinhai.sysframework.security.IPermissionServcie;
+import com.yinhai.sysframework.security.IPermissionService;
 import com.yinhai.sysframework.service.ServiceLocator;
 import com.yinhai.sysframework.util.MenuTreeNode;
 import com.yinhai.sysframework.util.StringUtil;
@@ -204,7 +204,7 @@ public class IndexAction extends BaseAction {
 	}
 
 	public String getMenuPosition() throws Exception {
-		IPermissionServcie service = (IPermissionServcie) ServiceLocator.getService("permissionServcie");
+		IPermissionService service = (IPermissionService) ServiceLocator.getService("permissionServcie");
 		List<IPosition> positions = service.getPositionsByMenu(getDto().getUserInfo().getUserid(), Long.valueOf(request.getParameter("menuid")));
 		writeJsonToClient(positions);
 		return null;
@@ -229,7 +229,7 @@ public class IndexAction extends BaseAction {
 	public String changePosition() throws Exception {
 		String positionid = request.getParameter("positionid");
 		IUser iUser = WebUtil.getUserInfo(request);
-		IPermissionServcie service = (IPermissionServcie) ServiceLocator.getService("permissionServcie");
+		IPermissionService service = (IPermissionService) ServiceLocator.getService("permissionServcie");
 		List<IMenu> userPermissionMenus = service.getUserPermissionMenus(iUser.getUserid(), Long.valueOf(positionid));
 		Set<String> userPermissionUrl = service.getUserPermissionUrl(iUser.getUserid(), Long.valueOf(positionid));
 		request.getSession().setAttribute("__USER_PERVIEW_MENUS_FLAG__", userPermissionMenus);

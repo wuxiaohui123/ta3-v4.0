@@ -444,6 +444,21 @@
 	font-weight: 500;
 	text-align: center;
 }
+.notification {
+	position: absolute;
+	background-color: #ff646d;
+	text-align: center;
+	border-radius: 10px;
+	min-width: 17px;
+	height: 17px;
+	font-size: 11px;
+	color: #ffffff;
+	font-weight: bold;
+	line-height: 17px;
+	top: 0px;
+	right: 12px;
+}
+
 .profile-pic{
 
 }
@@ -504,43 +519,41 @@
 	width: 100%;
 	border-radius: 5px;
 }
-.user-box.u-text{
+.user-box .u-text{
 	padding: 0 10px;
 }
-.user-box.u-text h4{
+.user-box .u-text h4{
 	margin-bottom: 0;
 	font-size: 18px;
+	background: none;
+	padding: 0;
 }
-.user-box.u-text.text-muted{
+.user-box .u-text .text-muted{
 	font-size: 13px;
 	margin-bottom: 5px;
 	color: #6c757d!important;
 }
-.link-skin{
+.user-box .u-text .btn{
 	display: inline-block;
-	width: 25px;
-	height: 25px;
-	background:url(../images/skin.png) center no-repeat !important;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	border: 1px solid transparent;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-.link-email{
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	background:url(../images/email.png) center no-repeat !important;
+.user-box .u-text .btn-rounded{
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+	opacity: 0.9;
+	border-radius: 60px !important;
+	background: #ff646d !important;
+	border-color: #ff646d !important;
+	padding: 7px 13px;
+	line-height: 1.5;
 }
-.link-notification{
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	background:url(../images/notification.png) center no-repeat !important;
-}
-.link-down{
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	background: url(../images/user-down.png) center no-repeat !important;
-}
-
 
 .nui-scroll::-webkit-scrollbar {
 	width: 8px;

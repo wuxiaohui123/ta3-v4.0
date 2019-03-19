@@ -3,11 +3,7 @@ package com.yinhai.ta3.organization.service.impl;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.hibernate.Query;
 
@@ -45,6 +41,7 @@ import com.yinhai.ta3.system.org.domain.User;
 import com.yinhai.ta3.system.org.domain.UserInfoVO;
 import com.yinhai.ta3.system.org.domain.UserPosition;
 import com.yinhai.ta3.system.sysapp.domain.Menu;
+import org.hibernate.metadata.ClassMetadata;
 
 public class PositionMgService extends OrgBaseService implements IPositionMgService {
 
@@ -1058,8 +1055,8 @@ public class PositionMgService extends OrgBaseService implements IPositionMgServ
                             + getEntityClassName(Org.class) + " o where o.orgid=?)||'%'", "0", orgid).list();
         }
         return hibernateDao.createQuery("from " + getEntityClassName(Position.class)
-                                + " p where p.effective=? and p.taorg.orgid in (select om.id.orgid from OrgMg om where om.id.positionid=?) and p.taorg.orgidpath like (select o.orgidpath from "
-                                + getEntityClassName(Org.class) + " o where o.orgid=?)||'%'", "0", positionid, orgid).list();
+                + " p where p.effective=? and p.taorg.orgid in (select om.id.orgid from OrgMg om where om.id.positionid=?) and p.taorg.orgidpath like (select o.orgidpath from "
+                + getEntityClassName(Org.class) + " o where o.orgid=?)||'%'", "0", positionid, orgid).list();
     }
 
     public void saveSharePositions(ParamDTO dto, List<Key> orgids) {
@@ -1145,7 +1142,7 @@ public class PositionMgService extends OrgBaseService implements IPositionMgServ
         if (ValidateUtil.isEmpty(positionid)) {
             throw new AppException("共享岗位id为空，不能进行操作");
         }
-        return hibernateDao.createQuery("select distinct o from " + getEntityClassName(SharePosition.class) + " sp," + getEntityClassName(Position.class) + " p," + getEntityClassName(Org.class)
+        return hibernateDao.createQuery("select distinct o from SharePosition sp," + getEntityClassName(Position.class) + " p," + getEntityClassName(Org.class)
                 + " o where sp.id.dpositionid = p.positionid and p.taorg.orgid = o.orgid and sp.id.spositionid=:positionId").setParameter("positionId", positionid).list();
     }
 

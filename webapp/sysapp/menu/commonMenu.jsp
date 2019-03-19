@@ -2,7 +2,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@page import="com.yinhai.ta3.system.sysapp.domain.Menu"%>
 <%@page import="com.yinhai.sysframework.util.WebUtil"%>
-<%@page import="com.yinhai.sysframework.security.IPermissionServcie"%>
+<%@page import="com.yinhai.sysframework.security.IPermissionService"%>
 <%@page import="com.yinhai.sysframework.service.ServiceLocator"%>
 <%@page import="com.yinhai.sysframework.menu.IMenu"%>
 <html xmlns="http://www.w3.org/1999/xhtml"> 
@@ -90,7 +90,7 @@ function GetEvent(caller){
 			event.preventDefault();
 		}
     	//判断需要确定岗位才能操作的菜单
- 		<%if(((IPermissionServcie)ServiceLocator.getService(IPermissionServcie.SERVICEKEY)).isAdministrator(WebUtil.getUserInfo(request).getNowPosition())){%>
+ 		<%if(((IPermissionService)ServiceLocator.getService(IPermissionService.SERVICEKEY)).isAdministrator(WebUtil.getUserInfo(request).getNowPosition())){%>
  		top.IndexTab.addTab(id, text, url);
  		<%}else{%>
  		if(isdismultipos=="0" && !queryPositionByMenu(event, url,id,text))return ;

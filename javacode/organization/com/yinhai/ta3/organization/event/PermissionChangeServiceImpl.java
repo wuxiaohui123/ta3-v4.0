@@ -7,7 +7,7 @@ import javax.jws.WebService;
 
 import com.yinhai.sysframework.config.SysConfig;
 import com.yinhai.sysframework.dao.hibernate.SimpleDao;
-import com.yinhai.sysframework.security.IPermissionServcie;
+import com.yinhai.sysframework.security.IPermissionService;
 import com.yinhai.sysframework.service.WsBaseService;
 import com.yinhai.ta3.system.org.domain.Position;
 import com.yinhai.ta3.system.org.domain.User;
@@ -17,10 +17,10 @@ import com.yinhai.ta3.system.org.domain.User;
 public class PermissionChangeServiceImpl extends WsBaseService implements PermissionChangeService {
 
 	private SimpleDao hibernateDao;
-	private IPermissionServcie permissionServcie;
+	private IPermissionService permissionServcie;
 
 	@WebMethod(exclude = true)
-	public void setPermissionServcie(IPermissionServcie permissionServcie) {
+	public void setPermissionServcie(IPermissionService permissionServcie) {
 		this.permissionServcie = permissionServcie;
 	}
 

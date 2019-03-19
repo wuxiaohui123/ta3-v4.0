@@ -164,7 +164,7 @@ function fnIndexBtnClick() {
 function openPwChangeWindow() {
   var h = $(window).outerHeight(true);
   var w = $(window).outerWidth(true);
-  $("body").append("<div class='window-mask' style='width:"+w+"px;height:"+h+"px'></div>")
+  $("body").append("<div class='window-mask' style='width:"+w+"px;height:"+h+"px'></div>");
   $("#passC").css({"top":(h-$("#passC").height())/2,"left":(w-$("#passC").width())/2});
   $("#passC").show();
   $("#oldPass").focus();

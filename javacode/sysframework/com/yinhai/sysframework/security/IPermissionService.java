@@ -7,9 +7,9 @@ import com.yinhai.sysframework.iorg.IPosition;
 import com.yinhai.sysframework.menu.IMenu;
 import com.yinhai.ta3.redis.annotation.LapseMethod;
 
-public interface IPermissionServcie {
+public interface IPermissionService {
 
-    String SERVICEKEY = "permissionServcie";
+    String SERVICEKEY = "permissionService";
 
     List<IMenu> getUserPermissionMenus(Long userId);
 

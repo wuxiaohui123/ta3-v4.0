@@ -70,7 +70,7 @@ public class UserMgAction extends OrgBaseAction {
 				setMsg("保存失败");
 			}
 		} else {
-			setMsg("至少选择�?��组织");
+			setMsg("至少选择一个组织");
 		}
 		return "tojson";
 	}
@@ -120,7 +120,7 @@ public class UserMgAction extends OrgBaseAction {
 		List<Key> selected = getSelected("userGd");
 		Long[] userids = new Long[selected.size()];
 		for (int i = 0; i < selected.size(); i++) {
-			userids[i] = ((Key) selected.get(i)).getAsLong("userid");
+			userids[i] = selected.get(i).getAsLong("userid");
 		}
 		userMgService.unBatchUseUser(userids, getDto());
 		return "tojson";
@@ -166,10 +166,10 @@ public class UserMgAction extends OrgBaseAction {
 	public String webToBatchPosition() {
 		List<Org> orgs = orgMgService.querySubOrgs(getDto().getUserInfo().getNowPosition().getOrgid(), true, true, "0");
 
-		List<Map<String, Object>> orgstree = new ArrayList();
+		List<Map<String, Object>> orgstree = new ArrayList<>();
 		List<Key> jsonParamAsList = getJsonParamAsList("users");
 		if (jsonParamAsList.size() == 1) {
-			List<Position> positions = userMgService.queryUserPersionalPostions(((Key) jsonParamAsList.get(0)).getAsLong("userid"));
+			List<Position> positions = userMgService.queryUserPersionalPostions(jsonParamAsList.get(0).getAsLong("userid"));
 			for (Org o : orgs)
 				if (o.getOrgid().equals(((Position) positions.get(0)).getOrgid())) {
 					Map<String, Object> map = o.toMap();
@@ -193,15 +193,15 @@ public class UserMgAction extends OrgBaseAction {
 		Org directOrg = orgMgService.queryOrgNode(getDto().append("orgid", user.getDirectorgid()));
 
 		List<Org> affiliatedOrgs = orgMgService.queryAffiliatedOrgs(getDto().getAsLong("userid"));
-		String w1_orgid = "";
-		String w1_orgname = "";
+		StringBuilder w1_orgid = new StringBuilder();
+		StringBuilder w1_orgname = new StringBuilder();
 		for (int i = 0; i < affiliatedOrgs.size(); i++) {
 			if (i != affiliatedOrgs.size() - 1) {
-				w1_orgid = w1_orgid + ((Org) affiliatedOrgs.get(i)).getOrgid() + ",";
-				w1_orgname = w1_orgname + ((Org) affiliatedOrgs.get(i)).getOrgname() + ",";
+				w1_orgid.append(affiliatedOrgs.get(i).getOrgid()).append(",");
+				w1_orgname.append(affiliatedOrgs.get(i).getOrgname()).append(",");
 			} else {
-				w1_orgid = w1_orgid + ((Org) affiliatedOrgs.get(i)).getOrgid();
-				w1_orgname = w1_orgname + ((Org) affiliatedOrgs.get(i)).getOrgname();
+				w1_orgid.append(affiliatedOrgs.get(i).getOrgid());
+				w1_orgname.append(affiliatedOrgs.get(i).getOrgname());
 			}
 		}
 
@@ -214,8 +214,8 @@ public class UserMgAction extends OrgBaseAction {
 
 		setData("w_orgTree", user.getDirectorgid() + "," + directOrg.getOrgname());
 
-		setData("w1_orgid", w1_orgid);
-		setData("w1_orgname", w1_orgname);
+		setData("w1_orgid", w1_orgid.toString());
+		setData("w1_orgname", w1_orgname.toString());
 		setData("userid", getDto().getAsLong("userid"));
 
 		setData("w_orgid_1", user.getDirectorgid());
@@ -223,7 +223,7 @@ public class UserMgAction extends OrgBaseAction {
 	}
 
 	private List<Map<String, Object>> buildOrgTreeJSON(List<Org> orgs, List<Long> orgids, List<Org> affiliatedOrgs, boolean isDeveloper) {
-		List<Map<String, Object>> lOrgs = new ArrayList();
+		List<Map<String, Object>> lOrgs = new ArrayList<>();
 		for (Org org : orgs) {
 			Map<String, Object> mOrg = org.toMap();
 			mOrg.put("isParent", "true");
@@ -300,8 +300,13 @@ public class UserMgAction extends OrgBaseAction {
 		return "toDatafield";
 	}
 
+	public String toUserInfo() throws Exception {
+
+		return "toUserInfo";
+	}
+
 	private List<Map<String, Object>> buildOrgTreeJSON(List<Org> orgs, List<Long> opsitionids, boolean isDeveloper, List<Org> affiliatedOrgs) {
-		List<Map<String, Object>> lOrgs = new ArrayList();
+		List<Map<String, Object>> lOrgs = new ArrayList<>();
 		for (Org org : orgs) {
 			Map<String, Object> mOrg = org.toMap();
 			if (affiliatedOrgs != null) {

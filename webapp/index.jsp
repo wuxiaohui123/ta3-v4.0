@@ -2,7 +2,6 @@
 <%@page pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="com.yinhai.sysframework.util.json.JSonFactory"%>
-<%@page import="com.yinhai.ta3.system.sysapp.domain.Menu"%>
 <%@page import="com.yinhai.sysframework.util.WebUtil"%>
 <%@page import="com.yinhai.sysframework.iorg.IUser"%>
 <%@page import="com.yinhai.sysframework.iorg.IPosition"%>
@@ -14,8 +13,8 @@
 	curPageUrl = curPageUrl.substring(curPageUrl.lastIndexOf("/")+1);
 
     String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	String fixPath = "true".equals(AppManager.getSysConfig("true"))?"min.":"";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	String fixPath = "true".equals(AppManager.getSysConfig("true"))? "min." : "";
 	IUser user = WebUtil.getUserInfo(request);
 	if (user == null) {
 		response.sendRedirect("login.jsp");
@@ -29,8 +28,8 @@
     Map firstMenu = new HashMap();
     Map secMenu = new HashMap();
     Map thMenu = new HashMap();
-    if(menuList != null && menuList.size()>0){
-      if(useLevelOneMenu.equals("true")){
+    if(menuList != null && menuList.size() > 0) {
+      if(useLevelOneMenu.equals("true")) {
         firstMenu = (Map)menuList.get(0);
         if(menuList.size()>1){
           secMenu = (Map)menuList.get(1);
@@ -50,10 +49,8 @@
 
     String curRoleName = user.getNowPosition() == null ? "无岗位" : user.getNowPosition().getPositionname();
 	List<IPosition> positions = WebUtil.getUserPositions(request);
-	String perPos = IPosition.POSITION_TYPE_PERSON;
 	IPosition mainPosition = WebUtil.getUserInfo(request).getNowPosition();
 	long nowPosId = mainPosition.getPositionid();
-	IPosition p;
 %>
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="cache-control" content="no-cache" />
@@ -69,6 +66,7 @@
 <link href="indexue/indexresource/css/index.css" rel="stylesheet" type="text/css" />
 <link href="indexue/indexresource/css/skin.css" rel="stylesheet" type="text/css" />
 <link href="indexue/indexresource/css/base.css" rel="stylesheet" type="text/css" />
+<link href="ta/resource/themes/base/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="ta/resource/themes/base/helptip/helptip.css" rel="stylesheet" type="text/css" />
 <%@include file="/ta/inc-theme.jsp"  %>
 
@@ -196,123 +194,14 @@
 			  <div id="menuLevel2_middle" class="middle_box"></div>
 			</div>
 		</div>
-		<div class="position_menu" id="roles">
-          <ul style="width: auto;padding: 5px 0px;">
-          <%
-            for(int i = 0; i < positions.size();i++){
-              p = positions.get(i);
-          %>
-          <li  id="p_<%=p.getPositionid()%>" _id="<%=p.getPositiontype()%>" _name="<%=p.getPositionname() %>" onclick="fnSelectPosition(this)">
-          <%
-              if(nowPosId == p.getPositionid()){
-          %>
-          <span class="pos-now" title="组织路径：<%=p.getOrgnamepath()%>"><%=p.getPositionname() %><%if("1".equals(p.getPositiontype())){%>(公有)<%}else if("2".equals(p.getPositiontype())){%>(个人)<%}else if("3".equals(p.getPositiontype())){%>(委派)<%} %></span>
-            <%} else{%>
-          <span title="组织路径：<%=p.getOrgnamepath()%>"><%=p.getPositionname() %><%if("1".equals(p.getPositiontype())){%>(公有)<%}else if("2".equals(p.getPositiontype())){%>(个人)<%}else if("3".equals(p.getPositiontype())){%>(委派)<%} %></span>
-            <%} %>
-          </li>
-          <%} %>
-          </ul>
-		</div>
+
 		<div id="iframeBox" style="float:left;position:relative;z-index:3;">
 		   <div class="header">
 		       <div class="logo"></div>
-		       <ul id="fun_link" class="header_link">
-		         <li>
-		       		 <div class="changetheme" style="background-color:green" id="green" onclick="fnChangeSkin(this)" title="换肤"></div>
-		         </li>
-		         <li>
-		       		 <div class="changetheme" style="background-color:blue" id="blue" onclick="fnChangeSkin(this)" title="换肤"></div>
-		         </li>
-		         <li>
-		       		 <div class="changetheme" style="background-color:pink" id="pinkblue" onclick="fnChangeSkin(this)" title="换肤"></div>
-		         </li>
-		         <li>
-		       		 <div class="changetheme" style="background-color:gray;" id="flat" onclick="fnChangeSkin(this)" title="换肤"></div>
-		         </li>
-		       	 <li>
-		           <div class="top-rightsplit">|</div>
-		         </li>
-		         <li>
-		           <div class="link_div position" id="user_func_menu"><%=mainPosition.getPositionname()%></div>
-		           <div class="func_menu menu_close" id="func_menu">
-		             <div class="func_menu_arrow"></div>
-		             <ul class="func_menu_ul">
-		               <% if(positions.size() > 1){ %>
-		               <li onmouseover="fnShowChildMenu(this);">
-		                 <div class="used_menu_img">
-		                   <img src="indexue/indexresource/images/menu/16x16/tree-menu.png"/>
-		                 </div>
-		                 <div class="used_menu_name">切换岗位</div>
-		                 <div class='child_arrow'></div>
-		               </li>
-		               <%} %>
-		               <li onclick="openPwChangeWindow();" onmouseover="$('#roles').hide();">
-		                 <div class="used_menu_img">
-		                   <img src="indexue/indexresource/images/menu/16x16/tree-setting.png"/>
-		                 </div>
-		                 <div class="used_menu_name">修改密码</div>
-		               </li>
-		             </ul>
-		           </div>
-		         </li>
-		         <li>
-		           <div class="top-rightsplit">|</div>
-		         </li>
-		         <li>
-		           <div class="link_div quickmenu" id="commonMenu">快捷菜单</div>
-		           <div class="used_menu menu_close" id="used_menu">
-		             <div class="used_menu_arrow"></div>
-		             <ul class="used_menu_ul">
-		             <%
-				        List<IMenu> list = (List<IMenu>)request.getAttribute("commonMenus");
-				        if(list != null){
-					    for(int i = 0 ; i < list.size(); i++){
-						   Menu menu = (Menu)list.get(i);
-				      %>
-		               <li onclick="showMenu('<%=menu.getMenuid()%>','<%=menu.getMenuname()%>','<%=menu.getUrl()%>')">
-		                 <div class="used_menu_img">
-		                   <img src="indexue/indexresource/images/menu/16x16/<%=menu.getIconSkin()%>.png"/>
-		                 </div>
-		                 <div class="used_menu_name"><%=menu.getMenuname()%></div>
-		               </li>
-		               <%
-					       }
-				         }
-				       %>
-		               <li onclick="fnSetCommonMenu()">
-		                 <div class="used_menu_img">
-		                   <img src="indexue/indexresource/images/menu/16x16/tree-bug.png"/>
-		                 </div>
-		                 <div class="used_menu_name">添加常用菜单</div>
-		               </li>
-		             </ul>
-		           </div>
-		         </li>
-		         <li>
-		           <div class="top-rightsplit">|</div>
-		         </li>
-		         <li>
- 		           <div class="link_div">消息</div>
- 		         </li>
-		         <li>
-		           <div>|</div>
-		         </li>
-		         <li>
-		           <div class="link_div quite" id="logout">
-		             <a href="<%=request.getContextPath()%>/formLogoutAction.do" style="text-decoration: none;">退出</a>
-		           </div>
-		         </li>
-		         <li>
-		           <div class="link_div rehelp" id="reHelpTip_div" onclick="reDirect()">帮助提示</div>
-		         </li>
-		       </ul>
-
-
-			  <%-- <ul class="user-header">
+			   <ul class="user-header">
 				   <li class="header-item" style="margin-top: 16px">
 					   <a href="#" class="nav-link">
-						   <i class="link-skin" onclick="fnDropDownMenu(this);" title="换肤"></i>
+						   <i class="fa fa-tachometer fa-2x" onclick="fnDropDownMenu(this);" title="换肤"></i>
 					   </a>
 					   <div class="dropdown-menu hidden-caret">
 						   <a id="green" class="dropdown-item" href="#" onclick="fnChangeSkin(this);">Green</a>
@@ -323,48 +212,74 @@
 				   </li>
 				   <li class="header-item" style="margin-top: 16px">
 					   <a href="#" class="nav-link">
-						   <i class="link-email" onclick="fnDropDownMenu(this);" title="邮件"></i>
+						   <i class="fa fa-bookmark-o fa-2x" onclick="fnDropDownMenu(this);" title="快捷菜单"></i>
 					   </a>
-					   <div class="dropdown-menu hidden-caret">
-						   <a class="dropdown-item" href="#">Action</a>
-						   <a class="dropdown-item" href="#">Another action</a>
+					   <%List<IMenu> list = (List<IMenu>) request.getAttribute("commonMenus");%>
+					   <div id="commonMenus" class="dropdown-menu hidden-caret">
+						   <%if(list != null && list.size() > 0 ){
+							   for(IMenu menu : list) {%>
+						          <a class="dropdown-item" href="#" onclick="showMenu('<%=menu.getMenuid()%>','<%=menu.getMenuname()%>','<%=menu.getUrl()%>')"><%=menu.getMenuname()%></a>
+						       <%}%>
 						   <div class="dropdown-divider"></div>
-						   <a class="dropdown-item" href="#">Something else here</a>
+						   <%}%>
+						   <a class="dropdown-item" href="#" onclick="fnSetCommonMenu();"><i class="fa fa-cog"></i> 添加常用菜单</a>
 					   </div>
 				   </li>
 				   <li class="header-item" style="margin-top: 16px">
 					   <a href="#" class="nav-link">
-						   <i class="link-notification" onclick="fnDropDownMenu(this);" title="通知"></i>
-						   &lt;%&ndash;<span class="notification">3</span>&ndash;%&gt;
+						   <i class="fa fa-envelope-o fa-2x" onclick="fnDropDownMenu(this);" title="邮件"></i>
+					   </a>
+					   <div class="dropdown-menu hidden-caret">
+						   <a class="dropdown-item" href="#"> 发送邮件</a>
+						   <a class="dropdown-item" href="#"> 查收邮件</a>
+						   <div class="dropdown-divider"></div>
+						   <a class="dropdown-item" href="#">Action</a>
+					   </div>
+				   </li>
+				   <li class="header-item" style="margin-top: 16px">
+					   <a href="#" class="nav-link">
+						   <i class="fa fa-bell-o fa-2x" onclick="fnDropDownMenu(this);" title="通知"></i>
+						   <span class="notification">3</span>
 					   </a>
 				   </li>
 				   <li class="header-item">
 					   <a href="#" class="nav-link profile-pic" onclick="fnDropDownMenu(this);">
-						   <img src="indexue/indexresource/images/profile.jpg" alt="user-img" width="30px" class="img-circle"/>
-						   <span >Hizrian55555</span><span class="link-down"></span>
+						   <img src="indexue/indexresource/images/profile.jpg" alt="user-img" width="36px" class="img-circle"/>
+						   <span><%= user.getName() %></span><span class="fa fa-caret-down"/>
 					   </a>
-					   <ul class="dropdown-menu  hidden-caret dropdown-user">
+					   <ul class="dropdown-menu hidden-caret dropdown-user">
 						   <li>
 							   <div class="user-box">
 								   <div class="u-img"><img src="indexue/indexresource/images/profile.jpg" alt="user"></div>
 								   <div class="u-text">
-									   <h4>Hizrian</h4>
-									   <p class="text-muted">hello@themekita.com</p>
-									   <a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+									   <h4><%= user.getName() %></h4>
+									   <p class="text-muted"><%= user.getEmail() != null ? user.getEmail() : "" %></p>
+									   <a href="#" class="btn btn-rounded" onclick="fnViewUserInfo();">查看资料</a>
 								   </div>
 							   </div>
 						   </li>
+						   <%if (positions.size() > 0){%>
+							   <div class="dropdown-divider"></div>
+							   <%for (IPosition p : positions) {%>
+									<a class="dropdown-item" href="#" id="p_<%=p.getPositionid()%>" _id="<%=p.getPositiontype()%>" _name="<%=p.getPositionname() %>" title="组织路径：<%=p.getOrgnamepath()%>" onclick="fnSelectPosition(this);">
+										<i class="fa fa-user-circle-o"></i>
+										<%=p.getPositionname() %><%if("1".equals(p.getPositiontype())){%>(公有)<%}else if("2".equals(p.getPositiontype())){%>(个人)<%}else if("3".equals(p.getPositiontype())){%>(委派)<%} %>
+						   			    <%if(nowPosId == p.getPositionid()){%>
+						                   <i class="fa fa-circle"></i>
+						   			    <%}%>
+									</a>
+							   <%}%>
+						   <%}%>
 						   <div class="dropdown-divider"></div>
-						   <a class="dropdown-item" href="#"><i class="ti-user"></i> My Profile</a>
-						   <a class="dropdown-item" href="#"></i> My Balance</a>
-						   <a class="dropdown-item" href="#"><i class="ti-email"></i> Inbox</a>
+						   <a class="dropdown-item" href="#" onclick="openPwChangeWindow();"><i class="fa fa-key"></i> 修改密码</a>
+						   <a class="dropdown-item" href="#" onclick="fnUpdateUserInfo();"><i class="fa fa-id-card"></i> 用户设置</a>
 						   <div class="dropdown-divider"></div>
-						   <a class="dropdown-item" href="#"><i class="ti-settings"></i> Account Setting</a>
+						   <a class="dropdown-item" href="#" onclick="reDirect()"><i class="fa fa-question-circle-o"></i> 帮助提示</a>
 						   <div class="dropdown-divider"></div>
-						   <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Logout</a>
+						   <a class="dropdown-item" href="<%=request.getContextPath()%>/formLogoutAction.do"><i class="fa fa-sign-out"></i> 退出</a>
 					   </ul>
 				   </li>
-			   </ul>--%>
+			   </ul>
 
 
 		       <div class="header_tabs">
@@ -507,7 +422,7 @@ function fnDropDownMenu(obj) {
     $(".hidden-caret").hide();
 	var dropdownmenu = ($(obj).hasClass('profile-pic')? $(obj) : $(obj).parent()).siblings('.dropdown-menu');
 	if (dropdownmenu.hasClass('dropdown-user')){
-        dropdownmenu.css("left", $(obj).width() / 2 - dropdownmenu.width() / 2 - 35);
+        dropdownmenu.css("left", $(obj).width() / 2 - dropdownmenu.width() / 2 - 55);
     } else {
         dropdownmenu.css("left", $(obj).width() / 2 - dropdownmenu.width() / 2);
     }
@@ -565,15 +480,11 @@ function fnSelectPosition(o) {
 	}
 }
 
-function fnShowChildMenu(o) {
-	$("#roles").css({top : $(o).offset().top, left : $(o).offset().left + $(o).outerWidth(true)}).show();
-}
-
 //初始化一级菜单颜色
 function initFirstMenu() {
 	var arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ];
 	arr = mess(arr);
-	var menuLen =<%=menuList.size()%>;
+	var menuLen = <%=menuList.size()%>;
 	var col;
 	if (menuLen < 4) {
 		col = menuLen;
@@ -637,6 +548,12 @@ function bindEvent() {
 			if ($(target).parents(".func_menu").size() == 0) {
 				$("#func_menu").fadeOut();
 			}
+		}
+		//右上角菜单
+		if ($(target).parents(".header-item").size() == 0) {
+			$(".hidden-caret").each(function () {
+				$(this).hide();
+			});
 		}
 	});
 }
@@ -711,7 +628,6 @@ window.onload = function() {
 function receiveMsg(e) {
 	e = e || window.event;
 	var o = eval("(" + e.data + ")");
-	var msg = o.msg;
 	if (o.type == "function") {
 		var fun = eval(o.msg);
 		var args = o.args || [];
@@ -725,24 +641,49 @@ function receiveMsg(e) {
 //获取常用菜单
 function getCommonMenu() {
   $.ajax({"url" : "<%=basePath%>indexAction!getCommonMenu.do",
-		  "success" : function(data) {
-			  var menu = eval("(" + data.fieldData.commonMenu + ")");
-			  var $ul = $("#used_menu ul");
-			  $ul.empty();
-			  var a = [];
-			  for (var i = 0; i < menu.length; i++) {
-				  var o = menu[i];
-				  a.push("<li onclick=\"showMenu('" + o.menuid + "','" + o.menuname + "','" + o.url + "')\">");
-				  a.push("<div class='used_menu_img'>");
-				  a.push("<img src='indexue/indexresource/images/menu/16x16/"+o.iconSkin+".png'/></div>");
-				  a.push("<div class='used_menu_name'>" + o.menuname + "</div></li>");
-			  }
-			  $ul.append(a.join("\n"));
-			  $ul.append('<li onclick="fnSetCommonMenu()"><div class="used_menu_img"><img src="indexue/indexresource/images/menu/16x16/cd_cy03.png"/></div><div class="used_menu_name">添加常用菜单</div></li>');
-		  },
 	  "type" : "POST",
-	  "dataType" : "json"
+	  "dataType" : "json",
+	  "success" : function(data) {
+			  var menus = eval("(" + data.fieldData.commonMenu + ")");
+			  var $div = $("#commonMenus");
+			  $div.empty();
+			  var a = [];
+			  if (menus.length > 0) {
+				  for (var m of menus){
+					  a.push("<a class='dropdown-item' href='#' onclick=\"showMenu('" + m.menuid + "','" + m.menuname + "','" + m.url + "');\">" + m.menuname + "</a>");
+				  }
+				  a.push("<div class='dropdown-divider'></div>");
+			  }
+			  $div.append(a.join("\n"));
+			  $div.append("<a class='dropdown-item' href='#' onclick='fnSetCommonMenu();'><i class='fa fa-cog'></i> 添加常用菜单</a>")
+	  }
   });
+}
+//查看资料
+function fnViewUserInfo() {
+	layer.open({
+		type: 2,
+		title: ["用户基本信息","background-color:#efe5d;font-size:12px;"],
+		fix: true,
+        area: ["600px", "450px"],
+		content: "<%=basePath%>org/userMgAction!toUserInfo.do",
+		cancel: function(index) {
+			layer.close(index);
+		}
+	});
+}
+//编辑用户信息
+function fnUpdateUserInfo() {
+	layer.open({
+		type: 2,
+		title: ["用户基本信息","background-color:#efe5d;font-size:12px;"],
+		fix: true,
+		area: ["600px", "450px"],
+		content: "<%=basePath%>org/userMgAction!toUserInfo.do",
+		cancel: function(index) {
+			layer.close(index);
+		}
+	});
 }
 //保存密码
 function fnSavePass() {

@@ -8,7 +8,7 @@ import com.yinhai.sysframework.exception.AppException;
 import com.yinhai.sysframework.iorg.IPosition;
 import com.yinhai.sysframework.iorg.IUser;
 import com.yinhai.sysframework.menu.IMenu;
-import com.yinhai.sysframework.security.IPermissionServcie;
+import com.yinhai.sysframework.security.IPermissionService;
 import com.yinhai.sysframework.util.ValidateUtil;
 import com.yinhai.ta3.sysapp.menumg.service.ICommonMenuService;
 import com.yinhai.ta3.sysapp.menumg.service.IMenuMgService;
@@ -20,15 +20,15 @@ public class MenuMgServiceImpl implements IMenuMgService {
 	String menuClassName = SysConfig.getSysConfig(Menu.class.getName(), Menu.class.getName());
 
 	private MenuDao menuDao;
-	private IPermissionServcie permissionServcie;
+	private IPermissionService permissionService;
 	private ICommonMenuService commonMenuService;
 
 	public void setCommonMenuService(ICommonMenuService commonMenuService) {
 		this.commonMenuService = commonMenuService;
 	}
 
-	public void setPermissionServcie(IPermissionServcie permissionServcie) {
-		this.permissionServcie = permissionServcie;
+	public void setPermissionService(IPermissionService permissionService) {
+		this.permissionService = permissionService;
 	}
 
 	public List<Menu> getAllMenuInfo() {
@@ -57,12 +57,12 @@ public class MenuMgServiceImpl implements IMenuMgService {
 
 		Long positionid = IPosition.ADMIN_POSITIONID;
 		Long userid = IUser.ROOT_USERID;
-		permissionServcie.clearUserPermissionMenusCache(userid);
-		permissionServcie.clearUserPermissionMenusCache(userid, positionid);
-		permissionServcie.clearUserPermissionUrlCache(userid);
-		permissionServcie.clearUserPermissionUrlCache(userid, positionid);
-		permissionServcie.clearPositionsByMenuCache(userid, createMenu.getMenuid());
-		permissionServcie.clearUserEffectivePositionsCache(userid);
+		permissionService.clearUserPermissionMenusCache(userid);
+		permissionService.clearUserPermissionMenusCache(userid, positionid);
+		permissionService.clearUserPermissionUrlCache(userid);
+		permissionService.clearUserPermissionUrlCache(userid, positionid);
+		permissionService.clearPositionsByMenuCache(userid, createMenu.getMenuid());
+		permissionService.clearUserEffectivePositionsCache(userid);
 		return createMenu;
 	}
 
@@ -79,12 +79,12 @@ public class MenuMgServiceImpl implements IMenuMgService {
 
 		Long positionid = dto.getUserInfo().getNowPosition().getPositionid();
 		Long userid = dto.getUserInfo().getUserid();
-		permissionServcie.clearUserPermissionMenusCache(userid);
-		permissionServcie.clearUserPermissionMenusCache(userid, positionid);
-		permissionServcie.clearUserPermissionUrlCache(userid);
-		permissionServcie.clearUserPermissionUrlCache(userid, positionid);
-		permissionServcie.clearPositionsByMenuCache(userid, m.getMenuid());
-		permissionServcie.clearUserEffectivePositionsCache(userid);
+		permissionService.clearUserPermissionMenusCache(userid);
+		permissionService.clearUserPermissionMenusCache(userid, positionid);
+		permissionService.clearUserPermissionUrlCache(userid);
+		permissionService.clearUserPermissionUrlCache(userid, positionid);
+		permissionService.clearPositionsByMenuCache(userid, m.getMenuid());
+		permissionService.clearUserEffectivePositionsCache(userid);
 	}
 
 	private void insertGrantMethods(ParamDTO dto, Menu m) {
@@ -135,12 +135,12 @@ public class MenuMgServiceImpl implements IMenuMgService {
 
 		Long positionid = dto.getUserInfo().getNowPosition().getPositionid();
 		Long userid = dto.getUserInfo().getUserid();
-		permissionServcie.clearUserPermissionMenusCache(userid);
-		permissionServcie.clearUserPermissionMenusCache(userid, positionid);
-		permissionServcie.clearUserPermissionUrlCache(userid);
-		permissionServcie.clearUserPermissionUrlCache(userid, positionid);
-		permissionServcie.clearPositionsByMenuCache(userid, menuid);
-		permissionServcie.clearUserEffectivePositionsCache(userid);
+		permissionService.clearUserPermissionMenusCache(userid);
+		permissionService.clearUserPermissionMenusCache(userid, positionid);
+		permissionService.clearUserPermissionUrlCache(userid);
+		permissionService.clearUserPermissionUrlCache(userid, positionid);
+		permissionService.clearPositionsByMenuCache(userid, menuid);
+		permissionService.clearUserEffectivePositionsCache(userid);
 
 		menuDao.removeMenu(menuid, dto.getUserInfo().getUserid());
 		commonMenuService.deleteCommonMenu(dto.getUserInfo().getUserid(), menuid);

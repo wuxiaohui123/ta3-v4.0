@@ -9,6 +9,7 @@ import com.yinhai.sysframework.config.SysConfig;
 import com.yinhai.sysframework.config.service.IConfigService;
 import com.yinhai.sysframework.menu.IMenu;
 import com.yinhai.sysframework.service.ServiceLocator;
+import com.yinhai.sysframework.util.ConvertUtil;
 import com.yinhai.sysframework.util.ValidateUtil;
 import com.yinhai.sysframework.util.WebUtil;
 import com.yinhai.ta3.sysapp.menumg.service.ICommonMenuService;
@@ -47,7 +48,7 @@ public class CommonMenuAction extends BaseAction {
 		StringBuffer sb = new StringBuffer();
 		sb.append("[");
 		for (int i = 0; i < list.size(); i++) {
-			IMenu menu = (IMenu) list.get(i);
+			IMenu menu = ConvertUtil.ObjectToMenu(list.get(i));
 			sb.append("{\"menuid\":").append(menu.getMenuid()).append(",\"menuname\":\"").append(menu.getMenuname()).append("\"")
 					.append(",\"pmenuid\":").append(menu.getPmenuid());
 

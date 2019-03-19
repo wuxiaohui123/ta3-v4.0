@@ -20,12 +20,16 @@ public interface IUser extends Serializable {
 	 String getName();
 
 	 IPosition getNowPosition();
+
+	 String getSex();
 	
 	 Integer getAge();
 	
 	 Date getBirth();
 	
 	 String getJob();
+
+	String getTel();
 	
 	 String getOfficetel();
 	
@@ -39,19 +43,19 @@ public interface IUser extends Serializable {
 	
 	 String getAddress();
 
-	 void setNowPosition(IPosition paramIPosition);
+	 void setNowPosition(IPosition nowPosition);
 
 	 String getYab003();
 
 	 String getOrgId();
 
-	 void setYab003(String paramString);
+	 void setYab003(String yab003);
 
 	 String getDepartId();
 
 	 String getYab139();
 
-	 void setYab139(String paramString);
+	 void setYab139(String yab139);
 
-	 void setDepartId(String paramString);
+	 void setDepartId(String departId);
 }

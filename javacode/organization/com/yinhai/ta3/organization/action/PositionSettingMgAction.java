@@ -5,7 +5,7 @@ import java.util.List;
 import com.yinhai.sysframework.app.domain.Key;
 import com.yinhai.sysframework.dto.ParamDTO;
 import com.yinhai.sysframework.persistence.PageBean;
-import com.yinhai.sysframework.security.IPermissionServcie;
+import com.yinhai.sysframework.security.IPermissionService;
 import com.yinhai.sysframework.service.ServiceLocator;
 import com.yinhai.ta3.organization.service.IPositionMgService;
 import com.yinhai.ta3.system.org.domain.Position;
@@ -15,7 +15,7 @@ import com.yinhai.ta3.system.org.domain.UserInfoVO;
 public class PositionSettingMgAction extends OrgBaseAction {
 
 	private IPositionMgService positionMgService = (IPositionMgService) ServiceLocator.getService("positionMgService");
-	private IPermissionServcie permissionServcie = (IPermissionServcie) super.getService("permissionServcie");
+	private IPermissionService permissionServcie = (IPermissionService) super.getService("permissionServcie");
 
 	public String execute() throws Exception {
 		return "success";

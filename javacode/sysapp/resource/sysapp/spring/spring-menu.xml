@@ -10,7 +10,7 @@
     	<property name="target">
 			<bean class="com.yinhai.ta3.sysapp.menumg.service.impl.MenuMgServiceImpl">
 				<property name="menuDao" ref="menuDao"/>
-				<property name="permissionServcie" ref="permissionServcie"/>
+				<property name="permissionService" ref="permissionService"/>
 				<property name="commonMenuService" ref="commonMenuService"></property>
 			</bean>
 		</property>

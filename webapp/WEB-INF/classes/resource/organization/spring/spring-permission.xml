@@ -26,7 +26,7 @@
     	<property name="target">
 			<bean class="com.yinhai.ta3.organization.event.PermissionChangeServiceImpl" parent="wsbaseService">
 				<property name="hibernateDao" ref="hibernateDao"/>
-				<property name="permissionServcie" ref="permissionServcie"></property>
+				<property name="permissionServcie" ref="permissionService"></property>
 			</bean>
 		</property>
 	</bean>		

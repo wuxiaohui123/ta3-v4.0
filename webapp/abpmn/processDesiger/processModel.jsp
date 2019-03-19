@@ -109,12 +109,12 @@
 			return;
 		}
 		var width = top.window.innerWidth;
-		var heigth = top.window.innerHeight;
+		var height = top.window.innerHeight;
 		top.layer.open({
 		    type: 2,
 		    title: ["BMPN2.0流程设计器","background-color:#62cae4;font-size:15px;"],
 		    fix: true,
-		    area: [width + "px", heigth + "px"],
+		    area: [width + "px", height + "px"],
 		    content: "<%=basePath%>abpmn/processEditor/modeler.html?modelId="+modelId,
 		    cancel: function(index){
 		    	if(confirm("确定要关闭么?")){

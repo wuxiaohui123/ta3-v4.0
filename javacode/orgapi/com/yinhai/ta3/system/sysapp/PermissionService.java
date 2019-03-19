@@ -14,7 +14,7 @@ import com.yinhai.sysframework.config.service.IConfigService;
 import com.yinhai.sysframework.dao.hibernate.SimpleDao;
 import com.yinhai.sysframework.iorg.IPosition;
 import com.yinhai.sysframework.menu.IMenu;
-import com.yinhai.sysframework.security.IPermissionServcie;
+import com.yinhai.sysframework.security.IPermissionService;
 import com.yinhai.sysframework.service.ServiceLocator;
 import com.yinhai.sysframework.time.ITimeService;
 import com.yinhai.sysframework.util.StringUtil;
@@ -27,7 +27,7 @@ import com.yinhai.ta3.system.sysapp.dao.MenuDao;
 import com.yinhai.ta3.system.sysapp.domain.Menu;
 
 @SuppressWarnings("unchecked")
-public class PermissionService implements IPermissionServcie {
+public class PermissionService implements IPermissionService {
 
     SimpleDao hibernateDao;
     MenuDao menuDao;

@@ -16,7 +16,7 @@ import com.yinhai.sysframework.iorg.IDataAccessApi;
 import com.yinhai.sysframework.iorg.IOrg;
 import com.yinhai.sysframework.iorg.IPosition;
 import com.yinhai.sysframework.persistence.PageBean;
-import com.yinhai.sysframework.security.IPermissionServcie;
+import com.yinhai.sysframework.security.IPermissionService;
 import com.yinhai.sysframework.service.ServiceLocator;
 import com.yinhai.sysframework.util.ValidateUtil;
 import com.yinhai.ta3.organization.api.OrganizationEntityService;
@@ -38,7 +38,7 @@ public class PositionUserMgAction extends OrgBaseAction {
 
 	private IPositionUserMgService positionUserMgService = (IPositionUserMgService) super.getService("positionUserMgService");
 	private IPositionMgService positionMgService = (IPositionMgService) ServiceLocator.getService("positionMgService");
-	private IPermissionServcie permissionServcie = (IPermissionServcie) super.getService("permissionServcie");
+	private IPermissionService permissionServcie = (IPermissionService) super.getService("permissionServcie");
 	private OrganizationEntityService organizationEntityService = (OrganizationEntityService) super.getService("organizationEntityService");
 	private IOrgMgService orgMgService = (IOrgMgService) super.getService("orgMgService");
 

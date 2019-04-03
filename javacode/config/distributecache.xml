@@ -92,7 +92,7 @@
 	<!-- ############################### 分片集群连接方式 End ########################### -->
 	
 	 <!-- Redis缓存数据库-配置 -->
-	<bean id="methodCacheAspectJ" class="com.yinhai.ta3.redis.CacehInterceptor">
+	<bean id="methodCacheAspectJ" class="com.yinhai.ta3.redis.CacheInterceptor">
 		<property name="client" ref="shardedJedisClient"/>
 		<!-- <property name="client" ref="redisClusterService"/> -->
 	</bean>

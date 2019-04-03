@@ -90,17 +90,17 @@
 	</bean>
 
 	<!-- 设置sqlmap的配置 -->
-	 <!--<bean id="sqlExecutor" class="com.yinhai.sysframework.persistence.ibatis.LimitSqlExecutor">
+	 <bean id="sqlExecutor" class="com.yinhai.sysframework.persistence.ibatis.LimitSqlExecutor">
 		<property name="dialect">
 			<bean class="com.yinhai.sysframework.persistence.ibatis.MySQLDialect"/>
 		</property>
-	 </bean>-->
-	<bean id="sqlExecutor"
+	 </bean>
+	<!--<bean id="sqlExecutor"
 		class="com.yinhai.sysframework.persistence.ibatis.LimitSqlExecutor">
 		<property name="dialect">
 			<bean class="com.yinhai.sysframework.persistence.ibatis.OracleDialect" />
 		</property>
-	</bean>
+	</bean>-->
 
 	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
 		<property name="configLocations">

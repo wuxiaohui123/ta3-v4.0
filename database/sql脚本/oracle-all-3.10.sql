@@ -89,7 +89,7 @@ increment by 1;
 
 
 /*==============================================================*/
-/* Table: TASERVEREXCEPTIONLOG                                                */
+/* Table: TASERVEREXCEPTIONLOG                                  */
 /*==============================================================*/
 CREATE TABLE TASERVEREXCEPTIONLOG 
 (
@@ -145,7 +145,7 @@ COMMENT ON COLUMN AA10.YAB003 IS 'YAB003经办机构';
 COMMENT ON COLUMN AA10.AAE120 IS 'AAE120注销标志';
 
 /*==============================================================*/
-/* Table: TACONFIGSYSPATH                                                */
+/* Table: TACONFIGSYSPATH                                       */
 /*==============================================================*/
 CREATE TABLE TACONFIGSYSPATH (
   SERIALID NUMBER(10,0) NOT NULL,

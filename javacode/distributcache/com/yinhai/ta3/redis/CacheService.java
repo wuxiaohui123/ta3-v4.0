@@ -4,21 +4,21 @@ import java.util.Map;
 
 public interface CacheService {
 
-	public abstract void set(String key, Object value);
+	 void set(String key, Object value);
 
-	public abstract void hset(String key, String field, String value);
+	 void hset(String key, String field, String value);
 
-	public abstract Object get(String key);
+	 Object get(String key);
 
-	public abstract String hget(String key, String field);
+	 String hget(String key, String field);
 
-	public abstract Map<String, Object> hash(String key);
+	 Map<String, Object> hash(String key);
 
-	public abstract void hdel(String key,String... field);
+	 void hdel(String key,String... field);
 
-	public abstract void del(String key);
+	 void del(String key);
 
-	public abstract void expire(String key, int paramInt);
+	 void expire(String key, int paramInt);
 
-	public abstract boolean exists(String key);
+	 boolean exists(String key);
 }

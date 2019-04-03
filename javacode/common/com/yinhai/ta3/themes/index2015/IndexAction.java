@@ -3,7 +3,6 @@ package com.yinhai.ta3.themes.index2015;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,20 +60,20 @@ public class IndexAction extends BaseAction {
 
 	public List<Map<String, Object>> menuToJson(List<MenuTreeNode> node) {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		for (int i = 0; i < node.size(); i++) {
-			MenuTreeNode menuNode = node.get(i);
-			if (menuNode.getIsShow() == "show") {
+		node.forEach(menuTreeNode -> {
+			if ("show".equals(menuTreeNode.getIsShow())){
 				Map<String, Object> m = new HashMap<String, Object>();
-				m.put("menuId", menuNode.getId());
-				m.put("menuName", menuNode.getMenuName());
-				m.put("url", menuNode.getUrl());
-				m.put("img", menuNode.getImg());
-				if ((menuNode.getChildNode() != null) && (menuNode.getChildNode().size() > 0)) {
-					m.put("childList", menuToJson(menuNode.getChildNode()));
+				m.put("menuId", menuTreeNode.getId());
+				m.put("menuName", menuTreeNode.getMenuName());
+				m.put("url", menuTreeNode.getUrl());
+				m.put("img", menuTreeNode.getImg());
+				if (menuTreeNode.getChildNode() != null && menuTreeNode.getChildNode().size() > 0) {
+					m.put("childList", menuToJson(menuTreeNode.getChildNode()));
 				}
 				list.add(m);
 			}
-		}
+		});
+
 		return list;
 	}
 
@@ -87,7 +86,7 @@ public class IndexAction extends BaseAction {
 		if (getSessionResource("IndexAction_UserPermissionMenus") != null)
 			return (LinkedHashMap) getSessionResource("IndexAction_UserPermissionMenus");
 		List<IMenu> list = WebUtil.getCurrentUserPermissionMenus(request.getSession());
-		LinkedHashMap<Long, Menu> map = new LinkedHashMap<Long, Menu>();
+		LinkedHashMap<Long, Menu> map = new LinkedHashMap<>();
 		for (IMenu menu : list) {
 			map.put(menu.getMenuid(), (Menu) menu);
 		}
@@ -103,56 +102,41 @@ public class IndexAction extends BaseAction {
 		}
 		LinkedHashMap<Long, Menu> menus = getUserPermissionMenus();
 		List<Menu> retlist = new ArrayList<Menu>();
-		boolean noGetparentMenu = true;
 		Set<Long> set = new HashSet<Long>();
 
-		for (Iterator<Map.Entry<Long, Menu>> iterator = menus.entrySet().iterator(); iterator.hasNext();) {
-			Map.Entry<Long, Menu> entry = iterator.next();
-			Menu tempMenu = (Menu) entry.getValue();
-			if ((noGetparentMenu) && (needParent) && (tempMenu.getMenuid().equals(node))) {
+		for (Map.Entry<Long, Menu> entry : menus.entrySet()) {
+			Menu tempMenu = entry.getValue();
+			if (needParent && tempMenu.getMenuid().equals(node)) {
 				tempMenu.setParent(true);
 				tempMenu.setOpen(true);
 				retlist.add(tempMenu);
 			}
 
-			if ((!"3".equals(tempMenu.getSecuritypolicy())) && (!"2".equals(tempMenu.getSecuritypolicy()))) {
-				if ((tempMenu.getPmenuid() != null) && (tempMenu.getPmenuid().equals(node))) {
+			if (!"3".equals(tempMenu.getSecuritypolicy()) && !"2".equals(tempMenu.getSecuritypolicy())) {
+				if (tempMenu.getPmenuid() != null && tempMenu.getPmenuid().equals(node)) {
 					retlist.add(tempMenu);
 				}
 				set.add(tempMenu.getPmenuid());
 			}
 		}
+
 		IConfigService configService = (IConfigService) ServiceLocator.getService("configService");
-		List<IConfigSyspath> syslist = configService.getConfigSysPaths();
+		List<IConfigSyspath> sysList = configService.getConfigSysPaths();
 		boolean isPortal = SysConfig.getSysconfigToBoolean("isPortal", false);
-		String curSyspath = "";
-		IConfigSyspath sysobj;
-		if ((syslist != null) && (syslist.size() > 1) && (isPortal)) {
-			for (Iterator<IConfigSyspath> i$ = syslist.iterator(); i$.hasNext();) {
-				sysobj = i$.next();
-
-				curSyspath = sysobj.getUrl();
-				for (Menu m : retlist) {
-					String url = m.getUrl();
-					if ((sysobj.getId().equals(m.getSyspath())) && (ValidateUtil.isNotEmpty(url)) && (url.indexOf("http") < 0)) {
-						m.setUrl(curSyspath + url);
+		if (sysList != null && sysList.size() > 1 && isPortal) {
+			sysList.forEach(iConfigSysPath -> {
+				String curSysPath = iConfigSysPath.getUrl();
+				retlist.forEach(menu -> {
+					String url = menu.getUrl();
+					if (iConfigSysPath.getId().equals(menu.getSyspath()) && ValidateUtil.isNotEmpty(url) && !url.contains("http")) {
+						menu.setUrl(curSysPath + url);
 					}
+					menu.setParent(set.contains(menu.getMenuid()));
+				});
+			});
 
-					if (set.contains(m.getMenuid())) {
-						m.setParent(true);
-					} else {
-						m.setParent(false);
-					}
-				}
-			}
 		} else {
-			for (Menu m : retlist) {
-				if (set.contains(m.getMenuid())) {
-					m.setParent(true);
-				} else {
-					m.setParent(false);
-				}
-			}
+			retlist.forEach(menu -> menu.setParent(set.contains(menu.getMenuid())));
 		}
 		return retlist;
 	}

@@ -1,21 +1,8 @@
 package com.yinhai.ta3.sysapp.syslogmg.service.impl;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.jws.WebMethod;
-import javax.jws.WebService;
-
-import org.hibernate.Query;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-
 import com.yinhai.sysframework.config.SysConfig;
 import com.yinhai.sysframework.dao.hibernate.Finder;
 import com.yinhai.sysframework.dao.hibernate.SimpleDao;
-import com.yinhai.sysframework.iorg.IPosition;
 import com.yinhai.sysframework.iorg.IUser;
 import com.yinhai.sysframework.log.IAccessLogService;
 import com.yinhai.sysframework.menu.IMenu;
@@ -24,12 +11,17 @@ import com.yinhai.sysframework.service.WsBaseService;
 import com.yinhai.sysframework.time.ITimeService;
 import com.yinhai.sysframework.util.ValidateUtil;
 import com.yinhai.ta3.sysapp.syslogmg.domain.AccessLog;
-import com.yinhai.ta3.sysapp.syslogmg.domain.AccessLogVO;
 import com.yinhai.ta3.system.org.domain.Org;
 import com.yinhai.ta3.system.org.domain.Position;
 import com.yinhai.ta3.system.org.domain.User;
 import com.yinhai.ta3.system.sysapp.dao.MenuDao;
 import com.yinhai.ta3.system.sysapp.domain.Menu;
+import org.hibernate.Query;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+import java.util.Date;
+import java.util.List;
 
 @WebService
 public class AccessLogServiceImpl extends WsBaseService implements IAccessLogService {
@@ -37,7 +29,6 @@ public class AccessLogServiceImpl extends WsBaseService implements IAccessLogSer
     private static final String collectionName = "accessLog";
 
     private SimpleDao hibernateDao;
-    private MongoTemplate mongoTemplate;
     private MenuDao menuDao;
     private ITimeService timeService;
 
@@ -54,11 +45,6 @@ public class AccessLogServiceImpl extends WsBaseService implements IAccessLogSer
     @WebMethod(exclude = true)
     public void setHibernateDao(SimpleDao hibernateDao) {
         this.hibernateDao = hibernateDao;
-    }
-
-    @WebMethod(exclude = true)
-    public void setMongoTemplate(MongoTemplate mongoTemplate) {
-        this.mongoTemplate = mongoTemplate;
     }
 
     public void saveAccessInfo(Long userId, Long positionId, Long menuid, String url, String ispermission) {
@@ -192,65 +178,6 @@ public class AccessLogServiceImpl extends WsBaseService implements IAccessLogSer
         pb.setList(list);
         pb.setStart(skipResults);
         pb.setLimit(maxResults);
-        return pb;
-    }
-
-    public PageBean queryAccessInfoByMongo(Date startDate, Date endDate, Integer start, Integer limit, Long curUser,
-                                           Long positionid) {
-        PageBean pb = new PageBean();
-        pb.setGridId("accessGrid");
-        Integer skipResults = Integer.valueOf(start == null ? 0 : start.intValue());
-        Integer maxResults = Integer.valueOf(limit == null ? 0 : limit.intValue());
-        pb.setStart(skipResults);
-        pb.setLimit(maxResults);
-        org.springframework.data.mongodb.core.query.Query query = new org.springframework.data.mongodb.core.query.Query();
-        if (!ValidateUtil.isEmpty(startDate) && !ValidateUtil.isEmpty(endDate)) {
-            query.addCriteria(new Criteria("accesstime").gte(startDate));
-            query.addCriteria(new Criteria("accesstime").lte(endDate));
-            Long total = mongoTemplate.count(query, AccessLogVO.class, collectionName);
-            query.with(new Sort(Direction.ASC, "sysflag"));
-            query.with(new Sort(Direction.DESC, "userid"));
-            query.skip(start).limit(limit);
-            List<AccessLogVO> list = mongoTemplate.find(query, AccessLogVO.class, collectionName);
-            pb.setList(list);
-            pb.setStart(skipResults);
-            pb.setLimit(maxResults);
-            pb.setTotal(total.intValue());
-            return pb;
-        }
-        if (ValidateUtil.isEmpty(startDate) && !ValidateUtil.isEmpty(endDate)) {
-            query.addCriteria(new Criteria("accesstime").lte(endDate));
-            Long total = mongoTemplate.count(query, AccessLogVO.class, collectionName);
-            query.with(new Sort(Direction.ASC, "sysflag"));
-            query.with(new Sort(Direction.DESC, "userid"));
-            query.skip(start).limit(limit);
-            List<AccessLogVO> list = mongoTemplate.find(query, AccessLogVO.class, collectionName);
-            pb.setList(list);
-            pb.setStart(skipResults);
-            pb.setLimit(maxResults);
-            pb.setTotal(total.intValue());
-            return pb;
-        }
-        if (!ValidateUtil.isEmpty(startDate) && ValidateUtil.isEmpty(endDate)) {
-            query.addCriteria(new Criteria("accesstime").gte(startDate));
-            Long total = mongoTemplate.count(query, AccessLogVO.class, collectionName);
-            query.with(new Sort(Direction.ASC, "sysflag"));
-            query.with(new Sort(Direction.DESC, "userid"));
-            query.skip(start).limit(limit);
-            List<AccessLogVO> list = mongoTemplate.find(query, AccessLogVO.class, collectionName);
-            pb.setList(list);
-            pb.setStart(skipResults);
-            pb.setLimit(maxResults);
-            pb.setTotal(total.intValue());
-            return pb;
-        }
-        query.with(new Sort(Direction.ASC, "sysflag"));
-        query.with(new Sort(Direction.DESC, "userid"));
-        query.skip(start).limit(limit);
-        Long total = mongoTemplate.count(query, AccessLogVO.class, collectionName);
-        List<AccessLogVO> list = mongoTemplate.find(query, AccessLogVO.class, collectionName);
-        pb.setList(list);
-        pb.setTotal(total.intValue());
         return pb;
     }
 }

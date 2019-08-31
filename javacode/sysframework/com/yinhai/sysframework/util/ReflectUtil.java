@@ -67,17 +67,17 @@ public class ReflectUtil {
         return !OBJECT_EQUALS.equals(equals);
     }
 
-    protected static ClassDefn getClassDefn(Class clazz) {
-        ClassDefn classDefn = (ClassDefn) classDefnCache.get(clazz.getName());
+    protected static ClassDef getClassDefn(Class clazz) {
+        ClassDef classDefn = (ClassDef) classDefnCache.get(clazz.getName());
         if (classDefn == null) {
-            classDefn = new ClassDefn(clazz);
+            classDefn = new ClassDef(clazz);
             classDefnCache.put(clazz.getName(), classDefn);
         }
         return classDefn;
     }
 
-    protected static ClassDefn getClassDefn(String className) {
-        ClassDefn classDefn = (ClassDefn) classDefnCache.get(className);
+    protected static ClassDef getClassDefn(String className) {
+        ClassDef classDefn = (ClassDef) classDefnCache.get(className);
         if (classDefn == null) {
             Class clazz;
             try {

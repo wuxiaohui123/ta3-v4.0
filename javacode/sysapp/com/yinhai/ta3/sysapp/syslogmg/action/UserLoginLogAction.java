@@ -11,7 +11,6 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.AllowedMethods;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
-import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.util.List;
 
@@ -23,17 +22,16 @@ import java.util.List;
 public class UserLoginLogAction extends BaseAction {
 
     private IUserMgService userMgService = (IUserMgService) ServiceLocator.getService("userMgService");
-    private MongoTemplate mongoTemplate = (MongoTemplate) ServiceLocator.getService("mongoTemplate");
 
     @Override
     public String execute() throws Exception {
         List<Taonlinelog> list = getHibernateDao().find("from Taonlinelog");
-        for (Taonlinelog taonlinelog : list) {
+        list.forEach(taonlinelog -> {
             IUser user = userMgService.getUser(taonlinelog.getUserid());
             taonlinelog.setName(user.getName());
             taonlinelog.setUsername(user.getLoginid());
             taonlinelog.setTelphone(user.getOfficetel());
-        }
+        });
         setList("userLoginLogList", list);
 
         return SUCCESS;
@@ -63,7 +61,7 @@ public class UserLoginLogAction extends BaseAction {
 
 
         List<Taloginhistorylog> historylogList = getHibernateDao().createQuery("from Taloginhistorylog where name=? or clientip = ? or serverip = ?",
-                            name, clientip, serverip).list();
+                name, clientip, serverip).list();
 
         Long onlinetimeSum = new Long(0);
         for (Taloginhistorylog log : historylogList) {

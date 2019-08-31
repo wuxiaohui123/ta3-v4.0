@@ -16,9 +16,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-public class ClassDefn {
+public class ClassDef {
 
-	private static Log log = LogFactory.getLog(ClassDefn.class);
+	private static Log log = LogFactory.getLog(ClassDef.class);
 	private String name;
 	private Class<?> clazz;
 	private Map<String, Constructor<?>> constructors = new HashMap<String, Constructor<?>>();
@@ -26,13 +26,13 @@ public class ClassDefn {
 	private Map<String, PropertyDescriptor> props = new HashMap<String, PropertyDescriptor>();
 	private Map<String, Field> fields = new HashMap<String, Field>();
 
-	public ClassDefn(Class<?> clazz) {
+	public ClassDef(Class<?> clazz) {
 		name = clazz.getName();
 		this.clazz = clazz;
-		loadClassDefn(clazz);
+		loadClassDef(clazz);
 	}
 
-	private void loadClassDefn(Class<?> clazz) {
+	private void loadClassDef(Class<?> clazz) {
 		log.debug("开始加载类定义：" + clazz.getName());
 		Constructor<?>[] constructors = clazz.getConstructors();
 		Arrays.stream(constructors).forEach(constructor -> {

@@ -5,10 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
-import com.yinhai.sysframework.app.domain.BaseVO;
-import com.yinhai.sysframework.app.domain.jsonmodel.ResultBean;
-import com.yinhai.sysframework.persistence.PageBean;
-import com.yinhai.sysframework.util.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,11 +20,14 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
+import com.yinhai.sysframework.app.domain.BaseVO;
+import com.yinhai.sysframework.app.domain.jsonmodel.ResultBean;
+import com.yinhai.sysframework.persistence.PageBean;
+import com.yinhai.sysframework.util.CollectionUtils;
 
 public class JSonFactory {
 
-	private static Logger logger = LogManager.getLogger(JSonFactory.class.getName());
+	private static Logger logger = LogManager.getLogger(JSonFactory.class);
 
 	private static SerializeConfig config = new SerializeConfig();
 

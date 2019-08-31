@@ -16,5 +16,4 @@ public interface IAccessLogService extends WsService {
 
 	 PageBean queryAccessInfo(Date startDate, Date endDate, Integer start, Integer limit, Long userid, Long positionid);
 	
-	 PageBean queryAccessInfoByMongo(Date startDate, Date endDate, Integer start, Integer limit, Long userid, Long positionid);
 }

@@ -3,7 +3,6 @@ encoding//javacode/abpmn/resource/processEngine.properties=UTF-8
 encoding//javacode/config/config.properties=UTF-8
 encoding//javacode/config/exportExcel.properties=UTF-8
 encoding//javacode/config/log4j.properties=UTF-8
-encoding//javacode/config/mongo.properties=UTF-8
 encoding//javacode/config/redis.properties=UTF-8
 encoding//javacode/config/runqianReportLog.properties=UTF-8
 encoding//javacode/organization/resource/orgResource.properties=UTF-8

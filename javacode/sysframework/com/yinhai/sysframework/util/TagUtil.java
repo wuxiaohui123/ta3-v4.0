@@ -10,14 +10,14 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagAdapter;
 
+import com.yinhai.sysframework.app.domain.jsonmodel.IGetResultBean;
+import com.yinhai.sysframework.app.domain.jsonmodel.ResultBean;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.util.Assert;
 
 import com.opensymphony.xwork2.util.CompoundRoot;
 import com.opensymphony.xwork2.util.ValueStack;
-import com.yinhai.sysframework.app.domain.jsonmodel.IGetResultBean;
-import com.yinhai.sysframework.app.domain.jsonmodel.ResultBean;
 
 public class TagUtil {
 
@@ -26,9 +26,9 @@ public class TagUtil {
 	public static ResultBean getResultBean(ValueStack stack) {
 		Assert.notNull(stack, "stack参数为空");
 		CompoundRoot root = stack.getRoot();
-		for (int i = 0; i < root.size(); i++) {
-			if ((root.get(i) instanceof IGetResultBean)) {
-				return ((IGetResultBean) root.get(i)).getResultBean();
+		for (Object object: root) {
+			if (object instanceof IGetResultBean){
+				return ((IGetResultBean) object).getResultBean();
 			}
 		}
 		return (ResultBean) stack.findValue("resultBean");
@@ -36,15 +36,15 @@ public class TagUtil {
 
 	public static ResultBean getResultBean() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		return (ResultBean) request.getAttribute("_TA_STACK");
+		return (ResultBean) request.getAttribute(STACK);
 	}
 
 	public static JspTag getTa3ParentTag(JspTag tag) {
-		if ((tag instanceof SimpleTagSupport))
+		if (tag instanceof SimpleTagSupport)
 			return tag;
-		if ((tag instanceof TagAdapter))
+		if (tag instanceof TagAdapter)
 			return ((TagAdapter) tag).getAdaptee();
-		if ((tag instanceof Tag)) {
+		if (tag instanceof Tag) {
 			JspTag jspTag = ((Tag) tag).getParent();
 			if (jspTag != null)
 				return getTa3ParentTag(jspTag);
@@ -72,22 +72,22 @@ public class TagUtil {
 		String layout = pdLayout;
 		if (("column".equals(layout)) || (layout == null)) {
 			Double cols = StringUtil.isEmpty(pdCols) ? Double.valueOf("1") : Double.valueOf(pdCols);
-			if (cols.doubleValue() > 1.0D) {
+			if (cols > 1.0D) {
 				Double spanDouble = StringUtil.isEmpty(span) ? Double.valueOf("1") : Double.valueOf(span);
-				if (spanDouble.doubleValue() > cols.doubleValue()) {
+				if (spanDouble > cols) {
 					spanDouble = cols;
 				}
-				double w = Math.floor(100.0D / cols.doubleValue() * 100.0D) / 100.0D;
-				String _w = Math.floor(spanDouble.doubleValue() * w * 100.0D) / 100.0D + "%";
+				double w = Math.floor(100.0D / cols * 100.0D) / 100.0D;
+				String _w = Math.floor(spanDouble * w * 100.0D) / 100.0D + "%";
 
 				String cw = columnWidth;
-				if ((cw != null) && (!"0".equals(cw))) {
+				if (cw != null && !"0".equals(cw)) {
 					if (cw.indexOf('%') > 1) {
 						_w = cw.substring(0, cw.length() - 1) + "%";
 					} else if (cw.indexOf("px") > 1) {
 						_w = cw;
-					} else if (Double.valueOf(cw).doubleValue() < 1.0D) {
-						_w = Math.floor(Double.valueOf(cw).doubleValue() * 100.0D * 100.0D) / 100.0D + "%";
+					} else if (Double.valueOf(cw) < 1.0D) {
+						_w = Math.floor(Double.valueOf(cw) * 100.0D * 100.0D) / 100.0D + "%";
 					} else {
 						_w = cw;
 					}
@@ -116,7 +116,7 @@ public class TagUtil {
 			htmlBuffer.append("<");
 		htmlBuffer.append(html);
 		for (String param : params) {
-			if ((param != null) && (!"".equals(param))) {
+			if (param != null && !"".equals(param)) {
 				String jParam = (String) jspContext.getAttribute(param);
 				if (null != jParam) {
 					htmlBuffer.append(space);

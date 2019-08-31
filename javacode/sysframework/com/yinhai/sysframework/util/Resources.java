@@ -11,31 +11,6 @@ import java.util.Properties;
 
 public class Resources {
 
-	public static URL createURL(String fileName) {
-		URL url = null;
-		try {
-			url = new URL(fileName);
-		} catch (MalformedURLException ex) {
-			File f = new File(fileName);
-			try {
-				String path = f.getAbsolutePath();
-				String fs = System.getProperty("file.separator");
-				if (fs.length() == 1) {
-					char sep = fs.charAt(0);
-					if (sep != '/')
-						path = path.replace(sep, '/');
-					if (path.charAt(0) != '/')
-						path = String.valueOf('/') + String.valueOf(path);
-				}
-				path = "file://".concat(String.valueOf(String.valueOf(path)));
-				url = new URL(path);
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			}
-		}
-		return url;
-	}
-
 	public static URL getResourceURL(String resource) throws IOException {
 		URL url = null;
 		ClassLoader loader = Resources.class.getClassLoader();
@@ -84,9 +59,7 @@ public class Resources {
 
 	public static Properties getResourceAsProperties(String resource) throws IOException {
 		Properties props = new Properties();
-		InputStream in = null;
-		String propfile = resource;
-		in = getResourceAsStream(propfile);
+		InputStream in = getResourceAsStream(resource);
 		props.load(in);
 		in.close();
 		return props;
@@ -94,9 +67,7 @@ public class Resources {
 
 	public static Properties getResourceAsProperties(ClassLoader loader, String resource) throws IOException {
 		Properties props = new Properties();
-		InputStream in = null;
-		String propfile = resource;
-		in = getResourceAsStream(loader, propfile);
+		InputStream in = getResourceAsStream(loader, resource);
 		props.load(in);
 		in.close();
 		return props;

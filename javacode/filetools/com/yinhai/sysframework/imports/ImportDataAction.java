@@ -162,7 +162,7 @@ public class ImportDataAction extends BaseAction{
 					List<Map<String, Object>> importList = JSONStringToArrayList(dto.getAsString(targetTableName));
 					//获取数据库表字段与文件所在数据列的映射关系，数据库表字段-->文本文件的列号（如：AAA100-->1），。。。。。。
 					datamap = MappingDatabaseFieldsToSourceFields(dto,importList,targetTableName,Strlist[headrownum], separator);
-					fieldArray = StringUtil.objectArrayToStringArray((Object[]) datamap.get("filedlist"));
+					//fieldArray = StringUtil.objectArrayToStringArray((Object[]) datamap.get("filedlist"));
 					datamap.remove("filedlist");
 				}
 				//将Text文本文件内容转换为导入的标准数据集合
@@ -178,18 +178,18 @@ public class ImportDataAction extends BaseAction{
 					boolean isCreate = Boolean.valueOf(String.valueOf(map.get("CreateTb")));
 					String tableName = String.valueOf(map.get("TargetTb"));
 					Sheet sheet = book.getSheet(tableName);
-					String cellString = StringUtil.StringArrayToString(ExcelFileUtils.SheetCellsToStringArray(sheet.getRow(headrownum)),",");
+					//String cellString = StringUtil.StringArrayToString(ExcelFileUtils.SheetCellsToStringArray(sheet.getRow(headrownum)),",");
 					if(isCreate){
 						List<String> fieldlist = ImprotDataCreateTable(imodel, tableName, JSONStringToArrayList(dto.getAsString(tableName)));
 						//将字段list转换为字符串数组
-						datamap = MappingTargetFieldToSourceField(fieldlist, cellString, ",");
+						//datamap = MappingTargetFieldToSourceField(fieldlist, cellString, ",");
 						fieldArray = (String[]) datamap.keySet().toArray(new String[fieldlist.size()]);
 					}else{
 						//根据目标表名称获取创建该数据库表所需要的字段名称、数据类型、数据长度及是否是主键等信息的字符串 将该字符串转换为list
 						List<Map<String, Object>> importList = JSONStringToArrayList(dto.getAsString(tableName));
 						//获取数据库表字段与文件所在数据列的映射关系，数据库表字段-->文本文件的列号（如：AAA100-->1），。。。。。。
-						datamap = MappingDatabaseFieldsToSourceFields(dto,importList,tableName, cellString, ",");
-						fieldArray = StringUtil.objectArrayToStringArray((Object[]) datamap.get("filedlist"));
+						//datamap = MappingDatabaseFieldsToSourceFields(dto,importList,tableName, cellString, ",");
+						//fieldArray = StringUtil.objectArrayToStringArray((Object[]) datamap.get("filedlist"));
 						datamap.remove("filedlist");
 					}
 					datalist = ExcelFileUtils.getSheetToMapList(sheet, imodel, datamap, rowStart, dto.getAsInteger("last_datah"));
@@ -208,34 +208,34 @@ public class ImportDataAction extends BaseAction{
     }
     
     public void executeImportDataByModel(ParamDTO dto,String tableName,String[] field,List<Map<String, String>> list){
-    	String fieldstr = StringUtil.StringArrayToString(field,",");
-    	String paramstr = StringUtil.splitJointStringByNumber("?", ",", field.length);
-    	String whereString = StringUtil.splitJointStringByStringArray(field, " = ", "?", " AND ",false);
+    	//String fieldstr = StringUtil.StringArrayToString(field,",");
+    	//String paramstr = StringUtil.splitJointStringByNumber("?", ",", field.length);
+    	//String whereString = StringUtil.splitJointStringByStringArray(field, " = ", "?", " AND ",false);
     	IDao dao = getDao();
     	String imodel = dto.getAsString("iModel");
      	if("1".equals(imodel)){//添加
-    		String insertSql = "INSERT INTO " + tableName + "(" + fieldstr +") VALUES(" + paramstr + ")";
-    		dao.executeBatchByJDBC(insertSql, list);		
+    		//String insertSql = "INSERT INTO " + tableName + "(" + fieldstr +") VALUES(" + paramstr + ")";
+    		//dao.executeBatchByJDBC(insertSql, list);
     	}else if ("2".equals(imodel)) {//更新
     		String[] updateArray =   StringUtil.split(dto.getAsString(tableName+"updateArray"),",");
         	String[] primaryArray = StringUtil.split(dto.getAsString(tableName+"primaryArray"),",");
-        	String setString = StringUtil.splitJointStringByStringArray(updateArray," = ", "?", ",",true);
-        	String updateWhereString =  StringUtil.splitJointStringByStringArray(primaryArray, " = ", "?", " AND ",false);
-    		String updateSql = "UPDATE " + tableName + " SET " + setString + " WHERE 1 = 1 " + updateWhereString;
-    		dao.executeBatchByJDBC(updateSql, list);
+        	//String setString = StringUtil.splitJointStringByStringArray(updateArray," = ", "?", ",",true);
+        	//String updateWhereString =  StringUtil.splitJointStringByStringArray(primaryArray, " = ", "?", " AND ",false);
+    		//String updateSql = "UPDATE " + tableName + " SET " + setString + " WHERE 1 = 1 " + updateWhereString;
+    		//dao.executeBatchByJDBC(updateSql, list);
     	}else if ("3".equals(imodel)) {//添加或更新
-    		String deleteSql = "DELETE FROM " + tableName + " WHERE 1 = 1 " + whereString;
-    		String insertSql = "INSERT INTO " + tableName + "(" + fieldstr +") VALUES(" + paramstr + ")";
-    		dao.executeBatchByJDBC(deleteSql, list);
-    		dao.executeBatchByJDBC(insertSql, list);
+    		//String deleteSql = "DELETE FROM " + tableName + " WHERE 1 = 1 " + whereString;
+    		//String insertSql = "INSERT INTO " + tableName + "(" + fieldstr +") VALUES(" + paramstr + ")";
+    		//dao.executeBatchByJDBC(deleteSql, list);
+    		//dao.executeBatchByJDBC(insertSql, list);
     	}else if ("4".equals(imodel)) {//删除
-    		String deleteSql = "DELETE FROM " + tableName + " WHERE 1 = 1 " + whereString;
-    		dao.executeBatchByJDBC(deleteSql, list);
+    		//String deleteSql = "DELETE FROM " + tableName + " WHERE 1 = 1 " + whereString;
+    		//dao.executeBatchByJDBC(deleteSql, list);
     	}else{//复制
-    		String deleteSql = "DELETE FROM " + tableName + " WHERE 1 = 1 " + whereString;
-    		String insertSql = "INSERT INTO " + tableName + "(" + fieldstr +") VALUES(" + paramstr + ")";
-    		dao.executeBatchByJDBC(deleteSql, list);
-    		dao.executeBatchByJDBC(insertSql, list);
+    		//String deleteSql = "DELETE FROM " + tableName + " WHERE 1 = 1 " + whereString;
+    		//String insertSql = "INSERT INTO " + tableName + "(" + fieldstr +") VALUES(" + paramstr + ")";
+    		//dao.executeBatchByJDBC(deleteSql, list);
+    		//dao.executeBatchByJDBC(insertSql, list);
     	}
     }
     /**

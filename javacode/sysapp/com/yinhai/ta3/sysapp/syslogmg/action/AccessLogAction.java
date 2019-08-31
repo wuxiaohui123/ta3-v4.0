@@ -1,12 +1,11 @@
 package com.yinhai.ta3.sysapp.syslogmg.action;
 
-import java.util.Date;
-
-import com.yinhai.sysframework.config.SysConfig;
 import com.yinhai.sysframework.dto.ParamDTO;
 import com.yinhai.sysframework.log.IAccessLogService;
 import com.yinhai.sysframework.persistence.PageBean;
 import com.yinhai.webframework.BaseAction;
+
+import java.util.Date;
 
 public class AccessLogAction extends BaseAction {
 
@@ -24,12 +23,9 @@ public class AccessLogAction extends BaseAction {
 		Integer limit = dto.getLimit("accessGrid");
 		Long userid = dto.getUserInfo().getUserid();
 		Long positionid = dto.getUserInfo().getNowPosition().getPositionid();
-		PageBean pageBean = new PageBean();
-		if (SysConfig.getSysconfigToBoolean("isMongo", true)) {
-			pageBean = accessLogService.queryAccessInfoByMongo(startDate, endDate, start, limit, userid, positionid);
-		} else {
-			pageBean = accessLogService.queryAccessInfo(startDate, endDate, start, limit, userid, positionid);
-		}
+
+		PageBean pageBean = accessLogService.queryAccessInfo(startDate, endDate, start, limit, userid, positionid);
+
 		setList("accessGrid", pageBean);
 		return JSON;
 	}

@@ -5,6 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
+import com.yinhai.sysframework.app.domain.BaseVO;
+import com.yinhai.sysframework.app.domain.jsonmodel.ResultBean;
+import com.yinhai.sysframework.persistence.PageBean;
+import com.yinhai.sysframework.util.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,14 +24,11 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.yinhai.sysframework.app.domain.BaseVO;
-import com.yinhai.sysframework.app.domain.jsonmodel.ResultBean;
-import com.yinhai.sysframework.persistence.PageBean;
-import com.yinhai.sysframework.util.CollectionUtils;
+
 
 public class JSonFactory {
 
-	private static Logger logger = LogManager.getLogger(JSonFactory.class);
+	private static Logger logger = LogManager.getLogger(JSonFactory.class.getName());
 
 	private static SerializeConfig config = new SerializeConfig();
 
@@ -59,28 +60,28 @@ public class JSonFactory {
 	}
 
 	public static String bean2json(Object src) {
-		if ((src == null) || ("".equals(src)))
+		if (src == null || "".equals(src))
 			return "";
 		String ret = null;
-		if ((src instanceof ResultBean)) {
+		if (src instanceof ResultBean) {
 			try {
 				ret = ((ResultBean) src).toJson();
 			} catch (Exception e) {
-				ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
+				ret = JSON.toJSONString(src, config,  SerializerFeature.WriteMapNullValue);
 			}
-		} else if ((src instanceof PageBean)) {
+		} else if (src instanceof PageBean) {
 			try {
 				ret = ((PageBean) src).toJson();
 			} catch (Exception e) {
 				ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 			}
-		} else if ((src instanceof Map)) {
+		} else if (src instanceof Map) {
 			try {
 				ret = CollectionUtils.mapToJson((Map) src);
 			} catch (Exception e) {
 				ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 			}
-		} else if ((src instanceof List)) {
+		} else if (src instanceof List) {
 			if (((List) src).size() > 8000) {
 				ret = JSON.toJSONString(src, config, SerializerFeature.WriteMapNullValue);
 			} else {
@@ -93,9 +94,9 @@ public class JSonFactory {
 						rowObj = list.get(i);
 						if (i > 0)
 							sb.append(",");
-						if ((rowObj instanceof BaseVO)) {
+						if (rowObj instanceof BaseVO) {
 							sb.append(((BaseVO) rowObj).toJson());
-						} else if ((rowObj instanceof Map)) {
+						} else if (rowObj instanceof Map) {
 							sb.append(CollectionUtils.mapToJson((Map) rowObj));
 						} else {
 							sb.append(bean2json(rowObj));
@@ -153,7 +154,7 @@ public class JSonFactory {
 	}
 
 	public static <T> T fromJson(String jsonString, TypeReference<T> type) {
-		if (("NULL".equals(jsonString)) || ("null".equals(jsonString))) {
+		if ("NULL".equals(jsonString) || "null".equals(jsonString)) {
 			return null;
 		}
 		return (T) JSON.parseObject(jsonString, type, new Feature[0]);
@@ -175,8 +176,5 @@ public class JSonFactory {
 		ret = StringUtils.replace(ret, "\"", "\\\"");
 
 		return ret;
-	}
-
-	public static void main(String[] args) {
 	}
 }

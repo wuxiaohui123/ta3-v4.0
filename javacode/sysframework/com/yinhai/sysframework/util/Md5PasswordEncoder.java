@@ -4,8 +4,7 @@ import org.springframework.dao.DataAccessException;
 
 public interface Md5PasswordEncoder {
 
-	public abstract String encodePassword(String paramString, Object paramObject) throws DataAccessException;
+	 String encodePassword(String str, Object salt) throws DataAccessException;
 
-	public abstract boolean isPasswordValid(String paramString1, String paramString2, Object paramObject)
-			throws DataAccessException;
+	 boolean isPasswordValid(String str1, String str2, Object salt) throws DataAccessException;
 }

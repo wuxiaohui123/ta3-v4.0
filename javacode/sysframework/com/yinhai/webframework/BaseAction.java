@@ -608,7 +608,7 @@ public class BaseAction extends ActionSupport implements Action, IGetResultBean 
 		return map;
 	}
 
-	protected ResultBean setSelectInputList(String id, List<?> list) {
+	protected ResultBean setSelectInputList(String id, List<Map> list) {
 		String value = JSonFactory.bean2json(list);
 		if ((id != null) && (!"".equals(id)) && (value != null) && (!"".equals(value))) {
 			Map<String, String> map = (HashMap) getSessionResource("__selectinput_flag_map_");
@@ -632,7 +632,7 @@ public class BaseAction extends ActionSupport implements Action, IGetResultBean 
 	protected ResultBean selectInputLevelDataByList(String id, List list) {
 		List list2 = new ArrayList();
 		Map map = null;
-		if ((list != null) && (list.size() > 0)) {
+		if (list != null && list.size() > 0) {
 			for (Iterator i = list.iterator(); i.hasNext();) {
 				Map app = (Map) i.next();
 				map = new HashMap();
@@ -644,6 +644,7 @@ public class BaseAction extends ActionSupport implements Action, IGetResultBean 
 				list2.add(map);
 			}
 		}
+
 		return setSelectInputList(id, list2);
 	}
 }

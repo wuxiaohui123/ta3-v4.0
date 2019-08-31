@@ -9,7 +9,7 @@ public class Ta3DateAdapter extends XmlAdapter<String, Date> {
 
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-	public String marshal(Date v) throws Exception {
+	public String marshal(Date v) {
 		return dateFormat.format(v);
 	}
 

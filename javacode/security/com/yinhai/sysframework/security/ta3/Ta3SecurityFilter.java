@@ -33,7 +33,7 @@ import com.yinhai.sysframework.util.json.JSonFactory;
 public class Ta3SecurityFilter implements Filter {
 	private static Logger log = LogManager.getLogger(Ta3SecurityFilter.class.getName());
 
-	protected void checkPermit(String url, IUserAccountInfo user, HttpServletRequest request) throws IOException, NoPermissionException {
+	protected void checkPermit(String url, IUserAccountInfo user, HttpServletRequest request) throws NoPermissionException {
 		if (TaSecurityStrategy.isDevelopers(user.getLoginId())) {
 			return;
 		}
@@ -53,7 +53,7 @@ public class Ta3SecurityFilter implements Filter {
 
 		Set<String> perviewSet = (Set<String>) session.getAttribute("__USER_PERVIEW_FLAG__");
 		String loginfo = " User:" + user.getLoginId() + ",无访问权限！ Url:" + url;
-		if ((perviewSet == null) || ((perviewSet != null) && (perviewSet.size() == 0))) {
+		if (perviewSet == null || perviewSet.size() == 0) {
 			throw new NoPermissionException(loginfo);
 		}
 

@@ -7,13 +7,14 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.yinhai.sysframework.exception.SysLevelException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.yinhai.sysframework.exception.SysLevelException;
 
 public class ClassDefn {
 
@@ -34,17 +35,15 @@ public class ClassDefn {
 	private void loadClassDefn(Class<?> clazz) {
 		log.debug("开始加载类定义：" + clazz.getName());
 		Constructor<?>[] constructors = clazz.getConstructors();
-		for (int i = 0; i < constructors.length; i++) {
-			log.debug("缓存构造方法：" + constructors[i].getName()
-					+ ReflectUtil.getParmTypesDesc(constructors[i].getParameterTypes()));
-			this.constructors.put(ReflectUtil.getParmTypesDesc(constructors[i].getParameterTypes()), constructors[i]);
-		}
-
+		Arrays.stream(constructors).forEach(constructor -> {
+			log.debug("缓存构造方法：" + constructor.getName() + ReflectUtil.getParmTypesDesc(constructor.getParameterTypes()));
+			this.constructors.put(ReflectUtil.getParmTypesDesc(constructor.getParameterTypes()), constructor);
+		});
 		Field[] fileds = clazz.getFields();
-		for (int i = 0; i < fileds.length; i++) {
-			log.debug("缓存成员变量：" + fileds[i].getName());
-			fields.put(fileds[i].getName(), fileds[i]);
-		}
+		Arrays.stream(fileds).forEach(field -> {
+			log.debug("缓存成员变量：" + field.getName());
+			fields.put(field.getName(), field);
+		});
 		BeanInfo bi;
 		try {
 			bi = Introspector.getBeanInfo(clazz);
@@ -52,17 +51,15 @@ public class ClassDefn {
 			throw new SysLevelException(e);
 		}
 		PropertyDescriptor[] pd = bi.getPropertyDescriptors();
-		for (int i = 0; i < pd.length; i++) {
-			log.debug("缓存成员属性：" + pd[i].getName());
-			props.put(pd[i].getName(), pd[i]);
-		}
-
+		Arrays.stream(pd).forEach(propertyDescriptor -> {
+			log.debug("缓存成员属性：" + propertyDescriptor.getName());
+			props.put(propertyDescriptor.getName(), propertyDescriptor);
+		});
 		Method[] methods = clazz.getMethods();
-		for (int i = 0; i < methods.length; i++) {
-			log.debug("缓存成员方法：" + methods[i].getName() + ReflectUtil.getParmTypesDesc(methods[i].getParameterTypes()));
-			this.methods.put(methods[i].getName() + ReflectUtil.getParmTypesDesc(methods[i].getParameterTypes()),
-					methods[i]);
-		}
+		Arrays.stream(methods).forEach(method -> {
+			log.debug("缓存成员方法：" + method.getName() + ReflectUtil.getParmTypesDesc(method.getParameterTypes()));
+			this.methods.put(method.getName() + ReflectUtil.getParmTypesDesc(method.getParameterTypes()), method);
+		});
 		log.debug("加载类定义：" + clazz.getName() + "成功");
 	}
 

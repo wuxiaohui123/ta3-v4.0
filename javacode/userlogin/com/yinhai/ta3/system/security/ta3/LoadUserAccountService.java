@@ -23,6 +23,7 @@ public class LoadUserAccountService implements ILoadUserAccountInfo {
 	private SimpleDao hibernateDao;
 	private IOrganizationService organizationService;
 
+	@Override
 	public IUserAccountInfo loadUser(String loginId, HttpServletRequest request) {
 		User user = getUser(loginId);
 		if (user == null) {

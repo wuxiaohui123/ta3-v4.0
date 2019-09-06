@@ -40,24 +40,24 @@ public class TaCacheEventListener implements CacheEventListener {
 
 	public void notifyElementRemoved(Ehcache cache, Element element) throws CacheException {
 		ServerAddressService service = (ServerAddressService) ServiceLocator.getService("serverAddressService");
-		List<String> list = service.getALlUserfullServerAddress();
+		List<String> list = service.getAllUsefulServerAddress();
 		if (ValidateUtil.isNotEmpty(list)) {
-			for (int i = 0; i < list.size(); i++) {
+			list.forEach(s -> {
 				try {
-					myNotify(cache.getName(), (String) element.getObjectKey(), (String) list.get(i));
+					myNotify(cache.getName(), (String) element.getObjectKey(), s);
 				} catch (ConnectException e1) {
 					if (logger.isErrorEnabled()) {
-						logger.error("服务：" + (String) list.get(i) + ",缓存名称：" + cache.getName() + ",key："
-								+ (String) element.getObjectKey() + "缓存清除通知失败,原因：连接超时");
+						logger.error("服务：" + s + ",缓存名称：" + cache.getName() + ",key："
+								+ element.getObjectKey() + "缓存清除通知失败,原因：连接超时");
 					}
 				} catch (Exception e) {
 					if (logger.isErrorEnabled()) {
-						logger.error("服务：" + (String) list.get(i) + ",缓存名称：" + cache.getName() + ",key："
-								+ (String) element.getObjectKey() + "缓存清除通知失败");
+						logger.error("服务：" + s + ",缓存名称：" + cache.getName() + ",key："
+								+ element.getObjectKey() + "缓存清除通知失败");
 					}
 
 				}
-			}
+			});
 		} else if (logger.isInfoEnabled()) {
 			logger.info("提示:没有配置集群的server地址，无法获取当前用户访问的server与端口，请在[集群server地址配置]中配置,如果您在开发环境中可以无需理会本提示");
 		}

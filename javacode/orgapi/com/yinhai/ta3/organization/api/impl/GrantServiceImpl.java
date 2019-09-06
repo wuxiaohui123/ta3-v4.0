@@ -24,7 +24,7 @@ import com.yinhai.ta3.system.sysapp.domain.Menu;
 
 public class GrantServiceImpl implements IGrantService {
 
-	SimpleDao hibernateDao;
+	private SimpleDao hibernateDao;
 
 	public void setHibernateDao(SimpleDao hibernateDao) {
 		this.hibernateDao = hibernateDao;
@@ -34,6 +34,7 @@ public class GrantServiceImpl implements IGrantService {
 		return SysConfig.getSysConfig(className, className);
 	}
 
+	@Override
 	public UserPositionId grantPositionToUser(Long userid, Long positionid, Long operator, Date operateTime) {
 		Assert.notNull(positionid, "岗位id不能为空");
 		Assert.notNull(userid, "用户id不能为空");
@@ -55,11 +56,12 @@ public class GrantServiceImpl implements IGrantService {
 		return newid;
 	}
 
+	@Override
 	public boolean retrievePositionFromUser(Long userid, Long positionid, Long operator, Date operateTime) {
 		Assert.notNull(positionid, "岗位id不能为空");
 		Assert.notNull(userid, "用户id不能为空");
 		UserPosition up = (UserPosition) hibernateDao.createQuery(
-				"from UserPosition up where up.id.taposition.positionid=? and up.id.tauser.userid=?", new Object[] { positionid, userid })
+				"from UserPosition up where up.id.taposition.positionid=? and up.id.tauser.userid=?", positionid, userid)
 				.uniqueResult();
 		if ("1".equals(up.getMainposition())) {
 			UserPosition up1 = (UserPosition) hibernateDao
@@ -67,7 +69,7 @@ public class GrantServiceImpl implements IGrantService {
 							"select up from "
 									+ getEntityClassName(Position.class.getName())
 									+ " p,UserPosition up where up.id.tauser.userid=? and up.id.taposition.positionid=p.positionid and p.taorg.orgid=up.id.tauser.directorgid and p.positiontype=?",
-							new Object[] { userid, "2" }).uniqueResult();
+							userid, "2").uniqueResult();
 			if (up1 != null) {
 				up1.setMainposition("1");
 				hibernateDao.update(up1);
@@ -87,7 +89,7 @@ public class GrantServiceImpl implements IGrantService {
 						"select p.positionid from "
 								+ getEntityClassName(Position.class.getName())
 								+ " p,UserPosition up where p.positiontype=? and p.positionid=up.id.taposition.positionid and up.id.tauser.userid=? and p.taorg.orgid=?",
-						new Object[] { "2", userid, orgid }).uniqueResult();
+						"2", userid, orgid).uniqueResult();
 		return grantPositionFunctionUsePermission(positionid, permissionId, operator, operateTime);
 	}
 

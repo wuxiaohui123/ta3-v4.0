@@ -6,10 +6,6 @@ import javax.servlet.http.HttpSession;
 
 public class OnlineSessionInfo implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1510917518034797757L;
 	private HttpSession session;
 	private String loginId;
 	private String useRealServer;

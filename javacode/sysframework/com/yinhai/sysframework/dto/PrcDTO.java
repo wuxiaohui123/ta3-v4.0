@@ -10,22 +10,22 @@ public class PrcDTO extends BaseDTO {
 	public static final String DETAILERROR = " ERROR:";
 
 	public PrcDTO() {
-		put("AppCode", null);
-		put("ErrorMsg", null);
+		put(DEFAULT_APPCODE_NAME, null);
+		put(DEFAULT_ERRORMSG_NAME, null);
 	}
 
 	public String getAppCode() {
-		return getAsString("AppCode");
+		return getAsString(DEFAULT_APPCODE_NAME);
 	}
 
 	public String getErrorMsg() {
-		return getAsString("ErrorMsg");
+		return getAsString(DEFAULT_ERRORMSG_NAME);
 	}
 
 	public String getShortMsg() {
-		String ret = getAsString("ErrorMsg");
+		String ret = getAsString(DEFAULT_ERRORMSG_NAME);
 		if (ret != null)
-			ret = ret.split(" ERROR:")[0];
+			ret = ret.split(DETAILERROR)[0];
 		return ret;
 	}
 

@@ -92,7 +92,7 @@ public class ResultBean implements Serializable {
 				fieldData.put(key, value);
 				value = JSonFactory.bean2json(value);
 				fieldData.put(_SEL_ + key, value);
-			} else if (((value instanceof String)) && (value.toString().indexOf("[") >= 0)
+			} else if (((value instanceof String)) && (value.toString().contains("["))
 					&& (value.toString().indexOf("]") > 0)) {
 				fieldData.put(_SEL_ + key, value);
 				fieldData.put(key, value);
@@ -152,10 +152,6 @@ public class ResultBean implements Serializable {
 
 	public Map<String, PageBean> getLists() {
 		return lists;
-	}
-
-	public void setListstores(HashMap<String, PageBean> lists) {
-		this.lists = lists;
 	}
 
 	void clearValues() {

@@ -161,9 +161,7 @@ public class UserLoginHelper implements IUserLogin {
     }
 
     protected HashMap<String, Object> createMigratedAttributeMap(HttpSession session) {
-        HashMap<String, Object> attributesToMigrate = null;
-
-        return attributesToMigrate;
+        return null;
     }
 
     protected OnlineSessionInfo createOnlineSessionInfo(IUserAccountInfo account, HttpServletRequest request) {
@@ -187,11 +185,11 @@ public class UserLoginHelper implements IUserLogin {
     protected void getUserRealServer(ServletContext servletContext) {
         HttpClient httpclient = new DefaultHttpClient();
         if (servletContext.getAttribute("USE_REAL_SERVER") == null) {
-            List<String> addresses = serverAddressService.getALlUserfullServerAddress();
-            httpclient.getParams().setParameter("http.socket.timeout", Integer.valueOf(100));
-            httpclient.getParams().setParameter("http.connection.timeout", Integer.valueOf(100));
+            List<String> addresses = serverAddressService.getAllUsefulServerAddress();
+            httpclient.getParams().setParameter("http.socket.timeout", 100);
+            httpclient.getParams().setParameter("http.connection.timeout", 100);
 
-            httpclient.getParams().setParameter("http.connection-manager.timeout", Integer.valueOf(100));
+            httpclient.getParams().setParameter("http.connection-manager.timeout", 100);
 
             if ((ValidateUtil.isEmpty(addresses)) && (log.isInfoEnabled())) {
                 log.info("提示：没有配置集群的server地址，无法获取当前用户访问的server与端口，请在[集群server地址配置]中配置,如果您在开发环境中可以无需理会本提示");

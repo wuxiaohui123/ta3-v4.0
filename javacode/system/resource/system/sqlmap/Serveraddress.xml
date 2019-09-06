@@ -10,14 +10,14 @@
 	<select id="getList" parameterClass="map" resultClass="serveraddressDomain">
 		SELECT 
 		       a.address as address,   <!-- 应用地址     -->
-		       a.canuse as canuse    <!-- 是否启用     -->
+		       a.cause as cause    <!-- 是否启用     -->
 		  FROM serveraddress a
 		 WHERE 1=1 
 		<isNotEmpty prepend="AND" property="address">   <!-- 应用地址     -->
 		       a.address = #address:VARCHAR#             
 		</isNotEmpty>
 		<isNotEmpty prepend="AND" property="canuse">   <!-- 是否启用     -->
-		       a.canuse = #canuse:VARCHAR#              
+		       a.cause = #cause:VARCHAR#
 		</isNotEmpty>
 
 	</select>
@@ -26,7 +26,7 @@
 	<select id="get" parameterClass="map" resultClass="serveraddressDomain">
 		SELECT 
 		       a.address as address,   <!-- 应用地址     -->
-		       a.canuse as canuse    <!-- 是否启用     -->
+		       a.cause as cause    <!-- 是否启用     -->
 		  FROM serveraddress a
 		 WHERE 1 = 1 
 <![CDATA[	   AND a.address = #address#    ]]>    <!-- 应用地址 -->
@@ -36,17 +36,16 @@
 	<insert id="insert" parameterClass="serveraddressDomain">
 		INSERT INTO serveraddress (
 		       address,  <!-- 应用地址     -->
-		       canuse)  <!-- 是否启用     -->
+		cause)  <!-- 是否启用     -->
 		VALUES (
 		       #address:VARCHAR#,  <!-- 应用地址     -->
-		       #canuse:VARCHAR#)  <!-- 是否启用     -->
+		       #cause:VARCHAR#)  <!-- 是否启用     -->
 	</insert>
 
 	<!-- 通过主键修改数据库记录，domain的每一个字段都要设值，如果是null，则数据库中也是null -->
 	<update id="update" parameterClass="map">
-		UPDATE serveraddress SET 
-		       canuse = #canuse:VARCHAR#  <!-- 是否启用     -->
-		 WHERE 1 = 1 
+		UPDATE serveraddress SET cause = #cause:VARCHAR#  <!-- 是否启用     -->
+		WHERE 1 = 1
 <![CDATA[	   AND address = #address#    ]]>    <!-- 应用地址 -->
 	</update>
 
@@ -54,8 +53,8 @@
 	<update id="updateNotEmpty" parameterClass="map">
 		UPDATE serveraddress
 		 <dynamic prepend="SET"> 
-			<isNotEmpty prepend="," property="canuse">   <!-- 是否启用     -->
-		       canuse = #canuse:VARCHAR#              
+			<isNotEmpty prepend="," property="cause">   <!-- 是否启用     -->
+				cause = #cause:VARCHAR#
 			</isNotEmpty>
 		 </dynamic> 
 		 WHERE 1 = 1 
@@ -66,8 +65,8 @@
 	<update id="updateAvailable" parameterClass="map">
 		UPDATE serveraddress
 		 <dynamic prepend="SET"> 
-			<isPropertyAvailable prepend="," property="canuse">   <!-- 是否启用     -->
-		       canuse = #canuse:VARCHAR#              
+			<isPropertyAvailable prepend="," property="cause">   <!-- 是否启用     -->
+				cause = #cause:VARCHAR#
 			</isPropertyAvailable>
 		 </dynamic> 
 		 WHERE 1 = 1 
@@ -86,7 +85,7 @@
 		SELECT 
 			a.address as address <!-- 应用地址 -->
 		  FROM serveraddress a
-		 WHERE 1=1 and canuse = #canuse:VARCHAR#
+		 WHERE 1=1 and cause = #cause:VARCHAR#
 	</select>
 <!--TA+END--> 
 </sqlMap>

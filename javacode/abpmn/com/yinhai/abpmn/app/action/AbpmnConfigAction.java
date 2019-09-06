@@ -43,7 +43,7 @@ public class AbpmnConfigAction extends AbpmnAppAction {
 			map.put("name", p.getName());
 			processDefList.add(map);
 		}
-		setSelectInputList("processName", processDefList);
+		//setSelectInputList("processName", processDefList);
 
 		/*
 		 * List<Org> corgs =

@@ -9,7 +9,7 @@ public class ParamCacheKeyGenerator implements KeyGenerator {
 	private String generateKey(String targetClassName, String methodName, Object[] arguments) {
 		StringBuffer key = new StringBuffer();
 
-		if ((arguments != null) && (arguments.length != 0)) {
+		if (arguments != null && arguments.length != 0) {
 			for (int i = 0; i < arguments.length; i++) {
 				if (i > 0) {
 					key.append(".");

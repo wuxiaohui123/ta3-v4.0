@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface ITaEventBus {
 
-	String SERVICEKEY = "taEventBus";
+	String SERVICE_KEY = "taEventBus";
 
-	 void setListeners(List<TaEventListener> paramList);
+	 void setListeners(List<TaEventListener> listeners);
 
 	 List<TaEventListener> getListeners();
 
-	 void addListener(TaEventListener paramTaEventListener);
+	 void addListener(TaEventListener taEventListener);
 }

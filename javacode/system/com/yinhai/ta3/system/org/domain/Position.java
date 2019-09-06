@@ -241,8 +241,8 @@ public class Position extends BaseDomain implements IPosition {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Key<String, Object> getPK() {
-		Key<String, Object> key = new Key<String, Object>();
+	public Key getPK() {
+		Key key = new Key();
 		key.put("positionid", getPositionid());
 		return key;
 	}

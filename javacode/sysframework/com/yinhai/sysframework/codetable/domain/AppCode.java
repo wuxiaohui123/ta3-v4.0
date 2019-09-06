@@ -119,12 +119,12 @@ public class AppCode extends BaseDomain {
 		String nodeName = className.substring(className.lastIndexOf(".") + 1);
 		nodeName = nodeName.substring(0, 1).toLowerCase() + nodeName.substring(1);
 		sb.append("<" + nodeName + ">\n")
-				.append("\t<aaa100>" + cvtObjToString(getCodeType(), "java.lang.String") + "</aaa100>\n")
-				.append("\t<aaa102>" + cvtObjToString(getCodeValue(), "java.lang.String") + "</aaa102>\n")
-				.append("\t<aaa101>" + cvtObjToString(getCodeTypeDESC(), "java.lang.String") + "</aaa101>\n")
-				.append("\t<aaa103>" + cvtObjToString(getCodeDESC(), "java.lang.String") + "</aaa103>\n")
-				.append("\t<yab003>" + cvtObjToString(getYab003(), "java.lang.String") + "</yab003>\n")
-				.append("\t<aae120>" + cvtObjToString(getValidFlag(), "java.lang.String") + "</aae120>\n")
+				.append("\t<aaa100>" +getCodeType() + "</aaa100>\n")
+				.append("\t<aaa102>" + getCodeValue()+ "</aaa102>\n")
+				.append("\t<aaa101>" + getCodeTypeDESC() + "</aaa101>\n")
+				.append("\t<aaa103>" + getCodeDESC() + "</aaa103>\n")
+				.append("\t<yab003>" + getYab003() + "</yab003>\n")
+				.append("\t<aae120>" + getValidFlag() + "</aae120>\n")
 				.append("</" + nodeName + ">");
 
 		return sb.toString();

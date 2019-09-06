@@ -30,8 +30,8 @@ public class ProcesstypeDomain extends BaseDomain {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Key<String, Object> getPK() {
-		Key<String, Object> key = new Key<String, Object>();
+	public Key getPK() {
+		Key key = new Key();
 		if (getTypecode() == null) {
 			throw new IllegalArgumentException("主键typecode不能为空。");
 		}

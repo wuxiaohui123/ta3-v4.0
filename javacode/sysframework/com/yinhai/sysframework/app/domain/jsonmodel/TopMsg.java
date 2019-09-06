@@ -3,7 +3,6 @@ package com.yinhai.sysframework.app.domain.jsonmodel;
 import java.io.Serializable;
 
 public class TopMsg implements Serializable {
-	private static final long serialVersionUID = 1L;
 	private String topMsg;
 	private int time;
 	private int width;

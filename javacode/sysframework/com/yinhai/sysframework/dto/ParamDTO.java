@@ -15,7 +15,7 @@ public class ParamDTO extends BaseDTO {
 	public Object put(Object key, Object value) {
 		if (value instanceof String[]) {
 			String[] t = (String[]) value;
-			if (value != null && t.length == 1) {
+			if (t.length == 1) {
 				return super.put(key, t[0]);
 			}
 		}
@@ -27,21 +27,17 @@ public class ParamDTO extends BaseDTO {
 	}
 
 	public Integer getStart(String gridId) {
-		Integer startInteger = Integer.valueOf(0);
-		if ((gridInfo.get(gridId + "_start") instanceof String[])) {
-			startInteger = Integer.valueOf(gridInfo.getAsStringArray(gridId + "_start")[0]);
+		if (gridInfo.get(gridId + "_start") instanceof String[]) {
+			return Integer.valueOf(gridInfo.getAsStringArray(gridId + "_start")[0]);
 		} else
-			startInteger = gridInfo.getAsInteger(gridId + "_start");
-		return startInteger;
+			return gridInfo.getAsInteger(gridId + "_start");
 	}
 
 	public Integer getLimit(String gridId) {
-		Integer limiInteger = Integer.valueOf(0);
-		if ((gridInfo.get(gridId + "_limit") instanceof String[])) {
-			limiInteger = Integer.valueOf(gridInfo.getAsStringArray(gridId + "_limit")[0]);
+		if (gridInfo.get(gridId + "_limit") instanceof String[]) {
+			return Integer.valueOf(gridInfo.getAsStringArray(gridId + "_limit")[0]);
 		} else
-			limiInteger = gridInfo.getAsInteger(gridId + "_limit");
-		return limiInteger;
+			return gridInfo.getAsInteger(gridId + "_limit");
 	}
 
 	public void setGridInfo(BaseDTO gridInfo) {

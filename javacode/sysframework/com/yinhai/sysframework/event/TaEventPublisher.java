@@ -7,12 +7,12 @@ import com.yinhai.sysframework.service.ServiceLocator;
 public class TaEventPublisher {
 
     public static void publishEvent(final EventSource source, final String eventType) {
-        if (!ServiceLocator.containsBean("taEventBus")) {
+        if (!ServiceLocator.containsBean(ITaEventBus.SERVICE_KEY)) {
             return;
         }
         if (source == null)
             throw new IllegalArgumentException("null source");
-        ITaEventBus taEventBus = (ITaEventBus) ServiceLocator.getService("taEventBus");
+        ITaEventBus taEventBus = (ITaEventBus) ServiceLocator.getService(ITaEventBus.SERVICE_KEY);
         List<TaEventListener> listeners = taEventBus.getListeners();
         if (listeners == null) {
             return;
@@ -24,12 +24,7 @@ public class TaEventPublisher {
             if (taListener.getTaskExecutor() == null) {
                 taListener.handleEvent(new TaEvent(source, eventType));
             } else {
-                taListener.getTaskExecutor().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        taListener.handleEvent(new TaEvent(source, eventType));
-                    }
-                });
+                taListener.getTaskExecutor().execute(() -> taListener.handleEvent(new TaEvent(source, eventType)));
             }
         });
     }

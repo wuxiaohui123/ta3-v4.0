@@ -15,7 +15,7 @@ public class DefaultQueryUsers implements IQueryUsers {
 		sb.append("select u from User u,UserPosition up, where 1=1").append(" and u.loginid=?").append(" and u.islock=?").append(" and u.sex=?")
 				.append(" and u.name like ?").append(" and u.effective=?");
 
-		hibernateDao.createQuery(sb.toString(), new Object[0]).setMaxResults(limit).setFirstResult(start);
+		hibernateDao.createQuery(sb.toString()).setMaxResults(limit).setFirstResult(start);
 		return null;
 	}
 

@@ -23,8 +23,8 @@ public class PageEhCacheFilter extends SimplePageCachingFilter {
 		logRequestHeaders(request);
 		Enumeration<String> accepted = request.getHeaders(header);
 		while (accepted.hasMoreElements()) {
-			String headerValue = (String) accepted.nextElement();
-			if (headerValue.indexOf(value) != -1) {
+			String headerValue = accepted.nextElement();
+			if (headerValue.contains(value)) {
 				return true;
 			}
 		}

@@ -1,7 +1,7 @@
 package com.yinhai.sysframework.dao.hibernate.pagenation;
 
 
-public class SimplePage implements Paginable {
+public class SimplePage implements Paginate {
 
 	public static final int DEF_COUNT = 20;
 
@@ -43,7 +43,7 @@ public class SimplePage implements Paginable {
 
 	public int getTotalPage() {
 		int totalPage = totalCount / pageSize;
-		if ((totalPage == 0) || (totalCount % pageSize != 0)) {
+		if (totalPage == 0 || totalCount % pageSize != 0) {
 			totalPage++;
 		}
 		return totalPage;

@@ -9,7 +9,7 @@ import java.util.Map;
 import com.yinhai.sysframework.app.domain.DomainObject;
 import com.yinhai.sysframework.app.domain.VO;
 
-public interface DTO extends Map, Serializable {
+public interface DTO<K, V> extends Map, Serializable {
 
 	   String KEY_VALUE = "`";
 	   String ENTRY_ENTRY = "^";
@@ -44,7 +44,7 @@ public interface DTO extends Map, Serializable {
 	  
 	   String[] getAsStringArray(String key);
 	  
-	   Map<?, ?> getDtoAsMap();
+	   Map<K, V> getDtoAsMap();
 	  
 	   DTO getSubDto(String key);
 	  

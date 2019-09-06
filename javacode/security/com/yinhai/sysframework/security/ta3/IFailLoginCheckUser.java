@@ -2,7 +2,7 @@ package com.yinhai.sysframework.security.ta3;
 
 public interface IFailLoginCheckUser {
 
-	public abstract void setUserLocked(Long paramLong);
+	void setUserLocked(Long userid);
 
-	public abstract void updateUserFaultNum(Long paramLong, int paramInt);
+	void updateUserFaultNum(Long userId, int num);
 }

@@ -252,8 +252,8 @@ public class Menu extends BaseDomain implements IMenu {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Key<String, Object> getPK() {
-		Key<String, Object> key = new Key<String, Object>();
+	public Key getPK() {
+		Key key = new Key();
 		key.put("menuid", getMenuid());
 		return key;
 	}

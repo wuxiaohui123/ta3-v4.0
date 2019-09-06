@@ -9,8 +9,8 @@
         <id name="address" type="java.lang.String">
             <column name="ADDRESS" length="200" />
         </id>
-        <property name="canuse" type="java.lang.String">
-            <column name="CANUSE" length="1">
+        <property name="cause" type="java.lang.String">
+            <column name="CAUSE" length="1">
                 <comment>是否启用</comment>
             </column>
         </property>

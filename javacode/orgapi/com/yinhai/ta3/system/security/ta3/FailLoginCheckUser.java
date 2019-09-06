@@ -11,11 +11,13 @@ public class FailLoginCheckUser implements IFailLoginCheckUser {
 		this.userDao = userDao;
 	}
 
+	@Override
 	public void setUserLocked(Long userid) {
 		userDao.lockUser(userid);
 	}
 
+	@Override
 	public void updateUserFaultNum(Long userId, int num) {
-		userDao.updateUserFaultNum(userId, Integer.valueOf(num));
+		userDao.updateUserFaultNum(userId, num);
 	}
 }

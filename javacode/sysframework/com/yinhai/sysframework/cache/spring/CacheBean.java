@@ -58,14 +58,14 @@ public class CacheBean extends BeanNameAutoProxyCreator implements InitializingB
 		interceptor.setFilter(filter);
 
 		cbf.registerSingleton("__cacheInterceptor", interceptor);
-		setInterceptorNames(new String[] { "__cacheInterceptor" });
+		setInterceptorNames("__cacheInterceptor");
 
 		if (beanFilterNames != null) {
 			List<String> bnames = new ArrayList<String>(Arrays.asList(beanFilterNames));
 			bnames.add("*Service");
-			setBeanNames((String[]) bnames.toArray(new String[bnames.size()]));
+			setBeanNames(bnames.toArray(new String[bnames.size()]));
 		} else {
-			setBeanNames(new String[] { "*Service" });
+			setBeanNames("*Service");
 		}
 	}
 }

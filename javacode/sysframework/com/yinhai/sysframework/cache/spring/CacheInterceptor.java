@@ -88,7 +88,7 @@ public class CacheInterceptor implements MethodInterceptor {
 		if ((lapsePrefix != null) && (lapsePrefix.length > 0)) {
 			StringBuilder regex = new StringBuilder(100);
 			for (String s : lapsePrefix) {
-				regex.append(s + ".*").append("|");
+				regex.append(s).append(".*").append("|");
 			}
 			lapsePattern = Pattern.compile(regex.toString());
 		}

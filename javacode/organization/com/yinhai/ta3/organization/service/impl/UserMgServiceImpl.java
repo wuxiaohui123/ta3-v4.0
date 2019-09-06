@@ -445,8 +445,8 @@ public class UserMgServiceImpl extends OrgBaseService implements IUserMgService 
         if (ValidateUtil.isEmpty(dto.get("positions"))) {
             throw new AppException("组织不存在");
         }
-        List<Key<String, String>> prositions = (List) dto.get("positions");
-        for (Key<String, String> key : prositions) {
+        List<Key> prositions = (List) dto.get("positions");
+        for (Key key : prositions) {
             ParamDTO pdto = new ParamDTO();
             pdto.append("userid", dto.getAsLong("userid"));
             pdto.append("positionid", key.getAsLong("positionid"));

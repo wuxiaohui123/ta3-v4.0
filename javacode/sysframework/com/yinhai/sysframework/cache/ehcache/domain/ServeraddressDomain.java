@@ -11,7 +11,7 @@ import com.yinhai.sysframework.cache.ehcache.ServerAddress;
 public class ServeraddressDomain extends BaseDomain implements ServerAddress {
 
 	private String address;
-	private String canuse;
+	private String cause;
 
 	public ServeraddressDomain() {
 	}
@@ -29,9 +29,9 @@ public class ServeraddressDomain extends BaseDomain implements ServerAddress {
 		return key;
 	}
 
-	public ServeraddressDomain(String address, String canuse) {
+	public ServeraddressDomain(String address, String cause) {
 		this.address = address;
-		this.canuse = canuse;
+		this.cause = cause;
 	}
 
 	public void setAddress(String address) {
@@ -42,19 +42,18 @@ public class ServeraddressDomain extends BaseDomain implements ServerAddress {
 		return address;
 	}
 
-	public void setCanuse(String canuse) {
-		this.canuse = canuse;
+	public void setCause(String cause) {
+		this.cause = cause;
 	}
 
-	public String getCanuse() {
-		return canuse;
+	public String getCause() {
+		return cause;
 	}
 
 	public Map toMap() {
 		Map map = new HashMap();
 		map.put("address", getAddress());
-		map.put("canuse", getCanuse());
-
+		map.put("cause", getCause());
 		return map;
 	}
 

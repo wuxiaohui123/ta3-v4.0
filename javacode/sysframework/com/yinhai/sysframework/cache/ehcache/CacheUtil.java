@@ -34,11 +34,9 @@ public class CacheUtil {
 
 	public static boolean cacheSynCodeRemove(Cache cache, String key) {
 		ServerAddressService service = (ServerAddressService) ServiceLocator.getService("serverAddressService");
-		List<String> list = service.getALlUserfullServerAddress();
+		List<String> list = service.getAllUsefulServerAddress();
 		if (ValidateUtil.isNotEmpty(list)) {
-			for (int i = 0; i < list.size(); i++) {
-				myNotify(cache.getName(), key, (String) list.get(i));
-			}
+            list.forEach(s -> myNotify(cache.getName(), key, s));
 		}
 		return false;
 	}
@@ -68,10 +66,7 @@ public class CacheUtil {
 			if (entity != null) {
 				EntityUtils.toString(entity, "UTF-8");
 			}
-			return;
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
+        } catch (IOException | URISyntaxException e) {
 			e.printStackTrace();
 		} finally {
 			try {

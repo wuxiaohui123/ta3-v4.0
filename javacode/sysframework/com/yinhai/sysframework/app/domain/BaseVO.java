@@ -1,13 +1,5 @@
 package com.yinhai.sysframework.app.domain;
 
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import com.yinhai.sysframework.dto.BaseDTO;
 import com.yinhai.sysframework.dto.DTO;
 import com.yinhai.sysframework.exception.IllegalInputAppException;
@@ -15,12 +7,19 @@ import com.yinhai.sysframework.exception.SysLevelException;
 import com.yinhai.sysframework.util.SimpleTypeConvert;
 import com.yinhai.sysframework.util.json.JSonFactory;
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class BaseVO implements VO {
 
+    @Override
     public Map toMap() {
         return null;
     }
 
+    @Override
     public String toXMLString(String _className) {
         StringBuffer buffer = new StringBuffer();
         String className = getClass().getName();
@@ -28,34 +27,13 @@ public class BaseVO implements VO {
             className = _className;
         String nodeName = className.substring(className.lastIndexOf(".") + 1);
         nodeName = nodeName.substring(0, 1).toLowerCase() + nodeName.substring(1);
-        buffer.append("<" + nodeName + ">\n");
+        buffer.append("<").append(nodeName).append(">\n");
         toMap().forEach((key, value) -> buffer.append("<").append(key).append("><![CDATA[").append(SimpleTypeConvert.convert2String(value, "")).append("]]></").append(key).append(">").append("\n"));
-        buffer.append("</" + nodeName + ">");
+        buffer.append("</").append(nodeName).append(">");
         return buffer.toString();
     }
 
-    protected String cvtObjToString(Object obj, String type) {
-        if (obj == null) {
-            return "";
-        }
-        type = type.toLowerCase();
-        if (type.contains("date")) {
-            return cvtDateToString((Timestamp) obj, "yyyy-MM-dd");
-        }
-        if (type.contains("time")) {
-            return cvtDateToString((Timestamp) obj, "yyyy-MM-dd HH:mm:ss");
-        }
-        return obj.toString();
-    }
-
-    protected String cvtDateToString(Date date, String strDateFormat) {
-        if (date == null) {
-            return null;
-        }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(strDateFormat);
-        return simpleDateFormat.format(date);
-    }
-
+    @Override
     public Key getKey() {
         return null;
     }
@@ -75,54 +53,50 @@ public class BaseVO implements VO {
         return new BaseDTO(toMap());
     }
 
+    @Override
     public String toString() {
         StringBuffer buffer = new StringBuffer();
+        DomainMeta meta = getMetadata();
+        if (meta == null) {
+            return "";
+        }
         toDTO().forEach((key, value) -> {
-            DomainMeta meta = getMetadata();
-            if (meta == null) {
-                return;
-            }
             buffer.append("值：").append(value).append(meta.getField((String) key) == null ? "" : meta.getField((String) key).toString());
         });
         return buffer.toString();
     }
 
+    @Override
     public DomainMeta getMetadata() {
         return null;
     }
 
+    @Override
     public String toXML() {
         return toXMLString(getClass().getName());
     }
 
+    @Override
     public String toJson() {
         StringBuilder buffer = new StringBuilder();
-        String className = getClass().getName();
-        String nodeName = className.substring(className.lastIndexOf(".") + 1);
-        nodeName = nodeName.substring(0, 1).toLowerCase() + nodeName.substring(1);
         buffer.append("{");
-        boolean notFirst = false;
-        Iterator keyValuePairs = toMap().entrySet().iterator();
-        while (keyValuePairs.hasNext()) {
-            Map.Entry entry = (Map.Entry) keyValuePairs.next();
-            Object key = entry.getKey();
-            Object value = entry.getValue();
-            if ((value == null) || ("".equals(value))) {
-                if (notFirst) {
+        AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+        toMap().forEach((key, value) -> {
+            if (value == null || "".equals(value)) {
+                if (atomicBoolean.get()) {
                     buffer.append(",");
                 }
                 buffer.append("\"").append(key).append("\":null");
             } else {
-                if (notFirst) {
+                if (atomicBoolean.get()) {
                     buffer.append(",");
                 }
-                buffer.append("\"" + key + "\":");
-                if ((value instanceof List)) {
+                buffer.append("\"").append(key).append("\":");
+                if (value instanceof List) {
                     buffer.append("[");
                     List list = (List) value;
-                    Object tmpObj = null;
                     for (int i = 0; i < list.size(); i++) {
-                        tmpObj = list.get(i);
+                        Object tmpObj = list.get(i);
                         if ((tmpObj instanceof BaseVO)) {
                             if (i > 0)
                                 buffer.append(",");
@@ -132,21 +106,19 @@ public class BaseVO implements VO {
                         }
                     }
                     buffer.append("]");
-                } else if ((value instanceof Object[])) {
+                } else if (value instanceof Object[]) {
                     buffer.append("[");
                     Object[] list = (Object[]) value;
-                    Object tmpObj = null;
                     for (int i = 0; i < list.length; i++) {
-                        tmpObj = list[i];
+                        Object tmpObj = list[i];
                         if (i > 0) {
                             buffer.append(",");
                         }
                         if (tmpObj == null) {
                             buffer.append("null");
                         } else {
-                            boolean noy = ((tmpObj instanceof Double)) || ((tmpObj instanceof Long))
-                                    || ((tmpObj instanceof BigDecimal)) || ((tmpObj instanceof Boolean));
-                            if ((tmpObj instanceof BaseVO)) {
+                            boolean noy = (tmpObj instanceof Double) || (tmpObj instanceof Long) || (tmpObj instanceof BigDecimal) || (tmpObj instanceof Boolean);
+                            if (tmpObj instanceof BaseVO) {
                                 buffer.append(((BaseVO) tmpObj).toJson());
                             } else if (noy) {
                                 String valueTmp = SimpleTypeConvert.convert2String(tmpObj, "");
@@ -154,7 +126,6 @@ public class BaseVO implements VO {
                                     buffer.append("\"");
                                 }
                                 buffer.append(JSonFactory.toJson(valueTmp));
-
                                 if (!noy)
                                     buffer.append("\"");
                             } else {
@@ -164,19 +135,18 @@ public class BaseVO implements VO {
                     }
                     buffer.append("]");
                 } else {
-                    boolean noy = ((value instanceof Double)) || ((value instanceof Long))
-                            || ((value instanceof BigDecimal)) || ((value instanceof Boolean));
+                    boolean noy = (value instanceof Double) || (value instanceof Long) || (value instanceof BigDecimal) || (value instanceof Boolean);
                     String valueTmp = SimpleTypeConvert.convert2String(value, "");
-                    if ((!noy) && (!"".equals(valueTmp)))
+                    if (!noy && !"".equals(valueTmp))
                         buffer.append("\"");
                     buffer.append(JSonFactory.toJson(valueTmp));
-                    if ((!noy) && (!"".equals(valueTmp))) {
+                    if (!noy && !"".equals(valueTmp)) {
                         buffer.append("\"");
                     }
                 }
             }
-            notFirst = true;
-        }
+            atomicBoolean.set(true);
+        });
         buffer.append("}");
         return buffer.toString();
     }

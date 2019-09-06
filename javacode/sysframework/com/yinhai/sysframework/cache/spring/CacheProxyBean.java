@@ -36,7 +36,7 @@ public class CacheProxyBean extends ProxyFactoryBean implements InitializingBean
 		if (cbf != null) {
 			cbf.registerSingleton(tname + "_cache", interceptor);
 			setTarget(new RuntimeBeanReference(tname));
-			setInterceptorNames(new String[] { tname + "_cache" });
+			setInterceptorNames(tname + "_cache");
 			cbf.registerSingleton(tname, this);
 		}
 	}

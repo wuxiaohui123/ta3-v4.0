@@ -12,6 +12,7 @@ import com.yinhai.sysframework.service.ServiceLocator;
 
 public class AccessLogListener extends BaseService implements TaEventListener {
 
+	@Override
 	public void handleEvent(TaEvent ooe) {
 		ParamDTO dto = ooe.getSource().getDto();
 		IUser user = (IUser) dto.get("user");
@@ -22,13 +23,16 @@ public class AccessLogListener extends BaseService implements TaEventListener {
 		accessLogService.saveAccessInfo(user.getUserid(), user.getNowPosition().getPositionid(), menuid, url, ispermission);
 	}
 
+	@Override
 	public String getEventType() {
-		return "access_log";
+		return TaEvent.EVENT_TYPE.access_log;
 	}
 
+	@Override
 	public void setTaskExecutor(Executor taskExecutor) {
 	}
 
+	@Override
 	public Executor getTaskExecutor() {
 		return null;
 	}

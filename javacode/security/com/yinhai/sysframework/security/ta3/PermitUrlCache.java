@@ -8,11 +8,7 @@ public class PermitUrlCache {
 	private static HashMap<String, HashSet<String>> permitUrlCache = new HashMap<String, HashSet<String>>();
 
 	public static void setPermitUrl(String sessionid, String url) {
-		HashSet<String> h = permitUrlCache.get(sessionid);
-		if (h == null) {
-			h = new HashSet<String>();
-			permitUrlCache.put(sessionid, h);
-		}
+		HashSet<String> h = permitUrlCache.computeIfAbsent(sessionid, k -> new HashSet<String>());
 		h.add(url);
 	}
 

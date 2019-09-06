@@ -8,15 +8,15 @@ import com.yinhai.sysframework.dto.ParamDTO;
 
 public interface ServerAddressService {
 
-	public abstract List<String> getALlUserfullServerAddress();
+	List<String> getAllUsefulServerAddress();
 
-	public abstract List<ServeraddressDomain> query(ParamDTO paramParamDTO);
+	List<ServeraddressDomain> query(ParamDTO paramParamDTO);
 
-	public abstract ServerAddress getServerAddress(String paramString);
+	ServerAddress getServerAddress(String paramString);
 
-	public abstract void addServerAddress(ServeraddressDomain paramServeraddressDomain);
+	void addServerAddress(ServeraddressDomain paramServeraddressDomain);
 
-	public abstract void updateServerAddress(ServerAddress paramServerAddress);
+	void updateServerAddress(ServerAddress paramServerAddress);
 
-	public abstract int removeServerAddress(ServerAddress paramServerAddress);
+	int removeServerAddress(ServerAddress paramServerAddress);
 }

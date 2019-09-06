@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:mongo="http://www.springframework.org/schema/data/mongo"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
-			http://www.springframework.org/schema/context 
-			http://www.springframework.org/schema/context/spring-context-4.3.xsd 
-			http://www.springframework.org/schema/data/mongo 
-            http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
-            http://www.springframework.org/schema/data/repository
-            http://www.springframework.org/schema/data/repository/spring-repository-1.5.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
 	<!-- 以下所有bean的id请勿改动 -->
 	<bean id="propertyConfigurer"
@@ -19,7 +11,6 @@
 			<list>
 				<value>classpath:jdbc.properties</value>
 				<value>classpath:redis.properties</value>
-				<value>classpath:mongo.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -123,42 +114,6 @@
 					工商待遇 -->
 			</list>
 		</property>
-		<property name="dataSource">
-			<ref bean="dataSourceProxy" />
-		</property>
+		<property name="dataSource" ref="dataSourceProxy"/>
 	</bean>
-	
-	<!-- #################### 《mongodb 单机模式 》############################## -->
-    <!-- mongodb数据配置 -->
-	<!-- <mongo:mongo-client id="mongo" host="${mongo.host}" port="${mongo.port}" >
-        <mongo:client-options write-concern="SAFE" />
-    </mongo:mongo-client> -->
-    <!-- #################### 《mongodb 分片集群模式 》############################## -->
-    <bean id="mongo" class="com.mongodb.Mongo">
-      <constructor-arg>
-        <bean class="com.mongodb.MongoClientURI"><constructor-arg value="${mongo.url}"/></bean>
-      </constructor-arg>
-      <property name="writeConcern" value="SAFE"/>
-    </bean>
-    
-     <!--  mongo的工厂，通过它来取得mongo实例,dbname为mongodb的数据库名，没有的话会自动创建-->
-    <mongo:db-factory id="mongoDbFactory" dbname="${mongo.dbname}" mongo-ref="mongo" />
-    <!-- 转换器：1、去掉write的_class字段 2、TimestampConverter -->
-	<bean id="defaultMongoTypeMapper"  class="org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper">  
-         <constructor-arg name="typeKey"><null/></constructor-arg>  
-    </bean>  
-    <mongo:mapping-converter id="mongoConverter" base-package="com.yinhai.sysframework.mongo.converter" type-mapper-ref="defaultMongoTypeMapper">
-        <mongo:custom-converters>
-          <mongo:converter>
-                <bean class="com.yinhai.sysframework.mongo.converter.MongoTimestampConverter" />
-          </mongo:converter>
-        </mongo:custom-converters>
-    </mongo:mapping-converter> 
-
-    <!--mongodb的主要操作对象，所有对mongodb的增删改查的操作都是通过它完成 -->
-    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
-        <constructor-arg name="mongoConverter" ref="mongoConverter" />  
-    </bean>
-   
 </beans>

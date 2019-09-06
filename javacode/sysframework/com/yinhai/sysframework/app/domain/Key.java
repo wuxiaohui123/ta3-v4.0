@@ -11,7 +11,8 @@ import com.yinhai.sysframework.dto.BaseDTO;
 import com.yinhai.sysframework.dto.DTO;
 import com.yinhai.sysframework.util.ValidateUtil;
 
-public class Key<K, V> extends BaseDTO {
+@SuppressWarnings("unchecked")
+public class Key extends BaseDTO {
 
 	public Key() {
 	}
@@ -58,14 +59,11 @@ public class Key<K, V> extends BaseDTO {
 
 	public String getId() {
 		StringBuffer sb = new StringBuffer("");
-		Map.Entry entry = null;
-		for (Iterator iterator = entrySet().iterator(); iterator.hasNext();) {
-			entry = (Map.Entry) iterator.next();
-			sb.append(entry.getKey().toString() + "`"
-					+ (ValidateUtil.isEmpty(entry.getValue()) ? "" : entry.getValue().toString())
-					+ (iterator.hasNext() ? "^" : ""));
+		Iterator iterator = entrySet().iterator();
+		while (iterator.hasNext()) {
+			Map.Entry entry = (Entry) iterator.next();
+			sb.append(entry.getKey().toString()).append("`").append(ValidateUtil.isEmpty(entry.getValue()) ? "" : entry.getValue().toString()).append(iterator.hasNext() ? "^" : "");
 		}
-
 		return sb.toString();
 	}
 
@@ -73,25 +71,18 @@ public class Key<K, V> extends BaseDTO {
 		StringBuffer sb = new StringBuffer("");
 		List keys = new ArrayList(keySet());
 		Collections.sort(keys);
-		Object entry = null;
-		for (Iterator iterator = keys.iterator(); iterator.hasNext();) {
-			entry = iterator.next();
-			sb.append(entry.toString() + "`" + (ValidateUtil.isEmpty(get(entry)) ? "" : get(entry).toString())
-					+ (iterator.hasNext() ? "^" : ""));
+		Iterator iterator = keys.iterator();
+		while (iterator.hasNext()) {
+			Object entry = iterator.next();
+			sb.append(entry.toString()).append("`").append(ValidateUtil.isEmpty(get(entry)) ? "" : get(entry).toString()).append(iterator.hasNext() ? "^" : "");
 		}
-
 		return sb.toString();
 	}
 
-	public Map getKeyMap() {
-		return this;
-	}
-
 	public void makeKey(String id) {
-		StringTokenizer entrys = new StringTokenizer(id, "^");
-		while (entrys.hasMoreTokens()) {
-			StringTokenizer items = new StringTokenizer(entrys.nextToken(), "`");
-
+		StringTokenizer enters = new StringTokenizer(id, "^");
+		while (enters.hasMoreTokens()) {
+			StringTokenizer items = new StringTokenizer(enters.nextToken(), "`");
 			put(items.nextToken(), items.hasMoreTokens() ? items.nextToken() : null);
 		}
 	}

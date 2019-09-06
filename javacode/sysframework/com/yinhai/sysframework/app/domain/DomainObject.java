@@ -10,9 +10,9 @@ public interface DomainObject extends VO {
 
 	 void setKey(Key key);
 
-	 String getObjid();
+	 String getObjId();
 
-	 void setObjid(String str);
+	 void setObjId(String str);
 
 	 String getDomainObjectName();
 

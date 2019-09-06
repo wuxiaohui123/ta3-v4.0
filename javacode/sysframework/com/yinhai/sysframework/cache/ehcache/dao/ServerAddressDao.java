@@ -7,15 +7,15 @@ import com.yinhai.sysframework.cache.ehcache.domain.ServeraddressDomain;
 
 public interface ServerAddressDao {
 
-	public abstract List<ServeraddressDomain> getList(ServerAddress paramServerAddress);
+	List<ServeraddressDomain> getList(ServerAddress serverAddress);
 
-	public abstract void insert(ServeraddressDomain paramServeraddressDomain);
+	void insert(ServeraddressDomain serveraddressDomain);
 
-	public abstract ServerAddress getServerAddress(String paramString);
+	ServerAddress getServerAddress(String address);
 
-	public abstract List<String> getALlUserfullServerAddress();
+	List<String> getAllUsefulServerAddress();
 
-	public abstract int delete(ServerAddress paramServerAddress);
+	int delete(ServerAddress serverAddress);
 
-	public abstract int update(ServerAddress paramServerAddress);
+	int update(ServerAddress serverAddress);
 }

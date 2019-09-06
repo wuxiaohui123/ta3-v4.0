@@ -7,45 +7,44 @@ import com.yinhai.ta3.system.org.domain.UserPositionId;
 
 public interface IGrantService {
 
-	public static final String SERVICEKEY = "grantService";
+	String SERVICEKEY = "grantService";
 
-	public abstract UserPositionId grantPositionToUser(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	UserPositionId grantPositionToUser(Long userId, Long positionId, Long operator, Date operateTime);
 
-	public abstract boolean retrievePositionFromUser(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean retrievePositionFromUser(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean grantUserFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Long paramLong4, Date paramDate);
+	boolean grantUserFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Long paramLong4, Date paramDate);
 
-	public abstract boolean retrieveUserFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Long paramLong4, Date paramDate);
+	boolean retrieveUserFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Long paramLong4, Date paramDate);
 
-	public abstract boolean grantUserFunctionAuthrityPermission(Long paramLong1, Long paramLong2, Long paramLong3, boolean paramBoolean,
-			Long paramLong4, Date paramDate);
+	boolean grantUserFunctionAuthrityPermission(Long paramLong1, Long paramLong2, Long paramLong3, boolean paramBoolean, Long paramLong4, Date paramDate);
 
-	public abstract boolean retrieveUserFunctionAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Long paramLong4, Date paramDate);
+	boolean retrieveUserFunctionAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Long paramLong4, Date paramDate);
 
-	public abstract boolean retrieveUserFunctionReAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Long paramLong4,
+	boolean retrieveUserFunctionReAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Long paramLong4,
 			Date paramDate);
 
-	public abstract boolean grantPositionFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean grantPositionFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean retrievePositionFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean retrievePositionFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean grantPositionFunctionAuthrityPermission(Long paramLong1, Long paramLong2, boolean paramBoolean, Long paramLong3,
+	boolean grantPositionFunctionAuthrityPermission(Long paramLong1, Long paramLong2, boolean paramBoolean, Long paramLong3,
 			Date paramDate);
 
-	public abstract boolean retrievePositionFunctionAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean retrievePositionFunctionAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean retrievePositionFunctionReAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean retrievePositionFunctionReAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean grantUserFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean grantUserFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean retrieveUserFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean retrieveUserFunctionUsePermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean grantUserFunctionAuthrityPermission(Long paramLong1, Long paramLong2, boolean paramBoolean, Long paramLong3,
+	boolean grantUserFunctionAuthrityPermission(Long paramLong1, Long paramLong2, boolean paramBoolean, Long paramLong3,
 			Date paramDate);
 
-	public abstract boolean retrieveUserFunctionAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean retrieveUserFunctionAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean retrieveUserFunctionReAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
+	boolean retrieveUserFunctionReAuthtiryPermission(Long paramLong1, Long paramLong2, Long paramLong3, Date paramDate);
 
-	public abstract boolean permissionChangeUniteFunction(PermissionInfoVO paramPermissionInfoVO);
+	boolean permissionChangeUniteFunction(PermissionInfoVO paramPermissionInfoVO);
 }

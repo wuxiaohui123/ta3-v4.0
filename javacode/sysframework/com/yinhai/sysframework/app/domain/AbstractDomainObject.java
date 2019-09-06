@@ -3,9 +3,9 @@ package com.yinhai.sysframework.app.domain;
 import java.util.Map;
 
 public abstract class AbstractDomainObject extends BaseVO implements DomainObject {
-	private static final long serialVersionUID = 1L;
+
 	public static final String KEY_VALUE = "`";
-	private String objid;
+	private String objId;
 	private transient Key key;
 
 	public AbstractDomainObject() {
@@ -15,27 +15,30 @@ public abstract class AbstractDomainObject extends BaseVO implements DomainObjec
 		this.key = key;
 	}
 
-	public String getObjid() {
-		if (objid != null) {
-			return objid;
+	@Override
+	public String getObjId() {
+		if (objId != null) {
+			return objId;
 		}
 		if (getKey() != null)
 			return getKey().getId();
 		return null;
 	}
 
-	public void setObjid(String objid) {
-		this.objid = objid;
+	@Override
+	public void setObjId(String objId) {
+		this.objId = objId;
 	}
 
 	public Key getKey() {
 		if (key != null)
 			return key;
-		if (objid != null)
-			return new Key("id`" + objid);
+		if (objId != null)
+			return new Key("id`" + objId);
 		return getPK();
 	}
 
+	@Override
 	public void setKey(Key key) {
 		this.key = key;
 	}

@@ -698,27 +698,5 @@ public class ValidateUtil {
         // $ 匹配输入字符串结尾的位置
         return Pattern.compile("^(5|6|8|9)\\d{7}$").matcher(str).matches();
     }
-    
-    public static boolean isNotPoBox(String s) {
-        if (isEmpty(s)) {
-            return true;
-        }
-        String sl = s.toLowerCase();
-        if (sl.contains("p.o. b")) return false;
-        if (sl.contains("p.o.b")) return false;
-        if (sl.contains("p.o b")) return false;
-        if (sl.contains("p o b")) return false;
-        if (sl.contains("po b")) return false;
-        if (sl.contains("pobox")) return false;
-        if (sl.contains("po#")) return false;
-        if (sl.contains("po #")) return false;
-        if (sl.contains("p.0. b")) return false;
-        if (sl.contains("p.0.b")) return false;
-        if (sl.contains("p.0 b")) return false;
-        if (sl.contains("p 0 b")) return false;
-        if (sl.contains("p0 b")) return false;
-        if (sl.contains("p0box")) return false;
-        if (sl.contains("p0#")) return false;
-        return sl.contains("p0 #");
-    }
+
 }

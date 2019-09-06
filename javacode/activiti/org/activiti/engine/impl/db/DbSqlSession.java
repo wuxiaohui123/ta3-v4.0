@@ -1214,7 +1214,7 @@ public class DbSqlSession implements Session {
   
   public String getResourceForDbOperation(String directory, String operation, String component) {
     String databaseType = dbSqlSessionFactory.getDatabaseType();
-    return "org/activiti/db/" + directory + "/activiti." + databaseType + "." + operation + "."+component+".sql";
+    return "database/sql脚本/db/" + directory + "/activiti." + databaseType + "." + operation + "."+component+".sql";
   }
 
   public void executeSchemaResource(String operation, String component, String resourceName, boolean isOptional) {

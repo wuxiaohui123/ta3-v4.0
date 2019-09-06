@@ -5,7 +5,7 @@ import java.util.List;
 
 
 
-public class Pagination extends SimplePage implements Serializable, Paginable {
+public class Pagination extends SimplePage implements Serializable, Paginate {
 
 	private List<?> list;
 

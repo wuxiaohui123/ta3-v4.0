@@ -1,6 +1,7 @@
 package com.yinhai.sysframework.cache.ehcache;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -21,10 +22,8 @@ public class CommonCacheKeyGenerator implements KeyGenerator {
 	private String generateKey(String targetClassName, String methodName, Object[] arguments) {
 		StringBuffer key = new StringBuffer();
 		key.append(targetClassName).append(".").append(methodName);
-		if ((arguments != null) && (arguments.length != 0)) {
-			for (int i = 0; i < arguments.length; i++) {
-				key.append(".").append(arguments[i]);
-			}
+		if (arguments != null && arguments.length != 0) {
+			Arrays.stream(arguments).forEach(argument -> key.append(".").append(argument));
 		}
 		return key.toString();
 	}

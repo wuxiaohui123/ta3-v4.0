@@ -31,7 +31,7 @@ public class IndexAction extends BaseAction {
 	static final String UserPermissionMenus = "IndexAction_UserPermissionMenus";
 	private String menuid;
 	private boolean needParent = false;
-	private ICommonMenuService commonMenuService = (ICommonMenuService) super.getService("commonMenuService");
+	private ICommonMenuService commonMenuService = (ICommonMenuService) super.getService(ICommonMenuService.SERVICEKEY);
 
 	public String execute() throws Exception {
 		List<IMenu> list = WebUtil.getCurrentUserPermissionMenus(request.getSession());

@@ -6,7 +6,7 @@ public interface ServerAddress {
 
 	 String getAddress();
 
-	 void setCanuse(String address);
+	 void setCause(String address);
 
-	 String getCanuse();
+	 String getCause();
 }

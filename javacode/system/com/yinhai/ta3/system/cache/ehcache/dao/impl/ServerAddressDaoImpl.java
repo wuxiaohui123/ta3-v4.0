@@ -25,9 +25,9 @@ public class ServerAddressDaoImpl extends BaseDao<ServerAddress, String> impleme
 			hql.append(" and a.address = ?");
 			objs.add(server.getAddress());
 		}
-		if (ValidateUtil.isNotEmpty(server.getCanuse())) {
+		if (ValidateUtil.isNotEmpty(server.getCause())) {
 			hql.append(" and a.canuse = ?");
-			objs.add(server.getCanuse());
+			objs.add(server.getCause());
 		}
 
 		Query query = getSession().createQuery(hql.toString());
@@ -49,7 +49,7 @@ public class ServerAddressDaoImpl extends BaseDao<ServerAddress, String> impleme
 		return (ServerAddress) findUnique(hql, address);
 	}
 
-	public List<String> getALlUserfullServerAddress() {
+	public List<String> getAllUsefulServerAddress() {
 		String hql = "select address from ServeraddressDomain where canuse = 0";
 		return createQuery(hql).list();
 	}
@@ -64,7 +64,7 @@ public class ServerAddressDaoImpl extends BaseDao<ServerAddress, String> impleme
 	public int update(ServerAddress serverAddress) {
 		String hql = "update ServeraddressDomain set canuse = ? where address = ?";
 		Query query = getSession().createQuery(hql);
-		query.setParameter(0, serverAddress.getCanuse());
+		query.setParameter(0, serverAddress.getCause());
 		query.setParameter(1, serverAddress.getAddress());
 		return query.executeUpdate();
 	}

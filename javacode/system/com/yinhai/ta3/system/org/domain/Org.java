@@ -220,8 +220,8 @@ public class Org extends BaseDomain implements IOrg {
 		return map;
 	}
 
-	public Key<String, Object> getPK() {
-		Key<String, Object> key = new Key();
+	public Key getPK() {
+		Key key = new Key();
 		key.put("orgid", getOrgid());
 		return key;
 	}

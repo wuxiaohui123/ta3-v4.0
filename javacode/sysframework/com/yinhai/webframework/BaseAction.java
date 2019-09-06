@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yinhai.sysframework.codetable.domain.AppCode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
@@ -23,7 +24,6 @@ import com.yinhai.sysframework.app.domain.jsonmodel.IGetResultBean;
 import com.yinhai.sysframework.app.domain.jsonmodel.OperationBean;
 import com.yinhai.sysframework.app.domain.jsonmodel.ResultBean;
 import com.yinhai.sysframework.app.domain.jsonmodel.TopMsg;
-import com.yinhai.sysframework.codetable.domain.AppCode;
 import com.yinhai.sysframework.codetable.service.CodeTableLocator;
 import com.yinhai.sysframework.dao.hibernate.SimpleDao;
 import com.yinhai.sysframework.dto.DTO;
@@ -608,7 +608,7 @@ public class BaseAction extends ActionSupport implements Action, IGetResultBean 
 		return map;
 	}
 
-	protected ResultBean setSelectInputList(String id, List<Map> list) {
+	protected ResultBean setSelectInputList(String id, List list) {
 		String value = JSonFactory.bean2json(list);
 		if ((id != null) && (!"".equals(id)) && (value != null) && (!"".equals(value))) {
 			Map<String, String> map = (HashMap) getSessionResource("__selectinput_flag_map_");

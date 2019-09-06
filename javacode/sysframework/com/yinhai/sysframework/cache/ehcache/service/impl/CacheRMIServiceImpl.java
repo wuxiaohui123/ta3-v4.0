@@ -14,6 +14,7 @@ public class CacheRMIServiceImpl implements CacheRMIService {
 	@Resource
 	private WebServiceContext wsContext;
 
+	@Override
 	public boolean removeElement(String cacheName, String key) {
 		CacheManager manager = (CacheManager) ServiceLocator.getService("ehCacheManager");
 		Cache cache = manager.getCache("appCodeCache");

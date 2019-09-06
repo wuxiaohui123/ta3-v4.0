@@ -27,8 +27,8 @@ public class ServerAddressServiceImpl extends BaseService implements ServerAddre
 	}
 
 	@Cacheable(value = "serverAddressCache")
-	public List<String> getALlUserfullServerAddress() {
-		return serverAddressDao.getALlUserfullServerAddress();
+	public List<String> getAllUsefulServerAddress() {
+		return serverAddressDao.getAllUsefulServerAddress();
 	}
 
 	public void addServerAddress(ServeraddressDomain serverAddress) {

@@ -50,14 +50,11 @@
 	<!-- dataSourceproxy 配置代理管理单数据源事务 -->
 	<bean id="dataSourceProxy"
 		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
-		<property name="targetDataSource" ref="dataSource"></property>
+		<property name="targetDataSource" ref="dataSource"/>
 	</bean>
 	<!-- 针对单一数据源的事务管理器 -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource">
-			<ref bean="dataSourceProxy" />
-		</property>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceProxy"/>
 	</bean>
 
 	<!-- 针对全局事务处理的weblogic JTA事务管理器 如果需要全局事务则打开 -->
@@ -86,8 +83,7 @@
 			<bean class="com.yinhai.sysframework.persistence.ibatis.MySQLDialect"/>
 		</property>
 	 </bean>-->
-	<bean id="sqlExecutor"
-		class="com.yinhai.sysframework.persistence.ibatis.LimitSqlExecutor">
+	<bean id="sqlExecutor" class="com.yinhai.sysframework.persistence.ibatis.LimitSqlExecutor">
 		<property name="dialect">
 			<bean class="com.yinhai.sysframework.persistence.ibatis.OracleDialect" />
 		</property>
@@ -114,8 +110,6 @@
 					工商待遇 -->
 			</list>
 		</property>
-		<property name="dataSource">
-			<ref bean="dataSourceProxy" />
-		</property>
+		<property name="dataSource" ref="dataSourceProxy"/>
 	</bean>
 </beans>

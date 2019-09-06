@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface ILoadUserAccountInfo {
 
-	public static final String SERVICEKEY = "loadUserAccountInfo";
+    String SERVICEKEY = "loadUserAccountInfo";
 
-	public abstract IUserAccountInfo loadUser(String paramString, HttpServletRequest paramHttpServletRequest);
+    IUserAccountInfo loadUser(String loginId, HttpServletRequest request);
 }
